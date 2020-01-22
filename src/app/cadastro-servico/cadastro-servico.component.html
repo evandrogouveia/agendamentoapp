@@ -1,0 +1,52 @@
+<!-- Page Content -->
+<div id="page-content-wrapper">
+  <app-nav></app-nav>
+  <div class="container-fluid">
+    <div class="col-lg-12">
+      <div *ngIf="msg != false" class="alert alert-success mt-2" role="alert">
+        "{{cadastroservicoForm.value.nomeservico}}" foi cadastrado com sucesso!
+      </div>
+    </div>
+    <form #f="ngForm" [formGroup]="cadastroservicoForm">
+      <div class="col-lg-12 form-data-user">
+        <h5>Informe o nome e o valor do serviço</h5>
+        <div class="form-row mt-3">
+          <div class="col">
+            <input type="text" formControlName='nomeservico' class="form-control" id="nome-servico"
+              aria-describedby="nome" placeholder="Nome do serviço">
+          </div>
+          <div class="col">
+            <input type="text" formControlName='valorservico' class="form-control" id="valor-servico"
+              placeholder="Valor R$" mask="separator.0" thousandSeparator=".">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-cadastrar-servico mt-4 w-100" (click)="onSubmit()"
+          [disabled]="!cadastroservicoForm.valid">Cadastrar</button>
+      </div>
+    </form><br>
+
+    <div class="col-lg-12">
+      <div class="card bg-light card-servicos" style="width:100%;">
+        <div class="card-header">
+          <h5 class="text-center title-servicos mb-0">Serviços</h5>
+        </div>
+        <div class="card-body card-body-first">
+          <ng-container *ngFor="let s of servicos$ | async">
+            <div class="card card-show-servicos mb-3">
+              <div class="row no-gutters">
+                <div class="card-body p-2">
+                  <p class="m-0"><strong>{{s.nomeservico}}</strong></p>
+                  <p class="m-0" [hidden]="s.valorservico == 0">{{s.valorservico | currency:'BRL':true}}</p>
+                  <p *ngIf="s.valorservico == 0" class="m-0">Sob Consulta</p>
+                  <button (click)="delete(s)" class="btn-excluir-servico"><i class="material-icons">delete</i></button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+        <!--/card-body-->
+      </div>
+    </div>
+  </div><br>
+  <!--/container-fluid-->
+  <!-- /#page-content-wrapper -->

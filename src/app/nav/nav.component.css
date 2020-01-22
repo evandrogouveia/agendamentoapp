@@ -1,0 +1,10 @@
+#menu-toggle{
+    border: 1px solid #ccc;
+}
+#menu-toggle:hover{
+    border: 1px solid #20B2AA;
+    background-color: transparent;
+}
+#menu-toggle:focus{
+    box-shadow: none;
+}

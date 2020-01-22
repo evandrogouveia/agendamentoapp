@@ -1,0 +1,100 @@
+.card-input-radio {
+    display: none;
+  }
+  
+  .card-input-radio:checked + .card-horario {
+    background-color: #40E0D0;
+    color: #000;
+   }
+  
+  .card-horario {
+    background-color: #eee;
+    border: 3px solid transparent;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #999;
+    text-align: center;
+    margin: 0;
+    padding: 2px 10px;
+  }
+  .card-horario:hover{
+    cursor: pointer;
+    background-color: #40E0D0;
+    color: #000;
+  }
+  
+  .table-horarios tr td{
+   border: none !important;
+    padding: 0 !important;
+
+  }
+  h5{
+    color: #888;
+  }
+  .btn-agendar{
+    background-color: #20B2AA;
+    font-weight: 600;
+    color: #fff;
+  }
+  .btn-agendar[disabled], .btn-agendar[disabled]:hover{
+    background-color: #ccc;
+  }
+  .btn-agendar:hover{
+    background-color: #008B8B;
+  }
+  .list-group-horizontal-xl li, label{
+    color: #888;
+  }
+  .list-group-horizontal-xl li h6 strong{
+    color: #20B2AA;
+  }
+  input:focus, select:focus{
+    box-shadow: none;
+    border:1px solid #40E0D0;
+  }
+  .material-icons{
+    color: #20B2AA;
+  }
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #888;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #888;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: #999;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #888;
+  }
+  select, input{
+    color: #888 !important;
+  }
+  
+@media (max-width: 575px) { 
+  .form-group-datepicker h5{
+     padding-left: 0 !important;
+     text-align: left;
+   }
+   .form-group-datepicker{
+     text-align: center;
+   }
+   .block-times ul{
+     justify-content: center;
+   }
+   .block-times .list-group-horizontal-xl{
+    margin-right: 0 !important;
+   }
+   .block-times .list-group-horizontal-xl li{
+    width: 100% !important;
+   }
+   .form-data-user{
+     padding: 0;
+   }
+   .btn-agendar{
+     margin-bottom: 30px;
+     margin-top: 5px !important;
+   }
+}
