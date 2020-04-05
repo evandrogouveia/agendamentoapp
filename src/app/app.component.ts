@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { SidebarService } from './shared/sidebar.service';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,7 +8,8 @@ import { SidebarService } from './shared/sidebar.service';
 })
 export class AppComponent {
   classe = '';
-  constructor(private sidebarService: SidebarService) { }
+
+  constructor(private sidebarService: SidebarService) {}
 
   ngOnInit() {
     this.sidebarService.obterToggle()

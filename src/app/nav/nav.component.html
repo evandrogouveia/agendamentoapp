@@ -1,5 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-  <button  class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
+<nav class="navbar navbar-light bg-light border-bottom">
+  <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <div class="profile-menu">
+    <p>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</p>
+  </div>
 </nav>

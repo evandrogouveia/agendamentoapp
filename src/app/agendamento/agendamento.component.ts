@@ -2,9 +2,11 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Agendamento } from '../shared/agendamento.model';
 import { ApiService } from '../shared/api.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Cadastroservico } from '../shared/cadastroservico.model';
+
 
 @Component({
   selector: 'app-agendamento',
@@ -14,12 +16,14 @@ import { Cadastroservico } from '../shared/cadastroservico.model';
 
 export class AgendamentoComponent implements OnInit {
   servicos$: Observable<Cadastroservico[]>;
+  agendamento$: Observable<Agendamento[]>;
   bsInlineValue = new Date();
   data: Date;
   minDate: Date;
   horarioInput: string;
   msg: boolean = false;
   vs: any;
+
   angendamentoForm = this.fb.group({
     id: [undefined],
     nome: ['', [Validators.required]],
@@ -56,6 +60,7 @@ export class AgendamentoComponent implements OnInit {
 
   ngOnInit() {
     this.servicos$ = this.apiService.getServicos();
+    this.agendamento$ = this.apiService.getAgendamentos();
   }
 
   onValueChange(value: Date): void {

@@ -25,9 +25,12 @@
           <div class="mt-3 block-times">
             <h5>Horários disponíveis</h5>
             <ul class="nav mt-2">
+              <li class="nav-item m-1" *ngFor="let ag of horarioagendado">
+                {{ag}}
+              </li>
               <li class="nav-item m-1" *ngFor="let h of horarios">
                 <label>
-                  <input type="radio" name="horario" class="card-input-radio" value="{{h}}"
+                  <input  type="radio" name="horario" class="card-input-radio" value="{{h}}"
                     (change)="changeInput($event)" #radio>
                   <div class="card-horario">
                     {{h}}
@@ -35,6 +38,7 @@
                 </label>
               </li>
             </ul>
+           
             <ul class="list-group list-group-horizontal-xl mt-2 pl-1 mr-3">
               <li class="list-group-item w-50 pt-3 pb-2 d-flex">
                 <i class="material-icons mr-2">today</i>

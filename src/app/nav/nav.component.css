@@ -8,3 +8,8 @@
 #menu-toggle:focus{
     box-shadow: none;
 }
+.profile-menu p{
+    margin: 0;
+    color: #20B2AA;
+    font-weight: 500;
+}
