@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class CadastroServicoComponent implements OnInit {
   servicos$: Observable<Cadastroservico[]>;
-  msg: boolean = false;
+  msg = false;
 
   cadastroservicoForm = this.fb.group({
     id: [undefined],
@@ -30,7 +30,7 @@ export class CadastroServicoComponent implements OnInit {
   }
 
   onSubmit() {
-    let a: Cadastroservico = this.cadastroservicoForm.value;
+    const a: Cadastroservico = this.cadastroservicoForm.value;
     if (!a.id) {
       this.addServico(a);
       this.msg = true;

@@ -25,15 +25,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
   private loginErrorNotification(err) {
-    console.log('Preencha o formulário')
+    console.log('Preencha o formulário');
   }
 
   onSubmit() {
-    let email = this.loginForm.value.email;
-    let password = this.loginForm.value.password;
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
     this.authService.login(email, password)
       .subscribe(
-        
         (u) => {
           this.router.navigateByUrl('/agendamento');
         },
@@ -41,7 +40,6 @@ export class LoginComponent implements OnInit {
           this.loginErrorNotification(err);
         }
       );
-    
   }
 
 }

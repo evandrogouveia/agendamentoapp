@@ -48,7 +48,7 @@ export class ListaAgendamentoComponent implements OnInit {
         let b: any;
         b = values.map(d => d.data);
         const c = b.map(da => da.toDate().toLocaleDateString());
-        const s = c.filter(dat => dat == this.dia);
+        const s = c.filter(dat => dat === this.dia);
         this.totalAgendamentoDia = s.length;
       })
     ).subscribe();
@@ -60,7 +60,7 @@ export class ListaAgendamentoComponent implements OnInit {
         let b: any;
         b = values.map(d => d.data);
         const c = b.map(da => da.toDate().getMonth());
-        const s = c.filter(dat => dat == this.mes);
+        const s = c.filter(dat => dat === this.mes);
         this.totalAgendamentoMes = s.length;
       })
     ).subscribe();
@@ -73,13 +73,13 @@ export class ListaAgendamentoComponent implements OnInit {
 
       const corteFeminino = data.map(d => d.servico).filter(dat => dat.split('Feminino').length - 1);
       const total2 = corteFeminino.length;
-      
+
       const coloracao = data.map(d => d.servico).filter(dat => dat.split('Coloração').length - 1);
       const total3 = coloracao.length;
 
       const designSobrancelhas = data.map(d => d.servico).filter(dat => dat.split('Design de Sobrancelhas').length - 1);
       const total4 = designSobrancelhas.length;
-      
+
       const escovaCabelosCurtos = data.map(d => d.servico).filter(dat => dat.split('Escova Cabelos Curtos').length - 1);
       const total5 = escovaCabelosCurtos.length;
 

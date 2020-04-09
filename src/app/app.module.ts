@@ -27,7 +27,7 @@ import { CadastroServicoComponent } from './cadastro-servico/cadastro-servico.co
 defineLocale('pt-br', ptBrLocale);
 import { AuthModule } from './auth/auth.module';
 
-//export let options: Partial<IConfig> | (() => Partial<IConfig>);
+// export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 
 @NgModule({

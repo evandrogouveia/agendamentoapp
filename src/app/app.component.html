@@ -1,5 +1,5 @@
 <div class="d-flex">
-  <div id="wrapper" [ngClass]="classe">
+  <div *ngIf="mostrarSidebarMenu" id="wrapper" [ngClass]="classe">
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading text-center">AGENDAMENTO</div>
@@ -16,12 +16,12 @@
         </a>
         <a routerLink="cadastro-servico" routerLinkActive="link-active"
           class="list-group-item list-group-item-action bg-light border-bottom d-flex">
-          <i class="material-icons mr-2">exit_to_app</i>
+          <i class="material-icons mr-2">post_add</i>
           <span>Cadastrar Serviço</span>
         </a>
-        <a routerLink="cadastro-servico" routerLinkActive="link-active"
+        <a routerLink="#" (click)="logout()" routerLinkActive="link-active"
           class="list-group-item list-group-item-action bg-light border-bottom d-flex">
-          <i class="material-icons mr-2">e</i>
+          <i class="material-icons mr-2">exit_to_app</i>
           <span>Sair</span>
         </a>
       </div>

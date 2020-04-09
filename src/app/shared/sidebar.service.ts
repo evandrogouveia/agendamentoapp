@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class SidebarService {
 
   toggled = false ;
-  class: string = '';
+  class = '';
 
   private toggleBehaviorSubject = new BehaviorSubject<string>('');
 
@@ -23,7 +23,7 @@ export class SidebarService {
     this.toggleBehaviorSubject.next(this.class);
   }
 
-  obterToggle() {//obtém o valor de toggleBehaviorSubject
+  obterToggle() { // obtém o valor de toggleBehaviorSubject
     return this.toggleBehaviorSubject;
   }
 }

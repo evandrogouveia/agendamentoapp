@@ -21,7 +21,7 @@ export class AgendamentoComponent implements OnInit {
   data: Date;
   minDate: Date;
   horarioInput: string;
-  msg: boolean = false;
+  msg = false;
   vs: any;
 
   angendamentoForm = this.fb.group({
@@ -42,18 +42,11 @@ export class AgendamentoComponent implements OnInit {
     '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'
   ];
 
-  /*servicos: any[] = [
-    'Corte Feminino -- R$50,00', 'Corte Masculino -- R$30,00', 'Coloração -- R$60,00',
-    'Design de Sobrancelhas -- R$25,00', 'Escova Cabelos Curtos -- R$35,00',
-    'Escova Cabelos Longos -- R$40,00', 'Maquiagem -- R$45,00',
-    'Hidratação -- R$85,00', 'Penteados Para Festas -- Sob consulta'
-  ];*/
-
   constructor(
     private apiService: ApiService,
     private fb: FormBuilder,
     private router: Router,
-  ) { 
+  ) {
     this.minDate = new Date();
     this.minDate.setDate(this.minDate.getDate());
   }
@@ -61,6 +54,15 @@ export class AgendamentoComponent implements OnInit {
   ngOnInit() {
     this.servicos$ = this.apiService.getServicos();
     this.agendamento$ = this.apiService.getAgendamentos();
+
+    this.agendamento$.pipe(
+      map(values => {
+        let b: any;
+        b = values.map(d => d.horario);
+        console.log(b.filter(c => c ))
+        console.log(this.horarios)
+      })
+    ).subscribe();
   }
 
   onValueChange(value: Date): void {
@@ -72,7 +74,7 @@ export class AgendamentoComponent implements OnInit {
   }
 
   onSubmit() {
-    let a: Agendamento = this.angendamentoForm.value;
+    const a: Agendamento = this.angendamentoForm.value;
     if (!a.id) {
       this.angendamentoForm.value.data = this.data;
       this.angendamentoForm.value.horario = this.horarioInput;

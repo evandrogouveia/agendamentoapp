@@ -21,7 +21,7 @@ export class NavComponent implements OnInit {
   }
 
   executarViaService() {
-    this.sidebarService.toggleNavbar(); //executa o método via service
+    this.sidebarService.toggleNavbar(); // executa o método via service
   }
 
 }
