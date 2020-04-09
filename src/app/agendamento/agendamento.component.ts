@@ -54,15 +54,6 @@ export class AgendamentoComponent implements OnInit {
   ngOnInit() {
     this.servicos$ = this.apiService.getServicos();
     this.agendamento$ = this.apiService.getAgendamentos();
-
-    this.agendamento$.pipe(
-      map(values => {
-        let b: any;
-        b = values.map(d => d.horario);
-        console.log(b.filter(c => c ))
-        console.log(this.horarios)
-      })
-    ).subscribe();
   }
 
   onValueChange(value: Date): void {

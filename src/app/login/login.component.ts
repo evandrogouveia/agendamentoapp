@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  show = false;
+  type = 'password';
+  visibility = 'visibility_off';
 
   loginForm: FormGroup = this.fb.group({
     'email' : ['', [Validators.required, Validators.email]],
@@ -24,6 +27,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  toggleShow() {
+    this.show = !this.show;
+    if (this.show) {
+      this.type = 'text';
+      this.visibility = 'visibility';
+    } else {
+      this.type = 'password';
+      this.visibility = 'visibility_off';
+    }
+  }
+
   private loginErrorNotification(err) {
     console.log('Preencha o formulário');
   }
@@ -32,6 +47,18 @@ export class LoginComponent implements OnInit {
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
     this.authService.login(email, password)
+      .subscribe(
+        (u) => {
+          this.router.navigateByUrl('/agendamento');
+        },
+        (err) => {
+          this.loginErrorNotification(err);
+        }
+      );
+  }
+
+  loginGoogle() {
+    this.authService.loginGoogle()
       .subscribe(
         (u) => {
           this.router.navigateByUrl('/agendamento');

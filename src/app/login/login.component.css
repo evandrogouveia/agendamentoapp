@@ -1,21 +1,6 @@
 .bg-img{
     background-image: url('../../assets/img/img-login.jpg');
 }
-/*==================================================================
-[ Text ]*/
-.txt1 {
-    font-family: Montserrat-Regular;
-    font-size: 13px;
-    line-height: 1.4;
-    color: #555555;
-  }
-  
-  .txt2 {
-    font-family: Montserrat-Regular;
-    font-size: 13px;
-    line-height: 1.4;
-    color: #999999;
-  }
   
   
   /*==================================================================
@@ -34,6 +19,10 @@
   .bg1 {background: #3b5998;}
   .bg2 {background: #1da1f2;}
   .bg3 {background: #cd201f;}
+
+  .color-green {
+    color: #20B2AA !important;
+  }
   
   
   /*//////////////////////////////////////////////////////////////////
@@ -116,17 +105,40 @@
     min-height: 100vh;
     display: block;
     background-color: #f7f7f7;
-    padding: 173px 55px 55px 55px;
+    padding: 145px 55px 55px 55px;
   }
   
   .login100-form-title {
     width: 100%;
     display: block;
-    font-family: Poppins-Regular;
     font-size: 30px;
-    color: #333333;
+    color: #888;
     line-height: 1.2;
     text-align: center;
+    margin-bottom: 20px;
+  }
+  .wrap-input100 i{
+    position: absolute;
+    top: 11px;
+    margin-left: 10px;
+    color: #bbb;
+  }
+  .wrap-input100 i + i{
+    right: 12px;
+    cursor: pointer;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #aaa;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #aaa;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: #aaa;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #aaa;
   }
   
   
@@ -146,31 +158,28 @@
     pointer-events: none;
     width: 100%;
     padding-left: 24px;
-    left: 0;
-    top: 30px;
-  
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+ 
   }
   
   .input100 {
     display: block;
     width: 100%;
+    height: 48px;
     background: transparent;
-    font-size: 18px;
+    font-size: 15px;
     color: #555555;
     line-height: 1.2;
-    padding: 0 26px;
+    padding: 10px 26px 10px 40px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    background-color: #fff;
+    border-radius: 7px;
   }
-  
-  input.input100 {
-    height: 60%;
-    -webkit-transition: all 0.4s;
-    -o-transition: all 0.4s;
-    -moz-transition: all 0.4s;
-    transition: all 0.4s;
+  .input100:focus {
+    border: 1px solid #20B2AA;
+    box-shadow: none;
+    outline: none;
+    
   }
   
   /*---------------------------------------------*/
@@ -179,9 +188,7 @@
   
   
   
-  .input100:focus {
-    height: 48px;
-  }
+ 
   
   .input100:focus + .focus-input100 + .label-input100 {
     top: 14px;
@@ -205,7 +212,6 @@
   }
   
   .label-checkbox100 {
-    font-family: Poppins-Regular;
     font-size: 13px;
     color: #999999;
     line-height: 1.4;
@@ -217,8 +223,8 @@
   }
   
   .label-checkbox100::before {
-    content: "\f00c";
-    font-family: FontAwesome;
+    content: "done";
+    font-family: 'Material Icons';
     font-size: 13px;
     color: transparent;
   
@@ -234,7 +240,7 @@
     height: 18px;
     border-radius: 2px;
     background: #fff;
-    border: 1px solid #6675df;
+    border: 1px solid #ddd;
     left: 0;
     top: 50%;
     -webkit-transform: translateY(-50%);
@@ -245,7 +251,9 @@
   }
   
   .input-checkbox100:checked + .label-checkbox100::before {
-    color: #6675df;
+    color: #fff;
+    background: #20B2AA;
+    border: 1px solid #20B2AA;
   }
   
   
@@ -260,6 +268,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 30px;
   }
   
   .login100-form-btn {
@@ -273,11 +282,14 @@
     padding: 0 20px;
     width: 100%;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 7px;
     background: #20B2AA;
+    border: none;
+    outline: none;
+    margin-bottom: 40px;
   
-    font-family: Montserrat-Bold;
-    font-size: 12px;
+    font-weight: 600;
+    font-size: 14px;
     color: #fff;
     line-height: 1.2;
     text-transform: uppercase;
@@ -290,7 +302,7 @@
   }
   
   .login100-form-btn:hover {
-    background: #333333;
+    opacity: 0.7;
   }
   
   
@@ -402,16 +414,42 @@
   
   /*==================================================================
   [ Social ]*/
-  .login100-form-social-item {
-    width: 36px;
-    height: 36px;
-    font-size: 18px;
+  
+  .login100-social-btn {
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    color: #999;
+    border: 1px solid #e1e1e1;
+    border-radius: 7px;
+    background-color: #fff;
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+  }
+  .login100-social-btn:hover {
+    border: 1px solid #d1d1d1;
+  }
+  .login100-social-btn + .login100-social-btn{
+    background-color: #3b5998;
     color: #fff;
-    border-radius: 50%;
+    transition: all 0.5s;
+  }
+  .login100-social-btn+ .login100-social-btn:hover{
+    opacity: 0.9;
+    transition: all 0.5s;
+  }
+  .login100-social-btn img{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  .login100-social-btn + .login100-social-btn img{
+   position: relative;
+   top: -3px;
   }
   
-  .login100-form-social-item:hover {
-    background: #333333;
-    color: #fff;
-  }
   

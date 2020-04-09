@@ -4,7 +4,7 @@ import { Usuario } from '../shared/user';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
 import { Observable, from, throwError, of } from 'rxjs';
-import { switchMap, catchError, map } from 'rxjs/operators';
+import { switchMap, catchError, map, tap } from 'rxjs/operators';
 import { EventEmitter } from '@angular/core';
 
 @Injectable({
@@ -16,8 +16,9 @@ export class AuthService {
   private usuarioAutenticado = false;
   mostrarMenu = new EventEmitter<boolean>();
 
-  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {}
+  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) { }
 
+  // LOGIN E-MAIL E SENHA
   login(email: string, password: string): Observable<Usuario> {
     return from(this.afAuth.auth.signInWithEmailAndPassword(email, password))
       .pipe(
@@ -34,6 +35,26 @@ export class AuthService {
       );
   }
 
+
+  // LOGIN GOOGLE COM OBSERVABLE
+  loginGoogle(): Observable<Usuario> {
+    const provider = new auth.GoogleAuthProvider();
+    return from(this.afAuth.auth.signInWithPopup(provider))
+      .pipe(
+        tap((data) => console.log(data)),
+        switchMap((u: auth.UserCredential) => {
+          const newUser: Usuario = {
+            nome: u.user.displayName,
+            sobrenome: '', endereco: '', cidade: '', estado: '', telefone: '',
+            email: u.user.email,
+            id: u.user.uid
+          };
+          return this.userCollection.doc(u.user.uid)
+            .set(newUser).then(() => newUser);
+        })
+      );
+  }
+
   getUser(): Observable<Usuario> {
     return this.afAuth.authState
       .pipe(
@@ -43,7 +64,7 @@ export class AuthService {
 
   authenticated(): Observable<boolean> {
     return this.afAuth.authState
-    .pipe(map(u => (u) ? true : false));
+      .pipe(map(u => (u) ? true : false));
   }
 
   logout() {

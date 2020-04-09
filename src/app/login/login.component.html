@@ -8,23 +8,22 @@
 
 
         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-          <input class="input100" type="email" name="email" formControlName="email">
-          <span class="focus-input100"></span>
-          <span class="label-input100">Email</span>
+          <input class="input100" type="email" name="email" formControlName="email" placeholder="Seu e-mail">
+          <i class="material-icons">perm_identity</i>
         </div>
 
 
         <div class="wrap-input100 validate-input" data-validate="Password is required">
-          <input class="input100" type="password" name="pass" formControlName="password">
-          <span class="focus-input100"></span>
-          <span class="label-input100">Password</span>
+          <input class="input100" type="{{type}}" name="pass" formControlName="password" placeholder="Sua senha">
+          <i class="material-icons">lock_outline</i>
+          <i (click)="toggleShow()" class="material-icons" [ngClass]="(visibility =='visibility') ? 'color-green' : ''">{{visibility}}</i>
         </div>
 
-        <div class="flex-sb-m w-full p-t-3 p-b-32">
+        <div class="flex-sb-m w-full">
           <div class="contact100-form-checkbox">
             <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
             <label class="label-checkbox100" for="ckb1">
-              Remember me
+              Lembrar-me
             </label>
           </div>
         </div>
@@ -36,20 +35,16 @@
           </button>
         </div>
 
-        <div class="text-center p-t-46 p-b-20">
-          <span class="txt2">
-            or sign up using
-          </span>
-        </div>
-
         <div class="login100-form-social flex-c-m">
-          <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-            <i class="fa fa-facebook-f" aria-hidden="true"></i>
-          </a>
+          <button class="login100-social-btn" (click)="loginGoogle()">
+            <img src="assets/img/icons/icone-google.svg">
+            Entrar com Google
+          </button>
 
-          <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-            <i class="fa fa-twitter" aria-hidden="true"></i>
-          </a>
+          <button class="login100-social-btn">
+            <img src="assets/img/icons/icone-facebook.svg">
+            Entrar com Facebook
+          </button>
         </div>
       </form>
 
