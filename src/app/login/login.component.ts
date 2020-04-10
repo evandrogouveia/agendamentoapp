@@ -13,10 +13,12 @@ export class LoginComponent implements OnInit {
   show = false;
   type = 'password';
   visibility = 'visibility_off';
+  loading = false;
+  msgErro = '';
 
   loginForm: FormGroup = this.fb.group({
-    'email' : ['', [Validators.required, Validators.email]],
-    'password' : ['', [Validators.required, Validators.minLength(6)]]
+    'email': ['', [Validators.required, Validators.email]],
+    'password': ['', [Validators.required, Validators.minLength(6)]]
   });
 
   constructor(
@@ -40,31 +42,54 @@ export class LoginComponent implements OnInit {
   }
 
   private loginErrorNotification(err) {
-    console.log('Preencha o formulário');
+    this.msgErro = err;
   }
 
   onSubmit() {
+    this.loading = true;
     const email = this.loginForm.value.email;
     const password = this.loginForm.value.password;
     this.authService.login(email, password)
       .subscribe(
         (u) => {
           this.router.navigateByUrl('/agendamento');
+          this.loading = false;
         },
         (err) => {
           this.loginErrorNotification(err);
+          this.loading = false;
+
         }
       );
   }
 
   loginGoogle() {
+    this.loading = true;
     this.authService.loginGoogle()
       .subscribe(
         (u) => {
+          u
           this.router.navigateByUrl('/agendamento');
+          this.loading = false;
         },
         (err) => {
           this.loginErrorNotification(err);
+          this.loading = false;
+        }
+      );
+  }
+
+  loginFacebook() {
+    this.loading = true;
+    this.authService.loginFacebook()
+      .subscribe(
+        (u) => {
+          this.router.navigateByUrl('/agendamento');
+          this.loading = false;
+        },
+        (err) => {
+          this.loginErrorNotification(err);
+          this.loading = false;
         }
       );
   }

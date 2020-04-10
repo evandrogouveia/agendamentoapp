@@ -1,7 +1,17 @@
 .bg-img{
-    background-image: url('../../assets/img/img-login.jpg');
+    background-image: url('../../assets/img/img-login-min.jpg');
+} 
+
+.msg-erro{
+  color: tomato;
+  margin: -40px auto;
+  position: absolute;
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
 }
-  
   
   /*==================================================================
   [ Size ]*/
@@ -99,6 +109,20 @@
   
   /*==================================================================
   [ Form ]*/
+
+  .loading{
+    background-image: url('../../assets/img/icons/loading.gif');
+    background-size: contain;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 9999;
+  }
   
   .login100-form {
     width: 560px;
@@ -106,6 +130,7 @@
     display: block;
     background-color: #f7f7f7;
     padding: 145px 55px 55px 55px;
+    position: relative;
   }
   
   .login100-form-title {

@@ -1,7 +1,11 @@
 <div class="limiter">
   <div class="container-login100">
     <div class="wrap-login100">
+
       <form [formGroup]="loginForm" class="login100-form validate-form" (ngSubmit)="onSubmit()">
+        
+        <span class="loading" *ngIf="loading"></span>
+
         <span class="login100-form-title p-b-43">
           Login
         </span>
@@ -16,7 +20,7 @@
         <div class="wrap-input100 validate-input" data-validate="Password is required">
           <input class="input100" type="{{type}}" name="pass" formControlName="password" placeholder="Sua senha">
           <i class="material-icons">lock_outline</i>
-          <i (click)="toggleShow()" class="material-icons" [ngClass]="(visibility =='visibility') ? 'color-green' : ''">{{visibility}}</i>
+          <i (click)="toggleShow()" class="material-icons" [ngClass]="(visibility == 'visibility') ? 'color-green' : ''">{{visibility}}</i>
         </div>
 
         <div class="flex-sb-m w-full">
@@ -34,14 +38,15 @@
             Entrar
           </button>
         </div>
+        <span class="msg-erro">{{msgErro}}</span>
 
         <div class="login100-form-social flex-c-m">
-          <button class="login100-social-btn" (click)="loginGoogle()">
+          <button type="button" class="login100-social-btn" (click)="loginGoogle()">
             <img src="assets/img/icons/icone-google.svg">
             Entrar com Google
           </button>
 
-          <button class="login100-social-btn">
+          <button type="button" class="login100-social-btn" (click)="loginFacebook()">
             <img src="assets/img/icons/icone-facebook.svg">
             Entrar com Facebook
           </button>

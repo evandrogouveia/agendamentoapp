@@ -14,6 +14,7 @@ export class AuthService {
 
   private userCollection: AngularFirestoreCollection<Usuario> = this.afs.collection('users');
   private usuarioAutenticado = false;
+
   mostrarMenu = new EventEmitter<boolean>();
 
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) { }
@@ -33,6 +34,20 @@ export class AuthService {
           return throwError('Usuário ou senha inválidos !');
         })
       );
+  }
+
+  // OBTER USUÁRIO
+  getUser(): Observable<Usuario> {
+    return this.afAuth.authState
+      .pipe(
+        switchMap(u => (u) ? this.userCollection.doc<Usuario>(u.uid).valueChanges() : of(null))
+      );
+  }
+
+  // AUTENTICAÇÃO DO USUÁRIO
+  authenticated(): Observable<boolean> {
+    return this.afAuth.authState
+      .pipe(map(u => (u) ? true : false));
   }
 
 
@@ -55,18 +70,26 @@ export class AuthService {
       );
   }
 
-  getUser(): Observable<Usuario> {
-    return this.afAuth.authState
+  // LOGIN FACEBOOK COM OBSERVABLE
+  loginFacebook(): Observable<Usuario> {
+    const provider = new auth.FacebookAuthProvider();
+    return from(this.afAuth.auth.signInWithPopup(provider))
       .pipe(
-        switchMap(u => (u) ? this.userCollection.doc<Usuario>(u.uid).valueChanges() : of(null))
+        tap((data) => console.log(data)),
+        switchMap((u: auth.UserCredential) => {
+          const newUser: Usuario = {
+            nome: u.user.displayName,
+            sobrenome: '', endereco: '', cidade: '', estado: '', telefone: '',
+            email: u.user.email,
+            id: u.user.uid
+          };
+          return this.userCollection.doc(u.user.uid)
+            .set(newUser).then(() => newUser);
+        })
       );
   }
 
-  authenticated(): Observable<boolean> {
-    return this.afAuth.authState
-      .pipe(map(u => (u) ? true : false));
-  }
-
+  // SAIR
   logout() {
     this.afAuth.auth.signOut();
   }

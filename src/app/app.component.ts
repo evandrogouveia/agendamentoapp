@@ -32,6 +32,11 @@ export class AppComponent {
     this.authenticated$.subscribe(data => {
       this.mostrarSidebarMenu = data;
     });
+
+    if (this.router.navigateByUrl('/login')){
+      this.authService.logout();
+    }
+
   }
 
   logout() {
