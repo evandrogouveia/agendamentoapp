@@ -14,7 +14,7 @@ export class ApiService {
   private cadastroservicoCollection: AngularFirestoreCollection<Cadastroservico> = this.afs.collection('cadastroservico');
   private usuariosCollection: AngularFirestoreCollection<Usuario> = this.afs.collection('users');
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private afs: AngularFirestore) {}
 
   getAgendamentos() {
     return this.agendamentoCollection.valueChanges();

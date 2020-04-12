@@ -18,11 +18,13 @@
     text-align: center;
     margin: 0;
     padding: 2px 10px;
+    transition: all 0.5s;
   }
   .card-horario:hover{
     cursor: pointer;
     background-color: #40E0D0;
     color: #000;
+    transition: all 0.5s;
   }
   
   .table-horarios tr td{
@@ -37,12 +39,14 @@
     background-color: #20B2AA;
     font-weight: 600;
     color: #fff;
+    transition: all 0.5s;
   }
   .btn-agendar[disabled], .btn-agendar[disabled]:hover{
     background-color: #ccc;
   }
   .btn-agendar:hover{
     background-color: #008B8B;
+    transition: all 0.5s;
   }
   .list-group-horizontal-xl li, label{
     color: #888;

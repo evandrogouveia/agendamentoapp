@@ -26,6 +26,7 @@ import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { CadastroServicoComponent } from './cadastro-servico/cadastro-servico.component';
 defineLocale('pt-br', ptBrLocale);
 import { AuthModule } from './auth/auth.module';
+import { DatePipe } from '@angular/common';
 
 // export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -56,7 +57,7 @@ import { AuthModule } from './auth/auth.module';
     AngularFireAuthModule,
     AuthModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

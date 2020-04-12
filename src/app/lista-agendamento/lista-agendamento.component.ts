@@ -16,7 +16,7 @@ export class ListaAgendamentoComponent implements OnInit {
   dataAtual = new Date();
 
   dia = this.dataAtual.toLocaleDateString();
-  mes = this.dataAtual.getMonth();
+  mes = this.dataAtual.toLocaleDateString().substring(3, 5);
 
   totalAgendamentoDia: number;
   totalAgendamentoMes: number;
@@ -33,23 +33,22 @@ export class ListaAgendamentoComponent implements OnInit {
   width = 380;
   height = 170;
 
-  constructor(private apiService: ApiService, private afs: AngularFirestore) {}
+  constructor(private apiService: ApiService, private afs: AngularFirestore) { }
 
   ngOnInit() {
     this.agendamento$ = this.apiService.getAgendamentos();
     this.totalDia();
     this.totalMes();
     this.categorias();
+
+
   }
 
   totalDia() {
     this.agendamento$.pipe(
       map(values => {
-        let b: any;
-        b = values.map(d => d.data);
-        const c = b.map(da => da.toDate().toLocaleDateString());
-        const s = c.filter(dat => dat === this.dia);
-        this.totalAgendamentoDia = s.length;
+        const b: any = values.map(d => d.data).filter(dat => dat === this.dia);
+        this.totalAgendamentoDia = b.length;
       })
     ).subscribe();
   }
@@ -57,11 +56,8 @@ export class ListaAgendamentoComponent implements OnInit {
   totalMes() {
     this.agendamento$.pipe(
       map(values => {
-        let b: any;
-        b = values.map(d => d.data);
-        const c = b.map(da => da.toDate().getMonth());
-        const s = c.filter(dat => dat === this.mes);
-        this.totalAgendamentoMes = s.length;
+        const b: any = values.map(d => d.data.substring(3, 5)).filter(dat => dat === this.mes);
+        this.totalAgendamentoMes = b.length;
       })
     ).subscribe();
   }

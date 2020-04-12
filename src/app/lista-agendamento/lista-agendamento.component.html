@@ -27,12 +27,12 @@
             <h5 class="text-center title-agendamentos mb-0">Agendamentos para hoje</h5>
           </div>
           <div class="card-body">
-            <ng-container *ngFor="let a of agendamento$ | async ">
-              <div class="card card-agendamentos-hoje mb-3" [hidden]="(a.data.toDate() | date) != (dataAtual | date)">
+            <ng-container *ngFor="let a of agendamento$ | async">
+              <div class="card card-agendamentos-hoje mb-3" [hidden]="(a.data) !== (dia)">
                 <div class="row no-gutters">
                   <div class="col-md-3 text-center">
                     <h4 class="mt-3">{{a.horario}}</h4>
-                    <h6>{{a.data.toDate() | date: 'dd/MM/yyyy'}}</h6>
+                    <h6>{{a.data}}</h6>
                   </div>
                   <div class="col-md-9 pl-2">
                     <div class="card-body p-2">
@@ -55,11 +55,11 @@
           </div>
           <div class="card-body">
             <ng-container *ngFor="let a of agendamento$ | async">
-              <div class="card card-agendamentos-mes mb-3" [hidden]="(a.data.toDate().getMonth()) != mes">
+              <div class="card card-agendamentos-mes mb-3"  [hidden]="(a.data.substring(3,5)) !== (mes)"> 
                 <div class="row no-gutters">
                   <div class="col-md-3 text-center">
                     <h4 class="mt-3">{{a.horario}}</h4>
-                    <h6>{{a.data.toDate() | date: 'dd/MM/yyyy'}}</h6>
+                    <h6>{{a.data}}</h6>
                   </div>
                   <div class="col-md-9 pl-2">
                     <div class="card-body p-2">

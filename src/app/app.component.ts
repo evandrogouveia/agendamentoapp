@@ -33,10 +33,6 @@ export class AppComponent {
       this.mostrarSidebarMenu = data;
     });
 
-    if (this.router.navigateByUrl('/login')){
-      this.authService.logout();
-    }
-
   }
 
   logout() {
