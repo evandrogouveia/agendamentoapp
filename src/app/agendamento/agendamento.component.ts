@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Agendamento } from '../shared/agendamento.model';
-import { ApiService } from '../shared/api.service';
+import { Agendamento } from '../shared/models/agendamento.model';
+import { ApiService } from '../shared/services/api.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Cadastroservico } from '../shared/cadastroservico.model';
+import { Cadastroservico } from '../shared/models/cadastroservico.model';
 import { DatePipe } from '@angular/common';
 
 

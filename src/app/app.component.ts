@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SidebarService } from './shared/sidebar.service';
-import { AuthService } from './auth/auth.service';
+import { SidebarService } from './shared/services/sidebar.service';
+import { AuthService } from './shared/auth/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 

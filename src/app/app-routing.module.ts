@@ -4,7 +4,7 @@ import { AgendamentoComponent } from './agendamento/agendamento.component';
 import { CadastroServicoComponent } from './cadastro-servico/cadastro-servico.component';
 import { ListaAgendamentoComponent } from './lista-agendamento/lista-agendamento.component';
 import { LoginComponent } from './login/login.component';
-import { AuthGuardService } from './auth/auth-guard.service';
+import { AuthGuardService } from './shared/auth/auth-guard.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

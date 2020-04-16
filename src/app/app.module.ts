@@ -20,12 +20,13 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { environment } from 'src/environments/environment';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { CadastroServicoComponent } from './cadastro-servico/cadastro-servico.component';
 defineLocale('pt-br', ptBrLocale);
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './shared/auth/auth.module';
 import { DatePipe } from '@angular/common';
 
 // export let options: Partial<IConfig> | (() => Partial<IConfig>);

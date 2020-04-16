@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
-import { Agendamento } from './agendamento.model';
-import { Cadastroservico } from './cadastroservico.model';
-import { Usuario } from './user';
+import { Agendamento } from '../models/agendamento.model';
+import { Cadastroservico } from '../models/cadastroservico.model';
+import { Usuario } from '../models/user';
 
 @Injectable({
   providedIn: 'root'

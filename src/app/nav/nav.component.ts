@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarService } from '../shared/sidebar.service';
+import { SidebarService } from '../shared/services/sidebar.service';
 import { Observable } from 'rxjs';
-import { Usuario } from '../shared/user';
-import { AuthService } from '../auth/auth.service';
+import { Usuario } from '../shared/models/user';
+import { AuthService } from '../shared/auth/auth.service';
 
 @Component({
   selector: 'app-nav',

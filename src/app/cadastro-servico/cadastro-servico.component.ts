@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Cadastroservico } from '../shared/cadastroservico.model';
-import { ApiService } from '../shared/api.service';
+import { Cadastroservico } from '../shared/models/cadastroservico.model';
+import { ApiService } from '../shared/services/api.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 

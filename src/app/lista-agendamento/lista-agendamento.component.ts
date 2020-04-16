@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../shared/api.service';
+import { ApiService } from '../shared/services/api.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Agendamento } from '../shared/agendamento.model';
+import { Agendamento } from '../shared/models/agendamento.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 
