@@ -28,6 +28,7 @@ import { CadastroServicoComponent } from './cadastro-servico/cadastro-servico.co
 defineLocale('pt-br', ptBrLocale);
 import { AuthModule } from './shared/auth/auth.module';
 import { DatePipe } from '@angular/common';
+import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 
 // export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -38,7 +39,8 @@ import { DatePipe } from '@angular/common';
     AgendamentoComponent,
     ListaAgendamentoComponent,
     NavComponent,
-    CadastroServicoComponent
+    CadastroServicoComponent,
+    CadastroUsuarioComponent
   ],
   imports: [
     BrowserModule,

@@ -5,9 +5,11 @@ import { CadastroServicoComponent } from './cadastro-servico/cadastro-servico.co
 import { ListaAgendamentoComponent } from './lista-agendamento/lista-agendamento.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './shared/auth/auth-guard.service';
+import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'cadastro-usuario', component: CadastroUsuarioComponent },
   { path: 'agendamento', component: AgendamentoComponent, canActivate: [AuthGuardService] },
   { path: 'lista-agendamentos', component: ListaAgendamentoComponent, canActivate: [AuthGuardService] },
   { path: 'cadastro-servico', component: CadastroServicoComponent, canActivate: [AuthGuardService] },

@@ -19,6 +19,19 @@ export class AuthService {
 
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) { }
 
+  // CADASTRO NOVO USUÁRIO
+  cadastro(user: Usuario): Observable<boolean> {
+    return from(this.afAuth.auth
+        .createUserWithEmailAndPassword(user.email, user.password))
+        .pipe(
+          switchMap((u: firebase.auth.UserCredential) => this.userCollection.doc(u.user.uid)
+            .set({...user, id: u.user.uid})
+            .then(() => true)
+          ),
+          catchError((err) => throwError(err))
+        );
+  }
+
   // LOGIN E-MAIL E SENHA
   login(email: string, password: string): Observable<Usuario> {
     return from(this.afAuth.auth.signInWithEmailAndPassword(email, password))
@@ -60,7 +73,7 @@ export class AuthService {
         switchMap((u: auth.UserCredential) => {
           const newUser: Usuario = {
             nome: u.user.displayName,
-            sobrenome: '', endereco: '', cidade: '', estado: '', telefone: '',
+            sobrenome: '', telefone: '',
             email: u.user.email,
             id: u.user.uid
           };
@@ -79,7 +92,7 @@ export class AuthService {
         switchMap((u: auth.UserCredential) => {
           const newUser: Usuario = {
             nome: u.user.displayName,
-            sobrenome: '', endereco: '', cidade: '', estado: '', telefone: '',
+            sobrenome: '', telefone: '',
             email: u.user.email,
             id: u.user.uid
           };

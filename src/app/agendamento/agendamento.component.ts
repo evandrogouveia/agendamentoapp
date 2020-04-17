@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Cadastroservico } from '../shared/models/cadastroservico.model';
 import { DatePipe } from '@angular/common';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -32,6 +33,7 @@ export class AgendamentoComponent implements OnInit {
     horario: ['']
   });
 
+
   constructor(
     private apiService: ApiService,
     private fb: FormBuilder,
@@ -43,6 +45,7 @@ export class AgendamentoComponent implements OnInit {
 
   ngOnInit() {
     this.servicos$ = this.apiService.getServicos();
+    this.agendamento$ = this.apiService.getAgendamentos();
   }
 
   onValueChange(value: Date): void {
