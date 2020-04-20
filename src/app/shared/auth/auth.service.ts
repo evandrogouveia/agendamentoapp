@@ -11,7 +11,7 @@ import { EventEmitter } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-
+  textToConvert: string;
   private userCollection: AngularFirestoreCollection<Usuario> = this.afs.collection('users');
   private usuarioAutenticado = false;
 

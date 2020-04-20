@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Cadastroservico } from '../shared/models/cadastroservico.model';
 import { DatePipe } from '@angular/common';
-import { map } from 'rxjs/operators';
+
 
 
 @Component({

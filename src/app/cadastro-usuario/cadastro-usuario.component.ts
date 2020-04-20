@@ -3,12 +3,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../shared/auth/auth.service';
 import { Router } from '@angular/router';
 import { Usuario } from '../shared/models/user';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-cadastro-usuario',
   templateUrl: './cadastro-usuario.component.html',
   styleUrls: ['./cadastro-usuario.component.css']
 })
+
 export class CadastroUsuarioComponent implements OnInit {
   show = false;
   type = 'password';
@@ -28,7 +30,7 @@ export class CadastroUsuarioComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
   }
@@ -55,13 +57,13 @@ export class CadastroUsuarioComponent implements OnInit {
       sobrenome: this.cadastroForm.value.sobrenome,
       email: this.cadastroForm.value.email,
       telefone: this.cadastroForm.value.telefone,
-      password: this.cadastroForm.value.password
+      password: CryptoJS.SHA256(this.cadastroForm.value.password).toString()
 
     };
     this.authService.cadastro(newUser)
       .subscribe(
         (u) => {
-          this.router.navigateByUrl('/login');
+          this.router.navigateByUrl('/agendamento');
           this.loading = false;
         },
         (err) => {

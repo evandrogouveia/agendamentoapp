@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../shared/auth/auth.service';
 import { Router } from '@angular/router';
+import * as CryptoJS from 'crypto-js';
 
 
 @Component({
@@ -48,7 +49,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.loading = true;
     const email = this.loginForm.value.email;
-    const password = this.loginForm.value.password;
+    const password = CryptoJS.SHA256(this.loginForm.value.password).toString();
     this.authService.login(email, password)
       .subscribe(
         (u) => {
