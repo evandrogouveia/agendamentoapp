@@ -1,3 +1,9 @@
+.ng-tns-c3-0.ng-star-inserted,
+.bs-datepicker-container{
+  width: 100% !important;
+}
+
+
 .card-input-radio {
     display: none;
   }
@@ -76,6 +82,7 @@
   select, input{
     color: #888 !important;
   }
+  
   
 @media (max-width: 575px) { 
   .form-group-datepicker h5{

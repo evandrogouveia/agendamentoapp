@@ -60,6 +60,7 @@ html, body{
     margin:0 auto;
     text-align: center;
   }
+ 
 
   /* ======================= RESPONSIVO =======================*/
   @media (min-width: 768px) {

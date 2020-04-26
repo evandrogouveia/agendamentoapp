@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SidebarService } from './shared/services/sidebar.service';
 import { AuthService } from './shared/auth/auth.service';
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   classe = '';
   authenticated$: Observable<boolean>;
   mostrarSidebarMenu = false;
@@ -18,19 +18,20 @@ export class AppComponent {
     private authService: AuthService,
     private sidebarService: SidebarService,
     private router: Router
-    ) {
+  ) {
 
-      this.authenticated$ = this.authService.authenticated();
-    }
+    this.authenticated$ = this.authService.authenticated();
+  }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.sidebarService.obterToggle()
       .subscribe(valor => { // setar o valor vindo do service na variável classe.
         this.classe = valor;
-    });
+      });
 
     this.authenticated$.subscribe(data => {
       this.mostrarSidebarMenu = data;
+      this.router.navigateByUrl('/agendamento');
     });
 
   }
