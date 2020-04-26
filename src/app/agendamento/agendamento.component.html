@@ -11,15 +11,16 @@
       <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
           <div class="row">
-            <div class="mt-3 col-xl-3 col-lg-5 col-md-6 col-sm-6">
+            <div class="mt-3 col-xl-4 col-lg-5 col-md-6">
               <div class="form-group form-group-datepicker">
-                <h5 class="mb-3">Escolha uma data</h5>
-                <input class="form-control" [bsValue]="bsInlineValue" (bsValueChange)="onValueChange($event)" bsDatepicker
-                  [minDate]="minDate" [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }">
+                <h5 class="mb-0 pl-3">Escolha uma data</h5>
+                <bs-datepicker-inline [bsValue]="bsInlineValue" (bsValueChange)="onValueChange($event)" bsDatepicker
+                  [minDate]="minDate">
+                </bs-datepicker-inline>
               </div>
             </div>
 
-            <div class="mt-3 col-xl-9 col-lg-7 col-md-6 col-sm-6">
+            <div class="mt-3 col-xl-8 col-lg-7 col-md-6">
               <h5>Escolha um horário</h5>
               <ul class="nav mt-3">
                 <li class="nav-item m-1">
