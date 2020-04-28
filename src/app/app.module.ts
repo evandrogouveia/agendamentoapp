@@ -20,6 +20,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
 
 import { environment } from 'src/environments/environment';
 import { defineLocale } from 'ngx-bootstrap/chronos';
@@ -58,6 +59,7 @@ import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.co
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     AuthModule
   ],
   providers: [DatePipe],

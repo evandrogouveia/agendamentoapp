@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Agendamento } from '../models/agendamento.model';
 import { Cadastroservico } from '../models/cadastroservico.model';
 import { Usuario } from '../models/user';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ export class ApiService {
   private cadastroservicoCollection: AngularFirestoreCollection<Cadastroservico> = this.afs.collection('cadastroservico');
   private usuariosCollection: AngularFirestoreCollection<Usuario> = this.afs.collection('users');
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {}
 
   getAgendamentos() {
     return this.agendamentoCollection.valueChanges();

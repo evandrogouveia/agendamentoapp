@@ -13,11 +13,16 @@
         <div class="form-row mt-3">
           <div class="col">
             <input type="text" formControlName='nomeservico' class="form-control" id="nome-servico"
-              aria-describedby="nome" placeholder="Nome do serviço">
+              aria-describedby="nome" placeholder="Nome do serviço" name="nome-servico">
+          </div>
+          <div class="col">
+            <img [src]="imgSrc" width="200px" height="200px">
+            <input type="file" accept="image/*" formControlName='imageUrl' class="form-control" id="imageUrl"
+              aria-describedby="nome" placeholder="imagem" (change)="showPreview($event)" name="imageUrl">
           </div>
           <div class="col">
             <input type="text" formControlName='valorservico' class="form-control" id="valor-servico"
-              placeholder="Valor R$" mask="separator.0" thousandSeparator=".">
+              placeholder="Valor R$" mask="separator.0" thousandSeparator="." name="valor-servico">
           </div>
         </div>
         <button type="submit" class="btn btn-cadastrar-servico mt-4 w-100" (click)="onSubmit()"
