@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title = 'sistema-agendamento';
   classe = '';
   authenticated$: Observable<boolean>;
   mostrarSidebarMenu = false;
@@ -29,8 +30,8 @@ export class AppComponent implements OnInit {
         this.classe = valor;
       });
 
-    this.authenticated$.subscribe(data => {
-      this.mostrarSidebarMenu = data;
+    this.authenticated$.subscribe(a => {
+      this.mostrarSidebarMenu = a;
       this.router.navigateByUrl('/agendamento');
     });
 

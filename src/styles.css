@@ -30,6 +30,9 @@ html, body{
   #wrapper.toggled #sidebar-wrapper {
     margin-left: 0;
   }
+  .progress-bar{
+    width: 0;
+  }
   .list-group-flush a{
     font-weight: 600;
     color: #888;
