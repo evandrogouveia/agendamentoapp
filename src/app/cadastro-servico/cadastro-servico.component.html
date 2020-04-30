@@ -10,28 +10,28 @@
 
     <form #f="ngForm" [formGroup]="cadastroservicoForm">
       <div class="col-lg-12 form-data-user">
-        <h5>Informe o nome e o valor do serviço</h5>
+        <h5>Cadastrar serviço</h5>
         <div class="form-row mt-3">
+          <div class="col col-xl-3">
+            <img [src]="imgSrc" width="200px" height="200px" (click)="fileUploader.click()">
+            <input type="file" #fileUploader accept="image/*" formControlName='imageUrl' class="form-control"
+              id="imageUrl" aria-describedby="nome" placeholder="imagem" (change)="showPreview($event)">
+          </div>
+
           <div class="col">
             <input type="text" formControlName='nomeservico' class="form-control" id="nome-servico"
               aria-describedby="nome" placeholder="Nome do serviço">
           </div>
-          <div class="col">
-            <img [src]="imgSrc" width="200px" height="200px" (click)="fileUploader.click()" >
-            <div *ngIf="uploadProgress > 0"  class="progress">
-              <div class="progress-bar" role="progressbar" [ngStyle]="{width: (uploadProgress) + '%'}"
-              aria-valuenow="(uploadProgress)" aria-valuemin="0" aria-valuemax="100">{{(uploadProgress) + '%'}}</div>
-            </div>
-            <input type="file" #fileUploader accept="image/*" formControlName='imageUrl' class="form-control" id="imageUrl"
-              aria-describedby="nome" placeholder="imagem" (change)="showPreview($event)">
-          </div>
+
           <div class="col">
             <input type="text" formControlName='valorservico' class="form-control" id="valor-servico"
               placeholder="Valor R$" mask="separator.0" thousandSeparator=".">
           </div>
         </div>
-        <button type="submit" class="btn btn-cadastrar-servico mt-4 w-100" (click)="onSubmit()"
-          [disabled]="!cadastroservicoForm.valid">Cadastrar</button>
+        <button type="submit" class="btn btn-cadastrar-servico mt-4 w-100" 
+        (click)="onSubmit()"
+        [class.btn-carregando]="textbtn === 'Carregando...'"  
+        [disabled]="!cadastroservicoForm.valid">{{textbtn}}</button>
       </div>
     </form><br>
 
@@ -45,6 +45,7 @@
             <div class="card card-show-servicos mb-3">
               <div class="row no-gutters">
                 <div class="card-body p-2">
+                  <img src="{{s.imageUrl}}">
                   <p class="m-0"><strong>{{s.nomeservico}}</strong></p>
                   <p class="m-0" [hidden]="s.valorservico == 0">{{s.valorservico | currency:'BRL':true}}</p>
                   <p *ngIf="s.valorservico == 0" class="m-0">Sob Consulta</p>

@@ -18,6 +18,7 @@ export class CadastroServicoComponent implements OnInit {
   imgSrc = 'assets/img/placeholder.jpg';
   selectedImage: any = null;
   uploadProgress = 0;
+  textbtn = 'Cadastrar';
 
   cadastroservicoForm = this.fb.group({
     id: [undefined],
@@ -37,19 +38,10 @@ export class CadastroServicoComponent implements OnInit {
   }
   showPreview(event: any) {
     if (event.target.files && event.target.files[0]) {
-      const ref = this.storage.ref(this.cadastroservicoForm.value.imageUrl);
-      const task = ref.put(event.target.files[0]);
-
-      task.percentageChanges().subscribe(p => {
-        this.uploadProgress = p;
-        if (this.uploadProgress === 100) {
-          const reader = new FileReader();
-          reader.onload = (e: any) => this.imgSrc = e.target.result;
-          reader.readAsDataURL(event.target.files[0]);
-          this.selectedImage = event.target.files[0];
-        }
-      });
-
+      const reader = new FileReader();
+      reader.onload = (e: any) => this.imgSrc = e.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedImage = event.target.files[0];
     } else {
       this.imgSrc = 'assets/img/placeholder.jpg';
       this.selectedImage = null;
@@ -57,6 +49,7 @@ export class CadastroServicoComponent implements OnInit {
   }
 
   onSubmit() {
+    this.textbtn = 'Carregando...';
     if (this.cadastroservicoForm.valid) {
       const filePath = `imagem/${this.selectedImage.name}_${new Date().getTime()}`;
       const fileRef = this.storage.ref(filePath);
@@ -68,12 +61,12 @@ export class CadastroServicoComponent implements OnInit {
             const a: Cadastroservico = this.cadastroservicoForm.value;
             if (!a.id) {
               this.addServico(a);
+              this.imgSrc = 'assets/img/placeholder.jpg';
+              this.cadastroservicoForm.reset();
+              this.textbtn = 'Cadastrar';
               this.msg = true;
               setTimeout(() => {
-                this.imgSrc = 'assets/img/placeholder.jpg';
                 this.msg = false;
-                this.uploadProgress = 0;
-                this.cadastroservicoForm.reset();
               }, 2000);
             }
           });
