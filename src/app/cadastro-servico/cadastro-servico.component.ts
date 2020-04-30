@@ -61,10 +61,10 @@ export class CadastroServicoComponent implements OnInit {
             const a: Cadastroservico = this.cadastroservicoForm.value;
             if (!a.id) {
               this.addServico(a);
+              this.msg = true;
               this.imgSrc = 'assets/img/placeholder.jpg';
               this.cadastroservicoForm.reset();
               this.textbtn = 'Cadastrar';
-              this.msg = true;
               setTimeout(() => {
                 this.msg = false;
               }, 2000);

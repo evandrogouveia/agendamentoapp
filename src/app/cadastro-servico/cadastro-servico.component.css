@@ -12,6 +12,9 @@
     color: #fff;
     transition: all 0.5s;
 }
+.img-upload{
+    cursor: pointer;
+}
 .btn-cadastrar-servico:focus{
     outline: none !important;
     box-shadow: none !important;
@@ -20,11 +23,19 @@
     background-color: rgb(109, 209, 204);
     transition: all 0.5s;
 }
-.card-show-servicos .card-body img{
+.card-servicos .table img{
     width: 60px;
     height: 60px;
     float: left;
     margin-right: 15px;
+}
+.card-servicos .table{
+    margin-bottom: 0;
+}
+.card-servicos .table tr td,
+.card-servicos .table tr th{
+    vertical-align: middle;
+    padding: 5px;
 }
 .title-servicos, .card-show-servicos .card-body p{
     color: #888;
@@ -52,9 +63,6 @@
 .btn-excluir-servico{
     background-color: transparent;
     border: none;
-    position: absolute;
-    top: 20px;
-    right: 10px;
     color: #dc3545;
     outline:none;
 }
