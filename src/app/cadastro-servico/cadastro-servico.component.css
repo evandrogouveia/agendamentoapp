@@ -37,6 +37,10 @@
     vertical-align: middle;
     padding: 5px;
 }
+.card-servicos .table tr td:nth-child(4),
+.card-servicos .table tr th:nth-child(4) {
+    width: 5%;
+}
 .title-servicos, .card-show-servicos .card-body p{
     color: #888;
 }

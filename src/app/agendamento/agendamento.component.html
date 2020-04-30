@@ -239,21 +239,33 @@
         </div>
 
         <div class="col-lg-12 form-data-user mt-3">
-          <h5>Escolher o serviço</h5>
-          <div class="form-group">
-            <ul class="nav">
-              <li *ngFor="let s of servicos$ | async" class="m-1">{{s.nomeservico}} --
-                {{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</li>
-            </ul>
+          <h5 class="ml-3">Escolher o serviço</h5>
 
-            <!--select class="form-control" id="servicos" formControlName='servico'>
-              <option [ngValue]="undefined" selected>Selecione o serviço</option>
-              <option *ngFor="let s of servicos$ | async">{{s.nomeservico}} -- {{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</option>
-            </select-->
+          <div class="content-servicos">
+            <div class="row">
+              <div class="col-lg-3" *ngFor="let s of servicos$ | async; let id = index">
+                <label for="{{id}}">
+                  <div class="card">
+                    <img class="card-img-top" src="{{s.imageUrl}}" alt="Card image cap">
+                    <p class="card-text">{{s.nomeservico}} </p>
+                    <div class="card-body">
+
+                      <p>{{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</p>
+                    </div>
+                    <input id="{{id}}" type="checkbox" name="servico" class="" value="" (change)="changeInput($event)"
+                      #checkbox>
+                    <div class="item-checked">
+                      <label></label>
+                    </div>
+                  </div>
+                </label>
+              </div>
+            </div>
           </div>
-          <button type="submit" class="btn btn-agendar mt-4 w-100" (click)="onSubmit()"
-            [disabled]="!angendamentoForm.valid">Agendar</button>
+
         </div>
+        <button type="submit" class="btn btn-agendar mt-4 w-100" (click)="onSubmit()"
+          [disabled]="!angendamentoForm.valid">Agendar</button>
       </div>
       <hr>
 
