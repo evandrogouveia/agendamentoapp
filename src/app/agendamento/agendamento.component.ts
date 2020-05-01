@@ -27,6 +27,7 @@ export class AgendamentoComponent implements OnInit {
   data: any;
   minDate = new Date();
   horarioInput: string;
+  servicoInput: any = [];
   msg = false;
 
   angendamentoForm = this.fb.group({
@@ -35,7 +36,7 @@ export class AgendamentoComponent implements OnInit {
     sobrenome: [''],
     email: [''],
     telefone: [''],
-    servico: ['', [Validators.required]],
+    servico: [''],
     data: [''],
     horario: ['']
   });
@@ -63,8 +64,26 @@ export class AgendamentoComponent implements OnInit {
     this.data = this.datePipe.transform(value, 'dd/MM/yyyy');
   }
 
-  changeInput(event) {
+  changeHorario(event) {
     this.horarioInput = event.target.value;
+  }
+
+  checked(s) {
+    if (this.servicoInput.indexOf(s) !== -1) {
+      return true;
+    }
+  }
+
+  changeServico(checked, s) {
+    if(checked) {
+      this.servicoInput.push(s);
+    } else {
+      this.servicoInput.splice(this.servicoInput.indexOf(s), 1);
+    }
+    console.log(this.servicoInput)
+    
+
+
   }
 
   onSubmit() {
@@ -76,6 +95,7 @@ export class AgendamentoComponent implements OnInit {
       this.angendamentoForm.value.telefone = this.usuarioLogado.telefone;
       this.angendamentoForm.value.data = this.data;
       this.angendamentoForm.value.horario = this.horarioInput;
+      this.angendamentoForm.value.servico = this.servicoInput;
       this.addAgendamento(a);
       this.msg = true;
     }

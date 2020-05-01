@@ -54,11 +54,15 @@
     background-color: #008B8B;
     transition: all 0.5s;
   }
-  .list-group-horizontal-xl li, label{
+  .list-group-resumo li, label{
     color: #888;
   }
-  .list-group-horizontal-xl li h6 strong{
-    color: #20B2AA;
+  .list-group-resumo li h6 strong{
+    color: #555;
+  }
+  .list-group-resumo li i{
+    position: relative;
+    top: -3px;
   }
   input:focus, select:focus{
     box-shadow: none;
@@ -97,9 +101,10 @@
   .content-servicos .card .card-body p{
     margin-bottom: 0;
     font-weight: bold;
+    color: #555;
   }
   .content-servicos .card:hover {
-    transform: scale(0.95);
+    transform: scale(0.98);
     transition: all 0.5s;
   }
  
