@@ -28,6 +28,7 @@ export class AgendamentoComponent implements OnInit {
   minDate = new Date();
   horarioInput: string;
   servicoInput: any = [];
+  totalservico = '';
   msg = false;
 
   angendamentoForm = this.fb.group({
@@ -75,14 +76,17 @@ export class AgendamentoComponent implements OnInit {
   }
 
   changeServico(checked, s) {
+
     if(checked) {
       this.servicoInput.push(s);
+      
+     
     } else {
       this.servicoInput.splice(this.servicoInput.indexOf(s), 1);
     }
-    console.log(this.servicoInput)
-    
-
+    const parcial = (acumulador, valor) => acumulador + valor;
+    this.totalservico = this.servicoInput.map(res => parseFloat(res.valorservico)).reduce(parcial);
+    console.log(this.totalservico)
 
   }
 

@@ -16,7 +16,7 @@
                 <h5 class="mb-0 pl-3">Escolha uma data</h5>
                 <hr>
                 <bs-datepicker-inline [bsValue]="bsInlineValue" (bsValueChange)="onValueChange($event)" bsDatepicker
-                  [minDate]="minDate">
+                  [minDate]="minDate" #picker>
                 </bs-datepicker-inline>
               </div>
             </div>
@@ -244,7 +244,7 @@
               <ul class="list-group list-group-resumo mt-2 pl-1 mr-3 w-100">
                 <li class="list-group-item w-100 pt-3 pb-2 d-flex">
                   <i class="material-icons mr-2">today</i>
-                  <h6>Data escolhida:&nbsp; <strong>{{ data }}</strong>
+                  <h6>Data escolhida:&nbsp; <strong [hidden]="bsInlineValue !== data">{{ data }}</strong>
                   </h6>
                 </li>
                 <li class="list-group-item w-100 pt-3 pb-2 d-flex">
@@ -255,9 +255,14 @@
                   <i class="material-icons mr-2">access_time</i>
                   <h6>Serviço(s) escolhido:&nbsp;
                     <strong *ngFor="let s of servicoInput">
-                      {{s.nomeservico + ' - '}} {{s.valorservico + ', '}}
+                      {{s.nomeservico + ' - '}} {{(s.valorservico | currency:'BRL':true)  + ', '}}
+                     
                     </strong>
                   </h6>
+                 
+                </li>
+                <li class="list-group-item w-100 pt-3 pb-2 d-flex">
+                  Total: {{totalservico | currency:'BRL':true}}
                 </li>
               </ul>
             </div>
