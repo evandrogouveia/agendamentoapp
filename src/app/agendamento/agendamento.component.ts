@@ -61,8 +61,8 @@ export class AgendamentoComponent implements OnInit {
     });
   }
 
-  onValueChange(value: Date): void {
-    this.data = this.datePipe.transform(value, 'dd/MM/yyyy');
+  onValueChange(event: Date): void {
+    this.data = this.datePipe.transform(event, 'dd/MM/yyyy');
   }
 
   changeHorario(event) {

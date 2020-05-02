@@ -54,6 +54,26 @@
     background-color: #008B8B;
     transition: all 0.5s;
   }
+  .list-group-resumo{
+    box-shadow: 0px 3px 8px 0px #ddd;
+    border-radius: 5px;
+    padding: 0px;
+  }
+  .list-group-resumo li{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .list-group-resumo li.total-item{
+    background-color: #f8f8f8;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    justify-content: space-between;
+    color: #555;
+    font-size: 19px;
+  }
+  .list-group-resumo li ul.nav li strong i{
+    top: 5px;
+  }
   .list-group-resumo li, label{
     color: #888;
   }
