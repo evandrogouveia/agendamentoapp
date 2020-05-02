@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Agendamento } from '../shared/models/agendamento.model';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Cadastroservico } from '../shared/models/cadastroservico.model';
 
 
 @Component({
@@ -13,6 +14,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ListaAgendamentoComponent implements OnInit {
   agendamento$: Observable<Agendamento[]>;
+  servicos$: Observable<Cadastroservico[]>;
+
   dataAtual = new Date();
 
   dia = this.dataAtual.toLocaleDateString();
@@ -21,27 +24,13 @@ export class ListaAgendamentoComponent implements OnInit {
   totalAgendamentoDia: number;
   totalAgendamentoMes: number;
 
-  title = '';
-  type = 'PieChart';
-  data = [];
-  columnNames = ['Browser', 'Percentage'];
-  options = {
-    pieHole: 0.4,
-    chartArea: { left: 0, top: 20, width: '100%', height: '90%' },
-    tooltip: { trigger: 'none' }
-  };
-  width = 380;
-  height = 170;
-
   constructor(private apiService: ApiService, private afs: AngularFirestore) { }
 
   ngOnInit() {
     this.agendamento$ = this.apiService.getAgendamentos();
+    this.servicos$ = this.apiService.getServicos();
     this.totalDia();
     this.totalMes();
-    this.categorias();
-
-
   }
 
   totalDia() {
@@ -49,7 +38,6 @@ export class ListaAgendamentoComponent implements OnInit {
       map(values => {
         const b: any = values.map(d => d.data).filter(dat => dat === this.dia);
         this.totalAgendamentoDia = b.length;
-        console.log(values)
       })
     ).subscribe();
   }
@@ -61,51 +49,6 @@ export class ListaAgendamentoComponent implements OnInit {
         this.totalAgendamentoMes = b.length;
       })
     ).subscribe();
-  }
-
-  categorias() {
-    this.agendamento$.subscribe(data => {
-      const corteMasculino = data.map(d => d.servico).filter(dat => dat.split('Masculino').length - 1);
-      const total1 = corteMasculino.length;
-
-      const corteFeminino = data.map(d => d.servico).filter(dat => dat.split('Feminino').length - 1);
-      const total2 = corteFeminino.length;
-
-      const coloracao = data.map(d => d.servico).filter(dat => dat.split('Coloração').length - 1);
-      const total3 = coloracao.length;
-
-      const designSobrancelhas = data.map(d => d.servico).filter(dat => dat.split('Design de Sobrancelhas').length - 1);
-      const total4 = designSobrancelhas.length;
-
-      const escovaCabelosCurtos = data.map(d => d.servico).filter(dat => dat.split('Escova Cabelos Curtos').length - 1);
-      const total5 = escovaCabelosCurtos.length;
-
-      const escovaCabelosLongos = data.map(d => d.servico).filter(dat => dat.split('Escova Cabelos Longos').length - 1);
-      const total6 = escovaCabelosLongos.length;
-
-      const maquiagem = data.map(d => d.servico).filter(dat => dat.split('Maquiagem').length - 1);
-      const total7 = maquiagem.length;
-
-      const hidratacao = data.map(d => d.servico).filter(dat => dat.split('Hidratação').length - 1);
-      const total8 = hidratacao.length;
-
-      const penteadosFestas = data.map(d => d.servico).filter(dat => dat.split('Penteados Para Festas').length - 1);
-      const total9 = penteadosFestas.length;
-
-      this.data = [
-        ['Corte Masculino', total1],
-        ['Corte Feminino', total2],
-        ['Coloração', total3],
-        ['Design de Sobrancelhas', total4],
-        ['Escova Cabelos Curtos', total5],
-        ['Escova Cabelos Longos', total6],
-        ['Maquiagem', total7],
-        ['Hidratação', total8],
-        ['Penteados Para Festas', total9],
-      ];
-
-    });
-
   }
 
 }
