@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Agendamento } from '../shared/models/agendamento.model';
 import { ApiService } from '../shared/services/api.service';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Cadastroservico } from '../shared/models/cadastroservico.model';
@@ -39,8 +39,10 @@ export class AgendamentoComponent implements OnInit {
     telefone: [''],
     servico: [''],
     data: [''],
-    horario: ['']
+    horario: [''],
+    totalservico: ['']
   });
+  servs = this.angendamentoForm.get('servicos') as FormArray;
 
 
   constructor(
@@ -79,15 +81,11 @@ export class AgendamentoComponent implements OnInit {
 
     if(checked) {
       this.servicoInput.push(s);
-      
-     
     } else {
       this.servicoInput.splice(this.servicoInput.indexOf(s), 1);
     }
     const parcial = (acumulador, valor) => acumulador + valor;
-    this.totalservico = this.servicoInput.map(res => parseFloat(res.valorservico)).reduce(parcial);
-    console.log(this.totalservico)
-
+    this.totalservico = this.servicoInput.map(res => parseFloat(res.valorservico)).reduce(parcial, 0);
   }
 
   onSubmit() {
@@ -100,6 +98,7 @@ export class AgendamentoComponent implements OnInit {
       this.angendamentoForm.value.data = this.data;
       this.angendamentoForm.value.horario = this.horarioInput;
       this.angendamentoForm.value.servico = this.servicoInput;
+      this.angendamentoForm.value.totalservico = this.totalservico;
       this.addAgendamento(a);
       this.msg = true;
     }

@@ -49,6 +49,7 @@ export class ListaAgendamentoComponent implements OnInit {
       map(values => {
         const b: any = values.map(d => d.data).filter(dat => dat === this.dia);
         this.totalAgendamentoDia = b.length;
+        console.log(values)
       })
     ).subscribe();
   }

@@ -4,7 +4,7 @@ export interface Agendamento {
     sobrenome: string;
     email: string;
     telefone: string;
-    servico: string;
+    servico: any;
     valorservico: string;
     data: string;
     horario: string;

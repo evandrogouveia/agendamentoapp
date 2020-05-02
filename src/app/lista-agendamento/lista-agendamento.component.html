@@ -28,6 +28,7 @@
           </div>
           <div class="card-body">
             <ng-container *ngFor="let a of agendamento$ | async">
+             
               <div class="card card-agendamentos-hoje mb-3" [hidden]="(a.data) !== (dia)">
                 <div class="row no-gutters">
                   <div class="col-md-3 text-center">
@@ -35,10 +36,15 @@
                     <h6>{{a.data}}</h6>
                   </div>
                   <div class="col-md-9 pl-2">
+                    
                     <div class="card-body p-2">
                       <p class="m-0"><strong>{{a.nome}} {{a.sobrenome}}</strong></p>
-                      <p class="m-0">{{a.servico | uppercase}}</p>
+                      <p class="m-0" *ngFor="let s of a.servico">
+                        {{s.nomeservico | uppercase}}
+                      
+                      </p>
                       <p class="m-0"> {{a.telefone | mask: '(00) 00000-0000'}}</p>
+                     
                     </div>
                   </div>
                 </div>
@@ -64,7 +70,7 @@
                   <div class="col-md-9 pl-2">
                     <div class="card-body p-2">
                       <p class="m-0"><strong>{{a.nome}} {{a.sobrenome}}</strong></p>
-                      <p class="m-0">{{a.servico | uppercase}}</p>
+                      <p class="m-0" *ngFor="let s of a.servico">{{s.nomeservico | uppercase}}</p>
                       <p class="m-0">{{a.telefone | mask: '(00) 00000-0000'}}</p>
                     </div>
                   </div>
