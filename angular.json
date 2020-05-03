@@ -20,8 +20,7 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "404.html"
+              "src/assets"
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
