@@ -73,7 +73,7 @@
   .list-group-resumo{
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
     max-height: 100vh;
   }
   .list-group-resumo li ul.nav li strong i{
