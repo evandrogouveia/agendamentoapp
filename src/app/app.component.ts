@@ -3,6 +3,7 @@ import { SidebarService } from './shared/services/sidebar.service';
 import { AuthService } from './shared/auth/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { MessagingService } from './shared/services/messaging.service';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +16,13 @@ export class AppComponent implements OnInit {
   authenticated$: Observable<boolean>;
   mostrarSidebarMenu = false;
 
+  message;
+
   constructor(
     private authService: AuthService,
     private sidebarService: SidebarService,
-    private router: Router
+    private router: Router,
+    private msg: MessagingService
   ) {
 
     this.authenticated$ = this.authService.authenticated();
@@ -34,6 +38,10 @@ export class AppComponent implements OnInit {
       this.mostrarSidebarMenu = a;
       this.router.navigateByUrl('/agendamento');
     });
+
+    this.msg.requestPermission();
+    this.msg.receiveMessage();
+    this.message = this.msg.currentMessage;
 
   }
 

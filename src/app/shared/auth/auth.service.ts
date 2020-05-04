@@ -14,10 +14,10 @@ export class AuthService {
   textToConvert: string;
   private userCollection: AngularFirestoreCollection<Usuario> = this.afs.collection('users');
   private usuarioAutenticado = false;
-
   mostrarMenu = new EventEmitter<boolean>();
 
-  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) { }
+  constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {
+  }
 
   // CADASTRO NOVO USUÁRIO
   cadastro(user: Usuario): Observable<boolean> {

@@ -21,6 +21,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
 import { environment } from 'src/environments/environment';
 import { defineLocale } from 'ngx-bootstrap/chronos';
@@ -28,10 +29,11 @@ import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { CadastroServicoComponent } from './cadastro-servico/cadastro-servico.component';
 import {LOCALE_ID} from '@angular/core';
 import localePt from '@angular/common/locales/pt';
-import {registerLocaleData} from '@angular/common';
+import {registerLocaleData, AsyncPipe} from '@angular/common';
 import { AuthModule } from './shared/auth/auth.module';
 import { DatePipe } from '@angular/common';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { MessagingService } from './shared/services/messaging.service';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -63,9 +65,10 @@ registerLocaleData(localePt, 'pt');
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    AngularFireMessagingModule,
     AuthModule
   ],
-  providers: [DatePipe,  {
+  providers: [DatePipe, MessagingService, AsyncPipe,  {
     provide: LOCALE_ID,
     useValue: 'pt'
 }],
