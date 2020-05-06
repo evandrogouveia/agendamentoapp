@@ -37,9 +37,9 @@ export class AgendamentoComponent implements OnInit {
     sobrenome: [''],
     email: [''],
     telefone: [''],
-    servico: [''],
-    data: [''],
-    horario: [''],
+    servico: ['', [Validators.required]],
+    data: ['', [Validators.required]],
+    horario: ['', [Validators.required]],
     totalservico: ['']
   });
   servs = this.angendamentoForm.get('servicos') as FormArray;
@@ -79,7 +79,7 @@ export class AgendamentoComponent implements OnInit {
 
   changeServico(checked, s) {
 
-    if(checked) {
+    if (checked) {
       this.servicoInput.push(s);
     } else {
       this.servicoInput.splice(this.servicoInput.indexOf(s), 1);

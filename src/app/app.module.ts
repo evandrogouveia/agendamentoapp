@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AgendamentoComponent } from './cliente/agendamento/agendamento.component';
-import { NavComponent } from './nav/nav.component';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { GoogleChartsModule } from 'angular-google-charts';
@@ -41,7 +40,6 @@ registerLocaleData(localePt, 'pt');
   declarations: [
     AppComponent,
     AgendamentoComponent,
-   
     RegistroComponent
   ],
   imports: [
