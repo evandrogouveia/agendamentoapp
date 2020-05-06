@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Agendamento } from '../shared/models/agendamento.model';
-import { ApiService } from '../shared/services/api.service';
+import { Agendamento } from '../../shared/models/agendamento.model';
+import { ApiService } from '../../shared/services/api.service';
 import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Cadastroservico } from '../shared/models/cadastroservico.model';
+import { Cadastroservico } from '../../shared/models/cadastroservico.model';
 import { DatePipe } from '@angular/common';
-import { Usuario } from '../shared/models/user';
-import { AuthService } from '../shared/auth/auth.service';
+import { Usuario } from '../../shared/models/user';
+import { AuthService } from '../../shared/auth/auth.service';
 import { switchMap, map } from 'rxjs/operators';
 
 
