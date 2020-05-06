@@ -32,8 +32,8 @@ import localePt from '@angular/common/locales/pt';
 import {registerLocaleData, AsyncPipe} from '@angular/common';
 import { AuthModule } from './shared/auth/auth.module';
 import { DatePipe } from '@angular/common';
-import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { MessagingService } from './shared/services/messaging.service';
+import { RegistroComponent } from './registro/registro.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -46,7 +46,7 @@ registerLocaleData(localePt, 'pt');
     ListaAgendamentoComponent,
     NavComponent,
     CadastroServicoComponent,
-    CadastroUsuarioComponent
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

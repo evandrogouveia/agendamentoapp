@@ -6,12 +6,11 @@ import { Usuario } from '../shared/models/user';
 import * as CryptoJS from 'crypto-js';
 
 @Component({
-  selector: 'app-cadastro-usuario',
-  templateUrl: './cadastro-usuario.component.html',
-  styleUrls: ['./cadastro-usuario.component.css']
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
 })
-
-export class CadastroUsuarioComponent implements OnInit {
+export class RegistroComponent implements OnInit {
   show = false;
   type = 'password';
   visibility = 'visibility_off';
@@ -30,7 +29,7 @@ export class CadastroUsuarioComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
   }
@@ -67,7 +66,7 @@ export class CadastroUsuarioComponent implements OnInit {
           this.loading = false;
         },
         (err) => {
-          console.log(err);
+          this.msgErro = 'Este e-mail já está cadastrado';
           this.loading = false;
         }
       );

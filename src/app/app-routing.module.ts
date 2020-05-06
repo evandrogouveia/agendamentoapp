@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { AgendamentoComponent } from './agendamento/agendamento.component';
 import { CadastroServicoComponent } from './cadastro-servico/cadastro-servico.component';
 import { ListaAgendamentoComponent } from './lista-agendamento/lista-agendamento.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './shared/auth/auth-guard.service';
-import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { RegistroComponent } from './registro/registro.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'cadastro-usuario', component: CadastroUsuarioComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: 'agendamento', component: AgendamentoComponent, canActivate: [AuthGuardService] },
   { path: 'lista-agendamentos', component: ListaAgendamentoComponent, canActivate: [AuthGuardService] },
   { path: 'cadastro-servico', component: CadastroServicoComponent, canActivate: [AuthGuardService] },
