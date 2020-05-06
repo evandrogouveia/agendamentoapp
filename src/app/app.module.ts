@@ -1,14 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AgendamentoComponent } from './cliente/agendamento/agendamento.component';
-import { ListaAgendamentoComponent } from './admin/lista-agendamento/lista-agendamento.component';
 import { NavComponent } from './nav/nav.component';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -26,7 +24,6 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { environment } from 'src/environments/environment';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
-import { CadastroServicoComponent } from './admin/cadastro-servico/cadastro-servico.component';
 import {LOCALE_ID} from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import {registerLocaleData, AsyncPipe} from '@angular/common';
@@ -34,6 +31,7 @@ import { AuthModule } from './shared/auth/auth.module';
 import { DatePipe } from '@angular/common';
 import { MessagingService } from './shared/services/messaging.service';
 import { RegistroComponent } from './registro/registro.component';
+import { AdminModule } from './admin/admin.module';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -43,9 +41,7 @@ registerLocaleData(localePt, 'pt');
   declarations: [
     AppComponent,
     AgendamentoComponent,
-    ListaAgendamentoComponent,
-    NavComponent,
-    CadastroServicoComponent,
+   
     RegistroComponent
   ],
   imports: [
@@ -66,12 +62,15 @@ registerLocaleData(localePt, 'pt');
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireMessagingModule,
-    AuthModule
+    AuthModule,
+    AdminModule.forRoot()
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [DatePipe, MessagingService, AsyncPipe,  {
     provide: LOCALE_ID,
     useValue: 'pt'
 }],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {
