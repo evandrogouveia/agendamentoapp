@@ -4,6 +4,7 @@ import { AuthService } from './shared/auth/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MessagingService } from './shared/services/messaging.service';
+import { Usuario } from './shared/models/user';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent implements OnInit {
   classe = '';
   authenticated$: Observable<boolean>;
   mostrarSidebarMenu = false;
-
+  usuario$: Observable<Usuario>;
+  perfilUsuario;
   message;
 
   constructor(
@@ -24,7 +26,7 @@ export class AppComponent implements OnInit {
     private router: Router,
     private msg: MessagingService
   ) {
-
+    this.usuario$ = this.authService.getUser();
     this.authenticated$ = this.authService.authenticated();
   }
 
@@ -34,9 +36,18 @@ export class AppComponent implements OnInit {
         this.classe = valor;
       });
 
+    this.usuario$.subscribe(data => {
+      this.perfilUsuario = data.perfil;
+
+      if (this.perfilUsuario === 'admin') {
+        this.router.navigateByUrl('admin/lista-agendamentos');
+      } else {
+        this.router.navigateByUrl('/agendamento');
+      }
+    });
+
     this.authenticated$.subscribe(a => {
       this.mostrarSidebarMenu = a;
-      this.router.navigateByUrl('/agendamento');
     });
 
     this.msg.requestPermission();

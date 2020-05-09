@@ -2,19 +2,19 @@
   <div *ngIf="mostrarSidebarMenu" id="wrapper" [ngClass]="classe">
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading text-center">AGENDAMENTO</div>
+      <div class="sidebar-heading text-center"><img src="assets/img/logo.png"></div>
       <div class="list-group list-group-flush">
-        <a routerLink="/admin/lista-agendamentos" routerLinkActive="link-active"
+        <a *ngIf="(usuario$ | async)?.perfil === 'admin'" routerLink="/admin/lista-agendamentos" routerLinkActive="link-active"
           class="list-group-item list-group-item-action bg-light border-bottom d-flex">
           <i class="material-icons mr-2">home</i>
           <span>Home</span>
         </a>
-        <a routerLink="/admin/cadastro-servico" routerLinkActive="link-active"
+        <a *ngIf="(usuario$ | async)?.perfil === 'admin'" routerLink="/admin/cadastro-servico" routerLinkActive="link-active"
           class="list-group-item list-group-item-action bg-light border-bottom d-flex">
           <i class="material-icons mr-2">post_add</i>
           <span>Cadastrar Serviço</span>
         </a>
-        <a routerLink="agendamento" routerLinkActive="link-active"
+        <a *ngIf="(usuario$ | async)?.perfil === 'usuario'" routerLink="agendamento" routerLinkActive="link-active"
           class="list-group-item list-group-item-action bg-light d-flex">
           <i class="material-icons mr-2">today</i>
           <span>Agendar</span>
@@ -25,7 +25,6 @@
           <span>Sair</span>
         </a>
       </div>
-      
     </div>
   </div>
   <!-- /#sidebar-wrapper -->

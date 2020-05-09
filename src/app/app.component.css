@@ -1,4 +1,9 @@
 .sidebar-heading{
     font-weight: 600;
     color: #888;
+    width: 100%;
+    overflow: hidden;
+}
+.sidebar-heading img{
+    width: 100%;
 }
