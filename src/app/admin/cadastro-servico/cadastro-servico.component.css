@@ -67,7 +67,13 @@
 .btn-excluir-servico{
     background-color: transparent;
     border: none;
-    color: #dc3545;
+    color: #B40404;
+    outline:none;
+}
+.btn-editar-servico{
+    background-color: transparent;
+    border: none;
+    color: #DBA901;
     outline:none;
 }
 

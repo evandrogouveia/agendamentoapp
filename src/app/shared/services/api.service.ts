@@ -40,6 +40,10 @@ export class ApiService {
     return this.cadastroservicoCollection.doc(a.id).set(a);
   }
 
+  updateServico(a: Cadastroservico) {
+    return this.cadastroservicoCollection.doc(a.id).set(a);
+  }
+
   deleteServico(a: Cadastroservico) {
     return this.cadastroservicoCollection.doc(a.id).delete();
   }

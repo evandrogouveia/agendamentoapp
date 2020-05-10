@@ -15,7 +15,7 @@
         <div class="form-row mt-3">
           <div class="col col-xl-3">
             <img class="img-upload" [src]="imgSrc" width="200px" height="200px" (click)="fileUploader.click()">
-            <input type="file" #fileUploader accept="image/*" formControlName='imageUrl' class="form-control"
+            <input type="file" #fileUploader accept="image/*" class="form-control"
               id="imageUrl" aria-describedby="nome" placeholder="imagem" (change)="showPreview($event)" hidden>
           </div>
 
@@ -52,6 +52,7 @@
                 <th scope="col">Imagem</th>
                 <th scope="col">Nome do serviço</th>
                 <th scope="col">Valor</th>
+                <th scope="col">Editar</th>
                 <th scope="col">Excluir</th>
               </tr>
             </thead>
@@ -62,6 +63,9 @@
                 <td>
                   <p class="m-0" [hidden]="s.valorservico == 0">{{s.valorservico | currency:'BRL':true}}</p>
                   <p *ngIf="s.valorservico == 0" class="m-0">Sob Consulta</p>
+                </td>
+                <td>
+                  <button (click)="edit(s)" class="btn-editar-servico"><i class="material-icons">create</i></button>
                 </td>
                 <td>
                   <button (click)="delete(s)" class="btn-excluir-servico"><i class="material-icons">delete</i></button>
