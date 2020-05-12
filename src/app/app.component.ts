@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   authenticated$: Observable<boolean>;
   mostrarSidebarMenu = false;
   usuario$: Observable<Usuario>;
-  perfilUsuario;
+  perfilUsuario = null;
   message;
 
   constructor(
@@ -37,7 +37,7 @@ export class AppComponent implements OnInit {
       });
 
     this.usuario$.subscribe(data => {
-      this.perfilUsuario = data.perfil;
+      data ? this.perfilUsuario = data.perfil : this.perfilUsuario = null;
 
       if (this.perfilUsuario === 'admin') {
         this.router.navigateByUrl('admin/lista-agendamentos');
