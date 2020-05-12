@@ -3,13 +3,17 @@
     <div class="wrap-login100">
 
       <form [formGroup]="loginForm" class="login100-form validate-form" (ngSubmit)="onSubmit()">
-        
+
         <span class="loading" *ngIf="loading"></span>
 
-        <span class="login100-form-title p-b-43">
-          Login
-        </span>
-
+        <div class="title-form">
+          <a routerLink="/login"  class="login100-form-title p-b-43">
+            Entrar
+          </a>
+          <a routerLink="/registro"  class="login100-form-title p-b-43">
+            Cadastro
+          </a>
+        </div>
 
         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
           <input class="input100" type="email" name="email" formControlName="email" placeholder="Seu e-mail">
@@ -20,7 +24,8 @@
         <div class="wrap-input100 validate-input" data-validate="Password is required">
           <input class="input100" type="{{type}}" name="pass" formControlName="password" placeholder="Sua senha">
           <i class="material-icons">lock_outline</i>
-          <i (click)="toggleShow()" class="material-icons" [ngClass]="(visibility == 'visibility') ? 'color-green' : ''">{{visibility}}</i>
+          <i (click)="toggleShow()" class="material-icons"
+            [ngClass]="(visibility == 'visibility') ? 'color-green' : ''">{{visibility}}</i>
         </div>
 
         <div class="flex-sb-m w-full">
@@ -52,7 +57,7 @@
           </button>
 
           <button type="button" class="login100-social-btn" (click)="loginFacebook()">
-            <img src="assets/img/icons/icone-facebook.svg">
+            <img src="assets/img/icons/facebook.svg">
             Entrar com Facebook
           </button>
         </div>

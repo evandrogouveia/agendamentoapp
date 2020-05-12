@@ -6,9 +6,14 @@
         
         <span class="loading" *ngIf="loading"></span>
 
-        <span class="login100-form-title p-b-43">
-          Cadastro
-        </span>
+        <div class="title-form">
+          <a routerLink="/login"  class="login100-form-title p-b-43">
+            Entrar
+          </a>
+          <a routerLink="/registro"  class="login100-form-title p-b-43">
+            Cadastro
+          </a>
+        </div>
 
         <div class="wrap-input100 validate-input">
           <input class="input100" type="text" name="nome" formControlName="nome" placeholder="Nome">

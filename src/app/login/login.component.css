@@ -12,6 +12,7 @@
   left: 0;
   right: 0;
 }
+
 .flex-sb-m{
   display: flex;
   justify-content: space-between;
@@ -139,9 +140,12 @@
     padding: 145px 55px 55px 55px;
     position: relative;
   }
+  .title-form {
+    display: flex;
+    justify-content: space-between;
+  }
   
   .login100-form-title {
-    width: 100%;
     display: block;
     font-size: 30px;
     color: #888;
@@ -466,12 +470,14 @@
     border: 1px solid #d1d1d1;
   }
   .login100-social-btn + .login100-social-btn{
-    background-color: #3b5998;
-    color: #fff;
+    background-color: #fff;
+    color: #2d9cdc;
     transition: all 0.5s;
+    border: 1px solid #2d9cdc;
   }
   .login100-social-btn+ .login100-social-btn:hover{
     opacity: 0.9;
+
     transition: all 0.5s;
   }
   .login100-social-btn img{
@@ -481,7 +487,8 @@
   }
   .login100-social-btn + .login100-social-btn img{
    position: relative;
-   top: -3px;
+   top: 0px;
+   fill: violet;
   }
   
   

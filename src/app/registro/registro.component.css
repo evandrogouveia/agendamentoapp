@@ -139,9 +139,12 @@
     padding: 145px 55px 55px 55px;
     position: relative;
   }
+  .title-form {
+    display: flex;
+    justify-content: space-between;
+  }
   
   .login100-form-title {
-    width: 100%;
     display: block;
     font-size: 30px;
     color: #888;
