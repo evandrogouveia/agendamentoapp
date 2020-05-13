@@ -133,10 +133,15 @@
     transition: all 0.2s;
 }
 
-.wrap-input100 img,
-.wrap-input100 i {
+.wrap-input100 img{
     position: absolute;
     top: 16px;
+    margin-left: 10px;
+    color: #bbb;
+}
+.wrap-input100 i {
+    position: absolute;
+    top: 12px;
     margin-left: 10px;
     color: #bbb;
 }
@@ -223,7 +228,7 @@
 .label-checkbox100 {
     font-size: 13px;
     color: #efe7e2;
-    ;
+    margin-top: 5px;
     line-height: 1.4;
     display: block;
     position: relative;
