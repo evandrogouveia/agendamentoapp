@@ -44,7 +44,7 @@ export class AuthService {
         catchError(() => {
           this.usuarioAutenticado = false;
           this.mostrarMenu.emit(false);
-          return throwError('Usuário ou senha inválidos !');
+          return throwError('Usuário ou senha inválidos :(');
         })
       );
   }

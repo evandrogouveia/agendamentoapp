@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.458" height="20.293" viewBox="0 0 15.458 20.293">
+    <defs>
+        <style>
+            .prefix__cls-1{fill:#643345}
+        </style>
+    </defs>
+    <g id="prefix__senha" transform="translate(-61)">
+        <g id="prefix__Grupo_332" data-name="Grupo 332" transform="translate(61)">
+            <g id="prefix__Grupo_331" data-name="Grupo 331">
+                <path id="prefix__Caminho_351" d="M75.268 9.694V6.54a6.54 6.54 0 1 0-13.079 0v3.154A1.786 1.786 0 0 0 61 11.375v7.134a1.786 1.786 0 0 0 1.784 1.784h11.89a1.786 1.786 0 0 0 1.784-1.784v-7.134a1.786 1.786 0 0 0-1.19-1.681zM63.378 6.54a5.351 5.351 0 1 1 10.7 0v3.052H72.89V6.54a4.162 4.162 0 1 0-8.323 0v3.052h-1.189zm8.323 0v3.052h-5.945V6.54a2.973 2.973 0 0 1 5.945 0zm3.567 11.97a.6.6 0 0 1-.595.595H62.784a.6.6 0 0 1-.595-.595v-7.135a.6.6 0 0 1 .595-.595h11.89a.6.6 0 0 1 .595.595z" class="prefix__cls-1" data-name="Caminho 351" transform="translate(-61)"/>
+            </g>
+        </g>
+        <g id="prefix__Grupo_334" data-name="Grupo 334" transform="translate(66.945 11.97)">
+            <g id="prefix__Grupo_333" data-name="Grupo 333">
+                <path id="prefix__Caminho_352" d="M212.784 302a1.783 1.783 0 0 0-.595 3.465v1.886a.595.595 0 0 0 1.189 0v-1.886a1.783 1.783 0 0 0-.595-3.465zm0 2.378a.595.595 0 1 1 .595-.595.6.6 0 0 1-.595.595z" class="prefix__cls-1" data-name="Caminho 352" transform="translate(-211 -302)"/>
+            </g>
+        </g>
+    </g>
+</svg>

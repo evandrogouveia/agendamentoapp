@@ -1,56 +1,60 @@
 <div class="limiter ">
   <div class="container-login100 bg-img">
     <div class="wrap-login100">
-
+      
       <form [formGroup]="loginForm" class="login100-form validate-form" (ngSubmit)="onSubmit()">
+        <div class="logo-top">
+          <img src="assets/img/logo-login.png">
+        </div>
 
         <span class="loading" *ngIf="loading"></span>
 
         <div class="title-form">
-          <a routerLink="/login" routerLinkActive="link-login-active"  class="login100-form-title">
+          <a routerLink="/login" routerLinkActive="link-login-active" class="login100-form-title">
             Entrar
           </a>
-          <a routerLink="/registro" routerLinkActive="link-login-active"  class="login100-form-title">
+          <a routerLink="/registro" routerLinkActive="link-login-active" class="login100-form-title">
             Cadastro
           </a>
         </div>
 
         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-          <input class="input100" type="email" name="email" formControlName="email" placeholder="Seu e-mail">
-          <i class="material-icons">perm_identity</i>
+          <input class="input100" type="email" name="email" formControlName="email" placeholder="Digite seu e-mail" required>
+          <img src="assets/img/icons/email.svg">
         </div>
 
 
         <div class="wrap-input100 validate-input" data-validate="Password is required">
-          <input class="input100" type="{{type}}" name="pass" formControlName="password" placeholder="Sua senha">
-          <i class="material-icons">lock_outline</i>
+          <input class="input100" type="{{type}}" name="pass" formControlName="password" placeholder="Digite sua senha" required>
+          <img src="assets/img/icons/senha.svg">
           <i (click)="toggleShow()" class="material-icons"
-            [ngClass]="(visibility == 'visibility') ? 'color-green' : ''">{{visibility}}</i>
+            [ngClass]="(visibility == 'visibility') ? 'orange-full' : ''">{{visibility}}</i>
         </div>
-
-        <div class="flex-sb-m w-full">
-          <div class="contact100-form-checkbox">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-            <label class="label-checkbox100" for="ckb1">
-              Lembrar-me
-            </label>
-          </div>
-          <div class="contact100-form-cadastro">
-            <a routerLink="/registro">
-              Não tenho uma conta
-            </a>
-          </div>
-        </div>
-
 
         <div class="container-login100-form-btn">
           <button type="submit" class="login100-form-btn">
             Entrar
           </button>
-        </div>
-        <span class="msg-erro">{{msgErro}}</span>
 
-        <div class="login100-form-social flex-c-m">
+          <span *ngIf="msgErro" class="msg-erro">{{msgErro}}</span>
+        </div>
+    
+
+        <div class="flex-sb-m w-full">
+          <div class="contact100-form-checkbox">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+            <label class="label-checkbox100" for="ckb1">
+              Ficar conectado
+            </label>
+          </div>
+          <div class="contact100-form-cadastro">
+            <a routerLink="/registro">
+              Esqueci a senha
+            </a>
+          </div>
+        </div>
+
+        <div class="login100-form-social">
           <button type="button" class="login100-social-btn" (click)="loginGoogle()">
             <img src="assets/img/icons/icone-google.svg">
             Entrar com Google
