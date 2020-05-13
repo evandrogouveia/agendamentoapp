@@ -150,7 +150,14 @@
     color: #888;
     line-height: 1.2;
     text-align: center;
+    padding-bottom: 3px;
     margin-bottom: 20px;
+  }
+  .link-login-active,
+  .login100-form-title:hover{
+    color: #094581;
+    text-decoration: none;
+    border-bottom: 2px solid #094581;
   }
   .wrap-input100 i{
     position: absolute;
