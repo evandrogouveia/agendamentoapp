@@ -463,6 +463,12 @@
     .login100-form {
         padding-left: 15px;
         padding-right: 15px;
-        padding-top: 70px;
+        padding-top: 10px;
+    }
+    .login100-form .logo-top{
+       margin-bottom: 25px; 
+    }
+    .container-login100{
+        background-position: center;
     }
 }
