@@ -31,6 +31,7 @@ import { DatePipe } from '@angular/common';
 import { MessagingService } from './shared/services/messaging.service';
 import { RegistroComponent } from './registro/registro.component';
 import { AdminModule } from './admin/admin.module';
+import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -40,7 +41,8 @@ registerLocaleData(localePt, 'pt');
   declarations: [
     AppComponent,
     AgendamentoComponent,
-    RegistroComponent
+    RegistroComponent,
+    EsqueciSenhaComponent
   ],
   imports: [
     BrowserModule,

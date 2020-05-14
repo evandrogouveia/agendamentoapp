@@ -1,0 +1,33 @@
+<div class="limiter ">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      
+      <form [formGroup]="recoverForm" class="login100-form validate-form" (ngSubmit)="">
+        <div class="logo-top">
+          <img src="assets/img/logo-login.png">
+        </div>
+
+        <span class="loading" *ngIf="loading"></span>
+
+        <div class="title-form-recover">
+          <h2>Opps! Esqueceu sua senha?</h2>
+          <p>Fica tranquilo. Basta digitar o e-mail que usou para se cadastrar no nosso salão, depois clique em recuperar senha, vá para seu e-mail e siga as instruções. </p>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+          <input class="input100" type="email" name="email" formControlName="email" placeholder="Digite seu e-mail" required>
+          <img src="assets/img/icons/email.svg">
+        </div>
+
+        <div class="container-login100-form-btn">
+          <button type="submit" class="login100-form-btn">
+            Recuperar senha
+          </button>
+
+          <span *ngIf="msgErro" class="msg-erro">{{msgErro}}</span>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
