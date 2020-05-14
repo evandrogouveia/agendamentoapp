@@ -1,9 +1,12 @@
-<div class="limiter">
+<div class="limiter ">
   <div class="container-login100">
     <div class="wrap-login100">
-
+      
       <form [formGroup]="cadastroForm" class="login100-form validate-form" (ngSubmit)="cadastroUsuario()">
-        
+        <div class="logo-top">
+          <img src="assets/img/logo-login.png">
+        </div>
+
         <span class="loading" *ngIf="loading"></span>
 
         <div class="title-form">
@@ -16,59 +19,49 @@
         </div>
 
         <div class="wrap-input100 validate-input">
-          <input class="input100" type="text" name="nome" formControlName="nome" placeholder="Nome">
-          <i class="material-icons">perm_identity</i>
+          <input class="input100" type="text" name="nome" formControlName="nome" placeholder="Seu nome por favor">     
         </div>
 
         <div class="wrap-input100 validate-input">
-          <input class="input100" type="text" name="sobrenome" formControlName="sobrenome" placeholder="Sobrenome">
-          <i class="material-icons">perm_identity</i>
+          <input class="input100" type="text" name="sobrenome" formControlName="sobrenome" placeholder="Seu sobrenome por gentileza">
+         
         </div>
 
 
         <div class="wrap-input100 validate-input">
-          <input class="input100" type="email" name="email" formControlName="email" placeholder="E-mail">
-          <i class="material-icons">mail_outline</i>
+          <input class="input100" type="email" name="email" formControlName="email" placeholder="Informe um e-mail para acesso">
+          <img src="assets/img/icons/email.svg">
+        
         </div>
 
-        <div class="wrap-input100 validate-input">
+        <!--div class="wrap-input100 validate-input">
           <input class="input100" type="text" name="telefone" formControlName="telefone" placeholder="Celular" mask="(00) 00000-0000">
           <i class="material-icons">stay_current_portrait</i>
-        </div>
-
+        </div-->
 
         <div class="wrap-input100 validate-input">
-          <input class="input100" type="{{type}}" name="pass" formControlName="password" placeholder="Senha">
-          <i class="material-icons">lock_outline</i>
-          <i (click)="toggleShow()" class="material-icons" [ngClass]="(visibility == 'visibility') ? 'color-green' : ''">{{visibility}}</i>
+          <input class="input100" type="{{type}}" name="pass" formControlName="password" placeholder="Crie uma senha para acesso">
+          <img src="assets/img/icons/senha.svg">
+          <i (click)="toggleShow()" class="material-icons" [ngClass]="(visibility == 'visibility') ? 'orange-full' : ''">{{visibility}}</i>
         </div>
-
-        <div class="flex-sb-m w-full">
-          <div class="contact100-form-checkbox">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-            <label class="label-checkbox100" for="ckb1">
-              Lembrar-me
-            </label>
-          </div>
-          <div class="contact100-form-cadastro">
-            <a routerLink="/login">
-              Voltar para login
-            </a>
-          </div>
-        </div>
-
 
         <div class="container-login100-form-btn">
           <button type="submit" class="login100-form-btn">
-            Cadastrar
+            Realizar cadastro
           </button>
-        </div>
-        <span class="msg-erro">{{msgErro}}</span>
-      </form>
 
-      <div class="login100-more bg-img">
-        <h2>Agendamento Online</h2>
-      </div>
+          <span *ngIf="msgErro" class="msg-erro">{{msgErro}}</span>
+
+          
+        </div>
+
+        <div class="custom-radio">
+          <input type="radio" id="termos">
+          <label class="label-termos" for="termos">Aceito os <a href="">termos de uso</a> e as <a href="">políticas de privacidade</a></label>
+        </div>
+      </form>
+      
+      
     </div>
   </div>
 </div>

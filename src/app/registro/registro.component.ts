@@ -69,7 +69,7 @@ export class RegistroComponent implements OnInit {
           this.loading = false;
         },
         (err) => {
-          this.msgErro = 'Este e-mail já está cadastrado';
+          this.msgErro = 'Preencha os campos corretamente';
           this.loading = false;
         }
       );
