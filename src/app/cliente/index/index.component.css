@@ -1,0 +1,81 @@
+.section-servicos h1{
+    font-size: 40px;
+    color: #2b2b2b;
+    font-weight: 800;
+}
+.section-servicos .card-img{
+    width: 100%;
+    margin-bottom: 60px;
+    position: relative;
+}
+.section-servicos .card-img .box-avaliation {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    background-color:#f5eae3;
+    border-radius: 30px;
+    width: 71px;
+    height: 38px;
+    right: 10px;
+    top: 12px;
+    z-index: 2;
+}
+.section-servicos .card-img .box-avaliation p{
+    font-size: 16px;
+    color: #2b2b2b;
+    font-weight: 500;
+    margin: 0;
+}
+.section-servicos .card-img a img{
+    max-width: 100%;
+}
+.section-servicos .card-img a{
+    text-decoration: none; 
+    position: relative; 
+}
+
+.section-servicos .card-img a p{
+    margin-top: 12px;
+    color: #2b2b2b;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    height: 55px;
+    width: 100%;
+    transition: all 0.2s;
+}
+.section-servicos .card-img a:hover p,
+.section-servicos .card-img a p:hover{
+    color: #e88f73;
+    text-decoration: underline;
+    transition: all 0.2s;
+}
+.section-servicos .card-img .box-btn-price{
+    display: flex;
+    align-items: center;
+}
+.section-servicos .card-img .box-btn-price a{
+    background-color: #e9724c;
+    width: 50%;
+    height: 50px;
+    padding: 13px 0 0;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 400;
+    margin-right: 15px;
+    margin-top: 0;
+}
+.section-servicos .card-img .box-btn-price a:hover{
+    background-color: #e88f73;
+    text-decoration: none;
+}
+.section-servicos .card-img .box-btn-price h3{
+    margin-top: 11px;
+    font-size: 30px;
+    color: #2b2b2b;
+    font-weight: 600;
+}

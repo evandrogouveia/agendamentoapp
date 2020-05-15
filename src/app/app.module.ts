@@ -32,6 +32,8 @@ import { MessagingService } from './shared/services/messaging.service';
 import { RegistroComponent } from './registro/registro.component';
 import { AdminModule } from './admin/admin.module';
 import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
+import { IndexComponent } from './cliente/index/index.component';
+import { FooterComponent } from './footer/footer.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -42,7 +44,9 @@ registerLocaleData(localePt, 'pt');
     AppComponent,
     AgendamentoComponent,
     RegistroComponent,
-    EsqueciSenhaComponent
+    EsqueciSenhaComponent,
+    IndexComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
