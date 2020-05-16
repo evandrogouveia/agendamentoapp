@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AgendamentoComponent } from './cliente/agendamento/agendamento.component';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { AlertModule } from 'ngx-bootstrap/alert';
@@ -56,6 +57,7 @@ registerLocaleData(localePt, 'pt');
     ReactiveFormsModule,
     CollapseModule.forRoot(),
     BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     GoogleChartsModule.forRoot(),
     AlertModule.forRoot(),
