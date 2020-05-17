@@ -7,19 +7,33 @@
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="form-search">
-      <button class="btn btn-primary" (click)="lgModal.show()">Large modal</button>
 
-      <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
+    <div class="form-search">
+      <button class="btn btn-open-search" (click)="openModal()">
+        <img src="assets/img/icons/lupa.svg">
+      </button>
+
+      <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
         aria-labelledby="dialog-sizes-name1">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-body">
-              ...dsaddasd
+              <div class="input-group">
+                <span class="img-lupa"></span>
+
+                <input #busca
+                  type="text" class="form-control input-search" 
+                  placeholder="Nome do serviço que você precisa">
+
+                <div class="input-group-append">
+                  <button class="btn-search" type="button">buscar</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
