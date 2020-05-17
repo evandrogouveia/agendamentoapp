@@ -9,6 +9,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AgendamentoComponent } from './cliente/agendamento/agendamento.component';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { AlertModule } from 'ngx-bootstrap/alert';
@@ -62,6 +63,7 @@ registerLocaleData(localePt, 'pt');
     GoogleChartsModule.forRoot(),
     AlertModule.forRoot(),
     NgxMaskModule.forRoot(),
+    ModalModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
