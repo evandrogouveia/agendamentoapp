@@ -329,7 +329,7 @@ a.dropdown-toggle{
     position: relative;
 }
 .img-lupa{
-    background: url('/../assets/img/icons/lupa-search-active.svg');
+    background: url('/../assets/img/icons/lupa-search.svg');
     background-repeat: no-repeat;
     width: 30px;
     height: 32px;
