@@ -41,15 +41,69 @@ html, body{
     background: #20B2AA !important;
     color: #fff !important;
   }
-  .theme-green .bs-datepicker-head,
-  .theme-green .bs-datepicker-body table td span.selected { 
-    background-color: #5bc0de !important; 
+  .bs-datepicker{
+    background: transparent;
   }
-  .theme-green .bs-datepicker-body table td.week span{
-    color: #5bc0de !important;
+  .theme-green .bs-datepicker-head{
+    background-color: #fff !important; 
+  }
+  .theme-green .bs-datepicker-head button{
+    color: #636464 !important;
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  .bs-datepicker-head button.previous span,
+  .bs-datepicker-head button.next span{
+    font-size: 45px;
+    top: -10px;
+    margin: 0;
+    position: relative;
+  }
+  .bs-datepicker-head button.previous span:hover,
+  .bs-datepicker-head button.next span:hover{
+    color: #e88f73;
+  }
+  .bs-datepicker-head button.previous,
+  .bs-datepicker-head button.next{
+    background: transparent;
+  }
+  .bs-datepicker-body{
+    border: none;
+  }
+  .bs-datepicker-body table{
+    height: 325px;
+  }
+  .bs-datepicker-body table th{
+    font-size: 20px;
+    color: #636464;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .bs-datepicker-body table td span{
+    font-size: 25px;
+    font-weight: 600;
+    color: #636464;
+  }
+  .bs-datepicker-body table td span.is-highlighted:not(.disabled):not(.selected){
+    background-color: #e9724c;
+    color: #fff;
+    font-size: 25px;
+    transition: all 0.5s;
+  }
+  .theme-green .bs-datepicker-body table td span.selected{
+    background-color: #e9724c;
+    font-size: 25px;
+  }
+  .bs-datepicker-body table.days span{
+    width: 45px;
+    height: 45px;
+    padding-top: 7px;
   }
   .bs-datepicker{
     box-shadow: none;
+  }
+  .ng-tns-c3-0, .bs-datepicker-container{
+    min-width: 100% !important;
   }
   .tab-content{
     border:1px solid #dee2e6;

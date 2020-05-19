@@ -1,3 +1,46 @@
-<p>
-  servico-detalhe works!
-</p>
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light navbar-servico-detalhe">
+    <a class="navbar-brand" href="#"><img src="assets/img/logo-login.png"></a>
+  </nav>
+
+  <div class="content-detalhe">
+    <div class="row">
+      <div class="col-lg-7">
+        <h2>Tratamento de unhas, pintura e brilho e unhas postiças</h2>
+        <div class="detalhe-servico">
+          
+          <div class="imagens-mini">
+            <img src="assets/img/img-servicos/4.jpg">
+            <img src="assets/img/img-servicos/3.jpg">
+            <img src="assets/img/img-servicos/2.jpg">
+            <img src="assets/img/img-servicos/1.jpg">
+          </div>
+          <div class="imagem-g">
+            <img src="assets/img/img-servicos/imagem-1.jpg">
+            <span>R$ 1.278,00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="detalhe-calendario">
+          <div class="form-group form-group-datepicker">
+            <h5>Selecione uma data</h5>
+            <div class="box-data mt-3">
+              <bs-datepicker-inline 
+                [bsValue]="bsInlineValue" 
+                (bsValueChange)="onValueChange($event)" 
+                bsDatepicker
+                [minDate]="minDate" 
+                [bsConfig]="{showWeekNumbers: false}"
+                #picker >
+              </bs-datepicker-inline>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /row -->
+  </div><!-- /content-detalhe -->
+</div><!-- /container -->
+<app-footer></app-footer>

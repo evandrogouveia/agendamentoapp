@@ -58,6 +58,6 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.router.navigateByUrl('/index');
+    this.router.navigateByUrl('/servico-detalhe');
   }
 }
