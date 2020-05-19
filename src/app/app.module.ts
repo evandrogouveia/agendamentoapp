@@ -36,6 +36,7 @@ import { AdminModule } from './admin/admin.module';
 import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
 import { IndexComponent } from './cliente/index/index.component';
 import { FooterComponent } from './footer/footer.component';
+import { ServicoDetalheComponent } from './cliente/servico-detalhe/servico-detalhe.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -48,7 +49,8 @@ registerLocaleData(localePt, 'pt');
     RegistroComponent,
     EsqueciSenhaComponent,
     IndexComponent,
-    FooterComponent
+    FooterComponent,
+    ServicoDetalheComponent
   ],
   imports: [
     BrowserModule,
