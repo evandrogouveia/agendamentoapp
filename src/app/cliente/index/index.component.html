@@ -2,9 +2,8 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#"><img src="assets/img/logo-login.png"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -21,8 +20,7 @@
               <div class="input-group">
                 <span class="img-lupa"></span>
 
-                <input #busca
-                  type="text" class="form-control input-search" 
+                <input #busca type="text" class="form-control input-search"
                   placeholder="Nome do serviço que você precisa">
 
                 <div class="input-group-append">
@@ -417,8 +415,63 @@
             </ul>
           </div>
         </div>
-
       </div>
+
+
+      <div class="dropdown-cart my-2 ml-4">
+        <div class="btn-group" dropdown (isOpenChange)="onOpenChange($event)">
+          <div id="cart" dropdownToggle type="button" class="dropdown-toggle" aria-controls="dropdown-animated">
+            <img src="assets/img/icons/sacola.svg">
+            <span>55</span>
+          </div>
+
+          <!--div class="dropdown-menu" *dropdownMenu aria-labelledby="cart">
+            <div class="header-cart">
+              <img src="assets/img/icons/sacola.svg">
+              <span>55</span>
+              <p>Sacola</p>
+            </div>
+
+            <ul class="nav nav-submenu flex-column">
+              <li>Itens na sacola</li>
+              <li>
+                <img src="assets/img/img-servicos/imagem-1.jpg">
+                <div class="cart-price-description">
+                  <p>Tratamento de unhas, pintura e brilho e unhas postiças</p>
+                  <h3>R$ 27,00</h3>
+                </div>
+              </li>
+              
+            </ul>
+
+            <div class="buttons-cart">
+              <a href=""><img src="assets/img/icons/delete.svg"> Excluir serviço</a>
+              <a href="">Concluir agendamento</a>
+            </div>
+
+          </div-->
+
+          <div class="dropdown-menu dropdown-menu-empty" *dropdownMenu aria-labelledby="cart">
+            <div class="header-cart">
+              <img src="assets/img/icons/sacola.svg">
+              <p>Sacola</p>
+            </div>
+
+            <ul class="nav nav-submenu flex-column">
+              <li><img src="assets/img/icons/sacola-g.svg"></li>
+              <li>
+                Você não tem itens adicionado à sacola!
+              </li>
+              <li><a href="">Escolher serviço</a></li>
+            </ul>
+
+          </div>
+          
+
+
+        </div>
+      </div>
+
     </div>
   </nav>
 
