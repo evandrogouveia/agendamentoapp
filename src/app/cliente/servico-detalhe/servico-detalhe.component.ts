@@ -9,6 +9,7 @@ import { DatePipe } from '@angular/common';
 export class ServicoDetalheComponent implements OnInit {
   bsInlineValue = null;
   selected: any;
+  minDate = new Date();
   horarioInput: string;
   constructor(private datePipe: DatePipe) { }
 
