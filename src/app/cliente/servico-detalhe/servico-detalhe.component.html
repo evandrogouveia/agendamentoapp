@@ -10,13 +10,21 @@
         <div class="detalhe-servico">
 
           <div class="imagens-mini">
-            <img src="assets/img/img-servicos/4.jpg">
-            <img src="assets/img/img-servicos/3.jpg">
-            <img src="assets/img/img-servicos/2.jpg">
-            <img src="assets/img/img-servicos/1.jpg">
+            <div class="box-img">
+              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem1}}">
+            </div>
+            <div class="box-img">
+              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem2}}">
+            </div>
+            <div class="box-img">
+              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem3}}">
+            </div>
+            <div class="box-img">
+              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem4}}">
+            </div>
           </div>
           <div class="imagem-g">
-            <img src="assets/img/img-servicos/imagem-1.jpg">
+            <img src="{{image}}">
             <span>R$ 1.278,00</span>
           </div>
         </div>

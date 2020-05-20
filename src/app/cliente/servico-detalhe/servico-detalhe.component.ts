@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -11,10 +11,17 @@ export class ServicoDetalheComponent implements OnInit {
   selected: any;
   minDate = new Date();
   horarioInput: string;
+  imagesUrl = {
+    imagem1 : 'assets/img/img-servicos/imagem-1.jpg',
+    imagem2 : 'assets/img/img-servicos/1.jpg',
+    imagem3 : 'assets/img/img-servicos/2.jpg',
+    imagem4 : 'assets/img/img-servicos/3.jpg',
+  };
+  image = 'assets/img/img-servicos/imagem-1.jpg';
+
   constructor(private datePipe: DatePipe) { }
 
   ngOnInit() {
-    console.log(this.selected)
   }
 
   onValueChange(event: Date): void {
@@ -27,5 +34,9 @@ export class ServicoDetalheComponent implements OnInit {
 
   changeHorario(event) {
     this.horarioInput = event.target.value;
+  }
+
+  imgEvent(event) {
+    this.image = event.target.src.substr(22);
   }
 }

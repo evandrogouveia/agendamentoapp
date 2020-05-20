@@ -9,25 +9,43 @@
     display: flex;
     align-items: center;
 }
-.content-detalhe .detalhe-servico .imagens-mini{
-    width: 15%;
+.imagens-mini{
+    width: 16%;
 }
-.content-detalhe .detalhe-servico .imagens-mini img{
+.imagens-mini .box-img{
     width: 81px;
     height: 78px;
-    margin-bottom: 15px;
+    margin: 10px 0px 20px 0px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
 }
-.content-detalhe .detalhe-servico .imagens-mini img:last-child{
+.imagens-mini .box-img img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.4s;
+}
+.imagens-mini img:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.imagens-mini img:last-child{
     margin-bottom: 0;
 }
-.content-detalhe .detalhe-servico .imagem-g{
+.imagem-g{
     width: 85%;
+    height: 382px;
     position: relative;
+    border-radius: 5px;
+    overflow: hidden;
 }
-.content-detalhe .detalhe-servico .imagem-g img{
+.imagem-g img{
     width: 100%;
+    height: 100%;
+    position: absolute;
 }
-.content-detalhe .detalhe-servico .imagem-g span{
+.imagem-g span{
     font-size: 30px;
     color: #2b2b2b;
     font-weight: 500;
@@ -53,11 +71,10 @@
 .content-detalhe .box-calendario-horario{
     border: 1px solid #b2b2b2;
     border-radius: 10px;
-    height: 490px;
-    margin-bottom: 30px;
+    height: 498px;
 }
 .box-calendario-horario .form-group-datepicker{
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 .box-calendario-horario .form-group-datepicker h5{
     font-size: 20px;

@@ -381,6 +381,13 @@ a.dropdown-toggle{
     margin-bottom: 60px;
     position: relative;
 }
+.section-servicos .card-img .box-img{
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 7px;
+}
 .section-servicos .card-img .box-avaliation {
     display: flex;
     align-items: center;
@@ -402,6 +409,12 @@ a.dropdown-toggle{
 }
 .section-servicos .card-img a img{
     max-width: 100%;
+    position: absolute;
+    height: 100%;
+    transition: 0.4s;
+}
+.section-servicos .card-img a img:hover{
+    transform: scale(1.1);
 }
 .section-servicos .card-img a{
     text-decoration: none; 
