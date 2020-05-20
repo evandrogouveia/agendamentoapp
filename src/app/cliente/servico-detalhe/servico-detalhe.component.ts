@@ -37,6 +37,6 @@ export class ServicoDetalheComponent implements OnInit {
   }
 
   imgEvent(event) {
-    this.image = event.target.src.substr(22);
+    this.image = event.target.src;
   }
 }
