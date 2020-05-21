@@ -34,10 +34,14 @@
         <div class="box-calendario-horario">
           <div class="form-group form-group-datepicker" [hidden]="selected">
             <h5>Selecione uma data</h5>
+
             <div class="box-data mt-3">
-              <bs-datepicker-inline [bsValue]="bsInlineValue" (bsValueChange)="onValueChange($event)" bsDatepicker
-                [minDate]="minDate" [bsConfig]="{showWeekNumbers: false}" #picker>
-              </bs-datepicker-inline>
+             
+                <bs-datepicker-inline  [bsValue]="bsInlineValue" (bsValueChange)="onValueChange($event)" bsDatepicker
+                  [minDate]="minDate" [bsConfig]="{showWeekNumbers: false}" #picker>
+                </bs-datepicker-inline>
+              
+
             </div>
           </div>
 

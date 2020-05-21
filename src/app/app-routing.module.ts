@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'recover', component: EsqueciSenhaComponent },
   { path: 'index', component: IndexComponent},
   { path: 'servico-detalhe', component: ServicoDetalheComponent},
-  { path: '', pathMatch: 'full', redirectTo: 'servico-detalhe' }
+  { path: '', pathMatch: 'full', redirectTo: 'index' }
 ];
 
 @NgModule({

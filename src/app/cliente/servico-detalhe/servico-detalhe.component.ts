@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-servico-detalhe',
@@ -19,7 +20,9 @@ export class ServicoDetalheComponent implements OnInit {
   };
   image = 'assets/img/img-servicos/imagem-1.jpg';
 
-  constructor(private datePipe: DatePipe) { }
+  constructor(private datePipe: DatePipe) { 
+    
+  }
 
   ngOnInit() {
   }

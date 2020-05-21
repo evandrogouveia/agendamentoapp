@@ -104,6 +104,7 @@ html, body{
   }
   .ng-tns-c3-0, .bs-datepicker-container{
     min-width: 100% !important;
+    width: 100% !important;
   }
   .tab-content{
     border:1px solid #dee2e6;
