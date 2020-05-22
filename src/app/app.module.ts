@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AgendamentoComponent } from './cliente/agendamento/agendamento.component';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { ModalModule } from 'ngx-bootstrap/modal';
+//import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+//import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { AlertModule } from 'ngx-bootstrap/alert';
@@ -28,15 +28,15 @@ import { ptBrLocale } from 'ngx-bootstrap/locale';
 import {LOCALE_ID} from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import {registerLocaleData, AsyncPipe} from '@angular/common';
-import { AuthModule } from './shared/auth/auth.module';
+import { AuthModule } from './login/auth/auth.module';
 import { DatePipe } from '@angular/common';
 import { MessagingService } from './shared/services/messaging.service';
 import { RegistroComponent } from './registro/registro.component';
 import { AdminModule } from './admin/admin.module';
 import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
-import { IndexComponent } from './cliente/index/index.component';
+//import { IndexComponent } from './cliente/index/index.component';
 import { FooterComponent } from './footer/footer.component';
-import { ServicoDetalheComponent } from './cliente/servico-detalhe/servico-detalhe.component';
+import { ServicoDetalheComponent } from './cliente/index/servico-detalhe/servico-detalhe.component';
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
@@ -48,7 +48,7 @@ registerLocaleData(localePt, 'pt');
     AgendamentoComponent,
     RegistroComponent,
     EsqueciSenhaComponent,
-    IndexComponent,
+    //IndexComponent,
     FooterComponent,
     ServicoDetalheComponent
   ],
@@ -60,12 +60,12 @@ registerLocaleData(localePt, 'pt');
     ReactiveFormsModule,
     CollapseModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    BsDropdownModule.forRoot(),
+    //BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     GoogleChartsModule.forRoot(),
     AlertModule.forRoot(),
     NgxMaskModule.forRoot(),
-    ModalModule.forRoot(),
+    //ModalModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
@@ -74,6 +74,9 @@ registerLocaleData(localePt, 'pt');
     AngularFireMessagingModule,
     AuthModule,
     AdminModule.forRoot()
+  ],
+  exports: [
+    FooterComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [DatePipe, MessagingService, AsyncPipe,  {

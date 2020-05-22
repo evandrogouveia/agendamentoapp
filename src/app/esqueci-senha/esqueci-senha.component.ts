@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { AuthService } from '../shared/auth/auth.service';
+import { AuthService } from '../login/auth/auth.service';
 import { Router } from '@angular/router';
 import * as CryptoJS from 'crypto-js';
 
