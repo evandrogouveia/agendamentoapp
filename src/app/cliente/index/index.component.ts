@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { BsModalService, ModalDirective } from 'ngx-bootstrap/modal';
+import { SidebarService } from 'src/app/shared/services/sidebar.service';
 
 @Component({
   selector: 'app-index',
@@ -21,10 +22,14 @@ export class IndexComponent implements OnInit {
   @ViewChild('busca') busca: any;
   isDropdown = false;
 
-  constructor() { }
+  constructor(private sidebarService: SidebarService) { }
 
   ngOnInit() {
 
+  }
+
+  executarViaService() {
+    this.sidebarService.toggleNavbar(); // executa o método via service
   }
 
   openModal(): void {
