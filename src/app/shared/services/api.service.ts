@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Agendamento } from '../models/agendamento.model';
 import { Cadastroservico } from '../models/cadastroservico.model';
@@ -12,9 +12,14 @@ import { Usuario } from '../models/user';
 
 export class ApiService {
 
-  private agendamentoCollection: AngularFirestoreCollection<Agendamento> = this.afs.collection('agendamento');
-  private cadastroservicoCollection: AngularFirestoreCollection<Cadastroservico> = this.afs.collection('cadastroservico');
-  private usuariosCollection: AngularFirestoreCollection<Usuario> = this.afs.collection('users');
+  private agendamentoCollection:
+          AngularFirestoreCollection<Agendamento> = this.afs.collection('agendamento');
+  private cadastroservicoCollection:
+          AngularFirestoreCollection<Cadastroservico> = this.afs.collection('cadastroservico', ref => {
+            return ref.orderBy('nomeservico', 'asc');
+          });
+  private usuariosCollection: 
+          AngularFirestoreCollection<Usuario> = this.afs.collection('users');
 
   constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {}
 
@@ -24,6 +29,9 @@ export class ApiService {
 
   getServicos() {
     return this.cadastroservicoCollection.valueChanges();
+  }
+  getServicoDetalhe(servicoId: string): AngularFirestoreDocument<Cadastroservico> {
+    return this.afs.collection('cadastroservico').doc(servicoId);
   }
 
   getUsuarios() {

@@ -26,7 +26,6 @@ import { MessagingService } from './shared/services/messaging.service';
 import { RegistroComponent } from './registro/registro.component';
 import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
 import { FooterComponent } from './footer/footer.component';
-import { ServicoDetalheComponent } from './cliente/index/servico-detalhe/servico-detalhe.component';
 
 import { NgxBootstrapModule } from './ngx-bootstrap.module';
 
@@ -40,8 +39,7 @@ registerLocaleData(localePt, 'pt');
     AgendamentoComponent,
     RegistroComponent,
     EsqueciSenhaComponent,
-    FooterComponent,
-    ServicoDetalheComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,

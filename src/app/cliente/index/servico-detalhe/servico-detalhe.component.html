@@ -5,11 +5,14 @@
 
   <div class="content-detalhe">
     <div class="row">
+    
       <div class="col-lg-7">
-        <h2>Tratamento de unhas, pintura e brilho e unhas postiças</h2>
-        <div class="detalhe-servico">
+        <span class="loading" *ngIf="!(servicos$ | async)"></span>
+        <ng-container *ngIf="servicos$ | async as s; else loading">
+          <h2>{{s.nomeservico}}</h2>
+          <div class="detalhe-servico">
 
-          <div class="imagens-mini">
+            <!--div class="imagens-mini">
             <div class="box-img">
               <img (click)="imgEvent($event)" src="{{imagesUrl.imagem1}}">
             </div>
@@ -22,12 +25,13 @@
             <div class="box-img">
               <img (click)="imgEvent($event)" src="{{imagesUrl.imagem4}}">
             </div>
+          </div-->
+            <div class="imagem-g">
+              <img src="{{s.imageUrl}}">
+              <span>{{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</span>
+            </div>
           </div>
-          <div class="imagem-g">
-            <img src="{{image}}">
-            <span>R$ 1.278,00</span>
-          </div>
-        </div>
+        </ng-container>
       </div>
 
       <div class="col-lg-5">
@@ -36,11 +40,11 @@
             <h5>Selecione uma data</h5>
 
             <div class="box-data mt-3">
-             
-                <bs-datepicker-inline  [bsValue]="bsInlineValue" (bsValueChange)="onValueChange($event)" bsDatepicker
-                  [minDate]="minDate" [bsConfig]="{showWeekNumbers: false}" #picker>
-                </bs-datepicker-inline>
-              
+
+              <bs-datepicker-inline [bsValue]="bsInlineValue" (bsValueChange)="onValueChange($event)" bsDatepicker
+                [minDate]="minDate" [bsConfig]="{showWeekNumbers: false}" #picker>
+              </bs-datepicker-inline>
+
 
             </div>
           </div>
@@ -272,6 +276,6 @@
 
     </div><!-- /row -->
   </div><!-- /content-detalhe -->
-  
+
 </div><!-- /container -->
 <app-footer></app-footer>

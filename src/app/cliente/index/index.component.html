@@ -797,181 +797,24 @@
 
       <div class="row">
 
-        <div id="1" class="col-6 col-lg-4">
+        <div class="col-6 col-lg-4" *ngFor="let s of servicos$ | async; let id = index">
 
           <div class="card-img">
             <div class="box-avaliation">
               <img src="assets/img/icons/star.svg">
               <p>4,5</p>
             </div>
-            <a routerLink="/servico-detalhe">
+            <a routerLink="/index/{{s.id}}">
               <div class="box-img">
-                <img src="assets/img/img-servicos/imagem-1.jpg">
+                <img src="{{s.imageUrl}}">
               </div>
               <!--p>Tratamento de unhas, pintura e brilho e unhas postiças</p-->
-              <p>Tratamento de unhas, pintura e brilho...</p>
+              <p>{{s.nomeservico}} </p>
             </a>
             <div class="box-btn-price">
-              <a routerLink="/servico-detalhe">Agendar</a>
-              <h3>R$ 27,00</h3>
-            </div>
-          </div>
-
-        </div><!-- /col-lg-4 -->
-
-        <div id="2" class="col-6 col-lg-4">
-
-          <div class="card-img">
-
-            <a routerLink="/servico-detalhe">
-              <div class="box-img">
-                <img src="assets/img/img-servicos/imagem-2.jpg">
-              </div>
-              <!--p>Massagem feminina completa</p-->
-              <p>Massagem feminina completa...</p>
-            </a>
-            <div class="box-btn-price">
-              <a routerLink="/servico-detalhe">Agendar</a>
-              <h3>R$ 86,50</h3>
-            </div>
-          </div>
-
-        </div><!-- /col-lg-4 -->
-
-        <div id="3" class="col-6 col-lg-4">
-
-          <div class="card-img">
-            <div class="box-avaliation">
-              <img src="assets/img/icons/star.svg">
-              <p>4,5</p>
-            </div>
-            <a routerLink="/servico-detalhe">
-              <div class="box-img">
-                <img src="assets/img/img-servicos/imagem-3.jpg">
-              </div>
-              <p>Corte estilizado masculino</p>
-            </a>
-            <div class="box-btn-price">
-              <a routerLink="/servico-detalhe">Agendar</a>
-              <h3>R$ 32,00</h3>
-            </div>
-          </div>
-
-        </div><!-- /col-lg-4 -->
-
-        <div id="4" class="col-6 col-lg-4">
-
-          <div class="card-img">
-            <div class="box-avaliation">
-              <img src="assets/img/icons/star.svg">
-              <p>4,5</p>
-            </div>
-            <a routerLink="/servico-detalhe">
-              <div class="box-img">
-                <img src="assets/img/img-servicos/imagem-4.jpg">
-              </div>
-              <p>Penteados especiais para festa</p>
-            </a>
-            <div class="box-btn-price">
-              <a routerLink="/servico-detalhe">Agendar</a>
-              <h3>R$ 70,00</h3>
-            </div>
-          </div>
-
-        </div><!-- /col-lg-4 -->
-
-        <div id="5" class="col-6 col-lg-4">
-
-          <div class="card-img">
-            <a routerLink="/servico-detalhe">
-              <div class="box-img">
-                <img src="assets/img/img-servicos/imagem-5.jpg">
-              </div>
-              <p>Limpeza de pele</p>
-            </a>
-            <div class="box-btn-price">
-              <a routerLink="/servico-detalhe">Agendar</a>
-              <h3>R$ 42,00</h3>
-            </div>
-          </div>
-
-        </div><!-- /col-lg-4 -->
-
-        <div id="6" class="col-6 col-lg-4">
-
-          <div class="card-img">
-            <div class="box-avaliation">
-              <img src="assets/img/icons/star.svg">
-              <p>4,5</p>
-            </div>
-            <a routerLink="/servico-detalhe">
-              <div class="box-img">
-                <img src="assets/img/img-servicos/imagem-6.jpg">
-              </div>
-              <p>Depilação feminina</p>
-            </a>
-            <div class="box-btn-price">
-              <a routerLink="/servico-detalhe">Agendar</a>
-              <h3>R$ 75,00</h3>
-            </div>
-          </div>
-
-        </div><!-- /col-lg-4 -->
-
-        <div id="7" class="col-6 col-lg-4">
-
-          <div class="card-img">
-            <div class="box-avaliation">
-              <img src="assets/img/icons/star.svg">
-              <p>4,5</p>
-            </div>
-            <a routerLink="/servico-detalhe">
-              <div class="box-img">
-                <img src="assets/img/img-servicos/imagem-7.jpg">
-              </div>
-              <p>Corte infantil</p>
-            </a>
-            <div class="box-btn-price">
-              <a routerLink="/servico-detalhe">Agendar</a>
-              <h3>R$ 20,00</h3>
-            </div>
-          </div>
-
-        </div><!-- /col-lg-4 -->
-
-        <div id="8" class="col-6 col-lg-4">
-
-          <div class="card-img">
-            <a routerLink="/servico-detalhe">
-              <div class="box-img">
-                <img src="assets/img/img-servicos/imagem-8.jpg">
-              </div>
-              <p>Ombre hair</p>
-            </a>
-            <div class="box-btn-price">
-              <a routerLink="/servico-detalhe">Agendar</a>
-              <h3>R$ 94,00</h3>
-            </div>
-          </div>
-
-        </div><!-- /col-lg-4 -->
-
-        <div id="9" class="col-6 col-lg-4">
-
-          <div class="card-img">
-            <div class="box-avaliation">
-              <img src="assets/img/icons/star.svg">
-              <p>4,5</p>
-            </div>
-            <a routerLink="/servico-detalhe">
-              <div class="box-img">
-                <img src="assets/img/img-servicos/imagem-9.jpg">
-              </div>
-              <p>Pedicure simples</p>
-            </a>
-            <div class="box-btn-price">
-              <a routerLink="/servico-detalhe">Agendar</a>
-              <h3>R$ 22,00</h3>
+              <a routerLink="/index/{{s.id}}">Agendar</a>
+              <h3 [hidden]="s.valorservico == 0">{{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</h3>
+              <h5 class="mt-2" *ngIf="s.valorservico == 0 ">{{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</h5>
             </div>
           </div>
 

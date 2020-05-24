@@ -1,3 +1,9 @@
+.loading {
+    top: 41%;
+    left: 37%;
+    margin: 0;
+
+}
 .navbar-servico-detalhe{
     width: 100%;
     justify-content: center;

@@ -81,20 +81,6 @@
 /*==================================================================
   [ Form ]*/
 
-.loading {
-    background-image: url('../../assets/img/icons/loading.gif');
-    background-size: contain;
-    width: 80px;
-    height: 80px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    z-index: 9999;
-}
-
 .login100-form {
     width: 475px;
     min-height: 100vh;

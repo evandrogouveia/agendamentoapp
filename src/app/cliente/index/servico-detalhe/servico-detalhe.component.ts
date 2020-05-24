@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { Observable } from 'rxjs';
+import { Cadastroservico } from 'src/app/shared/models/cadastroservico.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from 'src/app/shared/services/api.service';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -8,6 +13,8 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./servico-detalhe.component.css']
 })
 export class ServicoDetalheComponent implements OnInit {
+  servicos$: Observable<Cadastroservico>;
+  loading = false;
   bsInlineValue = null;
   selected: any;
   minDate = new Date();
@@ -20,11 +27,15 @@ export class ServicoDetalheComponent implements OnInit {
   };
   image = 'assets/img/img-servicos/imagem-1.jpg';
 
-  constructor(private datePipe: DatePipe) { 
-    
-  }
+  constructor(
+    private apiService: ApiService,
+    private datePipe: DatePipe,
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit() {
+    const servicoId: string = this.route.snapshot.paramMap.get('id');
+    this.servicos$ = this.apiService.getServicoDetalhe(servicoId).valueChanges();
   }
 
   onValueChange(event: Date): void {
