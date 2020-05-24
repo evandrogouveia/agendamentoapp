@@ -55,9 +55,7 @@
     <!-- / FIM SACOLA MOBILE -->
 
     <a class="navbar-brand" href="#"><img src="assets/img/logo-login.png"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-      (click)="executarViaService()">
+    <button class="navbar-toggler" type="button" (click)="executarViaService()">
       <img src="assets/img/icons/menu.svg">
     </button>
 
@@ -87,11 +85,12 @@
       </div>
     </div>
 
+    <!-- INPUT SEARCH MOBILE -->
     <div class="input-group input-group-mobile">
       <img src="assets/img/icons/lupa-mobile.svg">
-
       <input #busca type="text" class="form-control input-search" placeholder="Nome do serviço que você precisa">
     </div>
+     <!-- /FIM INPUT SEARCH MOBILE -->
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -532,6 +531,259 @@
       </div>
 
     </div>
+
+
+    <!-- INICIO MENU MOBILE -->
+    <div class="menu-mobile" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown" dropdown (isOpenChange)="onOpenChange($event)">
+          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Todos
+          </a>
+          <div class="dropdown-menu dropdown-x" *dropdownMenu aria-labelledby="navbarDropdown">
+
+            <div class="mega-menu">
+              <ul>
+                <li class="menu-item menu-1">
+                  <a href="#">Unhas</a>
+                  <div class="mega-submenu">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Mão</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Pé</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Mão e pé</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Francesinha</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Desenhos</a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-item menu-2">
+                  <a href="#">Cabelos</a>
+                  <div class="mega-submenu">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Cabelo-1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Cabelo-2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Cabelo-3</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-item menu-3">
+                  <a href="#">Barba</a>
+                  <div class="mega-submenu">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Barba-1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Barba-2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Barba-3</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-item menu-2">
+                  <a href="#">Maquiagem</a>
+                  <div class="mega-submenu">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Maquiagem-1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Maquiagem-2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Maquiagem-3</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-item menu-2">
+                  <a href="#">Cabelos</a>
+                  <div class="mega-submenu">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Cabelo-1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Cabelo-2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Cabelo-3</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="menu-item menu-2">
+                  <a href="#">Depilação</a>
+                  <div class="mega-submenu">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Depilação-1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Depilação-2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Depilação-3</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-item menu-2">
+                  <a href="#">Penteados</a>
+                  <div class="mega-submenu">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Penteados-1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Penteados-2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Penteados-3</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="menu-item menu-2">
+                  <a href="#">Rosto</a>
+                  <div class="mega-submenu">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Rosto-1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Rosto-2</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Rosto-3</a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" dropdown (isOpenChange)="onOpenChange($event)">
+          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Unhas
+          </a>
+          <div class="dropdown-menu dropdown-w" *dropdownMenu aria-labelledby="navbarDropdown">
+            <p>Unhas</p>
+
+            <ul class="nav nav-submenu flex-column">
+              <li>
+                <a class="dropdown-item" href="#">Mão</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Pé</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Mão e Pé</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Francesinha</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Desenhos</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Lavagem</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Pintura</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Base</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" dropdown (isOpenChange)="onOpenChange($event)">
+          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cabelos
+          </a>
+          <div class="dropdown-menu dropdown-w" *dropdownMenu aria-labelledby="navbarDropdown">
+            <p>Cabelos</p>
+
+            <ul class="nav nav-submenu flex-column">
+              <li>
+                <a class="dropdown-item" href="#">Ombre hair</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Corte estilizado masculino</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" dropdown (isOpenChange)="onOpenChange($event)">
+          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Barba
+          </a>
+          <div class="dropdown-menu dropdown-w" *dropdownMenu aria-labelledby="navbarDropdown">
+            <p>Barba</p>
+
+            <ul class="nav nav-submenu flex-column">
+              <li>
+                <a class="dropdown-item" href="#">Item 1</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Item 2</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Item 3</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Item 4</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Item 5</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Item 6</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Item 7</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">Item 8</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+    <!-- /FIM MENU MOBILE -->
   </nav>
 
 

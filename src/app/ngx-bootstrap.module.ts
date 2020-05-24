@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import {
     CollapseModule,
@@ -34,7 +33,7 @@ defineLocale('pt-br', ptBrLocale);
   ],
   declarations: []
 })
-export class NgxBootstrapModule { 
+export class NgxBootstrapModule {
     constructor(private bsLocaleService: BsLocaleService) {
         this.bsLocaleService.use('pt-br');
     }

@@ -469,7 +469,8 @@ a.dropdown-toggle{
 }
 .box-btns-mobile,
 .input-group-mobile,
-.dropdown-cart-mobile{
+.dropdown-cart-mobile,
+.menu-mobile{
     display: none;
 }
 
@@ -591,5 +592,21 @@ a.dropdown-toggle{
         position: relative;
         margin-right: 8px;
         top: -3px;
+    }
+    .menu-mobile{
+        display: block;
+        width: 100%;
+    }
+    .menu-mobile ul{
+        display: flex;
+        flex-direction: row;
+    }
+    .navbar-nav .dropdown-menu.dropdown-w{
+        position: absolute;
+        width: 93vw;
+        left: -65px !important;
+    }
+    .navbar .dropdown-w .nav-submenu{
+        width: 100%;
     }
 }
