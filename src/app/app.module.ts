@@ -1,46 +1,38 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DatePipe, registerLocaleData, AsyncPipe } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { AgendamentoComponent } from './cliente/agendamento/agendamento.component';
-import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
-//import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-//import { ModalModule } from 'ngx-bootstrap/modal';
-import { TabsModule } from 'ngx-bootstrap/tabs';
 import { GoogleChartsModule } from 'angular-google-charts';
-import { AlertModule } from 'ngx-bootstrap/alert';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
 import { environment } from 'src/environments/environment';
-import { defineLocale } from 'ngx-bootstrap/chronos';
-import { ptBrLocale } from 'ngx-bootstrap/locale';
-import {LOCALE_ID} from '@angular/core';
-import localePt from '@angular/common/locales/pt';
-import {registerLocaleData, AsyncPipe} from '@angular/common';
+
 import { AuthModule } from './login/auth/auth.module';
-import { DatePipe } from '@angular/common';
+import { AdminModule } from './admin/admin.module';
 import { MessagingService } from './shared/services/messaging.service';
 import { RegistroComponent } from './registro/registro.component';
-import { AdminModule } from './admin/admin.module';
 import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
-//import { IndexComponent } from './cliente/index/index.component';
 import { FooterComponent } from './footer/footer.component';
 import { ServicoDetalheComponent } from './cliente/index/servico-detalhe/servico-detalhe.component';
 
+import { NgxBootstrapModule } from './ngx-bootstrap.module';
+
+
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
-defineLocale('pt-br', ptBrLocale);
 registerLocaleData(localePt, 'pt');
 @NgModule({
   declarations: [
@@ -48,7 +40,6 @@ registerLocaleData(localePt, 'pt');
     AgendamentoComponent,
     RegistroComponent,
     EsqueciSenhaComponent,
-    //IndexComponent,
     FooterComponent,
     ServicoDetalheComponent
   ],
@@ -58,14 +49,9 @@ registerLocaleData(localePt, 'pt');
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    CollapseModule.forRoot(),
-    BsDatepickerModule.forRoot(),
-    //BsDropdownModule.forRoot(),
-    TabsModule.forRoot(),
+    NgxBootstrapModule,
     GoogleChartsModule.forRoot(),
-    AlertModule.forRoot(),
     NgxMaskModule.forRoot(),
-    //ModalModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
@@ -73,7 +59,7 @@ registerLocaleData(localePt, 'pt');
     AngularFireStorageModule,
     AngularFireMessagingModule,
     AuthModule,
-    AdminModule.forRoot()
+    AdminModule.forRoot(),
   ],
   exports: [
     FooterComponent
@@ -86,8 +72,4 @@ registerLocaleData(localePt, 'pt');
 
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(private bsLocaleService: BsLocaleService) {
-    this.bsLocaleService.use('pt-br');
-    }
- }
+export class AppModule {}

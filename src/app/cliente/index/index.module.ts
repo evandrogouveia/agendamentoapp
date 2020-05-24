@@ -3,18 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { IndexRoutingModule } from './index-routing.module';
 import { IndexComponent } from './index.component';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { NgxBootstrapModule } from 'src/app/ngx-bootstrap.module';
 
 
 @NgModule({
-  declarations: [IndexComponent ],
+  declarations: [IndexComponent],
   imports: [
     CommonModule,
     IndexRoutingModule,
-    ModalModule.forRoot(),
-    BsDropdownModule.forRoot()
+    NgxBootstrapModule,
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+
 })
-export class IndexModule { }
+export class IndexModule {}

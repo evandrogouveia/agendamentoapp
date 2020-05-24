@@ -29,7 +29,9 @@
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.css"
             ],
-            "scripts": ["./node_modules/crypto-js/crypto-js.js"],
+            "scripts": [
+              "./node_modules/crypto-js/crypto-js.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -88,7 +90,9 @@
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.css"
             ],
-            "scripts": ["./node_modules/crypto-js/crypto-js.js"],
+            "scripts": [
+              "./node_modules/crypto-js/crypto-js.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

@@ -476,6 +476,9 @@ a.dropdown-toggle{
 
 
 @media (max-width: 575px) { 
+    .overlay{
+        z-index: 10;
+    }
     .form-search {
         display: none;
     }
