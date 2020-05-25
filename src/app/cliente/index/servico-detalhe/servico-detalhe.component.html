@@ -12,9 +12,9 @@
           <h2>{{s.nomeservico}}</h2>
           <div class="detalhe-servico">
 
-            <!--div class="imagens-mini">
+            <div class="imagens-mini">
             <div class="box-img">
-              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem1}}">
+              <img (click)="imgEvent($event)" src="{{s.imageUrl}}">
             </div>
             <div class="box-img">
               <img (click)="imgEvent($event)" src="{{imagesUrl.imagem2}}">
@@ -25,9 +25,9 @@
             <div class="box-img">
               <img (click)="imgEvent($event)" src="{{imagesUrl.imagem4}}">
             </div>
-          </div-->
+          </div>
             <div class="imagem-g">
-              <img src="{{s.imageUrl}}">
+              <img src="{{s.imageUrl}}" #imagePrincipal>
               <span>{{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</span>
             </div>
           </div>

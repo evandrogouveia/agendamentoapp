@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Cadastroservico } from 'src/app/shared/models/cadastroservico.model';
@@ -13,6 +13,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./servico-detalhe.component.css']
 })
 export class ServicoDetalheComponent implements OnInit {
+  @ViewChild('imagePrincipal') imagePrincipal: ElementRef;
   servicos$: Observable<Cadastroservico>;
   loading = false;
   bsInlineValue = null;
@@ -51,6 +52,6 @@ export class ServicoDetalheComponent implements OnInit {
   }
 
   imgEvent(event) {
-    this.image = event.target.src;
+    this.imagePrincipal = event.target.src;
   }
 }
