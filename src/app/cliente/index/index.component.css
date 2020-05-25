@@ -376,6 +376,12 @@ a.dropdown-toggle{
     font-weight: 800;
     margin: 40px 0px 50px;
 }
+.section-servicos .box-servicos{
+    min-height: 100vh;
+}
+.loading{
+    top: 50vh;
+}
 .section-servicos .card-img{
     width: 100%;
     margin-bottom: 60px;

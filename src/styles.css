@@ -115,7 +115,9 @@ html, body{
   .bs-datepicker{
     box-shadow: none;
   }
-  .ng-tns-c2-2, .bs-datepicker-container{
+   .bs-datepicker-container, 
+   bs-days-calendar-view, 
+   bs-datepicker-inline-container{
     min-width: 100% !important;
     width: 100% !important;
   }

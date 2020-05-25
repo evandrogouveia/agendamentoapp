@@ -25,7 +25,6 @@ import { AdminModule } from './admin/admin.module';
 import { MessagingService } from './shared/services/messaging.service';
 import { RegistroComponent } from './registro/registro.component';
 import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
-import { FooterComponent } from './footer/footer.component';
 
 import { NgxBootstrapModule } from './ngx-bootstrap.module';
 
@@ -39,7 +38,6 @@ registerLocaleData(localePt, 'pt');
     AgendamentoComponent,
     RegistroComponent,
     EsqueciSenhaComponent,
-    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -58,9 +56,6 @@ registerLocaleData(localePt, 'pt');
     AngularFireMessagingModule,
     AuthModule,
     AdminModule.forRoot(),
-  ],
-  exports: [
-    FooterComponent
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [DatePipe, MessagingService, AsyncPipe,  {

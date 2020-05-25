@@ -90,7 +90,7 @@
       <img src="assets/img/icons/lupa-mobile.svg">
       <input #busca type="text" class="form-control input-search" placeholder="Nome do serviço que você precisa">
     </div>
-     <!-- /FIM INPUT SEARCH MOBILE -->
+    <!-- /FIM INPUT SEARCH MOBILE -->
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -792,36 +792,38 @@
     <div class="text-center">
       <h1>Serviços</h1>
     </div>
-
+    
     <div class="box-servicos">
+      <span class="loading" *ngIf="!(servicos$ | async)"></span>
+        <div class="row">
 
-      <div class="row">
+          <div class="col-6 col-lg-4" *ngFor="let s of servicos$ | async">
 
-        <div class="col-6 col-lg-4" *ngFor="let s of servicos$ | async; let id = index">
-
-          <div class="card-img">
-            <div class="box-avaliation">
-              <img src="assets/img/icons/star.svg">
-              <p>4,5</p>
-            </div>
-            <a routerLink="/index/{{s.id}}">
-              <div class="box-img">
-                <img src="{{s.imageUrl}}">
+            <div class="card-img">
+              <div class="box-avaliation">
+                <img src="assets/img/icons/star.svg">
+                <p>4,5</p>
               </div>
-              <!--p>Tratamento de unhas, pintura e brilho e unhas postiças</p-->
-              <p>{{s.nomeservico}} </p>
-            </a>
-            <div class="box-btn-price">
-              <a routerLink="/index/{{s.id}}">Agendar</a>
-              <h3 [hidden]="s.valorservico == 0">{{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</h3>
-              <h5 class="mt-2" *ngIf="s.valorservico == 0 ">{{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</h5>
+              <a routerLink="/index/{{s.id}}">
+                <div class="box-img">
+                  <img src="{{s.imageUrl}}">
+                </div>
+                <!--p>Tratamento de unhas, pintura e brilho e unhas postiças</p-->
+                <p>{{s.nomeservico}} </p>
+              </a>
+              <div class="box-btn-price">
+                <a routerLink="/index/{{s.id}}">Agendar</a>
+                <h3 [hidden]="s.valorservico == 0">
+                  {{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</h3>
+                <h5 class="mt-2" *ngIf="s.valorservico == 0 ">
+                  {{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</h5>
+              </div>
             </div>
-          </div>
 
-        </div><!-- /col-lg-4 -->
+          </div><!-- /col-lg-4 -->
 
-      </div><!-- /row -->
-
+        </div><!-- /row -->
+      
     </div><!-- /box-servicos -->
   </div><!-- /section-servicos -->
 

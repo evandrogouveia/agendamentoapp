@@ -23,7 +23,7 @@ export class CadastroServicoComponent implements OnInit {
   cadastroservicoForm = this.fb.group({
     id: [undefined],
     nomeservico: ['', [Validators.required]],
-    imageUrl: [''],
+    imagem1: [''],
     valorservico: ['', [Validators.required]]
   });
 
