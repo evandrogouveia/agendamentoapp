@@ -17,11 +17,14 @@
 }
 .imagens-mini{
     width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
 }
 .imagens-mini .box-img{
     width: 81px;
     height: 78px;
-    margin: 10px 0px 20px 0px;
+    margin: 0px 0px 20px 0px;
     position: relative;
     overflow: hidden;
     border-radius: 8px;

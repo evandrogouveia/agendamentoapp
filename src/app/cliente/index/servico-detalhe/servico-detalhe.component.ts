@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./servico-detalhe.component.css']
 })
 export class ServicoDetalheComponent implements OnInit {
-  @ViewChild('imagePrincipal') imagePrincipal: ElementRef;
+ 
   servicos$: Observable<Cadastroservico>;
   loading = false;
   bsInlineValue = null;
@@ -26,7 +26,8 @@ export class ServicoDetalheComponent implements OnInit {
     imagem3 : 'assets/img/img-servicos/2.jpg',
     imagem4 : 'assets/img/img-servicos/3.jpg',
   };
-  image = 'assets/img/img-servicos/imagem-1.jpg';
+
+  imageClick;
 
   constructor(
     private apiService: ApiService,
@@ -52,6 +53,6 @@ export class ServicoDetalheComponent implements OnInit {
   }
 
   imgEvent(event) {
-    this.imagePrincipal = event.target.src;
+    this.imageClick = event.target.src;
   }
 }

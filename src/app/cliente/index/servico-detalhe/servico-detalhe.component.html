@@ -14,20 +14,20 @@
 
             <div class="imagens-mini">
             <div class="box-img">
-              <img (click)="imgEvent($event)" src="{{s.imageUrl}}">
+              <img (click)="imgEvent($event)" src="{{s.imagem1}}">
             </div>
             <div class="box-img">
-              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem2}}">
+              <img (click)="imgEvent($event)" src="{{s.imagem2}}">
             </div>
             <div class="box-img">
-              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem3}}">
+              <img (click)="imgEvent($event)" src="{{s.imagem3}}">
             </div>
-            <div class="box-img">
-              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem4}}">
+            <div *ngIf="s.imagem4" class="box-img">
+              <img (click)="imgEvent($event)" src="{{s.imagem4}}">
             </div>
           </div>
             <div class="imagem-g">
-              <img src="{{s.imageUrl}}" #imagePrincipal>
+              <img [src]="imageClick ? imageClick : s.imagem1">
               <span>{{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</span>
             </div>
           </div>
