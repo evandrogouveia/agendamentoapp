@@ -74,7 +74,9 @@
                 <img src="assets/img/icons/lupa-search.svg" class="img-lupa">
 
                 <input #busca type="text" class="form-control input-search"
-                  placeholder="Nome do serviço que você precisa">
+                  placeholder="Nome do serviço que você precisa" 
+                  (keyup.enter)="searchServicos($event)" 
+                  (blur)="searchServicos($event)">
 
                 <div class="input-group-append">
                   <button class="btn-search" type="button">buscar</button>
@@ -530,7 +532,11 @@
       <div class="input-group input-group-mobile">
         <img src="assets/img/icons/lupa-mobile.svg">
         <input #busca type="text" class="form-control input-search" 
-                placeholder="Nome do serviço que você precisa" (click)="onOpenChange($event)">
+                placeholder="Nome do serviço que você precisa" 
+                (click)="onOpenChange($event)"
+                (keyup.enter)="searchServicos($event)"
+                (blur)="busca.value = ''"
+                >
       </div>
       <!-- /FIM INPUT SEARCH MOBILE -->
 

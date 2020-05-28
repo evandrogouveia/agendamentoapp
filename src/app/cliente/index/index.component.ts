@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2, ElementRef, HostListener } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { BsModalService, ModalDirective } from 'ngx-bootstrap/modal';
 import { SidebarService } from 'src/app/shared/services/sidebar.service';
@@ -22,18 +22,21 @@ import { ApiService } from 'src/app/shared/services/api.service';
 
 export class IndexComponent implements OnInit {
   servicos$: Observable<Cadastroservico[]>;
+  filtroServicos$: Observable<Cadastroservico[]>;
 
   @ViewChild('childModal') childModal: ModalDirective;
-  @ViewChild('busca') busca: any;
+  @ViewChild('busca') busca: ElementRef;
+ 
   isDropdown = false;
 
   scrollPosition;
 
+
   constructor(
-    private apiService: ApiService, 
+    private apiService: ApiService,
     private sidebarService: SidebarService,
     private renderer: Renderer2
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.servicos$ = this.apiService.getServicos();
@@ -56,8 +59,19 @@ export class IndexComponent implements OnInit {
   onOpenChange(data: boolean): void {
     this.isDropdown = data;
   }
+
   closeOverlay(): void {
     this.isDropdown = false;
+    this.busca.nativeElement.blur();
+    console.log(this.isDropdown)
+  }
+
+  searchServicos(event) {
+    this.servicos$ = this.apiService.searchByName(
+      event.target.value.charAt(0).toUpperCase() + event.target.value.substr(1).toLowerCase()
+    );
+    this.childModal.hide();
+    this.closeOverlay();
   }
 
 }
