@@ -1,35 +1,39 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light navbar-servico-detalhe">
+    <button class="navbar-toggler" type="button" (click)="executarViaService()">
+      <img src="assets/img/icons/menu.svg">
+    </button>
     <a class="navbar-brand" href="#"><img src="assets/img/logo-login.png"></a>
+    <div class="space"></div>
   </nav>
 
   <div class="content-detalhe">
     <div class="row">
-    
-      <div class="col-lg-7">
+
+      <div class="col-12 col-lg-7">
         <span class="loading" *ngIf="!(servicos$ | async)"></span>
         <ng-container *ngIf="servicos$ | async as s; else loading">
           <h2>{{s.nomeservico}}</h2>
           <div class="detalhe-servico">
 
             <div class="imagens-mini">
-            <div class="box-img">
-              <!--img (click)="imgEvent($event)" src="{{s.imagem1}}"-->
-              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem1}}">
+              <div class="box-img">
+                <!--img (click)="imgEvent($event)" src="{{s.imagem1}}"-->
+                <img (click)="imgEvent($event)" src="{{imagesUrl.imagem1}}">
+              </div>
+              <div class="box-img">
+                <!--img (click)="imgEvent($event)" src="{{s.imagem2}}"-->
+                <img (click)="imgEvent($event)" src="{{imagesUrl.imagem2}}">
+              </div>
+              <div class="box-img">
+                <!--img (click)="imgEvent($event)" src="{{s.imagem3}}"-->
+                <img (click)="imgEvent($event)" src="{{imagesUrl.imagem3}}">
+              </div>
+              <div class="box-img">
+                <!--img (click)="imgEvent($event)" src="{{s.imagem4}}"-->
+                <img (click)="imgEvent($event)" src="{{imagesUrl.imagem4}}">
+              </div>
             </div>
-            <div class="box-img">
-              <!--img (click)="imgEvent($event)" src="{{s.imagem2}}"-->
-              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem2}}">
-            </div>
-            <div class="box-img">
-              <!--img (click)="imgEvent($event)" src="{{s.imagem3}}"-->
-              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem3}}">
-            </div>
-            <div class="box-img">
-              <!--img (click)="imgEvent($event)" src="{{s.imagem4}}"-->
-              <img (click)="imgEvent($event)" src="{{imagesUrl.imagem4}}">
-            </div>
-          </div>
             <div class="imagem-g">
               <!--img [src]="imageClick ? imageClick : s.imagem1"-->
               <img src="{{s.imageUrl}}">
@@ -39,7 +43,7 @@
         </ng-container>
       </div>
 
-      <div class="col-lg-5">
+      <div class="col-12 col-lg-5">
         <div class="box-calendario-horario">
           <div class="form-group form-group-datepicker" [hidden]="selected">
             <h5>Selecione uma data</h5>
@@ -283,4 +287,21 @@
   </div><!-- /content-detalhe -->
 
 </div><!-- /container -->
+
+<div class="box-btns-mobile">
+  <div [hidden]="selected" class="links">
+    <a href=""><img src="assets/img/icons/home.svg"> Home</a>
+
+    <a href=""><img src="assets/img/icons/sacola-mobile.svg"></a>
+
+    <a href=""><img src="assets/img/icons/agenda.svg"></a>
+
+    <a href=""><img src="assets/img/icons/perfil.svg"></a>
+  </div>
+
+  <div *ngIf="selected" class="buttons buttons-mobile">
+    <button (click)="backCalendar()">voltar</button>
+    <button>Concluir agendamento</button>
+  </div>
+</div>
 <app-footer></app-footer>

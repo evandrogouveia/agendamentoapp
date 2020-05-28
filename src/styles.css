@@ -60,6 +60,7 @@ html, body{
   .theme-green .bs-datepicker-head{
     background-color: #fff !important; 
   }
+  
   .theme-green .bs-datepicker-head button{
     color: #636464 !important;
     font-size: 20px;
@@ -115,12 +116,7 @@ html, body{
   .bs-datepicker{
     box-shadow: none;
   }
-   .bs-datepicker-container, 
-   bs-days-calendar-view, 
-   bs-datepicker-inline-container{
-    min-width: 100% !important;
-    width: 100% !important;
-  }
+   
   .tab-content{
     border:1px solid #dee2e6;
     border-top: none;
@@ -136,6 +132,46 @@ html, body{
  
 
   /* ======================= RESPONSIVO =======================*/
+  @media (max-width: 575px) {
+    .content-detalhe .box-calendario-horario{
+      height: 395px !important;
+    }
+    .bs-datepicker-container{
+      padding: 0;
+    }
+    .box-calendario-horario .form-group-datepicker h5{
+      margin: 20px 0 15px !important;
+    }
+    .box-data{
+      margin-top: 0 !important;
+    }
+    .bs-datepicker-body table{
+      width:85.4vw;
+      height: 250px;
+    } 
+    .bs-datepicker-body table th{
+      font-size: 16px;
+      color: #636464;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .bs-datepicker-body table td span{
+      font-size: 20px;
+      font-weight: 600;
+      color: #636464;
+    }
+    .bs-datepicker-body table td span.is-highlighted:not(.disabled):not(.selected),
+    .theme-green .bs-datepicker-body table td span.selected{
+      font-size: 20px;
+    }
+    .bs-datepicker-body table.days span{
+      width: 30px;
+      height: 30px;
+      padding-top: 0px;
+    }
+  }
+
+
   @media (min-width: 768px) {
     #sidebar-wrapper {
       margin-left: 0;

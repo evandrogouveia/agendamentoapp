@@ -8,6 +8,7 @@ import { ServicoDetalheComponent } from './servico-detalhe/servico-detalhe.compo
 import { FooterComponent } from '../../footer/footer.component';
 
 
+
 @NgModule({
   declarations: [
     IndexComponent,
