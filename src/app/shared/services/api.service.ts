@@ -4,6 +4,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { Agendamento } from '../models/agendamento.model';
 import { Cadastroservico } from '../models/cadastroservico.model';
 import { Usuario } from '../models/user';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -54,6 +55,11 @@ export class ApiService {
 
   deleteServico(a: Cadastroservico) {
     return this.cadastroservicoCollection.doc(a.id).delete();
+  }
+
+  searchByName(name: string): Observable<Cadastroservico[]> {
+    return this.afs.collection<Cadastroservico>('cadastroservico',
+    ref => ref.orderBy('nomeservico').startAt(name).endAt(name + '\uf8ff')).valueChanges();
   }
 
 }

@@ -94,3 +94,8 @@
     margin:0 auto;
     display: block;
 }
+@media (max-width: 575px) { 
+    .bg-footer{
+        display: none;
+    }
+}

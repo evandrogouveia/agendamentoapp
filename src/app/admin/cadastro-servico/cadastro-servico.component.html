@@ -32,7 +32,7 @@
             <img class="img-upload" [src]="imagemQuatroSrc" width="200px" height="200px" (click)="fileUploaderFour.click()">
             <input type="file" #fileUploaderFour accept="image/*" class="form-control"
               id="imagem4" aria-describedby="nome" placeholder="imagem" (change)="showPreviewImagemQuatro($event)" hidden>
-              <button (click)="removeImg()">Remover</button>
+              <!--button (click)="removeImg()">Remover</button-->
           </div>
 
           <div class="col col-xl-4">
@@ -64,7 +64,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th scope="col" colspan="4">Imagens</th>
+                <th scope="col">Imagens</th>
                 <th scope="col">Nome do serviço</th>
                 <th scope="col">Valor</th>
                 <th scope="col">Editar</th>
@@ -73,10 +73,10 @@
             </thead>
             <tbody>
               <tr *ngFor="let s of servicos$ | async">
-                <th scope="row"><img src="{{s.imagem1}}"></th>
-                <th scope="row"><img src="{{s.imagem2}}"></th>
+                <th scope="row"><img src="{{s.imageUrl}}"></th>
+                <!--th scope="row"><img src="{{s.imagem2}}"></th>
                 <th scope="row"><img src="{{s.imagem3}}"></th>
-                <th scope="row"><img *ngIf="s.imagem4" src="{{s.imagem4}}"></th>
+                <th scope="row"><img *ngIf="s.imagem4" src="{{s.imagem4}}"></th-->
                 <td>{{s.nomeservico}}</td>
                 <td>
                   <p class="m-0" [hidden]="s.valorservico == 0">{{s.valorservico | currency:'BRL':true}}</p>
