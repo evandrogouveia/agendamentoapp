@@ -1,5 +1,5 @@
 {
-  "name": "belooapp",
+  "name": "sistema-agendamento",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -55,5 +55,17 @@
   },
   "browser": {
     "crypto": false
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evandrogouveia/agendamentoapp.git.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evandrogouveia/agendamentoapp.git/issues"
+  },
+  "homepage": "https://github.com/evandrogouveia/agendamentoapp.git#readme"
 }
