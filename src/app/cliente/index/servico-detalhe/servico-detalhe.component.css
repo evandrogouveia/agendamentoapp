@@ -29,7 +29,7 @@
     transition: all 0.2s;
 }
 .item-detalhe-header a::before{
-    content: url('/../assets/img/icons/voltar.svg');
+    content: url('/assets/img/icons/voltar.svg');
     top: 17px;
     left: 28px;
     position: absolute;
@@ -38,7 +38,7 @@
     background-color: #e9724c;
 }
 .item-detalhe-header a:hover::before{
-    content: url('/../assets/img/icons/voltar-white.svg');
+    content: url('/assets/img/icons/voltar-white.svg');
     top: 17px;
     left: 28px;
     position: absolute;
