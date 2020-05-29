@@ -66,6 +66,12 @@ html, body{
     font-size: 20px;
     text-transform: uppercase;
   }
+  .bs-datepicker-container,
+  bs-datepicker-inline-container,
+  bs-days-calendar-view{
+    min-width: 100%;
+    width: 100%;
+  }
   .bs-datepicker-head button.previous span,
   .bs-datepicker-head button.next span{
     font-size: 45px;

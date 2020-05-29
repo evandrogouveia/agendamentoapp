@@ -15,6 +15,37 @@
     display: flex;
     align-items: center;
 }
+.item-detalhe-header{
+    display: flex;
+}
+.item-detalhe-header a{
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: #f2ebe7;
+    margin-right: 47px;
+    transition: all 0.2s;
+}
+.item-detalhe-header a::before{
+    content: url('/../assets/img/icons/voltar.svg');
+    top: 17px;
+    left: 28px;
+    position: absolute;
+}
+.item-detalhe-header a:hover{
+    background-color: #e9724c;
+}
+.item-detalhe-header a:hover::before{
+    content: url('/../assets/img/icons/voltar-white.svg');
+    top: 17px;
+    left: 28px;
+    position: absolute;
+}
+.item-detalhe-header h2{
+    width: 81%;
+}
 .imagens-mini{
     width: 100px;
     display: flex;
@@ -162,7 +193,8 @@
 .buttons button:hover:last-child {
     background-color: #e88f73;
 }
-.navbar-servico-detalhe .navbar-toggler{
+.navbar-servico-detalhe .navbar-toggler,
+.box-btns-mobile{
     display: none;
 }
 
@@ -175,6 +207,9 @@
     }
     .space{
         width: 25%;
+    }
+    .item-detalhe-header a{
+        display: none;
     }
     .navbar-servico-detalhe .navbar-toggler{
         display: block;
