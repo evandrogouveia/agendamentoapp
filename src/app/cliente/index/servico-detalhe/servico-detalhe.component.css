@@ -200,6 +200,9 @@
 
 @media (max-width: 575px) { 
 /*================= SERVICO DETALHE =================*/
+    .loading{
+        display: none;
+    }
     .navbar-servico-detalhe {
         padding-left: 0;
         padding-right: 0;

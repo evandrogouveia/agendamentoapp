@@ -104,7 +104,7 @@ a.dropdown-toggle{
 }
 .dropdown-cart .dropdown-menu {
     width: 570px;
-    left: -75vh !important;
+    left: -523px !important;
 }
 .dropdown-cart .dropdown-menu .nav-submenu{
     background-color: #fafafa;
@@ -671,62 +671,19 @@ a.dropdown-toggle{
         display: flex;
         flex-direction: row;
     }
-    .nav-item.dropdown{
-        margin-right: 0;
-        width: 30%;
+    .menu-mobile ul li {
+        margin-right: 11%;
+        height: 50px;
     }
-    .mega-menu > ul > li.active .mega-submenu {
-        top:-10px;
-        right:0;
-        left: 100%;
-        z-index: 99;
-        padding:20px 30px;
-        background-color: #fafafa;
-        color:#fff;
-        border: 2px solid #e88f73;
-        border-left: none;
-        border-bottom-right-radius: 5px;
-        border-top-right-radius: 5px;
-        overflow: hidden;
-        visibility: visible;
-        width:500px;
-        height: 300px;
-        margin: 0;
+    .menu-mobile ul li a{
+        font-size: 16px;
+        color: #403f3f;
+        font-weight: 500;
     }
-    .dropdown-menu .mega-menu,
-    .mega-menu > ul > li .mega-submenu{
-        width: 46.5vw !important;
-    }
-    .mega-menu > ul > li .mega-submenu{
-        padding: 20px 10px !important;
-    }
-    .navbar-nav li:nth-child(1) .dropdown-menu{
-        position: absolute;
-        width: 93.5vw;
-        left: -3px !important;
-        border-bottom-right-radius: .25rem !important;
-        border-top-right-radius: .25rem !important;
-    }
-    .navbar-nav li:nth-child(1) .dropdown-menu .mega-menu ul{
-        flex-direction: column;
-    }
-    .navbar-nav li:nth-child(2) .dropdown-menu{
-        position: absolute;
-        width: 93.5vw;
-        left: -24vw !important;
-    }
-    .navbar-nav li:nth-child(3) .dropdown-menu{
-        position: absolute;
-        width: 93.5vw;
-        left: -46.6vw !important;
-    }
-    .navbar-nav li:nth-child(4) .dropdown-menu{
-        position: absolute;
-        width: 93vw;
-        left: -69.7vw !important;
-    }
-    .navbar .dropdown-w .nav-submenu{
-        width: 100%;
+    .menu-mobile ul li a.active{
+        color: #e9724c;
+        border-bottom: 3px solid #e9724c;
+        padding-bottom: 0;
     }
     .header-fixed-mobile{
         width: 100%;
