@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sistema-agendamento",
+            "outputPath": "dist/belooapp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sistema-agendamento:build"
+            "browserTarget": "belooapp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sistema-agendamento:build:production"
+              "browserTarget": "belooapp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sistema-agendamento:build"
+            "browserTarget": "belooapp:build"
           }
         },
         "test": {
@@ -122,11 +122,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sistema-agendamento:serve"
+            "devServerTarget": "belooapp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sistema-agendamento:serve:production"
+              "devServerTarget": "belooapp:serve:production"
             }
           }
         },
@@ -142,5 +142,5 @@
       }
     }
   },
-  "defaultProject": "sistema-agendamento"
+  "defaultProject": "belooapp"
 }
