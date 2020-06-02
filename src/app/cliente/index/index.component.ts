@@ -63,7 +63,6 @@ export class IndexComponent implements OnInit {
   closeOverlay(): void {
     this.isDropdown = false;
     this.busca.nativeElement.blur();
-    console.log(this.isDropdown)
   }
 
   searchServicos(event) {
@@ -72,6 +71,7 @@ export class IndexComponent implements OnInit {
     );
     this.childModal.hide();
     this.closeOverlay();
+    this.busca.nativeElement.value = '';
   }
 
 }

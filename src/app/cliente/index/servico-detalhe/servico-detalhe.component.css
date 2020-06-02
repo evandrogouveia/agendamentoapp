@@ -9,105 +9,48 @@
     justify-content: center;
 }
 .content-detalhe {
+    width: 52%;
+    margin: 0 auto;
     padding: 60px 0 140px;
 }
+.content-detalhe h4{
+    font-size: 25px;
+    color: #2b2b2b;
+    margin-bottom: 20px;
+}
 .content-detalhe .detalhe-servico{
-    display: flex;
-    align-items: center;
+   display: flex;
+   background-color: #f5eae3;
+   border-radius: 10px;
+   margin-bottom: 40px;
 }
-.item-detalhe-header{
-    display: flex;
-}
-.item-detalhe-header a{
-    display: flex;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-    background-color: #f2ebe7;
-    margin-right: 47px;
-    transition: all 0.2s;
-}
-.item-detalhe-header a::before{
-    content: url('/assets/img/icons/voltar.svg');
-    top: 17px;
-    left: 28px;
-    position: absolute;
-}
-.item-detalhe-header a:hover{
-    background-color: #e9724c;
-}
-.item-detalhe-header a:hover::before{
-    content: url('/assets/img/icons/voltar-white.svg');
-    top: 17px;
-    left: 28px;
-    position: absolute;
-}
-.item-detalhe-header h2{
-    width: 81%;
-}
-.imagens-mini{
-    width: 100px;
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
-}
-.imagens-mini .box-img{
-    width: 81px;
-    height: 78px;
-    margin: 0px 0px 20px 0px;
-    position: relative;
+.content-detalhe .detalhe-servico .box-img{
+    width: 125px;
+    height: 115px;
     overflow: hidden;
-    border-radius: 8px;
-}
-.imagens-mini .box-img img{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    transition: 0.4s;
-}
-.imagens-mini img:hover{
-    cursor: pointer;
-    transform: scale(1.1);
-}
-.imagens-mini img:last-child{
-    margin-bottom: 0;
-}
-.imagem-g{
-    width: 85%;
-    height: 382px;
     position: relative;
-    border-radius: 5px;
-    overflow: hidden;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
 }
-.imagem-g img{
+.textos{
+    margin-left: 15px;
+    padding-top: 7px;
+}
+.content-detalhe .detalhe-servico .box-img img{
     width: 100%;
     height: 100%;
     position: absolute;
 }
-.imagem-g span{
+.textos p{
+    font-size: 20px;
+    color: #2b2b2b;
+    height: 48px;
+}
+.textos h3 {
     font-size: 30px;
     color: #2b2b2b;
-    font-weight: 500;
-    background-color: #f5eae3;
-    position: absolute;
-    bottom: 11px;
-    left: 0;
-    margin: 0 auto;
-    right: 0;
-    width: 65%;
-    height: 56px;
-    text-align: center;
-    border-radius: 5px;
-    opacity: 91%;
-    padding-top: 6px;
 }
 
-.content-detalhe h2 {
-    font-size: 32px;
-    color: #2b2b2b;
-    margin-bottom: 30px;
-}
 .content-detalhe .box-calendario-horario{
     border: 1px solid #b2b2b2;
     border-radius: 10px;

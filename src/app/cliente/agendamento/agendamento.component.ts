@@ -84,6 +84,7 @@ export class AgendamentoComponent implements OnInit {
     } else {
       this.servicoInput.splice(this.servicoInput.indexOf(s), 1);
     }
+    
     const parcial = (acumulador, valor) => acumulador + valor;
     this.totalservico = this.servicoInput.map(res => parseFloat(res.valorservico)).reduce(parcial, 0);
   }

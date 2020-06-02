@@ -651,16 +651,27 @@ a.dropdown-toggle{
         bottom: 0;
         z-index: 5;
     }
-    .box-btns-mobile a:first-child{
+    .box-btns-mobile a{
+        display: flex;
         background-color: #f5eae3;
         color: #e9724c;
         padding: 8px 15px 6px;
         border-radius: 30px;
         text-decoration: none;
     }
-    .box-btns-mobile a:first-child img{
+    .box-btns-mobile a:first-child:before{
+        content: url('/assets/img/icons/home.svg');
+    }
+    .box-btns-mobile a span{
+        display:none;
+    }
+    .box-btns-mobile a:focus span,
+    .box-btns-mobile a.active span{
+        display: block;
+    }
+    .box-btns-mobile a img{
         position: relative;
-        margin-right: 8px;
+        margin-right: 5px;
         top: -3px;
     }
     .menu-mobile{
