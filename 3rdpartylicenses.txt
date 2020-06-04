@@ -439,8 +439,6 @@ ngx-bootstrap/collapse
 
 ngx-bootstrap/component-loader
 
-undefined
-
 ngx-bootstrap/datepicker
 
 ngx-bootstrap/dropdown
@@ -746,6 +744,8 @@ If the Work includes a "NOTICE" text file as part of its distribution, then any 
 
 END OF TERMS AND CONDITIONS
 
+
+undefined
 
 zone.js
 MIT
