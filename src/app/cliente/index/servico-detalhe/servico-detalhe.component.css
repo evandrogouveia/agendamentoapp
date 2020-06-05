@@ -24,6 +24,39 @@
    border-radius: 10px;
    margin-bottom: 40px;
 }
+.breadcrumb{
+    background: #fff;
+    padding-left: 0;
+}
+.breadcrumb-item{
+    font-size: 20px;
+}
+.breadcrumb-item a{
+    color: #9e9e9e !important;
+    text-decoration: none;
+    display: block;
+    padding-left: 30px;
+    position: relative;
+}
+.breadcrumb-item a::before{
+    content: url('/../assets/img/icons/voltar-grey.svg');
+    display: block;
+    position: absolute;
+    left: 0;
+}
+.breadcrumb-item a:hover{
+    color: #e9724c !important;
+}
+.breadcrumb-item a:hover::before{
+    content: url('/../assets/img/icons/voltar.svg');
+}
+.breadcrumb-item.active{
+    color: #e9724c;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+    content: '|';
+    color: #9e9e9e !important;
+}
 .content-detalhe .detalhe-servico .box-img{
     width: 125px;
     height: 115px;
