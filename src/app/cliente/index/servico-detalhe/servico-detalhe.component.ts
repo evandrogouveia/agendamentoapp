@@ -13,10 +13,11 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./servico-detalhe.component.css']
 })
 export class ServicoDetalheComponent implements OnInit {
- items = [1, 2, 3];
- selectedIndex = 0;
- formaPagamento = 'cartao';
- bandeira;
+  items = [1, 2, 3];
+  selectedIndex = 0;
+  formaPagamento = 'cartao';
+  breadcrumbs = [];
+  bandeira;
 
   servicos$: Observable<Cadastroservico>;
   loading = false;
@@ -25,19 +26,20 @@ export class ServicoDetalheComponent implements OnInit {
   minDate = new Date();
   horarioInput: string;
   imagesUrl = {
-    imagem1 : 'assets/img/img-servicos/imagem-1.jpg',
-    imagem2 : 'assets/img/img-servicos/1.jpg',
-    imagem3 : 'assets/img/img-servicos/2.jpg',
-    imagem4 : 'assets/img/img-servicos/3.jpg',
+    imagem1: 'assets/img/img-servicos/imagem-1.jpg',
+    imagem2: 'assets/img/img-servicos/1.jpg',
+    imagem3: 'assets/img/img-servicos/2.jpg',
+    imagem4: 'assets/img/img-servicos/3.jpg',
   };
 
   imageClick;
+
 
   constructor(
     private apiService: ApiService,
     private datePipe: DatePipe,
     private route: ActivatedRoute,
-    private router: Router) {}
+    private router: Router) { }
 
   ngOnInit() {
     const servicoId: string = this.route.snapshot.paramMap.get('id');
@@ -64,7 +66,6 @@ export class ServicoDetalheComponent implements OnInit {
 
   changeBandeira(event) {
     this.bandeira = event.target.value;
-    console.log(this.bandeira)
   }
 
   imgEvent(event) {
@@ -73,8 +74,11 @@ export class ServicoDetalheComponent implements OnInit {
 
   next() {
     ++this.selectedIndex;
+    this.breadcrumbs.push(this.selectedIndex);
   }
   prev() {
     --this.selectedIndex;
+    this.breadcrumbs.splice(this.selectedIndex, 1);
+    this.bandeira = '';
   }
 }

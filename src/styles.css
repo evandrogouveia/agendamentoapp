@@ -59,6 +59,7 @@ html, body{
   }
   .theme-green .bs-datepicker-head{
     background-color: #fff !important; 
+    padding: 10px 20px !important;
   }
   
   .theme-green .bs-datepicker-head button{

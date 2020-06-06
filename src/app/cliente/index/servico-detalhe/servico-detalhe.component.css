@@ -35,25 +35,16 @@
 }
 .breadcrumb-item{
     font-size: 20px;
+    color: #9e9e9e;
 }
 .breadcrumb-item a{
     color: #9e9e9e !important;
     text-decoration: none;
     display: block;
-    padding-left: 30px;
     position: relative;
-}
-.breadcrumb-item a::before{
-    content: url('/../assets/img/icons/voltar-grey.svg');
-    display: block;
-    position: absolute;
-    left: 0;
 }
 .breadcrumb-item a:hover{
     color: #e9724c !important;
-}
-.breadcrumb-item a:hover::before{
-    content: url('/../assets/img/icons/voltar.svg');
 }
 .breadcrumb-item.active{
     color: #e9724c;
@@ -92,10 +83,10 @@
 .content-detalhe .box-calendario-horario{
     border: 1px solid #b2b2b2;
     border-radius: 10px;
-    height: 455px;
+    height: 415px;
 }
 .box-calendario-horario .form-group-datepicker{
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 .box-calendario-horario .form-group-datepicker h5{
     font-size: 20px;

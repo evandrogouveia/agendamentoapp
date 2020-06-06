@@ -9,23 +9,30 @@
   <div class="row">
     <div class="col-12 col-lg-12">
       <div class="breadcrumb-detalhe">
+        
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item d-none d-sm-block"><a routerLink="/index">Voltar</a></li>
-            <li class="breadcrumb-item mobile d-sm-none"><a routerLink="/index"></a></li>
-            <li class="breadcrumb-item active d-none d-sm-block" aria-current="page">Agenda</li>
-            <li class="breadcrumb-item mobile d-sm-none" aria-current="page">Agendamento</li>
+            <!--li class="breadcrumb-item mobile d-sm-none"><a routerLink="/index"></a></li-->
+              <li class="breadcrumb-item d-none d-sm-block"><a routerLink="/index">Home</a></li>
+              <li class="breadcrumb-item d-none d-sm-block" [ngClass]="selectedIndex === 0 ? 'active' : ''">Agendamento</li>
+              <li *ngFor="let b of breadcrumbs" class="breadcrumb-item d-none d-sm-block" [ngClass]="(selectedIndex === b) ? 'active' : ''">
+                <container-element [ngSwitch]="b">
+                  <span *ngSwitchCase="b === 1">Horarios</span>
+                  <span *ngSwitchDefault>Pagamento</span>
+                </container-element>
+              </li>
+            
           </ol>
         </nav>
       </div>
-
+      
       <div class="content-detalhe">
         <span class="loading" *ngIf="!(servicos$ | async)"></span>
         <ng-container *ngIf="servicos$ | async as s; else loading">
           <h4 [ngClass]="(items[selectedIndex] === 3) ? 'd-none' : ''">
             Serviço sendo agendado
           </h4>
-
+         
           <div class="detalhe-servico" [hidden]="items[selectedIndex] === 3">
             <!--img [src]="imageClick ? imageClick : s.imagem1"-->
             <div class="box-img">
@@ -66,7 +73,7 @@
           <div class="form-group form-group-datepicker"
             [ngClass]="(items[selectedIndex] === 1) ? 'showItem' : 'hideItem'">
 
-            <div class="box-data mt-3">
+            <div class="box-data">
               <bs-datepicker-inline [bsValue]="bsInlineValue" (bsValueChange)="onValueChange($event)" bsDatepicker
                 [minDate]="minDate" [bsConfig]="{showWeekNumbers: false}" #picker>
               </bs-datepicker-inline>
@@ -76,216 +83,216 @@
           <div class="form-group form-group-datepicker"
             [ngClass]="(items[selectedIndex] === 2) ? 'showItem' : 'hideItem'">
 
-            <div class="box-horario mt-3">
-              <ul class="nav list-group-horarios mt-3">
+            <div class="box-horario">
+              <ul class="nav list-group-horarios mt-1">
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="08:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">08:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="08:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">08:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="09:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">09:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="09:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">09:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="10:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">10:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="10:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">10:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="11:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">11:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="11:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">11:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="12:00"
-                      (change)="changeHorario($event)" #radio disabled>
+                      (click)="changeHorario($event)" #radio disabled>
                     <div class="card-horario disabled">12:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="12:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">12:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="13:00"
-                      (change)="changeHorario($event)" #radio disabled>
+                      (click)="changeHorario($event)" #radio disabled>
                     <div class="card-horario disabled">13:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="13:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">13:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="14:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">14:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="14:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">14:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="15:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">15:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="15:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">15:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="16:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">16:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="16:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">16:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="17:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">17:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="17:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">17:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="18:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">18:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="18:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">18:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="19:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">19:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="19:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">19:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="20:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">20:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="20:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">20:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="21:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">21:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="21:30"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">21:30</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="22:00"
-                      (change)="changeHorario($event)" #radio>
+                      (click)="changeHorario($event)" #radio>
                     <div class="card-horario">22:00</div>
                   </label>
                 </li>
                 <li class="nav-item">
                   <label>
                     <input type="radio" name="horario" class="card-input-radio" value="22:30"
-                      (change)="changeHorario($event)" #radio>
-                    <div class="card-horario">22:30</div>
+                      (click)="changeHorario($event)" #radio>
+                    <div class="card-horario" [ngClass]="(horarioInput === '22:30') ? 'checked' : ''">22:30</div>
                   </label>
                 </li>
               </ul>
@@ -328,32 +335,30 @@
 
                   <label for="visa" class="box-bandeira" [ngClass]="(bandeira === 'visa') ? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="visa" value="visa" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="visa" value="visa" (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/visa.svg">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="mastercard" class="box-bandeira" [ngClass]="(bandeira === 'mastercard')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="mastercard" value="mastercard" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="mastercard" value="mastercard"
+                        (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/mastercard.svg">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="hipercard" class="box-bandeira" [ngClass]="(bandeira === 'hipercard')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="hipercard" value="hipercard" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="hipercard" value="hipercard"
+                        (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/hipercard.svg">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="elo" class="box-bandeira" [ngClass]="(bandeira === 'elo')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="elo" value="elo" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="elo" value="elo" (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/elo.png">
                     </div>
                   </label><!-- /label box-bandeira -->
@@ -363,32 +368,31 @@
                 <div class="row-item">
                   <label for="dinersclub" class="box-bandeira" [ngClass]="(bandeira === 'dinersclub')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="dinersclub" value="dinersclub" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="dinersclub" value="dinersclub"
+                        (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/diners-club.svg">
                     </div>
                   </label><!-- /label box-bandeira -->
 
-                  <label for="americanexpress" class="box-bandeira" [ngClass]="(bandeira === 'americanexpress')? 'checked' : ''">
+                  <label for="americanexpress" class="box-bandeira"
+                    [ngClass]="(bandeira === 'americanexpress')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="americanexpress" value="americanexpress" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="americanexpress" value="americanexpress"
+                        (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/american-express.svg">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="hiper" class="box-bandeira" [ngClass]="(bandeira === 'hiper')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="hiper" value="hiper" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="hiper" value="hiper" (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/hiper.png">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="alelo" class="box-bandeira" [ngClass]="(bandeira === 'alelo')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="alelo" value="alelo" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="alelo" value="alelo" (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/alelo.png">
                     </div>
                   </label><!-- /label box-bandeira -->
@@ -398,24 +402,24 @@
                 <div class="row-item">
                   <label for="cabalcard" class="box-bandeira" [ngClass]="(bandeira === 'cabalcard')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="cabalcard" value="cabalcard" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="cabalcard" value="cabalcard"
+                        (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/cabalcard.png">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="goodcard" class="box-bandeira" [ngClass]="(bandeira === 'goodcard')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="goodcard" value="goodcard" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="goodcard" value="goodcard"
+                        (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/good-card.png">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="sicredi" class="box-bandeira" [ngClass]="(bandeira === 'sicredi')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="sicredi" value="sicredi" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="sicredi" value="sicredi"
+                        (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/sicredi.png">
                     </div>
                   </label><!-- /label box-bandeira -->
@@ -428,8 +432,7 @@
                 <div class="row-item">
                   <label for="cedula" class="box-bandeira" [ngClass]="(bandeira === 'cedula') ? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="cedula" value="cedula" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="cedula" value="cedula" (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/dinheiro.svg">
                     </div>
                   </label><!-- /label box-bandeira -->
@@ -440,32 +443,30 @@
                 <div class="row-item">
                   <label for="picpay" class="box-bandeira" [ngClass]="(bandeira === 'picpay') ? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="picpay" value="picpay" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="picpay" value="picpay" (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/picpay.png">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="ame" class="box-bandeira" [ngClass]="(bandeira === 'ame')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="ame" value="ame" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="ame" value="ame" (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/ame.png">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="interpag" class="box-bandeira" [ngClass]="(bandeira === 'interpag')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="interpag" value="interpag" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="interpag" value="interpag"
+                        (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/interpag.png">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="itiitau" class="box-bandeira" [ngClass]="(bandeira === 'itiitau')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="itiitau" value="itiitau" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="itiitau" value="itiitau"
+                        (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/iti-itau.png">
                     </div>
                   </label><!-- /label box-bandeira -->
@@ -475,29 +476,28 @@
                 <div class="row-item">
                   <label for="gpay" class="box-bandeira" [ngClass]="(bandeira === 'gpay')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="gpay" value="gpay" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="gpay" value="gpay" (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/g-pay.png">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="applepay" class="box-bandeira" [ngClass]="(bandeira === 'applepay')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="applepay" value="applepay" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="applepay" value="applepay"
+                        (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/apple-pay.png">
                     </div>
                   </label><!-- /label box-bandeira -->
 
                   <label for="samsung" class="box-bandeira" [ngClass]="(bandeira === 'samsung')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="samsung" value="samsung" 
-                      (change)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="samsung" value="samsung"
+                        (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/samsung.png">
                     </div>
                   </label><!-- /label box-bandeira -->
 
-              
+
                 </div><!-- /row-item -->
 
               </div><!-- /section-apps -->
