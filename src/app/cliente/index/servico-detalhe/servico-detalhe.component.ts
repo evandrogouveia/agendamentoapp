@@ -15,6 +15,8 @@ import { map } from 'rxjs/operators';
 export class ServicoDetalheComponent implements OnInit {
  items = [1, 2, 3];
  selectedIndex = 0;
+ formaPagamento = 'cartao';
+ bandeira;
 
   servicos$: Observable<Cadastroservico>;
   loading = false;
@@ -54,6 +56,15 @@ export class ServicoDetalheComponent implements OnInit {
     if (this.horarioInput) {
       this.next();
     }
+  }
+
+  changePagamento(event) {
+    this.formaPagamento = event.target.value;
+  }
+
+  changeBandeira(event) {
+    this.bandeira = event.target.value;
+    console.log(this.bandeira)
   }
 
   imgEvent(event) {
