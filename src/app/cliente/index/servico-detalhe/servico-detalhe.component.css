@@ -8,11 +8,12 @@
     width: 100%;
     justify-content: center;
 }
-.content-detalhe {
+.content-detalhe{
     width: 52%;
     margin: 0 auto;
-    padding: 60px 0 140px;
+    padding: 0px 0 140px;
 }
+
 .content-detalhe h4{
     font-size: 25px;
     color: #2b2b2b;
@@ -23,6 +24,10 @@
    background-color: #f5eae3;
    border-radius: 10px;
    margin-bottom: 40px;
+}
+.breadcrumb-detalhe {
+    width: 52%;
+    margin: 20px auto 0;
 }
 .breadcrumb{
     background: #fff;
@@ -87,7 +92,7 @@
 .content-detalhe .box-calendario-horario{
     border: 1px solid #b2b2b2;
     border-radius: 10px;
-    height: 498px;
+    height: 455px;
 }
 .box-calendario-horario .form-group-datepicker{
     margin-bottom: 40px;
@@ -101,6 +106,7 @@
 .list-group-horarios{
     height: 417px;
     padding: 10px 25px;
+    justify-content: center;
 }
 .card-input-radio {
     display: none;
@@ -169,8 +175,20 @@
 .buttons button:hover:last-child {
     background-color: #e88f73;
 }
+.buttons .button-disabled{
+    border:1px solid #eee !important;
+    background-color: #eee !important;
+    color: #9e9e9e !important;
+    cursor: default !important;
+}
 .navbar-servico-detalhe .navbar-toggler,
 .box-btns-mobile{
+    display: none;
+}
+.showItem{
+    display: block;
+}
+.hideItem{
     display: none;
 }
 
@@ -204,16 +222,36 @@
         width: 50%;
         text-align: center;
     }
+    .breadcrumb{
+        margin-bottom: 0;
+    }
+    .breadcrumb-detalhe{
+        width: 100%;
+        margin-top: 0;
+    }
+    .breadcrumb-item + .breadcrumb-item::before{
+        display: none;
+    }
+    .breadcrumb-item.mobile:nth-child(2){
+        padding-left: 0;
+        margin-right: 10px;
+    }
+    .breadcrumb-item a::before{
+        content: url('/../assets/img/icons/voltar-black.svg');
+    }
     .content-detalhe{
-        padding: 20px 0 100px !important;
+        padding: 10px 0 100px !important;
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
     }
     .content-detalhe .row{
         flex-direction: column-reverse;
     }
     .content-detalhe .detalhe-servico{
-        align-items: center;
-        flex-direction: column-reverse;
         width: 100%;
+        margin-top: 20px;
+        margin-bottom: 0;
     }
     .content-detalhe h2{
         font-size: 20px;
@@ -251,8 +289,27 @@
         padding: 0px 12px;
         font-size: 20px;
     }
+    .content-detalhe .detalhe-servico .box-img{
+        min-width: 98px;
+        width: 98px;
+        height: 95px;
+    }
+    .textos p {
+        font-size: 16px;
+        height: 34px;
+        line-height: 20px;
+    }
+    .textos h3{
+        font-size: 25px;
+    }
     .box-calendario-horario .buttons {
         display: none;
+    }
+    .box-calendario-horario h5{
+        text-align: center;
+        font-size: 20px;
+        margin-top: 22px;
+        margin-bottom: 15px;
     }
     .box-btns-mobile{
         display: flex;

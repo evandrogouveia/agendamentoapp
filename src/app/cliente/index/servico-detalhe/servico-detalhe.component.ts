@@ -13,11 +13,13 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./servico-detalhe.component.css']
 })
 export class ServicoDetalheComponent implements OnInit {
- 
+ items = [1, 2, 3];
+ selectedIndex = 0;
+
   servicos$: Observable<Cadastroservico>;
   loading = false;
   bsInlineValue = null;
-  selected: any;
+  selectedDate: any;
   minDate = new Date();
   horarioInput: string;
   imagesUrl = {
@@ -33,7 +35,7 @@ export class ServicoDetalheComponent implements OnInit {
     private apiService: ApiService,
     private datePipe: DatePipe,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router) {}
 
   ngOnInit() {
     const servicoId: string = this.route.snapshot.paramMap.get('id');
@@ -41,18 +43,27 @@ export class ServicoDetalheComponent implements OnInit {
   }
 
   onValueChange(event: Date): void {
-    this.selected = this.datePipe.transform(event, 'dd/MM/yyyy');
-  }
-
-  backCalendar() {
-    this.selected = null;
+    this.selectedDate = this.datePipe.transform(event, 'dd/MM/yyyy');
+    if (this.selectedDate) {
+      this.next();
+    }
   }
 
   changeHorario(event) {
     this.horarioInput = event.target.value;
+    if (this.horarioInput) {
+      this.next();
+    }
   }
 
   imgEvent(event) {
     this.imageClick = event.target.src;
+  }
+
+  next() {
+    ++this.selectedIndex;
+  }
+  prev() {
+    --this.selectedIndex;
   }
 }

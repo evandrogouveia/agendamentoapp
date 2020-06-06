@@ -8,19 +8,20 @@
   </nav>
   <div class="row">
     <div class="col-12 col-lg-12">
-
+      <div class="breadcrumb-detalhe">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item d-none d-sm-block"><a routerLink="/index">Voltar</a></li>
+            <li class="breadcrumb-item mobile d-sm-none"><a routerLink="/index"></a></li>
+            <li class="breadcrumb-item active d-none d-sm-block" aria-current="page">Agenda</li>
+            <li class="breadcrumb-item mobile d-sm-none" aria-current="page">Agendamento</li>
+          </ol>
+        </nav>
+      </div>
       <div class="content-detalhe">
-        <div class="breadcrumb-detalhe">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a routerLink="/index">Voltar</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Agenda</li>
-            </ol>
-          </nav>
-        </div>
         <span class="loading" *ngIf="!(servicos$ | async)"></span>
         <ng-container *ngIf="servicos$ | async as s; else loading">
-          <h4>Serviço sendo agendado</h4>
+          <h4 class="d-none d-sm-block">Serviço sendo agendado</h4>
 
           <div class="detalhe-servico">
             <!--img [src]="imageClick ? imageClick : s.imagem1"-->
@@ -51,23 +52,24 @@
                         </div-->
           </div>
         </ng-container>
-        <h4>Selecione uma data</h4>
+        <h4 class="d-none d-sm-block">
+          {{ items[selectedIndex] === 1 ? 'Escolha uma data' : 
+            (items[selectedIndex] === 2 ? 'Escolha um horário' : 'Como deseja pagar?') }}
+        </h4>
+      
         <div class="box-calendario-horario">
-          <div class="form-group form-group-datepicker" [hidden]="selected">
+          <h5 class="d-sm-none">{{ selectedDate ? 'Escolha um horário' : 'Selecione uma data' }}</h5>
+          <div class="form-group form-group-datepicker" [ngClass]="(items[selectedIndex] === 1) ? 'showItem' : 'hideItem'">
             
-
             <div class="box-data mt-3">
-
               <bs-datepicker-inline [bsValue]="bsInlineValue" (bsValueChange)="onValueChange($event)" bsDatepicker
                 [minDate]="minDate" [bsConfig]="{showWeekNumbers: false}" #picker>
               </bs-datepicker-inline>
-
-
             </div>
           </div>
 
-          <div *ngIf="selected" class="form-group form-group-datepicker">
-            <h5>Selecione uma horário</h5>
+          <div class="form-group form-group-datepicker" [ngClass]="(items[selectedIndex] === 2) ? 'showItem' : 'hideItem'">
+            
             <div class="box-horario mt-3">
               <ul class="nav list-group-horarios mt-3">
                 <li class="nav-item">
@@ -284,9 +286,17 @@
 
             </div>
           </div>
-          <div *ngIf="selected" class="buttons">
-            <button (click)="backCalendar()">voltar</button>
-            <button>Concluir agendamento</button>
+
+          <div class="form-group form-group-datepicker" [ngClass]="(items[selectedIndex] === 3) ? 'showItem' : 'hideItem'">
+            pagamento
+          </div>
+
+          <div *ngIf="items[selectedIndex] !== 1" class="buttons">
+            <button (click)="prev()">voltar</button>
+            <button [disabled]="items[selectedIndex] !== 3" 
+                    [ngClass]="(items[selectedIndex] !== 3) ? 'button-disabled' : ''">
+                    Concluir agendamento
+            </button>
           </div>
         </div>
       </div>
@@ -300,18 +310,8 @@
 <!-- /container -->
 
 <div class="box-btns-mobile">
-  <div [hidden]="selected" class="links">
-    <a routerLink="/index"><img src="assets/img/icons/home.svg"> Home</a>
-
-    <a href=""><img src="assets/img/icons/sacola-mobile.svg"></a>
-
-    <a href=""><img src="assets/img/icons/agenda.svg"></a>
-
-    <a href=""><img src="assets/img/icons/perfil-mobile.svg"></a>
-  </div>
-
-  <div *ngIf="selected" class="buttons buttons-mobile">
-    <button (click)="backCalendar()">voltar</button>
-    <button>Concluir agendamento</button>
+  <div class="buttons buttons-mobile">
+    <button (click)="backHorario()">voltar</button>
+    <button class="disabled">Concluir agendamento</button>
   </div>
 </div>
