@@ -59,33 +59,49 @@ a.dropdown-toggle{
 .navbar .dropdown-y .nav-submenu{
     background-color: #fafafa;
     padding-top: 15px;
-    width: 165px;
+    width: 190px;
     height: 95px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-.dropdown-user .dropdown-menu {
-    left: -142px !important;
+.nav-submenu.user-logged li a{
+   color: #9e9e9e !important;  
+}
+.nav-submenu.user-logged li a:hover {
+    color: #e88f73 !important;
+    background: transparent !important;
+} 
+.dropdown-user .dropdown-menu.logged {
+    left: -9px !important;
 }
 .dropdown-user .dropdown-toggle{
     display: flex;
-    align-items: center;
+    justify-content: flex-end;
+    width: 184px;
 }
-.dropdown-user .usuario-logado{
+.dropdown-user .logged,
+.dropdown-user .no-logged{
     margin-left: 10px;
 }
-.dropdown-user .usuario-logado p:first-child{
+.dropdown-user .logged p:first-child,
+.dropdown-user .no-logged p:first-child{
     margin: 0;
     font-size: 13px;
     line-height: 16px;
     color: #484b4a;
 }
-.dropdown-user .usuario-logado p:last-child{
+.dropdown-toggle .logged p:last-child{
     margin: 0;
     font-size: 18px;
     line-height: 20px;
     color: #e88f73;
     text-decoration: underline;
+}
+.dropdown-user .no-logged p:last-child{
+    margin: 0;
+    font-size: 18px;
+    line-height: 20px;
+    color: #212121;
 }
 .dropdown-user .header-user,
 .dropdown-cart .header-cart{
@@ -307,7 +323,7 @@ a.dropdown-toggle{
 
 }
 .form-search {
-    width: 16%;
+    width: 12%;
     text-align: center;
 }
 .form-search .btn-open-search{

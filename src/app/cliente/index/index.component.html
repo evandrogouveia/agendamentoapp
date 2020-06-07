@@ -398,12 +398,25 @@
         <div class="btn-group" dropdown (isOpenChange)="onOpenChange($event)">
           <div id="user" dropdownToggle type="button" class="dropdown-toggle" aria-controls="dropdown-animated">
             <img src="assets/img/icons/user.svg">
-            <div *ngIf="(usuario$ | async)"  class="usuario-logado">
+            <div *ngIf="(usuario$ | async)"  class="logged">
               <p>Bem-vindo (a)</p>
-              <p> {{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}} </p>
+              <p> 
+                {{ (usuario$ | async)?.nome }} 
+                {{ ((usuario$ | async)?.sobrenome.length > 6) ? 
+                    ((usuario$ | async)?.sobrenome | slice:0:6) + '...' : 
+                    (usuario$ | async)?.sobrenome }} 
+              </p>
+            </div>
+
+            <div *ngIf="!(usuario$ | async)"  class="no-logged">
+              <p>Bem-vindo (a)</p>
+              <p> 
+                Visitante
+              </p>
             </div>
           </div>
-          <div class="dropdown-menu dropdown-y" *dropdownMenu aria-labelledby="user">
+          <div class="dropdown-menu dropdown-y" [ngClass]="{'logged': (usuario$ | async)}"
+              *dropdownMenu aria-labelledby="user" ngClass>
             <div class="header-user">
               <img src="assets/img/icons/user-dropdown.svg">
               <p>Conta</p>
@@ -416,18 +429,14 @@
               <li>
                 <a class="dropdown-item" routerLink="/registro">Cadastro</a>
               </li>
-
             </ul>
 
-            <ul *ngIf="(usuario$ | async); else loading" class="nav nav-submenu flex-column">
+            <ul *ngIf="(usuario$ | async)" class="nav nav-submenu flex-column user-logged">
               <li>
-               
-                <a class="dropdown-item" routerLink="/login">Entrar</a>
+                <a class="dropdown-item" routerLink="/agendamento">Agendamentos</a>
               </li>
               <li>
-                <a (click)="logout()"
-                  class="list-group-item list-group-item-action bg-light border-bottom d-flex">
-                  <i class="material-icons mr-2">exit_to_app</i>
+                <a class="dropdown-item" routerLink="#" (click)="logout()">
                   <span>Sair</span>
                 </a>
               </li>

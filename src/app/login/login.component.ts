@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(email, password)
       .subscribe(
         (u) => {
-          this.router.navigateByUrl('/agendamento');
+          this.router.navigateByUrl('/index');
           this.loading = false;
         },
         (err) => {
@@ -69,8 +69,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginGoogle()
       .subscribe(
         (u) => {
-          u
-          this.router.navigateByUrl('/agendamento');
+          this.router.navigateByUrl('/index');
           this.loading = false;
         },
         (err) => {
@@ -85,7 +84,7 @@ export class LoginComponent implements OnInit {
     this.authService.loginFacebook()
       .subscribe(
         (u) => {
-          this.router.navigateByUrl('/agendamento');
+          this.router.navigateByUrl('/index');
           this.loading = false;
         },
         (err) => {

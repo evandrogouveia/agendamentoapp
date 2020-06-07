@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
         this.classe = valor;
       });
 
-    this.usuario$.subscribe(data => {
+    /*this.usuario$.subscribe(data => {
       data ? this.perfilUsuario = data.perfil : this.perfilUsuario = null;
 
       if (this.perfilUsuario === 'admin') {
@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
       } else {
         this.router.navigateByUrl('/agendamento');
       }
-    });
+    });*/
 
     this.authenticated$.subscribe(a => {
       this.mostrarSidebarMenu = a;
@@ -58,6 +58,6 @@ export class AppComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    this.router.navigateByUrl('/servico-detalhe');
+    this.router.navigateByUrl('/index');
   }
 }
