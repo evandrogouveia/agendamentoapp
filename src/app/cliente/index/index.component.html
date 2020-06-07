@@ -2,58 +2,6 @@
 <span class="loading" *ngIf="!(servicos$ | async)"></span>
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light">
-    <!-- / INÍCIO SACOLA MOBILE -->
-    <div class="dropdown-cart dropdown-cart-mobile  my-2 ml-4">
-      <div class="btn-group" dropdown (isOpenChange)="onOpenChange($event)">
-        <div id="cart" dropdownToggle type="button" class="dropdown-toggle" aria-controls="dropdown-animated">
-          <img src="assets/img/icons/sacola.svg">
-          <span>55</span>
-        </div>
-
-        <div class="dropdown-menu dropdown-menu-items" *dropdownMenu aria-labelledby="cart">
-          <div class="header-cart">
-            <img src="assets/img/icons/sacola.svg">
-            <span>55</span>
-            <p>Sacola</p>
-          </div>
-
-          <ul class="nav nav-submenu flex-column">
-            <li>Itens na sacola</li>
-            <li>
-              <img src="assets/img/img-servicos/imagem-1.jpg">
-              <div class="cart-price-description">
-                <p>Tratamento de unhas, pintura e brilho e unhas postiças</p>
-                <h3>R$ 27,00</h3>
-              </div>
-            </li>
-            
-          </ul>
-
-          <div class="buttons-cart">
-            <a href=""><img src="assets/img/icons/delete.svg"> Excluir serviço</a>
-            <a href="">Concluir agendamento</a>
-          </div>
-
-        </div>
-
-        <!--div class="dropdown-menu dropdown-menu-empty" *dropdownMenu aria-labelledby="cart">
-          <div class="header-cart">
-            <img src="assets/img/icons/sacola.svg">
-            <p>Sacola</p>
-          </div>
-
-          <ul class="nav nav-submenu flex-column">
-            <li><img src="assets/img/icons/sacola-g.svg"></li>
-            <li>
-              Você não tem itens adicionado à sacola!
-            </li>
-            <li><a href="">Escolher serviço</a></li>
-          </ul>
-
-        </div-->
-      </div>
-    </div>
-    <!-- / FIM SACOLA MOBILE -->
 
     <a class="navbar-brand" routerLink="/index"><img src="assets/img/logo-login.png"></a>
     <button class="navbar-toggler" type="button" (click)="executarViaService()">
@@ -74,8 +22,7 @@
                 <img src="assets/img/icons/lupa-search.svg" class="img-lupa">
 
                 <input #busca type="text" class="form-control input-search"
-                  placeholder="Nome do serviço que você precisa" 
-                  (keyup.enter)="searchServicos($event)" 
+                  placeholder="Nome do serviço que você precisa" (keyup.enter)="searchServicos($event)"
                   (blur)="searchServicos($event)">
 
                 <div class="input-group-append">
@@ -451,14 +398,18 @@
         <div class="btn-group" dropdown (isOpenChange)="onOpenChange($event)">
           <div id="user" dropdownToggle type="button" class="dropdown-toggle" aria-controls="dropdown-animated">
             <img src="assets/img/icons/user.svg">
+            <div *ngIf="(usuario$ | async)"  class="usuario-logado">
+              <p>Bem-vindo (a)</p>
+              <p> {{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}} </p>
+            </div>
           </div>
           <div class="dropdown-menu dropdown-y" *dropdownMenu aria-labelledby="user">
             <div class="header-user">
               <img src="assets/img/icons/user-dropdown.svg">
               <p>Conta</p>
             </div>
-
-            <ul class="nav nav-submenu flex-column">
+            
+            <ul *ngIf="!(usuario$ | async)" class="nav nav-submenu flex-column">
               <li>
                 <a class="dropdown-item" routerLink="/login">Entrar</a>
               </li>
@@ -467,76 +418,32 @@
               </li>
 
             </ul>
-          </div>
-        </div>
-      </div>
 
-
-      <div class="dropdown-cart my-2 ml-4">
-        <div class="btn-group" dropdown (isOpenChange)="onOpenChange($event)">
-          <div id="cart" dropdownToggle type="button" class="dropdown-toggle" aria-controls="dropdown-animated">
-            <img src="assets/img/icons/sacola.svg">
-            <span>55</span>
-          </div>
-
-          <div class="dropdown-menu" *dropdownMenu aria-labelledby="cart">
-            <div class="header-cart">
-              <img src="assets/img/icons/sacola.svg">
-              <span>55</span>
-              <p>Sacola</p>
-            </div>
-
-            <ul class="nav nav-submenu flex-column">
-              <li>Itens na sacola</li>
+            <ul *ngIf="(usuario$ | async); else loading" class="nav nav-submenu flex-column">
               <li>
-                <img src="assets/img/img-servicos/imagem-1.jpg">
-                <div class="cart-price-description">
-                  <p>Tratamento de unhas, pintura e brilho e unhas postiças</p>
-                  <h3>R$ 27,00</h3>
-                </div>
+               
+                <a class="dropdown-item" routerLink="/login">Entrar</a>
               </li>
-
+              <li>
+                <a (click)="logout()"
+                  class="list-group-item list-group-item-action bg-light border-bottom d-flex">
+                  <i class="material-icons mr-2">exit_to_app</i>
+                  <span>Sair</span>
+                </a>
+              </li>
             </ul>
 
-            <div class="buttons-cart">
-              <a href=""><img src="assets/img/icons/delete.svg"> Excluir serviço</a>
-              <a href="">Concluir agendamento</a>
-            </div>
-
           </div>
-
-          <!--div class="dropdown-menu dropdown-menu-empty" *dropdownMenu aria-labelledby="cart">
-            <div class="header-cart">
-              <img src="assets/img/icons/sacola.svg">
-              <p>Sacola</p>
-            </div>
-
-            <ul class="nav nav-submenu flex-column">
-              <li><img src="assets/img/icons/sacola-g.svg"></li>
-              <li>
-                Você não tem itens adicionado à sacola!
-              </li>
-              <li><a href="">Escolher serviço</a></li>
-            </ul>
-
-          </div-->
-
-
-
         </div>
       </div>
 
     </div>
-    <div class="header-fixed-mobile" [ngClass]="(scrollPosition > 100) ? 'fixed-top' : ''" >
+    <div class="header-fixed-mobile" [ngClass]="(scrollPosition > 100) ? 'fixed-top' : ''">
       <!-- INPUT SEARCH MOBILE -->
       <div class="input-group input-group-mobile">
         <img src="assets/img/icons/lupa-mobile.svg">
-        <input #busca type="text" class="form-control input-search" 
-                placeholder="Nome do serviço que você precisa" 
-                (click)="onOpenChange($event)"
-                (keyup.enter)="searchServicos($event)"
-                (blur)="busca.value = ''"
-                >
+        <input #busca type="text" class="form-control input-search" placeholder="Nome do serviço que você precisa"
+          (click)="onOpenChange($event)" (keyup.enter)="searchServicos($event)" (blur)="busca.value = ''">
       </div>
       <!-- /FIM INPUT SEARCH MOBILE -->
 
@@ -566,7 +473,7 @@
               Barba
             </a>
           </li>
-               
+
         </ul>
 
       </div>
@@ -596,7 +503,8 @@
                 <img src="{{s.imageUrl}}">
               </div>
               <p class="default-description">{{s.nomeservico}}</p>
-              <p class="mobile-description">{{(s.nomeservico.length > 36) ? (s.nomeservico | slice:0:36) + '...' : (s.nomeservico)}} </p>
+              <p class="mobile-description">
+                {{(s.nomeservico.length > 36) ? (s.nomeservico | slice:0:36) + '...' : (s.nomeservico)}} </p>
             </a>
             <div class="box-btn-price">
               <a routerLink="/index/{{s.id}}">Agendar</a>
@@ -623,7 +531,7 @@
   </a>
 
   <a href="#">
-    <img src="assets/img/icons/sacola-mobile.svg"> 
+    <img src="assets/img/icons/sacola-mobile.svg">
     <span>Sacola</span>
   </a>
 

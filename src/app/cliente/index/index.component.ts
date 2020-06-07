@@ -1,10 +1,13 @@
-import { Component, OnInit, ViewChild, Renderer2, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2, ElementRef, HostListener, AfterViewInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { BsModalService, ModalDirective } from 'ngx-bootstrap/modal';
 import { SidebarService } from 'src/app/shared/services/sidebar.service';
 import { Observable } from 'rxjs';
 import { Cadastroservico } from 'src/app/shared/models/cadastroservico.model';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { Usuario } from 'src/app/shared/models/user';
+import { AuthService } from 'src/app/login/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -20,29 +23,38 @@ import { ApiService } from 'src/app/shared/services/api.service';
   ]
 })
 
-export class IndexComponent implements OnInit {
+export class IndexComponent implements OnInit, AfterViewInit {
   servicos$: Observable<Cadastroservico[]>;
   filtroServicos$: Observable<Cadastroservico[]>;
+  usuario$: Observable<Usuario>;
 
   @ViewChild('childModal') childModal: ModalDirective;
   @ViewChild('busca') busca: ElementRef;
- 
+
   isDropdown = false;
 
   scrollPosition;
 
 
   constructor(
+    private authService: AuthService,
     private apiService: ApiService,
     private sidebarService: SidebarService,
-    private renderer: Renderer2
-  ) { }
+    private renderer: Renderer2,
+    private router: Router,
+  ) {
+    
+  }
 
   ngOnInit() {
     this.servicos$ = this.apiService.getServicos();
     this.renderer.listen(window, 'scroll', ($event) => {
       this.scrollPosition = window.scrollY;
     });
+  }
+
+  ngAfterViewInit() {
+    this.usuario$ = this.authService.getUser();
   }
 
   executarViaService() {
@@ -72,6 +84,11 @@ export class IndexComponent implements OnInit {
     this.childModal.hide();
     this.closeOverlay();
     this.busca.nativeElement.value = '';
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigateByUrl('/index');
   }
 
 }
