@@ -398,7 +398,9 @@
         <div class="btn-group" dropdown (isOpenChange)="onOpenChange($event)">
           <div id="user" dropdownToggle type="button" class="dropdown-toggle" aria-controls="dropdown-animated">
             <img src="assets/img/icons/user.svg">
+            
             <div *ngIf="(usuario$ | async)"  class="logged">
+              
               <p>Bem-vindo (a)</p>
               <p> 
                 {{ (usuario$ | async)?.nome }} 
@@ -407,8 +409,8 @@
                     (usuario$ | async)?.sobrenome }} 
               </p>
             </div>
-
-            <div *ngIf="!(usuario$ | async)"  class="no-logged">
+            
+            <div *ngIf="!(usuario$ | async)" class="no-logged">
               <p>Bem-vindo (a)</p>
               <p> 
                 Visitante
@@ -422,7 +424,8 @@
               <p>Conta</p>
             </div>
             
-            <ul *ngIf="!(usuario$ | async)" class="nav nav-submenu flex-column">
+            <ul *ngIf="!(usuario$ | async)" 
+                class="nav nav-submenu flex-column user-no-logged">
               <li>
                 <a class="dropdown-item" routerLink="/login">Entrar</a>
               </li>
@@ -430,8 +433,8 @@
                 <a class="dropdown-item" routerLink="/registro">Cadastro</a>
               </li>
             </ul>
-
-            <ul *ngIf="(usuario$ | async)" class="nav nav-submenu flex-column user-logged">
+           
+            <ul *ngIf="(usuario$ | async); else loading" class="nav nav-submenu flex-column user-logged">
               <li>
                 <a class="dropdown-item" routerLink="/agendamento">Agendamentos</a>
               </li>
