@@ -1,9 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="14.775" height="19.798" viewBox="0 0 14.775 19.798">
-    <g id="prefix__agenda" transform="translate(-9.651)">
-        <g id="prefix__agenda-2" data-name="agenda" transform="translate(9.651)">
-            <g id="prefix__Grupo_342" data-name="Grupo 342">
-                <path id="prefix__Caminho_373" d="M58.244 0h-1.7v5.769c0 .405-.41.606-.727.1l-1.126-1.8-1.126 1.8c-.32.507-.727.308-.727-.1V0h-5.719a2.506 2.506 0 0 0-2.5 2.506V17.3a2.506 2.506 0 0 0 2.5 2.5h11.128a1.153 1.153 0 0 0 1.153-1.15V1.151A1.153 1.153 0 0 0 58.244 0zm.214 16.826L47.6 16.84a.475.475 0 0 0 0 .948h10.858v.874a.192.192 0 0 1-.2.2H47.119a1.548 1.548 0 0 1 0-3.1H58.26a.2.2 0 0 1 .2.2z" data-name="Caminho 373" transform="translate(-44.62)" style="fill:#9e9e9e"/>
-            </g>
-        </g>
+<svg xmlns="http://www.w3.org/2000/svg" id="prefix__agenda" width="17.912" height="24.001" viewBox="0 0 17.912 24.001">
+    <g id="prefix__Grupo_342" data-name="Grupo 342">
+        <path id="prefix__Caminho_373" d="M61.137 0h-2.066v6.993c0 .491-.5.734-.882.117l-1.365-2.183-1.365 2.184c-.388.614-.882.374-.882-.117V0H47.65a3.038 3.038 0 0 0-3.03 3.038v17.934A3.038 3.038 0 0 0 47.65 24h13.49a1.4 1.4 0 0 0 1.392-1.392V1.395A1.4 1.4 0 0 0 61.137 0zm.263 20.4l-13.162.016a.576.576 0 0 0 0 1.149H61.4v1.059a.233.233 0 0 1-.237.237H47.65a1.877 1.877 0 0 1 0-3.753h13.506a.243.243 0 0 1 .24.24z" data-name="Caminho 373" transform="translate(-44.62)" style="fill:#484b4a"/>
     </g>
 </svg>

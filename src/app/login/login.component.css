@@ -95,6 +95,7 @@
     height: 80px;
     margin-bottom: 40px;
     overflow: hidden;
+    margin-top: 3px;
 }
 .login100-form .logo-top img{
     max-width: 100%;

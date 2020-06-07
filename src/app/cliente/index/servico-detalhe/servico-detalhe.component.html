@@ -9,30 +9,33 @@
   <div class="row">
     <div class="col-12 col-lg-12">
       <div class="breadcrumb-detalhe">
-        
+
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <!--li class="breadcrumb-item mobile d-sm-none"><a routerLink="/index"></a></li-->
-              <li class="breadcrumb-item d-none d-sm-block"><a routerLink="/index">Home</a></li>
-              <li class="breadcrumb-item d-none d-sm-block" [ngClass]="selectedIndex === 0 ? 'active' : ''">Agendamento</li>
-              <li *ngFor="let b of breadcrumbs" class="breadcrumb-item d-none d-sm-block" [ngClass]="(selectedIndex === b) ? 'active' : ''">
-                <container-element [ngSwitch]="b">
-                  <span *ngSwitchCase="b === 1">Horarios</span>
-                  <span *ngSwitchDefault>Pagamento</span>
-                </container-element>
-              </li>
-            
+            <li class="breadcrumb-item mobile d-sm-none"><a routerLink="/index"></a></li>
+            <li class="breadcrumb-item mobile d-sm-none">Agendamento</li>
+            <li class="breadcrumb-item d-none d-sm-block"><a routerLink="/index">Home</a></li>
+            <li class="breadcrumb-item d-none d-sm-block" [ngClass]="selectedIndex === 0 ? 'active' : ''">Agendamento
+            </li>
+            <li *ngFor="let b of breadcrumbs" class="breadcrumb-item d-none d-sm-block"
+              [ngClass]="(selectedIndex === b) ? 'active' : ''">
+              <container-element [ngSwitch]="b">
+                <span *ngSwitchCase="b === 1">Horarios</span>
+                <span *ngSwitchDefault>Pagamento</span>
+              </container-element>
+            </li>
+
           </ol>
         </nav>
       </div>
-      
+
       <div class="content-detalhe">
         <span class="loading" *ngIf="!(servicos$ | async)"></span>
         <ng-container *ngIf="servicos$ | async as s; else loading">
           <h4 [ngClass]="(items[selectedIndex] === 3) ? 'd-none' : ''">
             Serviço sendo agendado
           </h4>
-         
+
           <div class="detalhe-servico" [hidden]="items[selectedIndex] === 3">
             <!--img [src]="imageClick ? imageClick : s.imagem1"-->
             <div class="box-img">
@@ -69,7 +72,10 @@
         </h4>
 
         <div class="box-calendario-horario" [ngClass]="(items[selectedIndex] === 3) ? 'border-0' : ''">
-          <h5 class="d-sm-none">{{ selectedDate ? 'Escolha um horário' : 'Selecione uma data' }}</h5>
+          <h5 class="d-sm-none">
+            {{ items[selectedIndex] === 1 ? 'Escolha uma data' : 
+            (items[selectedIndex] === 2 ? 'Escolha um horário' : 'Como deseja pagar?') }}
+          </h5>
           <div class="form-group form-group-datepicker"
             [ngClass]="(items[selectedIndex] === 1) ? 'showItem' : 'hideItem'">
 
@@ -313,7 +319,11 @@
               </div>
               <div class="custom-radio">
                 <input type="radio" id="apps" name="radio" value="apps" (change)="changePagamento($event)">
-                <label for="apps">Apps de pagamento</label>
+                <label for="apps" class="label-apps">
+                  <span>Apps de pagamento</span>
+                  <span>Apps</span>
+                </label>
+
               </div>
             </div>
 
@@ -331,99 +341,105 @@
               <p>{{ formaPagamento === 'cartao' ? 'Qual a bandeira do seu cartão' : 'Pagar em dinheiro' }}</p>
 
               <div *ngIf="formaPagamento === 'cartao'" class="section-bandeiras">
-                <div class="row-item">
-
-                  <label for="visa" class="box-bandeira" [ngClass]="(bandeira === 'visa') ? 'checked' : ''">
-                    <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="visa" value="visa" (click)="changeBandeira($event)">
-                      <img src="assets/img/icons/bandeiras/visa.svg">
-                    </div>
-                  </label><!-- /label box-bandeira -->
-
-                  <label for="mastercard" class="box-bandeira" [ngClass]="(bandeira === 'mastercard')? 'checked' : ''">
-                    <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="mastercard" value="mastercard"
-                        (click)="changeBandeira($event)">
-                      <img src="assets/img/icons/bandeiras/mastercard.svg">
-                    </div>
-                  </label><!-- /label box-bandeira -->
-
-                  <label for="hipercard" class="box-bandeira" [ngClass]="(bandeira === 'hipercard')? 'checked' : ''">
-                    <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="hipercard" value="hipercard"
-                        (click)="changeBandeira($event)">
-                      <img src="assets/img/icons/bandeiras/hipercard.svg">
-                    </div>
-                  </label><!-- /label box-bandeira -->
-
-                  <label for="elo" class="box-bandeira" [ngClass]="(bandeira === 'elo')? 'checked' : ''">
-                    <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="elo" value="elo" (click)="changeBandeira($event)">
-                      <img src="assets/img/icons/bandeiras/elo.png">
-                    </div>
-                  </label><!-- /label box-bandeira -->
-
-                </div><!-- /row-item -->
-
-                <div class="row-item">
-                  <label for="dinersclub" class="box-bandeira" [ngClass]="(bandeira === 'dinersclub')? 'checked' : ''">
-                    <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="dinersclub" value="dinersclub"
-                        (click)="changeBandeira($event)">
-                      <img src="assets/img/icons/bandeiras/diners-club.svg">
-                    </div>
-                  </label><!-- /label box-bandeira -->
-
-                  <label for="americanexpress" class="box-bandeira"
-                    [ngClass]="(bandeira === 'americanexpress')? 'checked' : ''">
-                    <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="americanexpress" value="americanexpress"
-                        (click)="changeBandeira($event)">
-                      <img src="assets/img/icons/bandeiras/american-express.svg">
-                    </div>
-                  </label><!-- /label box-bandeira -->
-
-                  <label for="hiper" class="box-bandeira" [ngClass]="(bandeira === 'hiper')? 'checked' : ''">
-                    <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="hiper" value="hiper" (click)="changeBandeira($event)">
-                      <img src="assets/img/icons/bandeiras/hiper.png">
-                    </div>
-                  </label><!-- /label box-bandeira -->
-
-                  <label for="alelo" class="box-bandeira" [ngClass]="(bandeira === 'alelo')? 'checked' : ''">
-                    <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="alelo" value="alelo" (click)="changeBandeira($event)">
-                      <img src="assets/img/icons/bandeiras/alelo.png">
-                    </div>
-                  </label><!-- /label box-bandeira -->
-
-                </div><!-- /row-item -->
-
-                <div class="row-item">
-                  <label for="cabalcard" class="box-bandeira" [ngClass]="(bandeira === 'cabalcard')? 'checked' : ''">
-                    <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="cabalcard" value="cabalcard"
-                        (click)="changeBandeira($event)">
-                      <img src="assets/img/icons/bandeiras/cabalcard.png">
-                    </div>
-                  </label><!-- /label box-bandeira -->
-
-                  <label for="goodcard" class="box-bandeira" [ngClass]="(bandeira === 'goodcard')? 'checked' : ''">
-                    <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="goodcard" value="goodcard"
-                        (click)="changeBandeira($event)">
-                      <img src="assets/img/icons/bandeiras/good-card.png">
-                    </div>
-                  </label><!-- /label box-bandeira -->
-
-                  <label for="sicredi" class="box-bandeira" [ngClass]="(bandeira === 'sicredi')? 'checked' : ''">
-                    <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="sicredi" value="sicredi"
-                        (click)="changeBandeira($event)">
-                      <img src="assets/img/icons/bandeiras/sicredi.png">
-                    </div>
-                  </label><!-- /label box-bandeira -->
-
+                <div class="row">
+                  <div class="col-4 col-lg-3">
+                    <label for="visa" class="box-bandeira" [ngClass]="(bandeira === 'visa') ? 'checked' : ''">
+                      <div class="custom-radio">
+                        <input type="radio" name="bandeira" id="visa" value="visa" (click)="changeBandeira($event)">
+                        <img src="assets/img/icons/bandeiras/visa.svg">
+                      </div>
+                    </label><!-- /label box-bandeira -->
+                  </div>
+                  <div class="col-4 col-lg-3">
+                    <label for="mastercard" class="box-bandeira"
+                      [ngClass]="(bandeira === 'mastercard')? 'checked' : ''">
+                      <div class="custom-radio">
+                        <input type="radio" name="bandeira" id="mastercard" value="mastercard"
+                          (click)="changeBandeira($event)">
+                        <img src="assets/img/icons/bandeiras/mastercard.svg">
+                      </div>
+                    </label><!-- /label box-bandeira -->
+                  </div>
+                  <div class="col-4 col-lg-3">
+                    <label for="hipercard" class="box-bandeira" [ngClass]="(bandeira === 'hipercard')? 'checked' : ''">
+                      <div class="custom-radio">
+                        <input type="radio" name="bandeira" id="hipercard" value="hipercard"
+                          (click)="changeBandeira($event)">
+                        <img src="assets/img/icons/bandeiras/hipercard.svg">
+                      </div>
+                    </label><!-- /label box-bandeira -->
+                  </div>
+                  <div class="col-4 col-lg-3">
+                    <label for="elo" class="box-bandeira" [ngClass]="(bandeira === 'elo')? 'checked' : ''">
+                      <div class="custom-radio">
+                        <input type="radio" name="bandeira" id="elo" value="elo" (click)="changeBandeira($event)">
+                        <img src="assets/img/icons/bandeiras/elo.png">
+                      </div>
+                    </label><!-- /label box-bandeira -->
+                  </div>
+                  <div class="col-4 col-lg-3">
+                    <label for="dinersclub" class="box-bandeira"
+                      [ngClass]="(bandeira === 'dinersclub')? 'checked' : ''">
+                      <div class="custom-radio">
+                        <input type="radio" name="bandeira" id="dinersclub" value="dinersclub"
+                          (click)="changeBandeira($event)">
+                        <img src="assets/img/icons/bandeiras/diners-club.svg">
+                      </div>
+                    </label><!-- /label box-bandeira -->
+                  </div>
+                  <div class="col-4 col-lg-3">
+                    <label for="americanexpress" class="box-bandeira"
+                      [ngClass]="(bandeira === 'americanexpress')? 'checked' : ''">
+                      <div class="custom-radio">
+                        <input type="radio" name="bandeira" id="americanexpress" value="americanexpress"
+                          (click)="changeBandeira($event)">
+                        <img src="assets/img/icons/bandeiras/american-express.svg">
+                      </div>
+                    </label><!-- /label box-bandeira -->
+                  </div>
+                  <div class="col-4 col-lg-3">
+                    <label for="hiper" class="box-bandeira" [ngClass]="(bandeira === 'hiper')? 'checked' : ''">
+                      <div class="custom-radio">
+                        <input type="radio" name="bandeira" id="hiper" value="hiper" (click)="changeBandeira($event)">
+                        <img src="assets/img/icons/bandeiras/hiper.png">
+                      </div>
+                    </label><!-- /label box-bandeira -->
+                  </div>
+                  <div class="col-4 col-lg-3">
+                    <label for="alelo" class="box-bandeira" [ngClass]="(bandeira === 'alelo')? 'checked' : ''">
+                      <div class="custom-radio">
+                        <input type="radio" name="bandeira" id="alelo" value="alelo" (click)="changeBandeira($event)">
+                        <img src="assets/img/icons/bandeiras/alelo.png">
+                      </div>
+                    </label><!-- /label box-bandeira -->
+                  </div>
+                  <div class="col-4 col-lg-3">
+                    <label for="cabalcard" class="box-bandeira" [ngClass]="(bandeira === 'cabalcard')? 'checked' : ''">
+                      <div class="custom-radio">
+                        <input type="radio" name="bandeira" id="cabalcard" value="cabalcard"
+                          (click)="changeBandeira($event)">
+                        <img src="assets/img/icons/bandeiras/cabalcard.png">
+                      </div>
+                    </label><!-- /label box-bandeira -->
+                  </div>
+                  <div class="col-4 col-lg-3">
+                    <label for="goodcard" class="box-bandeira" [ngClass]="(bandeira === 'goodcard')? 'checked' : ''">
+                      <div class="custom-radio">
+                        <input type="radio" name="bandeira" id="goodcard" value="goodcard"
+                          (click)="changeBandeira($event)">
+                        <img src="assets/img/icons/bandeiras/good-card.png">
+                      </div>
+                    </label><!-- /label box-bandeira -->
+                  </div>
+                  <div class="col-4 col-lg-3">
+                    <label for="sicredi" class="box-bandeira" [ngClass]="(bandeira === 'sicredi')? 'checked' : ''">
+                      <div class="custom-radio">
+                        <input type="radio" name="bandeira" id="sicredi" value="sicredi"
+                          (click)="changeBandeira($event)">
+                        <img src="assets/img/icons/bandeiras/sicredi.png">
+                      </div>
+                    </label><!-- /label box-bandeira -->
+                  </div>
                 </div><!-- /row-item -->
 
               </div><!-- /section-bandeiras -->
@@ -465,15 +481,11 @@
 
                   <label for="itiitau" class="box-bandeira" [ngClass]="(bandeira === 'itiitau')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="itiitau" value="itiitau"
-                        (click)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="itiitau" value="itiitau" (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/iti-itau.png">
                     </div>
                   </label><!-- /label box-bandeira -->
 
-                </div><!-- /row-item -->
-
-                <div class="row-item">
                   <label for="gpay" class="box-bandeira" [ngClass]="(bandeira === 'gpay')? 'checked' : ''">
                     <div class="custom-radio">
                       <input type="radio" name="bandeira" id="gpay" value="gpay" (click)="changeBandeira($event)">
@@ -491,8 +503,7 @@
 
                   <label for="samsung" class="box-bandeira" [ngClass]="(bandeira === 'samsung')? 'checked' : ''">
                     <div class="custom-radio">
-                      <input type="radio" name="bandeira" id="samsung" value="samsung"
-                        (click)="changeBandeira($event)">
+                      <input type="radio" name="bandeira" id="samsung" value="samsung" (click)="changeBandeira($event)">
                       <img src="assets/img/icons/bandeiras/samsung.png">
                     </div>
                   </label><!-- /label box-bandeira -->
@@ -508,11 +519,10 @@
 
           <div *ngIf="items[selectedIndex] !== 1" class="buttons">
             <button class="prev-section" [ngClass]="items[selectedIndex] === 2 ? 'w-100' : ''" (click)="prev()">
-                  voltar
+              voltar
             </button>
-            <button class="concluir" [ngClass]="bandeira ? '' : 'button-disabled'"
-                    *ngIf="items[selectedIndex] === 3" 
-                    [disabled]="!bandeira" >
+            <button class="concluir" [ngClass]="bandeira ? '' : 'button-disabled'" *ngIf="items[selectedIndex] === 3"
+              [disabled]="!bandeira">
               Concluir agendamento
             </button>
           </div><!-- /buttons -->
@@ -528,9 +538,14 @@
 </div>
 <!-- /container -->
 
-<div class="box-btns-mobile">
+<div *ngIf="items[selectedIndex] !== 1" class="box-btns-mobile">
   <div class="buttons buttons-mobile">
-    <button (click)="prev()">voltar</button>
-    <button class="disabled">Concluir agendamento</button>
+    <button class="prev-section" [ngClass]="items[selectedIndex] === 2 ? 'w-100' : ''" (click)="prev()">
+      voltar
+    </button>
+    <button class="concluir" [ngClass]="bandeira ? '' : 'button-disabled'" *ngIf="items[selectedIndex] === 3"
+      [disabled]="!bandeira">
+      Concluir agendamento
+    </button>
   </div>
 </div>

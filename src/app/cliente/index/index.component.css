@@ -526,6 +526,9 @@ a.dropdown-toggle{
     .overlay{
         z-index: 10;
     }
+    .space{
+        width: 25%;
+    }
     .mobile-description{
         display: block;
     }
@@ -588,6 +591,7 @@ a.dropdown-toggle{
     }
     .navbar {
         flex-direction: row-reverse;
+        justify-content: space-between;
     }
     .navbar-brand{
         margin-right: 0;
@@ -691,14 +695,29 @@ a.dropdown-toggle{
     }
     .box-btns-mobile a{
         display: flex;
-        background-color: #f5eae3;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background-color: transparent;
         color: #e9724c;
-        padding: 8px 15px 6px;
+        padding: 10px;
         border-radius: 30px;
         text-decoration: none;
     }
-    .box-btns-mobile a:first-child:before{
+    .box-btns-mobile a.active-m{
+        background-color: #f5eae3;
+    }
+    .box-btns-mobile .home-m::after{
         content: url('/assets/img/icons/home.svg');
+    }
+    .box-btns-mobile .agenda-m::after{
+        content: url('/assets/img/icons/agenda.svg');
+    }
+    .box-btns-mobile .ajuda-m::after{
+        content: url('/assets/img/icons/ajuda.svg');
+    }
+    .box-btns-mobile .perfil-m::after{
+        content: url('/assets/img/icons/perfil-mobile.svg');
     }
     .box-btns-mobile a span{
         display:none;

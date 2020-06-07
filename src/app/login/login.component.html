@@ -1,10 +1,12 @@
 <div class="limiter ">
   <div class="container-login100">
     <div class="wrap-login100">
-      
+
       <form [formGroup]="loginForm" class="login100-form validate-form" (ngSubmit)="onSubmit()">
         <div class="logo-top">
-          <img src="assets/img/logo-login.png">
+          <a routerLink="/index">
+            <img src="assets/img/logo-login.png">
+          </a>
         </div>
 
         <span class="loading" *ngIf="loading"></span>
@@ -19,13 +21,15 @@
         </div>
 
         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-          <input class="input100" type="email" name="email" formControlName="email" placeholder="Digite seu e-mail" required>
+          <input class="input100" type="email" name="email" formControlName="email" placeholder="Digite seu e-mail"
+            required>
           <img src="assets/img/icons/email.svg">
         </div>
 
 
         <div class="wrap-input100 validate-input" data-validate="Password is required">
-          <input class="input100" type="{{type}}" name="pass" formControlName="password" placeholder="Digite sua senha" required>
+          <input class="input100" type="{{type}}" name="pass" formControlName="password" placeholder="Digite sua senha"
+            required>
           <img src="assets/img/icons/senha.svg">
           <i (click)="toggleShow()" class="material-icons"
             [ngClass]="(visibility == 'visibility') ? 'orange-full' : ''">{{visibility}}</i>
@@ -38,7 +42,7 @@
 
           <span *ngIf="msgErro" class="msg-erro">{{msgErro}}</span>
         </div>
-    
+
 
         <div class="flex-sb-m w-full">
           <div class="contact100-form-checkbox">

@@ -270,37 +270,31 @@
     transform: scale(1);
 }
 .formas-pagamento{
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 .formas-pagamento p{
     font-size: 20px;
     color: #2b2b2b;
 }
-.formas-pagamento .row-item{
-	display: flex;
-	/*justify-content: space-between;*/
-	align-items: center;
-	margin-bottom: 25px;
-}
 .box-bandeira{
 	background-color: #fff;
 	border-radius: 30px;
 	border: 2px solid #d3d6d6;
-	width: 125px;
+	width: 100%;
 	height: 50px;
 	align-items: center;
 	justify-content: center;
     display: flex;
-    margin-right: 25px;
     cursor: pointer;
+    margin-bottom: 25px;
 }
-.box-bandeira:last-child{
-    margin-right: 0;
-}
+
 .box-bandeira:hover, .box-bandeira.checked{
     border: 2px solid #e9724c;
 }
-
+.label-apps span:last-child {
+    display: none;
+}
 
 @media (max-width: 575px) { 
 /*================= SERVICO DETALHE =================*/
@@ -343,8 +337,9 @@
         display: none;
     }
     .breadcrumb-item.mobile:nth-child(2){
-        padding-left: 0;
-        margin-right: 10px;
+        padding-left: 25px;
+        color: #484b4a;
+        font-weight: 500;
     }
     .breadcrumb-item a::before{
         content: url('/../assets/img/icons/voltar-black.svg');
@@ -355,8 +350,8 @@
         display: flex;
         flex-direction: column-reverse;
     }
-    .content-detalhe .row{
-        flex-direction: column-reverse;
+    .content-detalhe h4{
+        display: none;
     }
     .content-detalhe .detalhe-servico{
         width: 100%;
@@ -421,6 +416,52 @@
         margin-top: 22px;
         margin-bottom: 15px;
     }
+    .box-bandeira{
+        width: 100px;
+        height: 41px;
+        margin-right: 10px;
+    }
+    .radios {
+        justify-content: space-between;
+    }
+    .radios .custom-radio:last-child{
+        margin-right: 0;
+    }
+    .card-info p {
+        font-size: 14px;
+        width: 100%;
+    }
+    [type="radio"]:checked + label, 
+    [type="radio"]:not(:checked) + label{
+        font-size: 18px;
+    }
+    [type="radio"]:checked + label:before, 
+    [type="radio"]:not(:checked) + label:before{
+        width: 20px;
+        height: 20px;
+    }
+    [type="radio"]:checked + label:after, 
+    [type="radio"]:not(:checked) + label:after{
+        top: 5px;
+        left: 5px;
+    }
+    .label-apps span:first-child{
+        display: none;
+    }
+    .label-apps span:last-child {
+        display: initial;
+    }
+    .section-bandeiras{
+        margin-bottom: 85px;
+    }
+    .section-bandeiras .row{
+        margin-right: -5px;
+        margin-left: -5px;
+    }
+    .section-bandeiras .col-4{
+        padding-right: 5px;
+        padding-left: 5px;
+    }
     .box-btns-mobile{
         display: flex;
         background-color: #fff;
@@ -434,6 +475,7 @@
         bottom: 0;
         z-index: 5;
     }
+    
     .box-btns-mobile .links{
         display: flex;
         justify-content: space-between;
