@@ -1,10 +1,6 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light navbar-servico-detalhe d-none d-sm-block">
-    <button class="navbar-toggler" type="button">
-      <img src="assets/img/icons/menu.svg">
-    </button>
     <a class="navbar-brand" routerLink="/index"><img src="assets/img/logo-login.png"></a>
-    <div class="space"></div>
   </nav>
   <div class="row">
     <div class="col-12 col-lg-12">
@@ -12,15 +8,19 @@
 
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item mobile d-sm-none"><a routerLink="/index"></a></li>
-            <li class="breadcrumb-item mobile d-sm-none">Agendamento</li>
+            <li class="breadcrumb-item mobile d-sm-none"><a (click)="prev()"></a></li>
+            <li *ngIf="selectedIndex === 0" class="breadcrumb-item mobile d-sm-none">Agendamento</li>
+            <li *ngIf="selectedIndex === 1" class="breadcrumb-item mobile d-sm-none">Horários</li>
+            <li *ngIf="selectedIndex === 2" class="breadcrumb-item mobile d-sm-none">Pagamento</li>
             <li class="breadcrumb-item d-none d-sm-block"><a routerLink="/index">Home</a></li>
-            <li class="breadcrumb-item d-none d-sm-block" [ngClass]="selectedIndex === 0 ? 'active' : ''">Agendamento
+            <li id="0" class="breadcrumb-item d-none d-sm-block" 
+                [ngClass]="selectedIndex === 0 ? 'active' : ''" 
+                (click)="crumbsEvent($event)">Agendamento
             </li>
             <li *ngFor="let b of breadcrumbs" class="breadcrumb-item d-none d-sm-block"
               [ngClass]="(selectedIndex === b) ? 'active' : ''">
               <container-element [ngSwitch]="b">
-                <span *ngSwitchCase="b === 1">Horarios</span>
+                <span id="1"  *ngSwitchCase="b === 1" (click)="crumbsEvent($event)">Horários</span>
                 <span *ngSwitchDefault>Pagamento</span>
               </container-element>
             </li>

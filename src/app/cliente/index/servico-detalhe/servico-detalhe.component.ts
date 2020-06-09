@@ -73,13 +73,20 @@ export class ServicoDetalheComponent implements OnInit {
     this.imageClick = event.target.src;
   }
 
+  crumbsEvent(event) {
+    this.selectedIndex = Number(event.target.id);
+    this.breadcrumbs.splice(this.selectedIndex, 2);
+  }
+
   next() {
     ++this.selectedIndex;
     this.breadcrumbs.push(this.selectedIndex);
   }
   prev() {
+    if(this.selectedIndex !== 0){
     --this.selectedIndex;
     this.breadcrumbs.splice(this.selectedIndex, 1);
     this.bandeira = '';
+    }
   }
 }
