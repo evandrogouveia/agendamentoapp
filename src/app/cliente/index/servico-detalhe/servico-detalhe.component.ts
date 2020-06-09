@@ -62,6 +62,7 @@ export class ServicoDetalheComponent implements OnInit {
 
   changePagamento(event) {
     this.formaPagamento = event.target.value;
+    this.bandeira = '';
   }
 
   changeBandeira(event) {
