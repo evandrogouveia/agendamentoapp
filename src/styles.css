@@ -207,16 +207,28 @@ html, body{
       background-color: #f5eae3;
     }
     .box-btns-mobile .home-m::after{
-      content: url('/assets/img/icons/home.svg');
+      content: url('/assets/img/icons/home-black.svg');
+    }
+    .box-btns-mobile .home-m.active-m::after{
+      content: url('/assets/img/icons/home-orange.svg');
     }
     .box-btns-mobile .agenda-m::after{
-      content: url('/assets/img/icons/agenda.svg');
+      content: url('/assets/img/icons/agenda-black.svg');
+    }
+    .box-btns-mobile .agenda-m.active-m::after{
+      content: url('/assets/img/icons/agenda-orange.svg');
     }
     .box-btns-mobile .ajuda-m::after{
-      content: url('/assets/img/icons/ajuda.svg');
+      content: url('/assets/img/icons/ajuda-black.svg');
+    }
+    .box-btns-mobile .ajuda-m.active-m::after{
+      content: url('/assets/img/icons/ajuda-orange.svg');
     }
     .box-btns-mobile .perfil-m::after{
-      content: url('/assets/img/icons/perfil-mobile.svg');
+      content: url('/assets/img/icons/perfil-mobile-black.svg');
+    }
+    .box-btns-mobile .perfil-m.active-m::after{
+      content: url('/assets/img/icons/perfil-mobile-orange.svg');
     }
     .box-btns-mobile a span{
       display:none;
