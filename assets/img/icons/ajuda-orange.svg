@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23.219" height="24.136" viewBox="0 0 23.219 24.136">
+  <g id="ajuda" transform="translate(-307 -90)">
+    <path id="União_1" data-name="União 1" d="M.453,23.761l1.474-5.745a11.594,11.594,0,1,1,4.822,4.139L.838,24.12a.3.3,0,0,1-.385-.359Z" transform="translate(307 90)" fill="#e9724c"/>
+    <g id="bolinhas" transform="translate(312.069 100.279)">
+      <circle id="Elipse_8" data-name="Elipse 8" cx="1.5" cy="1.5" r="1.5" transform="translate(-0.069 -0.14)" fill="#fff"/>
+      <circle id="Elipse_9" data-name="Elipse 9" cx="1.5" cy="1.5" r="1.5" transform="translate(4.931 -0.14)" fill="#fff"/>
+      <circle id="Elipse_10" data-name="Elipse 10" cx="1.5" cy="1.5" r="1.5" transform="translate(9.931 -0.14)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
