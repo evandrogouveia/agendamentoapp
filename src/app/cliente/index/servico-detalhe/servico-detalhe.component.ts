@@ -83,7 +83,7 @@ export class ServicoDetalheComponent implements OnInit {
     this.breadcrumbs.push(this.selectedIndex);
   }
   prev() {
-    if(this.selectedIndex !== 0){
+    if (this.selectedIndex !== 0) {
     --this.selectedIndex;
     this.breadcrumbs.splice(this.selectedIndex, 1);
     this.bandeira = '';

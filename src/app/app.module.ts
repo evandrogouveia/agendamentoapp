@@ -25,6 +25,7 @@ import { AdminModule } from './admin/admin.module';
 import { MessagingService } from './shared/services/messaging.service';
 import { RegistroComponent } from './registro/registro.component';
 import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
+import { SucessoComponent } from './cliente/sucesso/sucesso.component';
 
 import { NgxBootstrapModule } from './ngx-bootstrap.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -40,6 +41,7 @@ registerLocaleData(localePt, 'pt');
     RegistroComponent,
     EsqueciSenhaComponent,
     SidebarComponent,
+    SucessoComponent
   ],
   imports: [
     BrowserModule,

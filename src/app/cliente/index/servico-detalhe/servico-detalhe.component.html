@@ -14,11 +14,11 @@
             <li *ngIf="selectedIndex === 2" class="breadcrumb-item mobile d-sm-none">Pagamento</li>
             <li class="breadcrumb-item d-none d-sm-block"><a routerLink="/index">Home</a></li>
             <li id="0" class="breadcrumb-item d-none d-sm-block" 
-                [ngClass]="selectedIndex === 0 ? 'active' : ''" 
+                [ngClass]="{'active' : selectedIndex === 0}" 
                 (click)="crumbsEvent($event)">Agendamento
             </li>
             <li *ngFor="let b of breadcrumbs" class="breadcrumb-item d-none d-sm-block"
-              [ngClass]="(selectedIndex === b) ? 'active' : ''">
+              [ngClass]="{'active' : (selectedIndex === b)}">
               <container-element [ngSwitch]="b">
                 <span id="1"  *ngSwitchCase="b === 1" (click)="crumbsEvent($event)">Horários</span>
                 <span *ngSwitchDefault>Pagamento</span>
@@ -32,7 +32,7 @@
       <div class="content-detalhe">
         <span class="loading" *ngIf="!(servicos$ | async)"></span>
         <ng-container *ngIf="servicos$ | async as s; else loading">
-          <h4 [ngClass]="(items[selectedIndex] === 3) ? 'd-none' : ''">
+          <h4 [ngClass]="{'d-none' : (items[selectedIndex] === 3)}">
             Serviço sendo agendado
           </h4>
 
@@ -71,8 +71,8 @@
             (items[selectedIndex] === 2 ? 'Escolha um horário' : 'Como deseja pagar?') }}
         </h4>
 
-        <div class="box-calendario-horario" [ngClass]="(items[selectedIndex] === 3) ? 'border-0' : ''">
-          <h5 class="d-sm-none">
+        <div class="box-calendario-horario" [ngClass]="{'border-0' : (items[selectedIndex] === 3)}">
+          <h5 class="d-sm-none" [ngClass]="{'text-left mt-1' : (items[selectedIndex] === 3)}">
             {{ items[selectedIndex] === 1 ? 'Escolha uma data' : 
             (items[selectedIndex] === 2 ? 'Escolha um horário' : 'Como deseja pagar?') }}
           </h5>

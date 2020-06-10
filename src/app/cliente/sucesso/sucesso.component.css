@@ -1,0 +1,69 @@
+.content-sucesso h4{
+    font-size: 25px;
+    color: #484b4a;
+    margin-bottom: 20px;
+}
+.infos-left{
+    padding-right: 45px;
+}
+.card-sucesso{
+    display: flex;
+    width: 100%;
+    height: 90px;
+    align-items: center;
+    background-color: #00c8b8;
+    border-radius: 10px;
+    margin-bottom: 17px;
+}
+.card-sucesso img{
+    margin: 0 20px;
+}
+.card-sucesso h5{
+    font-size: 22px;
+    color: #fff;
+    font-weight: 400;
+    margin-top: 16px;
+}
+.card-sucesso p{
+    font-size: 18px;
+    color: #484b4a;
+}
+.card-email{
+    display: block;
+    width: 100%;
+    height: 85px;
+    align-items: center;
+    background-color: #f2ebe7;
+    border-radius: 10px;
+    padding: 18px 0 0 20px;
+}
+.card-email p:first-child{
+    font-size: 16px;
+    color: #8a8a8a;
+    margin: 0;
+}  
+.card-email p:last-child{
+    font-size: 16px;
+    color: #484b4a;
+}  
+.links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 120px;
+}
+.links a:first-child{
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #e9724c;
+    border: 1px solid #e9724c;
+    border-radius: 5px;
+    padding: 12px 45px 10px;
+}
+.links a:last-child{
+    font-size: 18px;
+    text-decoration: underline;
+    color: #636464;
+ 
+}

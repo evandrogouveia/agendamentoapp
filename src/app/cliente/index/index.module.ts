@@ -13,7 +13,7 @@ import { FooterComponent } from '../../footer/footer.component';
   declarations: [
     IndexComponent,
     ServicoDetalheComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     CommonModule,
