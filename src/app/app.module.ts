@@ -4,6 +4,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DatePipe, registerLocaleData, AsyncPipe } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -60,6 +61,7 @@ registerLocaleData(localePt, 'pt');
     AngularFireMessagingModule,
     AuthModule,
     AdminModule.forRoot(),
+    HttpClientModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [DatePipe, MessagingService, AsyncPipe,  {

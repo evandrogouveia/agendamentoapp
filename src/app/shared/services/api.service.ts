@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { AngularFireStorage } from '@angular/fire/storage';
 import { Agendamento } from '../models/agendamento.model';
 import { Cadastroservico } from '../models/cadastroservico.model';
 import { Usuario } from '../models/user';
@@ -22,7 +21,7 @@ export class ApiService {
   private usuariosCollection: 
           AngularFirestoreCollection<Usuario> = this.afs.collection('users');
 
-  constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {}
+  constructor(private afs: AngularFirestore) {}
 
   getAgendamentos() {
     return this.agendamentoCollection.valueChanges();
@@ -61,5 +60,4 @@ export class ApiService {
     return this.afs.collection<Cadastroservico>('cadastroservico',
     ref => ref.orderBy('nomeservico').startAt(name).endAt(name + '\uf8ff')).valueChanges();
   }
-
 }

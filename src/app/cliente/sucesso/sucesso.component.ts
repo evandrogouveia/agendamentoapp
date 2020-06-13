@@ -6,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sucesso.component.css']
 })
 export class SucessoComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
-   
   }
+
 
 }
