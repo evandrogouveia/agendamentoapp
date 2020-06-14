@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2, ElementRef, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { BsModalService, ModalDirective } from 'ngx-bootstrap/modal';
@@ -8,12 +8,13 @@ import { Cadastroservico } from 'src/app/shared/models/cadastroservico.model';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { Usuario } from 'src/app/shared/models/user';
 import { AuthService } from 'src/app/login/auth/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css'],
+  selector: 'app-resultado-busca',
+  templateUrl: './resultado-busca.component.html',
+  styleUrls: ['./resultado-busca.component.css'],
   animations: [
     trigger('fadeInOut', [
       state('void', style({
@@ -23,11 +24,12 @@ import { Router } from '@angular/router';
     ]),
   ]
 })
-
-export class IndexComponent implements OnInit {
+export class ResultadoBuscaComponent implements OnInit {
   servicos$: Observable<Cadastroservico[]>;
   filtroServicos$: Observable<Cadastroservico[]>;
   usuario$: Observable<Usuario>;
+
+  parametro;
 
   @ViewChild('childModal') childModal: ModalDirective;
   @ViewChild('busca') busca: ElementRef;
@@ -43,15 +45,22 @@ export class IndexComponent implements OnInit {
     private sidebarService: SidebarService,
     private renderer: Renderer2,
     private router: Router,
+    private route: ActivatedRoute,
   ) {
     this.usuario$ = this.authService.getUser();
   }
 
   ngOnInit() {
-    this.servicos$ = this.apiService.getServicos();
     this.renderer.listen(window, 'scroll', ($event) => {
       this.scrollPosition = window.scrollY;
     });
+    this.route.queryParams.subscribe(params => {
+      this.parametro = params;
+    });
+
+    this.servicos$ = this.apiService.searchByName(
+      this.parametro[0].charAt(0).toUpperCase() + this.parametro[0].substr(1).toLowerCase()
+    );
   }
 
   executarViaService() {
@@ -76,7 +85,11 @@ export class IndexComponent implements OnInit {
 
   searchServicos(event) {
     if (event) {
-      this.router.navigate(['index/result-search'], {queryParams: [event.target.value]});
+      this.router.navigate(['index/result-search'], { queryParams: [event.target.value] });
+
+      this.servicos$ = this.apiService.searchByName(
+        event.target.value.charAt(0).toUpperCase() + event.target.value.substr(1).toLowerCase()
+      );
     }
     this.childModal.hide();
     this.closeOverlay();

@@ -496,41 +496,21 @@
 
 
   <div class="section-servicos">
-
-    <div class="text-center">
-      <h1>Serviços</h1>
+    
+    <div class="d-none d-sm-block title-result-search">
+      <h4>Encontramos {{ (servicos$ | async)?.length || 0 }} 
+        resultados para: <span>{{parametro[0]}}</span></h4>
     </div>
 
+    <div class="d-sm-none title-result-search">
+      <h4>{{ (servicos$ | async)?.length || 0 }} 
+        resultados para:<br> <span>{{parametro[0]}}</span></h4>
+    </div>
+    
     <div class="box-servicos">
       <div class="row">
 
-        <div class="col-6 col-lg-4" *ngFor="let s of servicos$ | async" >
-
-          <div class="card-img">
-            <div class="box-avaliation">
-              <img src="assets/img/icons/star.svg">
-              <p>4,5</p>
-            </div>
-            <a routerLink="/index/{{s.id}}">
-              <div class="box-img">
-                <img src="{{s.imageUrl}}">
-              </div>
-              <p class="default-description">{{s.nomeservico}}</p>
-              <p class="mobile-description">
-                {{(s.nomeservico.length > 36) ? (s.nomeservico | slice:0:36) + '...' : (s.nomeservico)}} </p>
-            </a>
-            <div class="box-btn-price">
-              <a routerLink="/index/{{s.id}}">Agendar</a>
-              <h3 [hidden]="s.valorservico == 0">
-                {{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</h3>
-              <h5 class="mt-2" *ngIf="s.valorservico == 0 ">
-                {{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</h5>
-            </div>
-          </div>
-
-        </div><!-- /col-lg-4 -->
-
-        <div class="col-6 col-lg-4" *ngFor="let s of filtroServicos$ | async">
+        <div class="col-6 col-lg-4" *ngFor="let s of servicos$ | async">
 
           <div class="card-img">
             <div class="box-avaliation">

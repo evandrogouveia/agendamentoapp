@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 
 export class ApiService {
 
+
   private agendamentoCollection:
           AngularFirestoreCollection<Agendamento> = this.afs.collection('agendamento');
   private cadastroservicoCollection:
@@ -59,5 +60,6 @@ export class ApiService {
   searchByName(name: string): Observable<Cadastroservico[]> {
     return this.afs.collection<Cadastroservico>('cadastroservico',
     ref => ref.orderBy('nomeservico').startAt(name).endAt(name + '\uf8ff')).valueChanges();
+    
   }
 }
