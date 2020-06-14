@@ -376,6 +376,9 @@ firebase/messaging
 
 firebase/storage
 
+mapbox-gl
+SEE LICENSE IN LICENSE.txt
+
 ngx-bootstrap
 MIT
 The MIT License (MIT)
