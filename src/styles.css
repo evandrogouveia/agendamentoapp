@@ -156,6 +156,10 @@ html, body{
   .mapboxgl-popup.mapboxgl-popup-anchor-bottom{
     max-width: 250px !important;
   }
+  .mapboxgl-ctrl-bottom-right,
+  .mapboxgl-ctrl-bottom-left{
+    display: none;
+  }
 
   /* ======================= RESPONSIVO =======================*/
   @media (max-width: 575px) {

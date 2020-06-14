@@ -12,23 +12,23 @@ export class SucessoComponent implements OnInit {
   style = 'mapbox://styles/mapbox/streets-v11';
   lat = 37.75;
   lng = -122.41;
-  initialPosition: any = [];
 
   constructor() { }
 
   ngOnInit() {
     this.startMap();
-
   }
 
   startMap() {
     navigator.geolocation.getCurrentPosition(position => {
       this.lat = position.coords.latitude;
       this.lng = position.coords.longitude;
-      this.initialPosition = position.coords;
+
       this.map.flyTo({
         center: [this.lng, this.lat],
+        animate: false
       });
+
       new mapboxgl.Popup({ closeOnClick: false })
         .setLngLat({ lng: this.lng, lat: this.lat })
         .setHTML('<div class="popup-map">' +
@@ -45,17 +45,11 @@ export class SucessoComponent implements OnInit {
       style: this.style,
       zoom: 15,
       center: [this.lng, this.lat],
-
     });
 
     // Add map controls
     this.map.addControl(new mapboxgl.NavigationControl());
 
   }
-
-
-
-
-
 
 }

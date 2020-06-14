@@ -576,7 +576,7 @@
       <button class="prev-section" [ngClass]="items[selectedIndex] === 2 ? 'w-100' : ''" (click)="prev()">
         voltar
       </button>
-      <button class="concluir" [ngClass]="bandeira ? '' : 'button-disabled'" *ngIf="items[selectedIndex] === 3"
+      <button routerLink="/sucesso" class="concluir" [ngClass]="bandeira ? '' : 'button-disabled'" *ngIf="items[selectedIndex] === 3"
         [disabled]="!bandeira">
         Concluir agendamento
       </button>

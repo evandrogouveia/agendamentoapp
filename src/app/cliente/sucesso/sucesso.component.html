@@ -24,7 +24,7 @@
           </div>
 
           <div class="links">
-            <a routerLink="#">AGENDAR MAIS</a>
+            <a routerLink="/index">AGENDAR MAIS</a>
             <a routerLink="#">ver agendamentos</a>
           </div>
         </div><!-- /infos-left -->
@@ -35,14 +35,21 @@
         <h4>:) Estamos te esperando</h4>
 
         <div class="mapa">
-         <div id='map' style='width: 100%; height: 350px;border-radius: 10px;'></div>
-
+         <div id='map'></div>
         </div>
 
-
-      </div><!-- /col-lg-8 -->
+      </div><!-- /col-lg-7 -->
 
     </div><!-- /row -->
 
   </div><!-- /content-sucesso -->
 </div><!-- /container -->
+<div class="box-btns-mobile">
+  <a class="home-m" routerLink="/index" routerLinkActive="active-m"></a>
+
+  <a class="agenda-m" routerLink="/agendamento" routerLinkActive="active-m"></a>
+
+  <a class="ajuda-m" routerLink="/agendamento" routerLinkActive="active-m"></a>
+
+  <a class="perfil-m" routerLink="/agendamento" routerLinkActive="active-m"></a>
+</div>
