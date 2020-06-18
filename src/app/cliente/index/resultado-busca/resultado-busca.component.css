@@ -634,6 +634,7 @@ a.dropdown-toggle{
     }
     .section-servicos .box-servicos{
         margin-bottom: 15vh;
+        min-height: 0;
     }
     .section-servicos .card-img{
         margin-bottom: 30px;

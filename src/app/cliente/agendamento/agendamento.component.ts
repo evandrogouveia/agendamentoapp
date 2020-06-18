@@ -109,7 +109,7 @@ export class AgendamentoComponent implements OnInit {
     this.apiService.addAgendamento(a)
       .then(() => {
         setTimeout(() => {
-          this.router.navigateByUrl('/lista-agendamentos');
+          this.router.navigateByUrl('admin/lista-agendamentos');
         }, 2000);
       });
   }
