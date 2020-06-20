@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { Cadastroservico } from 'src/app/shared/models/cadastroservico.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
-import { map } from 'rxjs/operators';
 
 
 @Component({
