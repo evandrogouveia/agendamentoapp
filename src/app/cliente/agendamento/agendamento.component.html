@@ -286,9 +286,7 @@
                     <img class="card-img-top" src="{{s.imageUrl}}" alt="Card image cap">
                     <p class="card-text">{{s.nomeservico}} </p>
                     <div class="card-body">
-
                       <p>{{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</p>
-
                     </div>
                     <input id="{{id}}" type="checkbox" name="servico" class="" value="{{s.nomeservico}}"
                       (change)="changeServico($event.target.checked, s)" [checked]="checked(s)" #checkbox>
@@ -308,10 +306,6 @@
             [disabled]="!angendamentoForm.valid && this.servicoInput.length === 0">Agendar</button>
         </div>
       </div>
-
-
-
-
     </form>
   </div><!-- /container-fluid -->
 </div><!-- /#page-content-wrapper -->
