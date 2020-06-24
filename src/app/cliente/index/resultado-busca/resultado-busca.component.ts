@@ -38,7 +38,6 @@ export class ResultadoBuscaComponent implements OnInit {
 
   scrollPosition;
 
-
   constructor(
     private authService: AuthService,
     private apiService: ApiService,
