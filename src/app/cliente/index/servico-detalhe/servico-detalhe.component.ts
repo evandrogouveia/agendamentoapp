@@ -38,7 +38,7 @@ export class ServicoDetalheComponent implements OnInit {
     private apiService: ApiService,
     private datePipe: DatePipe,
     private route: ActivatedRoute,
-    private router: Router) { }
+  ) { }
 
   ngOnInit() {
     const servicoId: string = this.route.snapshot.paramMap.get('id');
