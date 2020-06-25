@@ -1,7 +1,9 @@
 .loading {
-    top: 41%;
-    left: 37%;
-    margin: 0;
+    top: 40%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
 
 }
 .navbar-servico-detalhe{

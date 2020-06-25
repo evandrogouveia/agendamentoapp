@@ -101,7 +101,6 @@ export class ServicoDetalheComponent implements OnInit {
 
   changeBandeira(event) {
     this.bandeira = event.target.value;
-    this.pagamentoInput.push({formapagamento: this.formaPagamento, bandeira: this.bandeira});
   }
 
   imgEvent(event) {
@@ -126,8 +125,10 @@ export class ServicoDetalheComponent implements OnInit {
   }
 
   onSubmit() {
+    this.pagamentoInput.push({formapagamento: this.formaPagamento, bandeira: this.bandeira});
     const a: Agendamento = this.angendamentoForm.value;
     if (!a.id) {
+      this.loading = true;
       this.angendamentoForm.value.nome = this.usuarioLogado.nome;
       this.angendamentoForm.value.sobrenome = this.usuarioLogado.sobrenome;
       this.angendamentoForm.value.email = this.usuarioLogado.email;
