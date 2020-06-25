@@ -8,4 +8,5 @@ export interface Agendamento {
     valorservico: string;
     data: string;
     horario: string;
+    pagamento: string;
 }

@@ -64,7 +64,7 @@
                         </div-->
           </div>
         </ng-container>
-        <form>
+        <form [formGroup]="angendamentoForm">
 
           <h4 class="d-none d-sm-block">
             {{ items[selectedIndex] === 1 ? 'Escolha uma data' : 
@@ -540,15 +540,18 @@
             </div><!-- /form-group form-group-datapicker -->
 
             <div *ngIf="items[selectedIndex] !== 1" class="buttons">
-              <button class="prev-section" [ngClass]="items[selectedIndex] === 2 ? 'w-100' : ''" (click)="prev()">
+              <button type="button" class="prev-section" [ngClass]="items[selectedIndex] === 2 ? 'w-100' : ''" (click)="prev()">
                 voltar
               </button>
               <!--button class="concluir" [ngClass]="bandeira ? '' : 'button-disabled'" *ngIf="items[selectedIndex] === 3"
               [disabled]="!bandeira">
               Concluir agendamento
             </button-->
-              <button type="submit" class="concluir" [ngClass]="bandeira ? '' : 'button-disabled'"
-                *ngIf="items[selectedIndex] === 3" [disabled]="!bandeira">
+              <button type="submit" class="concluir" 
+                [ngClass]="bandeira ? '' : 'button-disabled'"
+                *ngIf="items[selectedIndex] === 3" 
+                [disabled]="!bandeira"
+                (click)="onSubmit()">
                 Concluir agendamento
               </button>
             </div><!-- /buttons -->

@@ -4,6 +4,9 @@ import { Observable } from 'rxjs';
 import { Cadastroservico } from 'src/app/shared/models/cadastroservico.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { Agendamento } from 'src/app/shared/models/agendamento.model';
+import { Validators, FormBuilder } from '@angular/forms';
+import { AuthService } from 'src/app/login/auth/auth.service';
 
 
 @Component({
@@ -19,30 +22,51 @@ export class ServicoDetalheComponent implements OnInit {
   bandeira;
 
   servicos$: Observable<Cadastroservico>;
+  agendamento$: Observable<Agendamento[]>;
+  usuarioLogado: any = [];
   loading = false;
   bsInlineValue = null;
   selectedDate: any;
   minDate = new Date();
   horarioInput: string;
-  imagesUrl = {
+  servicoInput: any = [];
+  /*imagesUrl = {
     imagem1: 'assets/img/img-servicos/imagem-1.jpg',
     imagem2: 'assets/img/img-servicos/1.jpg',
     imagem3: 'assets/img/img-servicos/2.jpg',
     imagem4: 'assets/img/img-servicos/3.jpg',
-  };
+  };*/
 
   imageClick;
+
+  angendamentoForm = this.fb.group({
+    id: [undefined],
+    nome: [''],
+    sobrenome: [''],
+    email: [''],
+    telefone: [''],
+    servico: ['', [Validators.required]],
+    data: ['', [Validators.required]],
+    horario: ['', [Validators.required]],
+  });
 
 
   constructor(
     private apiService: ApiService,
     private datePipe: DatePipe,
+    private authService: AuthService,
     private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private router: Router,
   ) { }
 
   ngOnInit() {
     const servicoId: string = this.route.snapshot.paramMap.get('id');
     this.servicos$ = this.apiService.getServicoDetalhe(servicoId).valueChanges();
+
+    this.authService.getUser().subscribe(data => {
+      this.usuarioLogado = data;
+    });
   }
 
   onValueChange(event: Date): void {
@@ -87,5 +111,27 @@ export class ServicoDetalheComponent implements OnInit {
     this.breadcrumbs.splice(this.selectedIndex, 1);
     this.bandeira = '';
     }
+  }
+
+  onSubmit() {
+    const a: Agendamento = this.angendamentoForm.value;
+    if (!a.id) {
+      this.angendamentoForm.value.nome = this.usuarioLogado.nome;
+      this.angendamentoForm.value.sobrenome = this.usuarioLogado.sobrenome;
+      this.angendamentoForm.value.email = this.usuarioLogado.email;
+      this.angendamentoForm.value.telefone = this.usuarioLogado.telefone;
+      this.angendamentoForm.value.data = this.selectedDate;
+      this.angendamentoForm.value.horario = this.horarioInput;
+      this.addAgendamento(a);
+    }
+  }
+
+  addAgendamento(a: Agendamento) {
+    this.apiService.addAgendamento(a)
+      .then(() => {
+        setTimeout(() => {
+          this.router.navigateByUrl('sucesso');
+        }, 2000);
+      });
   }
 }

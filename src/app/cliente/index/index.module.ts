@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { IndexRoutingModule } from './index-routing.module';
 import { NgxBootstrapModule } from 'src/app/ngx-bootstrap.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IndexComponent } from './index.component';
 import { ServicoDetalheComponent } from './servico-detalhe/servico-detalhe.component';
@@ -22,6 +23,8 @@ import { ResultadoBuscaComponent } from './resultado-busca/resultado-busca.compo
     CommonModule,
     IndexRoutingModule,
     NgxBootstrapModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
