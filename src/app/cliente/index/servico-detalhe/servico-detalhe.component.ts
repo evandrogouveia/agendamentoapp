@@ -17,19 +17,25 @@ import { AuthService } from 'src/app/login/auth/auth.service';
 export class ServicoDetalheComponent implements OnInit {
   items = [1, 2, 3];
   selectedIndex = 0;
-  formaPagamento = 'cartao';
+
   breadcrumbs = [];
+
+  formaPagamento = 'cartao';
   bandeira;
 
   servicos$: Observable<Cadastroservico>;
   agendamento$: Observable<Agendamento[]>;
+
   usuarioLogado: any = [];
   loading = false;
+
   bsInlineValue = null;
   selectedDate: any;
   minDate = new Date();
+
   horarioInput: string;
   servicoInput: any = [];
+  pagamentoInput: any = [];
   /*imagesUrl = {
     imagem1: 'assets/img/img-servicos/imagem-1.jpg',
     imagem2: 'assets/img/img-servicos/1.jpg',
@@ -48,6 +54,7 @@ export class ServicoDetalheComponent implements OnInit {
     servico: ['', [Validators.required]],
     data: ['', [Validators.required]],
     horario: ['', [Validators.required]],
+    pagamento: ['', [Validators.required]],
   });
 
 
@@ -63,6 +70,10 @@ export class ServicoDetalheComponent implements OnInit {
   ngOnInit() {
     const servicoId: string = this.route.snapshot.paramMap.get('id');
     this.servicos$ = this.apiService.getServicoDetalhe(servicoId).valueChanges();
+
+    this.servicos$.subscribe(data => {
+      this.servicoInput.push(data);
+    });
 
     this.authService.getUser().subscribe(data => {
       this.usuarioLogado = data;
@@ -90,6 +101,7 @@ export class ServicoDetalheComponent implements OnInit {
 
   changeBandeira(event) {
     this.bandeira = event.target.value;
+    this.pagamentoInput.push({formapagamento: this.formaPagamento, bandeira: this.bandeira});
   }
 
   imgEvent(event) {
@@ -122,7 +134,10 @@ export class ServicoDetalheComponent implements OnInit {
       this.angendamentoForm.value.telefone = this.usuarioLogado.telefone;
       this.angendamentoForm.value.data = this.selectedDate;
       this.angendamentoForm.value.horario = this.horarioInput;
+      this.angendamentoForm.value.servico = this.servicoInput;
+      this.angendamentoForm.value.pagamento = this.pagamentoInput;
       this.addAgendamento(a);
+      this.angendamentoForm.reset();
     }
   }
 
