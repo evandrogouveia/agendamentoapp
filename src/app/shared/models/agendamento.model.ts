@@ -9,4 +9,5 @@ export interface Agendamento {
     data: string;
     horario: string;
     pagamento: string;
+    numeroagendamento: number;
 }

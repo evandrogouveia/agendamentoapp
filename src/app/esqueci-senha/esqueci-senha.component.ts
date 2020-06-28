@@ -30,10 +30,6 @@ export class EsqueciSenhaComponent implements OnInit {
   ngOnInit() {
   }
 
-  private loginErrorNotification(err) {
-    this.msgErro = err;
-  }
-
   onSubmit() {
   }
 

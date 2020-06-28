@@ -4,6 +4,8 @@ import { AuthService } from '../login/auth/auth.service';
 import { Router } from '@angular/router';
 import { Usuario } from '../shared/models/user';
 import * as CryptoJS from 'crypto-js';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-registro',
@@ -16,20 +18,18 @@ export class RegistroComponent implements OnInit {
   visibility = 'visibility_off';
   loading = false;
   msgErro = '';
-  perfil = 'usuario';
 
   cadastroForm: FormGroup = this.fb.group({
     'nome': ['', [Validators.required] ],
     'sobrenome': ['', [Validators.required] ],
     'email': ['', [Validators.required, Validators.email]],
-    'telefone': ['', [Validators.required]],
     'password': ['', [Validators.required, Validators.minLength(6)]],
-    'perfil': [this.perfil]
   });
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private afAuth: AngularFireAuth,
     private router: Router
   ) { }
 
@@ -57,20 +57,23 @@ export class RegistroComponent implements OnInit {
       nome: this.cadastroForm.value.nome,
       sobrenome: this.cadastroForm.value.sobrenome,
       email: this.cadastroForm.value.email,
-      telefone: this.cadastroForm.value.telefone,
       password: CryptoJS.SHA256(this.cadastroForm.value.password).toString(),
-      perfil: this.cadastroForm.value.perfil
-
     };
+   
     this.authService.cadastro(newUser)
       .subscribe(
         (u) => {
-          this.router.navigateByUrl('/agendamento');
+          this.router.navigateByUrl('/index');
           this.loading = false;
         },
         (err) => {
+          if (err.code === 'auth/email-already-in-use') {
+            this.loading = false;
+            this.msgErro = 'Email já cadastrado';
+          } else {
           this.msgErro = 'Preencha os campos corretamente';
           this.loading = false;
+          }
         }
       );
 

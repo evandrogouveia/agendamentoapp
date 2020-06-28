@@ -22,6 +22,7 @@ export class ServicoDetalheComponent implements OnInit {
 
   formaPagamento = 'cartao';
   bandeira;
+  numeroAgendamento: number;
 
   servicos$: Observable<Cadastroservico>;
   agendamento$: Observable<Agendamento[]>;
@@ -36,6 +37,7 @@ export class ServicoDetalheComponent implements OnInit {
   horarioInput: string;
   servicoInput: any = [];
   pagamentoInput: any = [];
+
   /*imagesUrl = {
     imagem1: 'assets/img/img-servicos/imagem-1.jpg',
     imagem2: 'assets/img/img-servicos/1.jpg',
@@ -55,6 +57,7 @@ export class ServicoDetalheComponent implements OnInit {
     data: ['', [Validators.required]],
     horario: ['', [Validators.required]],
     pagamento: ['', [Validators.required]],
+    numeroagendamento: ['']
   });
 
 
@@ -77,6 +80,11 @@ export class ServicoDetalheComponent implements OnInit {
 
     this.authService.getUser().subscribe(data => {
       this.usuarioLogado = data;
+    });
+
+    this.agendamento$ = this.apiService.getAgendamentos();
+    this.agendamento$.subscribe(data => {
+      this.numeroAgendamento = data.length + 1;
     });
   }
 
@@ -118,28 +126,35 @@ export class ServicoDetalheComponent implements OnInit {
   }
   prev() {
     if (this.selectedIndex !== 0) {
-    --this.selectedIndex;
-    this.breadcrumbs.splice(this.selectedIndex, 1);
-    this.bandeira = '';
+      --this.selectedIndex;
+      this.breadcrumbs.splice(this.selectedIndex, 1);
+      this.bandeira = '';
     }
   }
 
   onSubmit() {
-    this.pagamentoInput.push({formapagamento: this.formaPagamento, bandeira: this.bandeira});
-    const a: Agendamento = this.angendamentoForm.value;
-    if (!a.id) {
+    if (!this.usuarioLogado) {
+      this.router.navigateByUrl('login');
+    } else {
       this.loading = true;
-      this.angendamentoForm.value.nome = this.usuarioLogado.nome;
-      this.angendamentoForm.value.sobrenome = this.usuarioLogado.sobrenome;
-      this.angendamentoForm.value.email = this.usuarioLogado.email;
-      this.angendamentoForm.value.telefone = this.usuarioLogado.telefone;
-      this.angendamentoForm.value.data = this.selectedDate;
-      this.angendamentoForm.value.horario = this.horarioInput;
-      this.angendamentoForm.value.servico = this.servicoInput;
-      this.angendamentoForm.value.pagamento = this.pagamentoInput;
-      this.addAgendamento(a);
-      this.angendamentoForm.reset();
+      this.pagamentoInput.push({ formapagamento: this.formaPagamento, bandeira: this.bandeira });
+      const a: Agendamento = this.angendamentoForm.value;
+      if (!a.id) {
+        this.angendamentoForm.value.nome = this.usuarioLogado.nome;
+        this.angendamentoForm.value.sobrenome = this.usuarioLogado.sobrenome;
+        this.angendamentoForm.value.email = this.usuarioLogado.email;
+        this.angendamentoForm.value.telefone = this.usuarioLogado.telefone;
+        this.angendamentoForm.value.data = this.selectedDate;
+        this.angendamentoForm.value.horario = this.horarioInput;
+        this.angendamentoForm.value.servico = this.servicoInput;
+        this.angendamentoForm.value.pagamento = this.pagamentoInput;
+        this.angendamentoForm.value.numeroagendamento = this.numeroAgendamento;
+        this.addAgendamento(a);
+        this.angendamentoForm.reset();
+      }
+
     }
+
   }
 
   addAgendamento(a: Agendamento) {

@@ -16,6 +16,9 @@
     margin: 0 auto;
     padding: 0px 0 140px;
 }
+.opacity-min{
+    opacity: 0.3;
+}
 
 .content-detalhe h4{
     font-size: 25px;

@@ -73,9 +73,8 @@ export class AuthService {
         switchMap((u: auth.UserCredential) => {
           const newUser: Usuario = {
             nome: u.user.displayName,
-            sobrenome: '', telefone: '',
+            sobrenome: '',
             email: u.user.email,
-            perfil: '',
             id: u.user.uid
           };
           return this.userCollection.doc(u.user.uid)
@@ -93,8 +92,7 @@ export class AuthService {
         switchMap((u: auth.UserCredential) => {
           const newUser: Usuario = {
             nome: u.user.displayName,
-            sobrenome: '', telefone: '',
-            perfil: '',
+            sobrenome: '',
             email: u.user.email,
             id: u.user.uid
           };

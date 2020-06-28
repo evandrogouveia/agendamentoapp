@@ -91,6 +91,9 @@ a.dropdown-toggle{
     line-height: 16px;
     color: #484b4a;
 }
+#user{
+    -webkit-appearance: initial;
+}
 .dropdown-toggle .logged p:last-child{
     margin: 0;
     font-size: 18px;
