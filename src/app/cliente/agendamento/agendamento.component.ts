@@ -6,10 +6,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Cadastroservico } from '../../shared/models/cadastroservico.model';
 import { DatePipe } from '@angular/common';
-import { Usuario } from '../../shared/models/user';
 import { AuthService } from '../../login/auth/auth.service';
-import { switchMap, map } from 'rxjs/operators';
-
 
 
 
