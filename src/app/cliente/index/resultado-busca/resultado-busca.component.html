@@ -502,7 +502,7 @@
       </div>
     
       <h3>Ops! Serviço não encontrado</h3>
-      <h4>Não encontramos nenhum resultado para: <span>{{parametro[0]}}</span></h4>
+      <h4>Não encontramos nenhum resultado para: <span>"{{parametro[0]}}"</span></h4>
 
       <h4>O que eu faço?</h4>
 
@@ -514,10 +514,13 @@
     *ngIf="(loading === false) && ((servicos$ | async)?.length !== 0)"
     [ngClass]="{'d-sm-block': (loading === false) && (servicos$ | async)}">
       <h4>Encontramos {{ (servicos$ | async)?.length || 0 }} 
-        resultados para: <span>{{parametro[0]}}</span></h4>
+        resultados para: <span>"{{parametro[0]}}"</span></h4>
     </div>
 
-    <div class="d-sm-none title-result-search">
+    <div class="d-none d-sm-none title-result-search"
+    *ngIf="(loading === false) && ((servicos$ | async)?.length !== 0)"
+    [ngClass]="{'d-block': (loading === false) && (servicos$ | async)}"
+    >
       <h4>{{ (servicos$ | async)?.length || 0 }} 
         resultados para:<br> <span>{{parametro[0]}}</span></h4>
     </div>

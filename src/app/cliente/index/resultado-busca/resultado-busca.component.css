@@ -761,5 +761,8 @@ a.dropdown-toggle{
         width: 35%;
         margin-top: 35px;
     }
+    .no-result-search h3{
+        font-size: 32px;
+    }
  
 }
