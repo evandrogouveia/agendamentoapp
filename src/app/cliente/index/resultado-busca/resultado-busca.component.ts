@@ -29,6 +29,10 @@ export class ResultadoBuscaComponent implements OnInit {
   filtroServicos$: Observable<Cadastroservico[]>;
   usuario$: Observable<Usuario>;
 
+  results = false;
+
+  loading = false;
+
   parametro;
 
   @ViewChild('childModal') childModal: ModalDirective;
@@ -84,15 +88,19 @@ export class ResultadoBuscaComponent implements OnInit {
 
   searchServicos(event) {
     if (event) {
+      this.loading = true;
       this.router.navigate(['index/result-search'], { queryParams: [event.target.value] });
 
       this.servicos$ = this.apiService.searchByName(
         event.target.value.charAt(0).toUpperCase() + event.target.value.substr(1).toLowerCase()
       );
+
     }
+    
     this.childModal.hide();
     this.closeOverlay();
     this.busca.nativeElement.value = '';
+    this.loading = false;
   }
 
   logout() {

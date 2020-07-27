@@ -495,8 +495,24 @@
   </nav>
 
   <div class="section-servicos">
+
+    <div *ngIf="(servicos$ | async)?.length === 0" class="no-result-search">
+      <div class="header-icon">
+        <img src="assets/img/icons/spa.svg">
+      </div>
     
-    <div class="d-none d-sm-block title-result-search">
+      <h3>Ops! Serviço não encontrado</h3>
+      <h4>Não encontramos nenhum resultado para: <span>{{parametro[0]}}</span></h4>
+
+      <h4>O que eu faço?</h4>
+
+      <p><img src="assets/img/icons/correct.svg"> Verifique os termos digitados ou os filtros selecionados.</p>
+      <p><img src="assets/img/icons/correct.svg"> Uiliza termos genéricos na busca.</p>
+    </div>
+
+    <div class="d-none title-result-search"  
+    *ngIf="(loading === false) && ((servicos$ | async)?.length !== 0)"
+    [ngClass]="{'d-sm-block': (loading === false) && (servicos$ | async)}">
       <h4>Encontramos {{ (servicos$ | async)?.length || 0 }} 
         resultados para: <span>{{parametro[0]}}</span></h4>
     </div>
