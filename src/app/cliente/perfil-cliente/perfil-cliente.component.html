@@ -35,5 +35,40 @@
   menu
 </div>
 <div class="content-perfil">
-  <p *ngIf="(usuario$ | async)">Bem-vindo(a) <span>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</span></p>
+  <p class="username" *ngIf="(usuario$ | async)">Bem-vindo(a) <span>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</span>
+  </p>
+
+  <h4>Controle</h4>
+
+  <div class="card-controle">
+    <div class="card-header-c">
+      <div class="box-img">
+        <img src="assets/img/icons/agenda-perfil.svg">
+      </div>
+      <p>Agendamentos</p>
+    </div>
+    <div class="card-body-c">
+      <p>10</p>
+      <p>Mês atual</p>
+    </div>
+
+  </div>
+
+  <h4>Agendamento em aberto</h4>
+
+  <div class="card-agendamento">
+    <div class="box-left">
+      <h6>8:30h</h6>
+      <p>12/06/20</p>
+    </div>
+
+    <div class="box-right">
+      <p>Tratamento de unhas, pintura e brilho para unhas postiças...</p>
+      <p>com Francisquinha</p>
+
+      <a href="#" class="gear">
+        <img src="assets/img/icons/settings.svg">
+      </a>
+    </div>
+  </div>
 </div>
