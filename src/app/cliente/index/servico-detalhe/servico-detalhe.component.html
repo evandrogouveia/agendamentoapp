@@ -579,11 +579,8 @@
 
   <ng-container *ngIf="items[selectedIndex] === 3">
     <div class="buttons buttons-mobile">
-      <button class="prev-section" [ngClass]="items[selectedIndex] === 2 ? 'w-100' : ''" (click)="prev()">
-        voltar
-      </button>
       <button type="submit" class="concluir" [ngClass]="bandeira ? '' : 'button-disabled'"
-        *ngIf="items[selectedIndex] === 3" [disabled]="!bandeira">
+        *ngIf="items[selectedIndex] === 3" [disabled]="!bandeira" (click)="onSubmit()">
         Concluir agendamento
       </button>
     </div>

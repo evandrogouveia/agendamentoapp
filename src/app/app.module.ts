@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AgendamentoComponent } from './cliente/agendamento/agendamento.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 
@@ -27,6 +26,7 @@ import { MessagingService } from './shared/services/messaging.service';
 import { RegistroComponent } from './registro/registro.component';
 import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
 import { SucessoComponent } from './cliente/sucesso/sucesso.component';
+import { PerfilClienteComponent } from './cliente/perfil-cliente/perfil-cliente.component';
 
 import { NgxBootstrapModule } from './ngx-bootstrap.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -38,11 +38,11 @@ registerLocaleData(localePt, 'pt');
 @NgModule({
   declarations: [
     AppComponent,
-    AgendamentoComponent,
     RegistroComponent,
     EsqueciSenhaComponent,
     SidebarComponent,
-    SucessoComponent
+    SucessoComponent,
+    PerfilClienteComponent
   ],
   imports: [
     BrowserModule,

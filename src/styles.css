@@ -9,7 +9,7 @@ html, body{
   font-family: 'Roboto', sans-serif;
 }
 .loading {
-  background-image: url('/assets/img/icons/spiner.svg');
+  background-image: url('/assets/img/icons/spinner.gif');
   background-size: contain;
   width: 80px;
   height: 80px;

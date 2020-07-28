@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/login/auth/auth.service';
 export class SucessoComponent implements OnInit {
   agendamento$: Observable<Agendamento[]>;
   numeroAgendamento: number;
-  emailUsuario: string = null;
+  //emailUsuario: string = null;
 
   map: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/streets-v11';
@@ -28,9 +28,9 @@ export class SucessoComponent implements OnInit {
     this.agendamento$.subscribe(data => {
       this.numeroAgendamento = data.length;
     });
-    this.authService.getUser().subscribe(data => {
+    /*this.authService.getUser().subscribe(data => {
        this.emailUsuario =  data.email;
-    });
+    });*/
     this.startMap();
   }
 

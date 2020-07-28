@@ -1,0 +1,39 @@
+<nav class="navbar">
+  <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
+    <img src="assets/img/icons/menu.svg">
+  </button>
+
+  <div class="logo">
+    <img src="assets/img/logo-example-2.png">
+  </div>
+
+  <div class="icon-home">
+    <img src="assets/img/icons/ver-salao.svg">
+  </div>
+
+  <div class="profile-menu">
+    <div class="btn-group" dropdown>
+      <div id="button-basic" dropdownToggle type="button" class="btn dropdown-toggle" aria-controls="dropdown-basic">
+        <div class="img-user">
+          <img src="assets/img/juliana.jpg">
+        </div>
+        <span class="caret"></span>
+      </div>
+      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+        <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+        <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+        <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+        <li class="divider dropdown-divider"></li>
+        <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+        </li>
+      </ul>
+    </div>
+    <!--p>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</p-->
+  </div>
+</nav>
+<div class="wrapper-menu" [ngClass]="expanded">
+  menu
+</div>
+<div class="content-perfil">
+  <p *ngIf="(usuario$ | async)">Bem-vindo(a) <span>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</span></p>
+</div>

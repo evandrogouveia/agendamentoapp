@@ -12,6 +12,7 @@ import { ResultadoBuscaComponent } from './resultado-busca/resultado-busca.compo
 
 
 
+
 @NgModule({
   declarations: [
     IndexComponent,

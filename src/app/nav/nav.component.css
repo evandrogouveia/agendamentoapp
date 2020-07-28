@@ -1,8 +1,16 @@
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    height: 60px;
+}
 #menu-toggle{
-    border: 1px solid #ccc;
+    border: none;
+    background-color: transparent;
+    padding: 0;
 }
 #menu-toggle:hover{
-    border: 1px solid #20B2AA;
     background-color: transparent;
 }
 #menu-toggle:focus{

@@ -1,6 +1,6 @@
-<nav class="navbar navbar-light bg-light border-bottom">
+<nav class="navbar border-bottom">
   <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
-    <span class="navbar-toggler-icon"></span>
+    <img src="assets/img/icons/menu.svg">
   </button>
   <div class="profile-menu">
     <p>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</p>

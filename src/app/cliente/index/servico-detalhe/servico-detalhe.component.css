@@ -312,9 +312,6 @@
 
 @media (max-width: 575px) { 
 /*================= SERVICO DETALHE =================*/
-    .loading{
-        display: none;
-    }
     .navbar-servico-detalhe {
         padding-left: 0;
         padding-right: 0;
@@ -498,6 +495,7 @@
         height: 45px;
         font-size: 15px;
         padding: 10px 22px;
+        width: 100%;
     }
     .breadcrumb-item a{
         top: -1px;
