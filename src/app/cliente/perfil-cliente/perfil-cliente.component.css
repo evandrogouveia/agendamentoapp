@@ -134,6 +134,11 @@
     border-radius: 5px;
     background-color: #ffffff;
     box-shadow: 0px 2px 15px 0px #e8d9d3;
+    margin-bottom: 15px;
+    position: relative;
+}
+.card-agendamento.canceled{
+    background-color: #d3d6d6;
 }
 .card-agendamento .box-left{
     background-color: #e9724c;
@@ -141,6 +146,9 @@
     border-top-left-radius: 5px;
     text-align: center;
     width: 25%;
+}
+.card-agendamento.canceled .box-left{
+    background-color: #9e9e9e;
 }
 .card-agendamento .box-left h6{
     margin: 0;
@@ -152,6 +160,10 @@
     font-size: 14px;
     color: #ffffff;
 }
+.card-agendamento.canceled .box-left h6,
+.card-agendamento.canceled .box-left p{
+    color: #d3d6d6;
+}
 .card-agendamento .box-right{
     width: 75%;
     padding: 10px;
@@ -162,11 +174,16 @@
     font-size: 16px;
     color: #575757;
     line-height: 18px;
+    height: 60px;
 }
-.card-agendamento .box-right p:last-child{
+.card-agendamento .box-right p + p{
     margin: 0;
     font-size: 15px;
     color: #e88f73;
+}
+.card-agendamento .box-right p:first-child,
+.card-agendamento.canceled .box-right p + p{
+    color: #9e9e9e;
 }
 .card-agendamento .box-right .gear{
     background-color: #d3d6d6;
@@ -178,6 +195,26 @@
     right: 0;
     bottom: 0;
     border-bottom-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-agendamento.canceled .box-right .gear{
+    background-color: #c52525;
+}
+.settings{
+    background: url("../../../assets/img/icons/settings.svg");
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+.card-agendamento.canceled .settings{
+    background: url("../../../assets/img/icons/settings-white.svg");
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    display: block;
 }
 
 /* ============= MOBILE =================*/
