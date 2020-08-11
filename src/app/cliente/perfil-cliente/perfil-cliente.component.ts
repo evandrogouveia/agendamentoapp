@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/shared/models/user';
 import { Agendamento } from 'src/app/shared/models/agendamento.model';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-perfil-cliente',
@@ -13,22 +14,29 @@ import { ApiService } from 'src/app/shared/services/api.service';
 })
 export class PerfilClienteComponent implements OnInit {
   usuario$: Observable<Usuario>;
+  emailUser: any = [];
   agendamento$: Observable<Agendamento[]>;
   expanded;
-  
+
   constructor(
     private apiService: ApiService,
-    private authService: AuthService, 
+    private authService: AuthService,
+    private afAuth: AngularFireAuth,
     private sidebarService: SidebarService
-    ) { 
+  ) {
     this.usuario$ = this.authService.getUser();
+    this.afAuth.user.subscribe(data => { this.emailUser.push(data.email) })
   }
 
   ngOnInit() {
-    this.agendamento$ = this.apiService.getAgendamentos();
-   this.sidebarService.obterToggle().subscribe(data => {
-    this.expanded = data;
-   });
+    setTimeout(() => {
+      this.agendamento$ = this.apiService.getAgendamentosUser(this.emailUser.toString());//passar e-mail como parâmetro para o service
+    }, 1100);
+
+    this.sidebarService.obterToggle().subscribe(data => {
+      this.expanded = data;
+    });
+
   }
 
   executarViaService() {

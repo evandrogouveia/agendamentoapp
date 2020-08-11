@@ -3,7 +3,9 @@ import { AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument 
 import { Agendamento } from '../models/agendamento.model';
 import { Cadastroservico } from '../models/cadastroservico.model';
 import { Usuario } from '../models/user';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Injectable({
@@ -12,15 +14,18 @@ import { Observable } from 'rxjs';
 
 export class ApiService {
 
+  agendamentos$: any = [];
 
   private agendamentoCollection:
-          AngularFirestoreCollection<Agendamento> = this.afs.collection('agendamento');
+    AngularFirestoreCollection<Agendamento> = this.afs.collection('agendamento');
+
   private cadastroservicoCollection:
-          AngularFirestoreCollection<Cadastroservico> = this.afs.collection('cadastroservico', ref => {
-            return ref.orderBy('nomeservico', 'asc');
-          });
-  private usuariosCollection: 
-          AngularFirestoreCollection<Usuario> = this.afs.collection('users');
+    AngularFirestoreCollection<Cadastroservico> = this.afs.collection('cadastroservico', ref => {
+      return ref.orderBy('nomeservico', 'asc');
+    });
+
+  private usuariosCollection:
+    AngularFirestoreCollection<Usuario> = this.afs.collection('users');
 
   constructor(private afs: AngularFirestore) {}
 
@@ -28,9 +33,15 @@ export class ApiService {
     return this.agendamentoCollection.valueChanges();
   }
 
+  getAgendamentosUser(email) {
+    this.agendamentos$ = this.afs.collection('agendamento', ref => ref.where('email', '==', email)).valueChanges();
+    return this.agendamentos$;
+  }
+
   getServicos() {
     return this.cadastroservicoCollection.valueChanges();
   }
+
   getServicoDetalhe(servicoId: string): AngularFirestoreDocument<Cadastroservico> {
     return this.afs.collection('cadastroservico').doc(servicoId);
   }
@@ -59,7 +70,7 @@ export class ApiService {
 
   searchByName(name: string): Observable<Cadastroservico[]> {
     return this.afs.collection<Cadastroservico>('cadastroservico',
-    ref => ref.orderBy('nomeservico').startAt(name).endAt(name + '\uf8ff')).valueChanges();
-    
+      ref => ref.orderBy('nomeservico').startAt(name).endAt(name + '\uf8ff')).valueChanges();
+
   }
 }

@@ -53,16 +53,17 @@
     </div>
 
   </div>
-
+  {{emailUser}}
   <h4>Agendamento em aberto</h4>
 
-  <div class="card-agendamento">
+  <div *ngFor="let a of agendamento$ | async" class="card-agendamento">
     <div class="box-left">
-      <h6>8:30h</h6>
-      <p>12/06/20</p>
+      <h6>{{a.horario}}</h6>
+      <p>{{a.data}}</p>
     </div>
 
     <div class="box-right">
+      {{a.email}}
       <p>Tratamento de unhas, pintura e brilho para unhas postiças...</p>
       <p>com Francisquinha</p>
 

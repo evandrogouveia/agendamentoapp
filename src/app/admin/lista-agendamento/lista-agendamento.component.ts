@@ -20,6 +20,7 @@ export class ListaAgendamentoComponent implements OnInit {
 
   dia = this.dataAtual.toLocaleDateString();
   mes = this.dataAtual.toLocaleDateString().substring(3, 5);
+  
 
   totalAgendamentoDia: number;
   totalAgendamentoMes: number;
@@ -31,6 +32,15 @@ export class ListaAgendamentoComponent implements OnInit {
     this.servicos$ = this.apiService.getServicos();
     this.totalDia();
     this.totalMes();
+
+
+    this.agendamento$.pipe(
+      map(values => {
+        const b: any = values.map(d => d.data).filter(dat => dat === this.dia);
+        this.totalAgendamentoDia = b.length;
+      })
+    ).subscribe();
+
   }
 
   totalDia() {
