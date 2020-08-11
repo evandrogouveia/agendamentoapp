@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SidebarService } from 'src/app/shared/services/sidebar.service';
 import { AuthService } from 'src/app/login/auth/auth.service';
 import { Observable } from 'rxjs';
@@ -7,6 +7,8 @@ import { Agendamento } from 'src/app/shared/models/agendamento.model';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { map } from 'rxjs/operators';
+import { ModalDirective } from 'ngx-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil-cliente',
@@ -14,6 +16,9 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./perfil-cliente.component.css']
 })
 export class PerfilClienteComponent implements OnInit {
+
+  @ViewChild('childModalProfile') childModal: ModalDirective;
+
   usuario$: Observable<Usuario>;
   emailUser: any = [];
   agendamento$: Observable<Agendamento[]>;
@@ -29,7 +34,8 @@ export class PerfilClienteComponent implements OnInit {
     private apiService: ApiService,
     private authService: AuthService,
     private afAuth: AngularFireAuth,
-    private sidebarService: SidebarService
+    private sidebarService: SidebarService,
+    private router: Router,
   ) {
     this.usuario$ = this.authService.getUser();
     this.afAuth.user.subscribe(data => { 
@@ -52,6 +58,14 @@ export class PerfilClienteComponent implements OnInit {
     
   }
 
+  openModal(): void {
+    this.childModal.show();
+  }
+
+  closeModal(): void {
+    this.childModal.hide();
+  }
+
   executarViaService() {
     this.sidebarService.toggleNavbar(); // executa o método via service
   }
@@ -63,6 +77,11 @@ export class PerfilClienteComponent implements OnInit {
         this.totalAgendamentoMes = b.length;
       })
     ).subscribe();
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigateByUrl('/index');
   }
 
 }

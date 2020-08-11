@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   //{ path: 'agendamento', component: AgendamentoComponent, canActivate: [AuthGuardService] },
   { path: 'sucesso', component: SucessoComponent },
-  { path: 'perfil', component: PerfilClienteComponent },
+  { path: 'perfil', component: PerfilClienteComponent, canActivate: [AuthGuardService] },
   { path: 'recover', component: EsqueciSenhaComponent },
   { path: 'index', loadChildren: './cliente/index/index.module#IndexModule'},
   { path: '', pathMatch: 'full', redirectTo: 'index' }

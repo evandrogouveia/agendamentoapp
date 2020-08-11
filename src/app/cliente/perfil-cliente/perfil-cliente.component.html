@@ -14,26 +14,41 @@
     </a>
   </div>
 
-  <div class="profile-menu">
-    <div class="btn-group" dropdown>
-      <div id="button-basic" dropdownToggle type="button" class="btn dropdown-toggle" aria-controls="dropdown-basic">
-        <div class="img-user">
-          <img src="assets/img/juliana.jpg">
-        </div>
-        <span class="caret"></span>
-      </div>
-      <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
-        <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-        <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-        <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
-        <li class="divider dropdown-divider"></li>
-        <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-        </li>
-      </ul>
+  <div class="profile-menu" (click)="openModal()">
+    <div class="profile-img">
+      <img src="assets/img/juliana.jpg">
     </div>
+    <span class="down-arrow"></span>
     <!--p>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</p-->
   </div>
 </nav>
+
+<div bsModal #childModalProfile="bs-modal" class="modal fade modal-profile" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-sizes-name1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="header-modal">
+        <h4>Ações</h4>
+        <img src="assets/img/icons/close-modal.svg" (click)="closeModal()">
+      </div>
+      <div class="modal-body">
+
+        <div class="links">
+          <div>
+            <img src="assets/img/icons/edit-perfil.svg">
+            <a href="#">Editar perfil</a>
+          </div>
+          <div>
+            <img src="assets/img/icons/icon-sair.svg">
+            <a routerLink="#" (click)="logout()">Sair</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="wrapper-menu" [ngClass]="expanded">
   menu
 </div>
