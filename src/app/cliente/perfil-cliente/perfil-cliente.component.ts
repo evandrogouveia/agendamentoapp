@@ -6,6 +6,7 @@ import { Usuario } from 'src/app/shared/models/user';
 import { Agendamento } from 'src/app/shared/models/agendamento.model';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-perfil-cliente',
@@ -17,6 +18,12 @@ export class PerfilClienteComponent implements OnInit {
   emailUser: any = [];
   agendamento$: Observable<Agendamento[]>;
   expanded;
+
+  dataAtual = new Date();
+
+  mes = this.dataAtual.toLocaleDateString().substring(3, 5);
+
+  totalAgendamentoMes: number;
 
   constructor(
     private apiService: ApiService,
@@ -31,16 +38,29 @@ export class PerfilClienteComponent implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.agendamento$ = this.apiService.getAgendamentosUser(this.emailUser.toString());//passar e-mail como parâmetro para o service
+      this.totalMes();
     }, 1100);
 
     this.sidebarService.obterToggle().subscribe(data => {
       this.expanded = data;
     });
 
+    console.log(this.mes)
+    
   }
 
   executarViaService() {
     this.sidebarService.toggleNavbar(); // executa o método via service
+  }
+
+  totalMes() {
+    this.agendamento$.pipe(
+      map(values => {
+        const b: any = values.map(d => d.data.substring(3, 5)).filter(dat => dat === this.mes);
+        this.totalAgendamentoMes = b.length;
+        console.log(this.totalAgendamentoMes)
+      })
+    ).subscribe();
   }
 
 }

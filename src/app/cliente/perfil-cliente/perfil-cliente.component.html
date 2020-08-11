@@ -8,7 +8,9 @@
   </div>
 
   <div class="icon-home">
-    <img src="assets/img/icons/ver-salao.svg">
+    <a class="dropdown-item" routerLink="/index">
+      <img src="assets/img/icons/ver-salao.svg">
+    </a>
   </div>
 
   <div class="profile-menu">
@@ -35,7 +37,8 @@
   menu
 </div>
 <div class="content-perfil">
-  <p class="username" *ngIf="(usuario$ | async)">Bem-vindo(a) <span>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</span>
+  <p class="username" *ngIf="(usuario$ | async)">Bem-vindo(a) <span>{{(usuario$ | async)?.nome}}
+      {{(usuario$ | async)?.sobrenome}}</span>
   </p>
 
   <h4>Controle</h4>
@@ -48,30 +51,31 @@
       <p>Agendamentos</p>
     </div>
     <div class="card-body-c">
-      <p>10</p>
+      <p>{{totalAgendamentoMes}}</p>
       <p>Mês atual</p>
     </div>
 
   </div>
-  {{emailUser}}
+
   <h4>Agendamento em aberto</h4>
 
-  <div *ngFor="let a of agendamento$ | async" class="card-agendamento">
-    <div class="box-left">
-      <h6>{{a.horario}}</h6>
-      <p>{{a.data}}</p>
-    </div>
+  <ng-container *ngFor="let a of agendamento$ | async">
+    <div class="card-agendamento" *ngIf="(a.data | slice:3:5) >= mes">
+      <div class="box-left">
+        <h6>{{a.horario}}</h6>
+        <p>{{a.data}}</p>
+      </div>
 
-    <div class="box-right">
-      {{a.email}}
-      <p>Tratamento de unhas, pintura e brilho para unhas postiças...</p>
-      <p>com Francisquinha</p>
+      <div class="box-right">
+        <p>{{a.servico[0].nomeservico}}</p>
+        <p>com Francisquinha</p>
 
-      <a href="#" class="gear">
-        <span class="settings"></span>
-      </a>
+        <a href="#" class="gear">
+          <span class="settings"></span>
+        </a>
+      </div>
     </div>
-  </div>
+  </ng-container>
 
   <div class="card-agendamento canceled">
     <div class="box-left">
