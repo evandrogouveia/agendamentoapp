@@ -12,7 +12,6 @@ import { ResultadoBuscaComponent } from './resultado-busca/resultado-busca.compo
 
 
 
-
 @NgModule({
   declarations: [
     IndexComponent,
@@ -25,9 +24,8 @@ import { ResultadoBuscaComponent } from './resultado-busca/resultado-busca.compo
     IndexRoutingModule,
     NgxBootstrapModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
-
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
 })

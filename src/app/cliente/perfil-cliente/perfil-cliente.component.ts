@@ -44,8 +44,6 @@ export class PerfilClienteComponent implements OnInit {
     this.sidebarService.obterToggle().subscribe(data => {
       this.expanded = data;
     });
-
-    console.log(this.mes)
     
   }
 
@@ -58,7 +56,6 @@ export class PerfilClienteComponent implements OnInit {
       map(values => {
         const b: any = values.map(d => d.data.substring(3, 5)).filter(dat => dat === this.mes);
         this.totalAgendamentoMes = b.length;
-        console.log(this.totalAgendamentoMes)
       })
     ).subscribe();
   }

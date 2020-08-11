@@ -32,6 +32,7 @@ import { NgxBootstrapModule } from './ngx-bootstrap.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 
+
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 registerLocaleData(localePt, 'pt');
