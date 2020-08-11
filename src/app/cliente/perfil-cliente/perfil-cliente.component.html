@@ -1,3 +1,4 @@
+<span *ngIf="!(usuario$ | async) && !(agendamento$ | async)" class="loading"></span>
 <nav class="navbar">
   <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
     <img src="assets/img/icons/menu.svg">
@@ -36,7 +37,7 @@
 <div class="wrapper-menu" [ngClass]="expanded">
   menu
 </div>
-<div class="content-perfil">
+<div class="content-perfil" *ngIf="agendamento$">
   <p class="username" *ngIf="(usuario$ | async)">Bem-vindo(a) <span>{{(usuario$ | async)?.nome}}
       {{(usuario$ | async)?.sobrenome}}</span>
   </p>
