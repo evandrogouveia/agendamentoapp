@@ -34,8 +34,9 @@ export class ApiService {
   }
 
   getAgendamentosUser(email) {
-    this.agendamentos$ = this.afs.collection('agendamento', ref => ref.where('email', '==', email)).valueChanges();
-    return this.agendamentos$;
+    this.agendamentos$ = this.afs.collection('agendamento', ref => ref.where('email', '==', email)
+                         .orderBy('numeroagendamento','desc')).valueChanges();
+    return this.agendamentos$
   }
 
   getServicos() {

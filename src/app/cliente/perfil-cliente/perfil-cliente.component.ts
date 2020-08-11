@@ -32,7 +32,12 @@ export class PerfilClienteComponent implements OnInit {
     private sidebarService: SidebarService
   ) {
     this.usuario$ = this.authService.getUser();
-    this.afAuth.user.subscribe(data => { this.emailUser.push(data.email) })
+    this.afAuth.user.subscribe(data => { 
+      if(data){
+        this.emailUser.push(data.email) 
+      }
+      
+    });
   }
 
   ngOnInit() {
