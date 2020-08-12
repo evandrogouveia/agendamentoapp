@@ -36,7 +36,7 @@
         <div class="links">
           <div>
             <img src="assets/img/icons/edit-perfil.svg">
-            <a href="#">Editar perfil</a>
+            <a routerLink="editar/{{(usuario$ | async)?.id}}" >Editar perfil</a>
           </div>
           <div>
             <img src="assets/img/icons/icon-sair.svg">

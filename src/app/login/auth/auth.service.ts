@@ -75,6 +75,7 @@ export class AuthService {
             nome: u.user.displayName,
             sobrenome: '',
             email: u.user.email,
+            telefone: '',
             id: u.user.uid
           };
           return this.userCollection.doc(u.user.uid)
@@ -94,6 +95,7 @@ export class AuthService {
             nome: u.user.displayName,
             sobrenome: '',
             email: u.user.email,
+            telefone: '',
             id: u.user.uid
           };
           return this.userCollection.doc(u.user.uid)

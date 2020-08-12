@@ -23,6 +23,7 @@ export class RegistroComponent implements OnInit {
     'nome': ['', [Validators.required] ],
     'sobrenome': ['', [Validators.required] ],
     'email': ['', [Validators.required, Validators.email]],
+    'telefone': [''],
     'password': ['', [Validators.required, Validators.minLength(6)]],
   });
 
@@ -57,6 +58,7 @@ export class RegistroComponent implements OnInit {
       nome: this.cadastroForm.value.nome,
       sobrenome: this.cadastroForm.value.sobrenome,
       email: this.cadastroForm.value.email,
+      telefone: '',
       password: CryptoJS.SHA256(this.cadastroForm.value.password).toString(),
     };
    

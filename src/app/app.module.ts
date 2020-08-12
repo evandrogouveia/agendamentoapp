@@ -30,6 +30,7 @@ import { PerfilClienteComponent } from './cliente/perfil-cliente/perfil-cliente.
 
 import { NgxBootstrapModule } from './ngx-bootstrap.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { EditarPerfilComponent } from './cliente/editar-perfil/editar-perfil.component';
 
 
 
@@ -43,7 +44,8 @@ registerLocaleData(localePt, 'pt');
     EsqueciSenhaComponent,
     SidebarComponent,
     SucessoComponent,
-    PerfilClienteComponent
+    PerfilClienteComponent,
+    EditarPerfilComponent
   ],
   imports: [
     BrowserModule,

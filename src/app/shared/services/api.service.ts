@@ -51,6 +51,10 @@ export class ApiService {
     return this.usuariosCollection.valueChanges();
   }
 
+  getUsuarioDetalhe(usuarioId: string): AngularFirestoreDocument<Usuario> {
+    return this.afs.collection('users').doc(usuarioId);
+  }
+
   addAgendamento(a: Agendamento) {
     a.id = this.afs.createId();
     return this.agendamentoCollection.doc(a.id).set(a);
