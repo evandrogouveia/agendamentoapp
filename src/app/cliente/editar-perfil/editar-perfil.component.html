@@ -3,20 +3,8 @@
     <div class="wrap-login100">
       
       <form [formGroup]="cadastroUserForm" class="login100-form validate-form" (ngSubmit)="updateUsuario()">
-        <div class="logo-top">
-          <img src="assets/img/logo-login.png">
-        </div>
 
         <span class="loading" *ngIf="loading"></span>
-
-        <div class="title-form">
-          <a routerLink="/login" routerLinkActive="link-login-active"  class="login100-form-title">
-            Entrar
-          </a>
-          <a routerLink="/registro" routerLinkActive="link-login-active"  class="login100-form-title">
-            Cadastro
-          </a>
-        </div>
 
         <div class="wrap-input100 validate-input">
           <input class="input100" type="text" name="nome" formControlName="nome" placeholder="Seu nome por favor">     

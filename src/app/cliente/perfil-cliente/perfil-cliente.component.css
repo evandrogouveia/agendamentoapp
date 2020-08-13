@@ -8,7 +8,29 @@
     z-index: 5;
     background-color: #ffffff;
     box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.16);
-}   
+}  
+.navbar .logo{
+    width: 32%;
+}
+.navbar .notifications {
+    position: relative;
+    width: 30px;
+}
+.navbar .notifications span{
+    font-size: 13px;
+    background-color: #e9724c;
+    border-radius: 50%;
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+    top: -4px;
+    width: 20px;
+    height: 19px;
+    text-align: center;
+}
+.navbar .notifications img{
+    width: 20px;
+} 
 
 #menu-toggle{
     border: none;
@@ -184,12 +206,20 @@
     background-color: #e9724c;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
-    text-align: center;
     width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card-agendamento .box-left img{
+    width: 24px;
+    margin-bottom: 5px;
 }
 .card-agendamento.canceled .box-left{
     background-color: #9e9e9e;
 }
+
 .card-agendamento .box-left h6{
     margin: 0;
     font-size: 16px;
@@ -197,7 +227,7 @@
 }
 .card-agendamento .box-left p{
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
     color: #ffffff;
 }
 .card-agendamento.canceled .box-left h6,
@@ -260,6 +290,6 @@
 /* ============= MOBILE =================*/
 @media (max-width: 575px) { 
     .logo img{
-        max-width: 86px;
+        max-width: 100%;
     }
 }

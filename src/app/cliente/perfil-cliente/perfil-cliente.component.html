@@ -8,6 +8,11 @@
     <img src="assets/img/logo-example-2.png">
   </div>
 
+  <div class="notifications">
+      <span>3</span>
+      <img src="assets/img/icons/sino-black.svg">
+  </div>
+
   <div class="icon-home">
     <a class="link" routerLink="/index">
       <img src="assets/img/icons/ver-salao.svg">
@@ -78,7 +83,8 @@
   <ng-container *ngFor="let a of agendamento$ | async">
     <div class="card-agendamento" *ngIf="(a.data | slice:3:5) >= mes">
       <div class="box-left">
-        <h6>{{a.horario}}</h6>
+        <img src="assets/img/icons/sino-white.svg">
+        <h6>{{a.horario+'h'}}</h6>
         <p>{{a.data}}</p>
       </div>
 
