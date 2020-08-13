@@ -38,7 +38,6 @@ export class AuthService {
     return from(this.userCollection.doc(this.afAuth.auth.currentUser.uid)
           .set({ ...user, id: this.afAuth.auth.currentUser.uid })
           .then(() => true))
-   
   }
 
 
