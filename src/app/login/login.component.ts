@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     const email = this.loginForm.value.email;
     const password = CryptoJS.SHA256(this.loginForm.value.password).toString();
+    
     this.authService.login(email, password)
       .subscribe(
         (u) => {

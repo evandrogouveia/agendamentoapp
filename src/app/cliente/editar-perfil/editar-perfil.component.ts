@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as CryptoJS from 'crypto-js';
+import { AuthService } from 'src/app/login/auth/auth.service';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -17,16 +18,17 @@ export class EditarPerfilComponent implements OnInit {
 
   cadastroUserForm: FormGroup = this.fb.group({
     'id': [''],
-    'nome': ['', [Validators.required] ],
-    'sobrenome': ['', [Validators.required] ],
+    'nome': ['', [Validators.required]],
+    'sobrenome': ['', [Validators.required]],
     'email': ['', [Validators.required, Validators.email]],
     'telefone': [''],
-    'password': ['', [Validators.required, Validators.minLength(6)]],
+    'password': [''],
   });
 
   constructor(
-    private apiService: ApiService, 
-    private route: ActivatedRoute, 
+    private apiService: ApiService,
+    private authService: AuthService,
+    private route: ActivatedRoute,
     private fb: FormBuilder,
   ) { }
 
@@ -35,17 +37,22 @@ export class EditarPerfilComponent implements OnInit {
     this.usuario$ = this.apiService.getUsuarioDetalhe(usuarioId).valueChanges();
 
     this.usuario$.subscribe(data => {
-      console.log(data)
-      this.cadastroUserForm.setValue({
-        id: data.id,
-        nome: data.nome,
-        sobrenome: data.sobrenome,
-        email: data.email,
-        telefone: data.telefone,
-        password: JSON.parse(data.password.toString())
-      });
+      this.cadastroUserForm.setValue(data);
     });
-    
+
+  }
+
+  updateUsuario(u: Usuario) {
+    let a  = this.cadastroUserForm.value;
+
+    this.authService.updateUsuario(a)
+      .subscribe((u) => {
+        console.log('update', u)
+      },
+      (err) => {
+        console.log(err)
+      }
+    );
   }
 
 

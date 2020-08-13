@@ -2,7 +2,7 @@
   <div class="container-login100">
     <div class="wrap-login100">
       
-      <form [formGroup]="cadastroUserForm" class="login100-form validate-form" (ngSubmit)="cadastroUsuario()">
+      <form [formGroup]="cadastroUserForm" class="login100-form validate-form" (ngSubmit)="updateUsuario()">
         <div class="logo-top">
           <img src="assets/img/logo-login.png">
         </div>
@@ -24,7 +24,10 @@
 
         <div class="wrap-input100 validate-input">
           <input class="input100" type="text" name="sobrenome" formControlName="sobrenome" placeholder="Seu sobrenome por gentileza">
-         
+        </div>
+
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" name="telefone" formControlName="telefone" placeholder="Celular" mask="(00) 00000-0000">
         </div>
 
         <div class="wrap-input100 validate-input">
@@ -37,12 +40,6 @@
           <input class="input100" type="text" name="telefone" formControlName="telefone" placeholder="Celular" mask="(00) 00000-0000">
           <i class="material-icons">stay_current_portrait</i>
         </div-->
-
-        <div class="wrap-input100 validate-input">
-          <input class="input100" type="{{type}}" name="pass" formControlName="password" placeholder="Crie uma senha para acesso">
-          <img src="assets/img/icons/senha.svg">
-          <i (click)="toggleShow()" class="material-icons" [ngClass]="(visibility == 'visibility') ? 'orange-full' : ''">{{visibility}}</i>
-        </div>
 
         <div class="container-login100-form-btn">
           <button type="submit" class="login100-form-btn">

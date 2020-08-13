@@ -15,6 +15,7 @@ export class AuthService {
   private userCollection: AngularFirestoreCollection<Usuario> = this.afs.collection('users');
   private usuarioAutenticado = false;
   mostrarMenu = new EventEmitter<boolean>();
+  user: Observable<Usuario>;
 
   constructor(private afs: AngularFirestore, private afAuth: AngularFireAuth) {
   }
@@ -22,15 +23,25 @@ export class AuthService {
   // CADASTRO NOVO USUÁRIO
   cadastro(user: Usuario): Observable<boolean> {
     return from(this.afAuth.auth
-        .createUserWithEmailAndPassword(user.email, user.password))
-        .pipe(
-          switchMap((u: firebase.auth.UserCredential) => this.userCollection.doc(u.user.uid)
-            .set({...user, id: u.user.uid})
-            .then(() => true)
-          ),
-          catchError((err) => throwError(err))
-        );
+      .createUserWithEmailAndPassword(user.email, user.password))
+      .pipe(
+        switchMap((u: firebase.auth.UserCredential) => this.userCollection.doc(u.user.uid)
+          .set({ ...user, id: u.user.uid })
+          .then(() => true)
+        ),
+        catchError((err) => throwError(err))
+      );
   }
+
+  updateUsuario(user: Usuario): Observable<boolean> {
+    this.afAuth.auth.currentUser.updateEmail(user.email).then(() => true)
+    return from(this.userCollection.doc(this.afAuth.auth.currentUser.uid)
+          .set({ ...user, id: this.afAuth.auth.currentUser.uid })
+          .then(() => true))
+   
+  }
+
+
 
   // LOGIN E-MAIL E SENHA
   login(email: string, password: string): Observable<Usuario> {

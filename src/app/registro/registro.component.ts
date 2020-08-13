@@ -54,12 +54,14 @@ export class RegistroComponent implements OnInit {
 
   cadastroUsuario() {
     this.loading = true;
+    let secretPassword = CryptoJS.SHA256(this.cadastroForm.value.password).toString();
+    
     const newUser: Usuario = {
       nome: this.cadastroForm.value.nome,
       sobrenome: this.cadastroForm.value.sobrenome,
       email: this.cadastroForm.value.email,
       telefone: '',
-      password: CryptoJS.SHA256(this.cadastroForm.value.password).toString(),
+      password: secretPassword,
     };
    
     this.authService.cadastro(newUser)
@@ -78,7 +80,6 @@ export class RegistroComponent implements OnInit {
           }
         }
       );
-
   }
 
 }
