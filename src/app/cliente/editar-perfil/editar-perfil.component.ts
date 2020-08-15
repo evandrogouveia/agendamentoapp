@@ -4,7 +4,6 @@ import { Usuario } from 'src/app/shared/models/user';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import * as CryptoJS from 'crypto-js';
 import { AuthService } from 'src/app/login/auth/auth.service';
 
 @Component({
@@ -16,7 +15,7 @@ export class EditarPerfilComponent implements OnInit {
 
   usuario$: Observable<Usuario>;
 
-  cadastroUserForm: FormGroup = this.fb.group({
+  updateUserForm: FormGroup = this.fb.group({
     'id': [''],
     'nome': ['', [Validators.required]],
     'sobrenome': ['', [Validators.required]],
@@ -37,13 +36,13 @@ export class EditarPerfilComponent implements OnInit {
     this.usuario$ = this.apiService.getUsuarioDetalhe(usuarioId).valueChanges();
 
     this.usuario$.subscribe(data => {
-      this.cadastroUserForm.setValue(data);
+      this.updateUserForm.setValue(data);
     });
 
   }
 
   updateUsuario(u: Usuario) {
-    let a  = this.cadastroUserForm.value;
+    let a  = this.updateUserForm.value;
 
     this.authService.updateUsuario(a)
       .subscribe((u) => {
