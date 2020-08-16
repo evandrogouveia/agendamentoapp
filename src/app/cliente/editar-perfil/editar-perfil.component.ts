@@ -14,6 +14,7 @@ import { AuthService } from 'src/app/login/auth/auth.service';
 export class EditarPerfilComponent implements OnInit {
 
   usuario$: Observable<Usuario>;
+  imagemSrc = 'assets/img/juliana.jpg';
 
   updateUserForm: FormGroup = this.fb.group({
     'id': [''],

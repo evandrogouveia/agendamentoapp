@@ -12,6 +12,17 @@
 
         <span class="loading" *ngIf="loading"></span>
 
+        <div class="wrap-input100 validate-input avatar" (click)="fileUploader.click()">
+          <img class="img-upload" [src]="imagemSrc" width="200px" height="200px">
+          <input type="file" #fileUploader accept="image/*" class="form-control" id="imagemProfile"
+            aria-describedby="nome" placeholder="imagem" (change)="showPreviewImagem($event)" hidden>
+
+          <div class="box-icon-picture">
+            <img src="assets/img/icons/camera.svg">
+            <p>editar foto</p>
+          </div>
+        </div>
+
         <div class="wrap-input100 validate-input">
           <input class="input100" type="text" name="nome" formControlName="nome" placeholder="Seu nome por favor">
         </div>

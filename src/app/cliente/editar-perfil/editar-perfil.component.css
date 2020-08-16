@@ -76,6 +76,47 @@
   
   /*==================================================================
   [ Form ]*/
+
+  .wrap-input100.avatar{
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 45px;
+    position: relative;
+  }
+  .wrap-input100.avatar:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #e9724c;
+    opacity: 0.5;
+    position: absolute;
+  }
+
+  .wrap-input100.avatar img{
+    width: 100%;
+    height: 100%;
+  }
+
+  .box-icon-picture{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .wrap-input100.avatar .box-icon-picture img{
+    width: 45px;
+  }
+
+  .wrap-input100.avatar .box-icon-picture p{
+    font-size: 14px;
+    color: #ffffff;
+    margin: 10px 0 0 0;
+  }
   
   .profile-form {
     width: 475px;
