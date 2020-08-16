@@ -1,8 +1,8 @@
 <div class="limiter ">
-  <div class="container-login100">
-    <div class="wrap-login100">
+  <div class="container-profile">
+    <div class="wrap-profile">
       
-      <form [formGroup]="updateUserForm" class="login100-form validate-form" (ngSubmit)="updateUsuario()">
+      <form [formGroup]="updateUserForm" class="profile-form validate-form" (ngSubmit)="updateUsuario()">
 
         <span class="loading" *ngIf="loading"></span>
 
@@ -20,12 +20,10 @@
 
         <div class="wrap-input100 validate-input">
           <input class="input100" type="email" name="email" formControlName="email" placeholder="Informe um e-mail para acesso">
-          <img src="assets/img/icons/email.svg">
-        
         </div>
 
-        <div class="container-login100-form-btn">
-          <button type="submit" class="login100-form-btn">
+        <div class="container-profile-form-btn">
+          <button type="submit" class="profile-form-btn">
             Salvar
           </button>
 
