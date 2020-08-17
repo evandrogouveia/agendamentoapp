@@ -15,6 +15,7 @@ export class EditarPerfilComponent implements OnInit {
 
   usuario$: Observable<Usuario>;
   imagemSrc = 'assets/img/juliana.jpg';
+  selectedImage: any = null;
 
   updateUserForm: FormGroup = this.fb.group({
     'id': [''],
@@ -40,6 +41,18 @@ export class EditarPerfilComponent implements OnInit {
       this.updateUserForm.setValue(data);
     });
 
+  }
+
+  showPreviewImagem(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => this.imagemSrc = e.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      this.selectedImage = event.target.files[0];
+    } else {
+      this.imagemSrc = 'assets/img/juliana.jpg';
+      this.selectedImage = null;
+    }
   }
 
   updateUsuario(u: Usuario) {

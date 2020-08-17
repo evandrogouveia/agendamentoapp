@@ -33,18 +33,18 @@
         </div>
 
         <div class="wrap-input100 validate-input">
-          <input class="input100" type="text" name="telefone" formControlName="telefone" placeholder="Celular"
-            mask="(00) 00000-0000">
-        </div>
-
-        <div class="wrap-input100 validate-input">
           <input class="input100" type="email" name="email" formControlName="email"
             placeholder="Informe um e-mail para acesso">
         </div>
 
+        <div class="wrap-input100 validate-input">
+          <input class="input100" type="text" name="telefone" formControlName="telefone" placeholder="Seu telefone/whatsapp"
+            mask="(00) 00000-0000">
+        </div>
+
         <div class="container-profile-form-btn">
           <button type="submit" class="profile-form-btn">
-            Salvar
+            salvar
           </button>
 
           <span *ngIf="msgErro" class="msg-erro">{{msgErro}}</span>
