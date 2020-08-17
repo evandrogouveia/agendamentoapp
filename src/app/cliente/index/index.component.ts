@@ -34,7 +34,11 @@ export class IndexComponent implements OnInit {
 
   isDropdown = false;
 
+  disableFloating = false;
+
   scrollPosition;
+
+  position = 0;
 
 
   constructor(
@@ -48,10 +52,13 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.servicos$ = this.apiService.getServicos();
     this.renderer.listen(window, 'scroll', ($event) => {
       this.scrollPosition = window.scrollY;
     });
+
+
   }
 
   executarViaService() {
@@ -76,7 +83,7 @@ export class IndexComponent implements OnInit {
 
   searchServicos(event) {
     if (event) {
-      this.router.navigate(['index/result-search'], {queryParams: [event.target.value]});
+      this.router.navigate(['index/result-search'], { queryParams: [event.target.value] });
     }
     this.childModal.hide();
     this.closeOverlay();

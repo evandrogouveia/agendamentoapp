@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/login/auth/auth.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { Ng2ImgMaxService } from 'ng2-img-max';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -35,7 +36,8 @@ export class EditarPerfilComponent implements OnInit {
     private authService: AuthService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private ng2ImgMax: Ng2ImgMaxService
   ) { }
 
   ngOnInit() {
@@ -54,7 +56,17 @@ export class EditarPerfilComponent implements OnInit {
       const reader = new FileReader();
       reader.onload = (e: any) => this.imagemSrc = e.target.result;
       reader.readAsDataURL(event.target.files[0]);
-      this.selectedImage = event.target.files[0];
+
+      let image = event.target.files[0];
+    
+      this.ng2ImgMax.resizeImage(image, 150, 150).subscribe(
+        result => {
+          console.log(result)
+          this.selectedImage = result;
+        },
+        error => {
+          console.log('erro no upload!', error);
+        });
     } else {
       this.imagemSrc = 'assets/img/icons/user-empty.svg';
       this.selectedImage = null;
@@ -66,7 +78,7 @@ export class EditarPerfilComponent implements OnInit {
     this.update();
 
     if (this.selectedImage) {
-      const filePath = `imagem/${this.selectedImage.name}_${new Date().getTime()}`;
+      const filePath = `imagem-perfil/${this.selectedImage.name}_${new Date().getTime()}`;
       const fileRef = this.storage.ref(filePath);
 
       this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
