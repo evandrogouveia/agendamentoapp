@@ -40,7 +40,6 @@
         <div class="modal-body">
 
           <div class="links">
-
             <div>
               <img src="assets/img/icons/edit-perfil.svg">
               <a routerLink="editar/{{(usuario$ | async)?.id}}">Editar perfil</a>
@@ -80,7 +79,7 @@
 
     </div>
 
-    <h4>Agendamento em aberto</h4>
+    <h4>{{(agendamento$ | async)?.length > 0 ? 'Agendamento(s) em aberto' : 'Sem novos agendamentos'}}</h4>
 
     <ng-container *ngFor="let a of agendamento$ | async">
       <div class="card-agendamento" *ngIf="(a.data | slice:3:5) >= mes">
@@ -101,6 +100,16 @@
       </div>
     </ng-container>
 
+    <div class="card-agendamento empty" *ngIf="(agendamento$ | async)?.length === 0">
+      <div class="box-left">
+        <img src="assets/img/icons/tesoura-pente.png">
+      </div>
+
+      <div class="box-right">
+        <p>Você não possui serviços agendados, quanto tiver, eles aparecerão primeiro aqui.</p>
+      </div>
+    </div>
+
     <div class="card-agendamento canceled">
       <div class="box-left">
         <h6>8:30h</h6>
@@ -116,5 +125,6 @@
         </a>
       </div>
     </div>
+
   </div>
 </ng-container>

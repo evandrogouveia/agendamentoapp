@@ -286,6 +286,21 @@
     height: 16px;
     display: block;
 }
+.card-agendamento.empty {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.card-agendamento.empty .box-left{
+    background: #ffffff;
+}
+.card-agendamento.empty .box-left img{
+    width: 48px;
+}
+
+.card-agendamento.empty .box-right p{
+    color: #00c8b8;
+    line-height: 20px;
+}
 
 /* ============= MOBILE =================*/
 @media (max-width: 575px) { 
