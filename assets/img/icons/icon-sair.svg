@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.553" height="19.553" viewBox="0 0 19.553 19.553">
+    <defs>
+        <style>
+            .cls-1{fill:#484b4a}
+        </style>
+    </defs>
+    <g id="sair">
+        <g id="Grupo_371" data-name="Grupo 371" transform="translate(12.749)">
+            <g id="Grupo_370" data-name="Grupo 370">
+                <path id="Caminho_418" d="M339.9 0h-5.33a.737.737 0 0 0 0 1.474h4.593v4.593a.737.737 0 0 0 1.474 0V.737A.737.737 0 0 0 339.9 0z" class="cls-1" data-name="Caminho 418" transform="translate(-333.83)"/>
+            </g>
+        </g>
+        <g id="Grupo_373" data-name="Grupo 373" transform="translate(7.566)">
+            <g id="Grupo_372" data-name="Grupo 372">
+                <path id="Caminho_419" d="M209.881.216a.737.737 0 0 0-1.042 0l-10.513 10.513a.737.737 0 1 0 1.042 1.042l10.513-10.513a.737.737 0 0 0 0-1.042z" class="cls-1" data-name="Caminho 419" transform="translate(-198.11)"/>
+            </g>
+        </g>
+        <g id="Grupo_375" data-name="Grupo 375" transform="translate(0 2.505)">
+            <g id="Grupo_374" data-name="Grupo 374">
+                <path id="Caminho_420" d="M16.311 72.265a.737.737 0 0 0-.737.737v8.18h-14.1v-14.1h8.18a.737.737 0 0 0 0-1.474H.737a.737.737 0 0 0-.737.737v15.574a.737.737 0 0 0 .737.737h15.574a.737.737 0 0 0 .737-.737V73a.737.737 0 0 0-.737-.735z" class="cls-1" data-name="Caminho 420" transform="translate(0 -65.608)"/>
+            </g>
+        </g>
+    </g>
+</svg>
