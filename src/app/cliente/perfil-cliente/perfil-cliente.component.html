@@ -1,9 +1,9 @@
 <span *ngIf="!(usuario$ | async) && !(agendamento$ | async)" class="loading"></span>
 <ng-container *ngIf="agendamento$">
   <nav class="navbar">
-    <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
+    <!--button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
       <img src="assets/img/icons/menu.svg">
-    </button>
+    </button-->
 
     <div class="logo">
       <img src="assets/img/logo-example-2.png">
@@ -14,15 +14,15 @@
       <img src="assets/img/icons/sino-black.svg">
     </div>
 
-    <div class="icon-home">
+    <!--div class="icon-home">
       <a class="link" routerLink="/index">
         <img src="assets/img/icons/ver-salao.svg">
       </a>
-    </div>
+    </div-->
 
     <div class="profile-menu" (click)="openModal()">
       <div class="profile-img">
-        <img src="{{(usuario$ | async)?.avatar}}">
+        <img src="{{(usuario$ | async)?.avatar ? (usuario$ | async)?.avatar : imageSrc}}">
       </div>
       <span class="down-arrow"></span>
       <!--p>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</p-->
@@ -40,14 +40,14 @@
         <div class="modal-body">
 
           <div class="links">
-            <div>
+            <a routerLink="editar/{{(usuario$ | async)?.id}}">
               <img src="assets/img/icons/edit-perfil.svg">
-              <a routerLink="editar/{{(usuario$ | async)?.id}}">Editar perfil</a>
-            </div>
-            <div>
+              <span>Editar perfil</span>
+            </a>
+            <a routerLink="#" (click)="logout()">
               <img src="assets/img/icons/icon-sair.svg">
-              <a routerLink="#" (click)="logout()">Sair</a>
-            </div>
+              <span>Sair</span>
+            </a>
           </div>
 
         </div>
@@ -106,11 +106,11 @@
       </div>
 
       <div class="box-right">
-        <p>Você não possui serviços agendados, quanto tiver, eles aparecerão primeiro aqui.</p>
+        <p>Você não possui serviços agendados, quando tiver, eles aparecerão primeiro aqui.</p>
       </div>
     </div>
 
-    <div class="card-agendamento canceled">
+    <!--div class="card-agendamento canceled">
       <div class="box-left">
         <h6>8:30h</h6>
         <p>12/06/20</p>
@@ -124,7 +124,17 @@
           <span class="settings"></span>
         </a>
       </div>
-    </div>
+    </div-->
 
+  </div>
+
+  <div class="box-btns-mobile">
+    <a class="home-m" routerLink="/index" routerLinkActive="active-m"></a>
+  
+    <a class="agenda-m" routerLink="/agendamento" routerLinkActive="active-m"></a>
+  
+    <a class="ajuda-m" routerLink="/agendamento" routerLinkActive="active-m"></a>
+  
+    <a class="perfil-m" routerLink="/perfil" routerLinkActive="active-m"></a>
   </div>
 </ng-container>

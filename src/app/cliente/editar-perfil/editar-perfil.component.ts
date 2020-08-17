@@ -16,7 +16,7 @@ import { finalize } from 'rxjs/operators';
 export class EditarPerfilComponent implements OnInit {
 
   usuario$: Observable<Usuario>;
-  imagemSrc = 'assets/img/juliana.jpg';
+  imagemSrc = 'assets/img/icons/user-empty.svg';
   selectedImage: any = null;
   loading = false;
 
@@ -56,7 +56,7 @@ export class EditarPerfilComponent implements OnInit {
       reader.readAsDataURL(event.target.files[0]);
       this.selectedImage = event.target.files[0];
     } else {
-      this.imagemSrc = 'assets/img/juliana.jpg';
+      this.imagemSrc = 'assets/img/icons/user-empty.svg';
       this.selectedImage = null;
     }
   }

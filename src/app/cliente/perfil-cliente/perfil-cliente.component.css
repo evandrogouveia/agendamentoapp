@@ -10,7 +10,7 @@
     box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.16);
 }  
 .navbar .logo{
-    width: 32%;
+    width: 60%;
 }
 .navbar .notifications {
     position: relative;
@@ -91,22 +91,29 @@
     color: #2b2b2b;
     margin: 0;
 }
-.modal-profile .links div{
+.modal-profile .links a{
     display: flex;
     align-items: center;
     padding: 10px 17px;
 }
-.modal-profile .links div a{
+.modal-profile .links a{
     color: #575757;
     font-size: 14px;
-    margin-left: 12px;
+    margin-left: 5px;
     text-decoration: none;
 }
-.modal-profile .links div:first-child {
+.modal-profile .links a:first-child {
     background-color: #f9f3ef;
     border-radius: 30px;
     width: 85%;
     margin-bottom: 35px;
+}
+.modal-profile .links a img{
+    margin-right: 10px;
+}
+.modal-profile .links a span{
+    position: relative;
+    top: 1px;
 }
 
 /*================ SIDEBAR MENU ==================*/
@@ -128,9 +135,7 @@
 
 /*================ CONTENT PERFIL ==================*/
 .content-perfil{
-    padding-top: 59px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 50px 10px 90px;
     background-color: #f5eae3;
     min-height: 100vh;
     position: relative;
@@ -146,7 +151,7 @@
 .content-perfil h4{
     font-size: 24px;
     color: #484b4a;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-bottom: 12px;
     font-weight: 400;
 }

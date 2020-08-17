@@ -22,6 +22,7 @@ export class PerfilClienteComponent implements OnInit {
   usuario$: Observable<Usuario>;
   emailUser: any = [];
   agendamento$: Observable<Agendamento[]>;
+  imageSrc = 'assets/img/icons/user-empty.svg';
   expanded;
 
   dataAtual = new Date();
