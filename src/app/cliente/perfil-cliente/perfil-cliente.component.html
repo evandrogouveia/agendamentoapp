@@ -1,95 +1,114 @@
 <span *ngIf="!(usuario$ | async) && !(agendamento$ | async)" class="loading"></span>
-<nav class="navbar">
-  <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
-    <img src="assets/img/icons/menu.svg">
-  </button>
+<ng-container *ngIf="agendamento$">
+  <nav class="navbar">
+    <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
+      <img src="assets/img/icons/menu.svg">
+    </button>
 
-  <div class="logo">
-    <img src="assets/img/logo-example-2.png">
-  </div>
+    <div class="logo">
+      <img src="assets/img/logo-example-2.png">
+    </div>
 
-  <div class="notifications">
+    <div class="notifications">
       <span>3</span>
       <img src="assets/img/icons/sino-black.svg">
-  </div>
-
-  <div class="icon-home">
-    <a class="link" routerLink="/index">
-      <img src="assets/img/icons/ver-salao.svg">
-    </a>
-  </div>
-
-  <div class="profile-menu" (click)="openModal()">
-    <div class="profile-img">
-      <img src="assets/img/juliana.jpg">
     </div>
-    <span class="down-arrow"></span>
-    <!--p>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</p-->
-  </div>
-</nav>
 
-<div bsModal #childModalProfile="bs-modal" class="modal fade modal-profile" tabindex="-1" role="dialog"
-  aria-labelledby="dialog-sizes-name1">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="header-modal">
-        <h4>Ações</h4>
-        <img src="assets/img/icons/close-modal.svg" (click)="closeModal()">
+    <div class="icon-home">
+      <a class="link" routerLink="/index">
+        <img src="assets/img/icons/ver-salao.svg">
+      </a>
+    </div>
+
+    <div class="profile-menu" (click)="openModal()">
+      <div class="profile-img">
+        <img src="{{(usuario$ | async)?.avatar}}">
       </div>
-      <div class="modal-body">
+      <span class="down-arrow"></span>
+      <!--p>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</p-->
+    </div>
+  </nav>
 
-        <div class="links">
-          <div>
-            <img src="assets/img/icons/edit-perfil.svg">
-            <a routerLink="editar/{{(usuario$ | async)?.id}}" >Editar perfil</a>
+  <div bsModal #childModalProfile="bs-modal" class="modal fade modal-profile" tabindex="-1" role="dialog"
+    aria-labelledby="dialog-sizes-name1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="header-modal">
+          <h4>Ações</h4>
+          <img src="assets/img/icons/close-modal.svg" (click)="closeModal()">
+        </div>
+        <div class="modal-body">
+
+          <div class="links">
+
+            <div>
+              <img src="assets/img/icons/edit-perfil.svg">
+              <a routerLink="editar/{{(usuario$ | async)?.id}}">Editar perfil</a>
+            </div>
+            <div>
+              <img src="assets/img/icons/icon-sair.svg">
+              <a routerLink="#" (click)="logout()">Sair</a>
+            </div>
           </div>
-          <div>
-            <img src="assets/img/icons/icon-sair.svg">
-            <a routerLink="#" (click)="logout()">Sair</a>
-          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper-menu" [ngClass]="expanded">
+    menu
+  </div>
+  <div class="content-perfil">
+    <p class="username" *ngIf="(usuario$ | async)">Bem-vindo(a) <span>{{(usuario$ | async)?.nome}}
+        {{(usuario$ | async)?.sobrenome}}</span>
+    </p>
+
+    <h4>Controle</h4>
+
+    <div class="card-controle">
+      <div class="card-header-c">
+        <div class="box-img">
+          <img src="assets/img/icons/agenda-perfil.svg">
+        </div>
+        <p>Agendamentos</p>
+      </div>
+      <div class="card-body-c">
+        <p>{{totalAgendamentoMes}}</p>
+        <p>Mês atual</p>
+      </div>
+
+    </div>
+
+    <h4>Agendamento em aberto</h4>
+
+    <ng-container *ngFor="let a of agendamento$ | async">
+      <div class="card-agendamento" *ngIf="(a.data | slice:3:5) >= mes">
+        <div class="box-left">
+          <img src="assets/img/icons/sino-white.svg">
+          <h6>{{a.horario+'h'}}</h6>
+          <p>{{a.data}}</p>
         </div>
 
+        <div class="box-right">
+          <p>{{a.servico[0].nomeservico}}</p>
+          <p>com Francisquinha</p>
+
+          <a href="#" class="gear">
+            <span class="settings"></span>
+          </a>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+    </ng-container>
 
-<div class="wrapper-menu" [ngClass]="expanded">
-  menu
-</div>
-<div class="content-perfil" *ngIf="agendamento$">
-  <p class="username" *ngIf="(usuario$ | async)">Bem-vindo(a) <span>{{(usuario$ | async)?.nome}}
-      {{(usuario$ | async)?.sobrenome}}</span>
-  </p>
-
-  <h4>Controle</h4>
-
-  <div class="card-controle">
-    <div class="card-header-c">
-      <div class="box-img">
-        <img src="assets/img/icons/agenda-perfil.svg">
-      </div>
-      <p>Agendamentos</p>
-    </div>
-    <div class="card-body-c">
-      <p>{{totalAgendamentoMes}}</p>
-      <p>Mês atual</p>
-    </div>
-
-  </div>
-
-  <h4>Agendamento em aberto</h4>
-
-  <ng-container *ngFor="let a of agendamento$ | async">
-    <div class="card-agendamento" *ngIf="(a.data | slice:3:5) >= mes">
+    <div class="card-agendamento canceled">
       <div class="box-left">
-        <img src="assets/img/icons/sino-white.svg">
-        <h6>{{a.horario+'h'}}</h6>
-        <p>{{a.data}}</p>
+        <h6>8:30h</h6>
+        <p>12/06/20</p>
       </div>
 
       <div class="box-right">
-        <p>{{a.servico[0].nomeservico}}</p>
+        <p>Tratamento de unhas, pintura e brilho para unhas postiças...</p>
         <p>com Francisquinha</p>
 
         <a href="#" class="gear">
@@ -97,21 +116,5 @@
         </a>
       </div>
     </div>
-  </ng-container>
-
-  <div class="card-agendamento canceled">
-    <div class="box-left">
-      <h6>8:30h</h6>
-      <p>12/06/20</p>
-    </div>
-
-    <div class="box-right">
-      <p>Tratamento de unhas, pintura e brilho para unhas postiças...</p>
-      <p>com Francisquinha</p>
-
-      <a href="#" class="gear">
-        <span class="settings"></span>
-      </a>
-    </div>
   </div>
-</div>
+</ng-container>

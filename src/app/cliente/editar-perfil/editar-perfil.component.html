@@ -1,6 +1,6 @@
 <div class="limiter ">
   <span class="loading" *ngIf="!(usuario$ | async) || loading"></span>
-  <div class="container-profile" *ngIf="(usuario$ | async)">
+  <div class="container-profile" *ngIf="(usuario$ | async)" [ngClass]="{'opacity-min' : loading}">
     <div class="wrap-profile">
       <div class="header-profile">
         <a routerLink="/perfil">
