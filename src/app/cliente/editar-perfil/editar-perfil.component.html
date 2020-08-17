@@ -1,5 +1,6 @@
 <div class="limiter ">
-  <div class="container-profile">
+  <span class="loading" *ngIf="!(usuario$ | async) || loading"></span>
+  <div class="container-profile" *ngIf="(usuario$ | async)">
     <div class="wrap-profile">
       <div class="header-profile">
         <a routerLink="/perfil">
@@ -10,11 +11,9 @@
 
       <form [formGroup]="updateUserForm" class="profile-form validate-form" (ngSubmit)="updateUsuario()">
 
-        <span class="loading" *ngIf="loading"></span>
-
         <div class="wrap-input100 validate-input avatar" (click)="fileUploader.click()">
           <img class="img-upload" [src]="imagemSrc" width="200px" height="200px">
-          <input type="file" #fileUploader accept="image/*" class="form-control" id="imagemProfile"
+          <input type="file" #fileUploader accept="image/*" class="form-control" id="avatar"
             aria-describedby="nome" placeholder="imagem" (change)="showPreviewImagem($event)" hidden>
 
           <div class="box-icon-picture">

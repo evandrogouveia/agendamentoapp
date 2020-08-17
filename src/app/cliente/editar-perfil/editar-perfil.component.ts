@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/login/auth/auth.service';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -16,8 +18,10 @@ export class EditarPerfilComponent implements OnInit {
   usuario$: Observable<Usuario>;
   imagemSrc = 'assets/img/juliana.jpg';
   selectedImage: any = null;
+  loading = false;
 
   updateUserForm: FormGroup = this.fb.group({
+    'avatar': [''],
     'id': [''],
     'nome': ['', [Validators.required]],
     'sobrenome': ['', [Validators.required]],
@@ -31,6 +35,7 @@ export class EditarPerfilComponent implements OnInit {
     private authService: AuthService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
+    private storage: AngularFireStorage
   ) { }
 
   ngOnInit() {
@@ -39,6 +44,7 @@ export class EditarPerfilComponent implements OnInit {
 
     this.usuario$.subscribe(data => {
       this.updateUserForm.setValue(data);
+      data.avatar ? this.imagemSrc = data.avatar : this.imagemSrc = this.imagemSrc;
     });
 
   }
@@ -55,17 +61,40 @@ export class EditarPerfilComponent implements OnInit {
     }
   }
 
-  updateUsuario(u: Usuario) {
-    let a  = this.updateUserForm.value;
+  updateUsuario() {
+    this.loading = true;
+    this.update();
+
+    if (this.selectedImage) {
+      const filePath = `imagem/${this.selectedImage.name}_${new Date().getTime()}`;
+      const fileRef = this.storage.ref(filePath);
+
+      this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
+        finalize(() => {
+          fileRef.getDownloadURL().subscribe((url) => {
+            this.updateUserForm.value.avatar = url;
+
+            this.update();
+            this.loading = false;
+          });
+        })
+      ).subscribe();
+    }
+
+  }
+
+  update() {
+    let a = this.updateUserForm.value;
 
     this.authService.updateUsuario(a)
       .subscribe((u) => {
         console.log('update', u)
+        this.loading = false;
       },
-      (err) => {
-        console.log(err)
-      }
-    );
+        (err) => {
+          console.log(err)
+        }
+      );
   }
 
 

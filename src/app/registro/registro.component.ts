@@ -20,6 +20,7 @@ export class RegistroComponent implements OnInit {
   msgErro = '';
 
   cadastroForm: FormGroup = this.fb.group({
+    'avatar': [''],
     'nome': ['', [Validators.required] ],
     'sobrenome': ['', [Validators.required] ],
     'email': ['', [Validators.required, Validators.email]],
@@ -57,6 +58,7 @@ export class RegistroComponent implements OnInit {
     let secretPassword = CryptoJS.SHA256(this.cadastroForm.value.password).toString();
     
     const newUser: Usuario = {
+      avatar: '',
       nome: this.cadastroForm.value.nome,
       sobrenome: this.cadastroForm.value.sobrenome,
       email: this.cadastroForm.value.email,

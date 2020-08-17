@@ -1,4 +1,5 @@
 export interface Usuario {
+    avatar?: string;
     nome: string;
     sobrenome: string;
     email: string;
