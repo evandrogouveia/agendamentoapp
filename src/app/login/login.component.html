@@ -5,7 +5,7 @@
       <form [formGroup]="loginForm" class="login100-form validate-form" (ngSubmit)="onSubmit()">
         <div class="logo-top">
           <a routerLink="/index">
-            <img src="assets/img/logo-login.png">
+            <img src="assets/img/logo-login.png" alt="logo">
           </a>
         </div>
 
@@ -23,14 +23,14 @@
         <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
           <input class="input100" type="email" name="email" formControlName="email" placeholder="Digite seu e-mail"
             required>
-          <img src="assets/img/icons/email.svg">
+          <img src="assets/img/icons/email.svg" alt="email">
         </div>
 
 
         <div class="wrap-input100 validate-input" data-validate="Password is required">
           <input class="input100" type="{{type}}" name="pass" formControlName="password" placeholder="Digite sua senha"
             required>
-          <img src="assets/img/icons/senha.svg">
+          <img src="assets/img/icons/senha.svg" alt="senha">
           <i (click)="toggleShow()" class="material-icons"
             [ngClass]="(visibility == 'visibility') ? 'orange-full' : ''">{{visibility}}</i>
         </div>
@@ -60,12 +60,12 @@
 
         <div class="login100-form-social">
           <button type="button" class="login100-social-btn" (click)="loginGoogle()">
-            <img src="assets/img/icons/icone-google.svg">
+            <img src="assets/img/icons/icone-google.svg" alt="icone-google">
             Entrar com Google
           </button>
 
           <button type="button" class="login100-social-btn" (click)="loginFacebook()">
-            <img src="assets/img/icons/facebook.svg">
+            <img src="assets/img/icons/facebook.svg" alt="facebook">
             Entrar com Facebook
           </button>
         </div>

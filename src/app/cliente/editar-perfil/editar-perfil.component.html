@@ -4,7 +4,7 @@
     <div class="wrap-profile">
       <div class="header-profile">
         <a routerLink="/perfil">
-          <img src="assets/img/icons/voltar-black.svg">
+          <img src="assets/img/icons/voltar-black.svg" alt="icone-voltar">
         </a>
         <p>Perfil</p>
       </div>
@@ -12,12 +12,12 @@
       <form [formGroup]="updateUserForm" class="profile-form validate-form" (ngSubmit)="updateUsuario()">
 
         <div class="wrap-input100 validate-input avatar" (click)="fileUploader.click()">
-          <img class="img-upload" [src]="imagemSrc" width="200px" height="200px">
+          <img class="img-upload" [src]="imagemSrc" width="200px" height="200px" alt="imagem-upload">
           <input type="file" #fileUploader accept="image/*" class="form-control" id="avatar"
             aria-describedby="nome" placeholder="imagem" (change)="showPreviewImagem($event)" hidden>
 
           <div class="box-icon-picture">
-            <img src="assets/img/icons/camera.svg">
+            <img src="assets/img/icons/camera.svg" alt="icone-camera">
             <p>editar foto</p>
           </div>
         </div>

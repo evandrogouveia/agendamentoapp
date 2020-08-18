@@ -6,12 +6,12 @@
     </button-->
 
     <div class="logo">
-      <img src="assets/img/logo-example-2.png">
+      <img src="assets/img/logo-example-2.png" alt="logo">
     </div>
 
     <div class="notifications">
       <span>3</span>
-      <img src="assets/img/icons/sino-black.svg">
+      <img src="assets/img/icons/sino-black.svg" alt="icone-sino">
     </div>
 
     <!--div class="icon-home">
@@ -22,7 +22,7 @@
 
     <div class="profile-menu" (click)="openModal()">
       <div class="profile-img">
-        <img src="{{(usuario$ | async)?.avatar ? (usuario$ | async)?.avatar : imageSrc}}">
+        <img src="{{(usuario$ | async)?.avatar ? (usuario$ | async)?.avatar : imageSrc}}" alt="avatar">
       </div>
       <span class="down-arrow"></span>
       <!--p>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</p-->
@@ -35,17 +35,17 @@
       <div class="modal-content">
         <div class="header-modal">
           <h4>Ações</h4>
-          <img src="assets/img/icons/close-modal.svg" (click)="closeModal()">
+          <img src="assets/img/icons/close-modal.svg" (click)="closeModal()" alt="icone-fechar">
         </div>
         <div class="modal-body">
 
           <div class="links">
             <a routerLink="editar/{{(usuario$ | async)?.id}}">
-              <img src="assets/img/icons/edit-perfil.svg">
+              <img src="assets/img/icons/edit-perfil.svg" alt="icone-editar">
               <span>Editar perfil</span>
             </a>
             <a routerLink="#" (click)="logout()">
-              <img src="assets/img/icons/icon-sair.svg">
+              <img src="assets/img/icons/icon-sair.svg" alt="icone-sair">
               <span>Sair</span>
             </a>
           </div>
@@ -68,7 +68,7 @@
     <div class="card-controle">
       <div class="card-header-c">
         <div class="box-img">
-          <img src="assets/img/icons/agenda-perfil.svg">
+          <img src="assets/img/icons/agenda-perfil.svg" alt="icone-agenda">
         </div>
         <p>Agendamentos</p>
       </div>
@@ -84,7 +84,7 @@
     <ng-container *ngFor="let a of agendamento$ | async">
       <div class="card-agendamento" *ngIf="(a.data | slice:3:5) >= mes">
         <div class="box-left">
-          <img src="assets/img/icons/sino-white.svg">
+          <img src="assets/img/icons/sino-white.svg" alt="icone-sino">
           <h6>{{a.horario+'h'}}</h6>
           <p>{{a.data}}</p>
         </div>
@@ -102,7 +102,7 @@
 
     <div class="card-agendamento empty" *ngIf="(agendamento$ | async)?.length === 0">
       <div class="box-left">
-        <img src="assets/img/icons/tesoura-pente.png">
+        <img src="assets/img/icons/tesoura-pente.png" alt="icone-tesoura-pente">
       </div>
 
       <div class="box-right">

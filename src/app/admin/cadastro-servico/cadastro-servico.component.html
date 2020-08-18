@@ -14,22 +14,22 @@
         <hr class="mt-2">
         <div class="form-row mt-3">
           <div class="col col-xl-2">
-            <img class="img-upload" [src]="imagemUmSrc" width="200px" height="200px" (click)="fileUploaderUm.click()">
+            <img class="img-upload" [src]="imagemUmSrc" width="200px" height="200px" (click)="fileUploaderUm.click()" alt="imagem-servico">
             <input type="file" #fileUploaderUm accept="image/*" class="form-control"
               id="imagem1" aria-describedby="nome" placeholder="imagem" (change)="showPreviewImagemUm($event)" hidden>
           </div>
           <div class="col col-xl-2">
-            <img class="img-upload" [src]="imagemDoisSrc" width="200px" height="200px" (click)="fileUploaderTwo.click()">
+            <img class="img-upload" [src]="imagemDoisSrc" width="200px" height="200px" (click)="fileUploaderTwo.click()" alt="imagem-servico">
             <input type="file" #fileUploaderTwo accept="image/*" class="form-control"
               id="imagem2" aria-describedby="nome" placeholder="imagem" (change)="showPreviewImagemDois($event)" hidden>
           </div>
           <div class="col col-xl-2">
-            <img class="img-upload" [src]="imagemTresSrc" width="200px" height="200px" (click)="fileUploaderThree.click()">
+            <img class="img-upload" [src]="imagemTresSrc" width="200px" height="200px" (click)="fileUploaderThree.click()" alt="imagem-servico">
             <input type="file" #fileUploaderThree accept="image/*" class="form-control"
               id="imagem3" aria-describedby="nome" placeholder="imagem" (change)="showPreviewImagemTres($event)" hidden>
           </div>
           <div class="col col-xl-2">
-            <img class="img-upload" [src]="imagemQuatroSrc" width="200px" height="200px" (click)="fileUploaderFour.click()">
+            <img class="img-upload" [src]="imagemQuatroSrc" width="200px" height="200px" (click)="fileUploaderFour.click()" alt="imagem-servico">
             <input type="file" #fileUploaderFour accept="image/*" class="form-control"
               id="imagem4" aria-describedby="nome" placeholder="imagem" (change)="showPreviewImagemQuatro($event)" hidden>
               <!--button (click)="removeImg()">Remover</button-->
@@ -73,7 +73,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let s of servicos$ | async">
-                <th scope="row"><img src="{{s.imageUrl}}"></th>
+                <th scope="row"><img src="{{s.imageUrl}}" alt="imagem-servico"></th>
                 <!--th scope="row"><img src="{{s.imagem2}}"></th>
                 <th scope="row"><img src="{{s.imagem3}}"></th>
                 <th scope="row"><img *ngIf="s.imagem4" src="{{s.imagem4}}"></th-->

@@ -1,7 +1,7 @@
 <span *ngIf="!(servicos$ | async) || loading" class="loading"></span>
 <div class="container" *ngIf="servicos$ | async as s" [ngClass]="{'opacity-min' : loading}">
   <nav class="navbar navbar-expand-lg navbar-light navbar-servico-detalhe d-none d-sm-block">
-    <a class="navbar-brand" routerLink="/index"><img src="assets/img/logo-login.png"></a>
+    <a class="navbar-brand" routerLink="/index"><img src="assets/img/logo-login.png" alt="logo"></a>
   </nav>
   <div class="row">
     <div class="col-12 col-lg-12">
@@ -39,7 +39,7 @@
         <div class="detalhe-servico" [hidden]="items[selectedIndex] === 3">
           <!--img [src]="imageClick ? imageClick : s.imagem1"-->
           <div class="box-img">
-            <img src="{{s.imageUrl}}">
+            <img src="{{s.imageUrl}}" alt="imagem-serviço">
           </div>
           <div class="textos">
             <p>{{s.nomeservico}}</p>
@@ -347,7 +347,7 @@
                       <label for="visa" class="box-bandeira" [ngClass]="(bandeira === 'visa') ? 'checked' : ''">
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="visa" value="visa" (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/visa.svg">
+                          <img src="assets/img/icons/bandeiras/visa.svg" alt="visa">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -357,7 +357,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="mastercard" value="mastercard"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/mastercard.svg">
+                          <img src="assets/img/icons/bandeiras/mastercard.svg" alt="mastercard">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -367,7 +367,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="hipercard" value="hipercard"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/hipercard.svg">
+                          <img src="assets/img/icons/bandeiras/hipercard.svg" alt="hipercard">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -375,7 +375,7 @@
                       <label for="elo" class="box-bandeira" [ngClass]="(bandeira === 'elo')? 'checked' : ''">
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="elo" value="elo" (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/elo.png">
+                          <img src="assets/img/icons/bandeiras/elo.png" alt="elo">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -385,7 +385,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="dinersclub" value="dinersclub"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/diners-club.svg">
+                          <img src="assets/img/icons/bandeiras/diners-club.svg" alt="diners-club">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -395,7 +395,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="americanexpress" value="americanexpress"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/american-express.svg">
+                          <img src="assets/img/icons/bandeiras/american-express.svg" alt="american-express">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -403,7 +403,7 @@
                       <label for="hiper" class="box-bandeira" [ngClass]="(bandeira === 'hiper')? 'checked' : ''">
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="hiper" value="hiper" (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/hiper.png">
+                          <img src="assets/img/icons/bandeiras/hiper.png" alt="hiper">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -411,7 +411,7 @@
                       <label for="alelo" class="box-bandeira" [ngClass]="(bandeira === 'alelo')? 'checked' : ''">
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="alelo" value="alelo" (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/alelo.png">
+                          <img src="assets/img/icons/bandeiras/alelo.png" alt="alelo">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -421,7 +421,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="cabalcard" value="cabalcard"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/cabalcard.png">
+                          <img src="assets/img/icons/bandeiras/cabalcard.png" alt="cabalcard">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -430,7 +430,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="goodcard" value="goodcard"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/good-card.png">
+                          <img src="assets/img/icons/bandeiras/good-card.png" alt="good-card">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -439,7 +439,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="sicredi" value="sicredi"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/sicredi.png">
+                          <img src="assets/img/icons/bandeiras/sicredi.png" alt="sicredi">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -454,7 +454,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="cedula" value="cedula"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/dinheiro.svg">
+                          <img src="assets/img/icons/bandeiras/dinheiro.svg" alt="dinheiro">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -468,7 +468,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="picpay" value="picpay"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/picpay.png">
+                          <img src="assets/img/icons/bandeiras/picpay.png" alt="picpay">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -477,7 +477,7 @@
                       <label for="ame" class="box-bandeira" [ngClass]="(bandeira === 'ame')? 'checked' : ''">
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="ame" value="ame" (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/ame.png">
+                          <img src="assets/img/icons/bandeiras/ame.png" alt="ame">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -487,7 +487,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="interpag" value="interpag"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/interpag.png">
+                          <img src="assets/img/icons/bandeiras/interpag.png" alt="interpag">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -497,7 +497,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="itiitau" value="itiitau"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/iti-itau.png">
+                          <img src="assets/img/icons/bandeiras/iti-itau.png" alt="iti-itau">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -506,7 +506,7 @@
                       <label for="gpay" class="box-bandeira" [ngClass]="(bandeira === 'gpay')? 'checked' : ''">
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="gpay" value="gpay" (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/g-pay.png">
+                          <img src="assets/img/icons/bandeiras/g-pay.png" alt="google-pay">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -516,7 +516,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="applepay" value="applepay"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/apple-pay.png">
+                          <img src="assets/img/icons/bandeiras/apple-pay.png" alt="apple-pay">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>
@@ -526,7 +526,7 @@
                         <div class="custom-radio">
                           <input type="radio" name="bandeira" id="samsung" value="samsung"
                             (click)="changeBandeira($event)">
-                          <img src="assets/img/icons/bandeiras/samsung.png">
+                          <img src="assets/img/icons/bandeiras/samsung.png" alt="samsung">
                         </div>
                       </label><!-- /label box-bandeira -->
                     </div>

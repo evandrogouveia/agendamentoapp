@@ -3,15 +3,15 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="space"></div>
-    <a class="navbar-brand" routerLink="/index"><img src="assets/img/logo-login.png"></a>
+    <a class="navbar-brand" routerLink="/index"><img src="assets/img/logo-login.png" alt="logo" title="logo"></a>
     
     <button class="navbar-toggler" type="button" (click)="executarViaService()">
-      <img src="assets/img/icons/menu.svg">
+      <img src="assets/img/icons/menu.svg" alt="icone">
     </button>
 
     <div class="form-search">
       <button class="btn btn-open-search" (click)="openModal()">
-        <img src="assets/img/icons/lupa.svg">
+        <img src="assets/img/icons/lupa.svg" alt="lupa">
       </button>
 
       <div bsModal #childModal="bs-modal" class="modal fade" tabindex="-1" role="dialog"
@@ -20,7 +20,7 @@
           <div class="modal-content">
             <div class="modal-body">
               <div class="input-group">
-                <img src="assets/img/icons/lupa-search.svg" class="img-lupa">
+                <img src="assets/img/icons/lupa-search.svg" class="img-lupa" alt="lupa-busca">
 
                 <input #busca type="text" class="form-control input-search"
                   placeholder="Nome do serviço que você precisa" (keyup.enter)="searchServicos($event)"
@@ -39,11 +39,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown" dropdown (isOpenChange)="onOpenChange($event)">
-          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+          <a class="nav-link dropdown-toggle" dropdownToggle href="#" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="assets/img/icons/menu.svg">
+            <img src="assets/img/icons/menu.svg" alt="menu">
           </a>
-          <div class="dropdown-menu dropdown-x" *dropdownMenu aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-x" *dropdownMenu>
 
             <div class="mega-menu">
               <ul>
@@ -191,11 +191,11 @@
         </li>
 
         <li class="nav-item dropdown" dropdown (isOpenChange)="onOpenChange($event)">
-          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+          <a class="nav-link dropdown-toggle" dropdownToggle href="#" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Unhas
           </a>
-          <div class="dropdown-menu dropdown-w" *dropdownMenu aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-w" *dropdownMenu>
             <p>Unhas</p>
 
             <ul class="nav nav-submenu flex-column">
@@ -228,11 +228,11 @@
         </li>
 
         <li class="nav-item dropdown" dropdown (isOpenChange)="onOpenChange($event)">
-          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+          <a class="nav-link dropdown-toggle" dropdownToggle href="#" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Cabelos
           </a>
-          <div class="dropdown-menu dropdown-w" *dropdownMenu aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-w" *dropdownMenu>
             <p>Cabelos</p>
 
             <ul class="nav nav-submenu flex-column">
@@ -247,11 +247,11 @@
         </li>
 
         <li class="nav-item dropdown" dropdown (isOpenChange)="onOpenChange($event)">
-          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+          <a class="nav-link dropdown-toggle" dropdownToggle href="#" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Barba
           </a>
-          <div class="dropdown-menu dropdown-w" *dropdownMenu aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-w" *dropdownMenu>
             <p>Barba</p>
 
             <ul class="nav nav-submenu flex-column">
@@ -284,11 +284,11 @@
         </li>
 
         <li class="nav-item dropdown" dropdown (isOpenChange)="onOpenChange($event)">
-          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+          <a class="nav-link dropdown-toggle" dropdownToggle href="#" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Maquiagem
           </a>
-          <div class="dropdown-menu dropdown-w" *dropdownMenu aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-w" *dropdownMenu>
             <p>Maquiagem</p>
 
             <ul class="nav nav-submenu flex-column">
@@ -321,11 +321,11 @@
         </li>
 
         <li class="nav-item dropdown" dropdown (isOpenChange)="onOpenChange($event)">
-          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+          <a class="nav-link dropdown-toggle" dropdownToggle href="#" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Depilação
           </a>
-          <div class="dropdown-menu dropdown-w" *dropdownMenu aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-w" *dropdownMenu>
             <p>Depilação</p>
 
             <ul class="nav nav-submenu flex-column">
@@ -358,11 +358,11 @@
         </li>
 
         <li class="nav-item dropdown" dropdown (isOpenChange)="onOpenChange($event)">
-          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button"
+          <a class="nav-link dropdown-toggle" dropdownToggle href="#" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Penteados
           </a>
-          <div class="dropdown-menu dropdown-w" *dropdownMenu aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-w" *dropdownMenu>
             <p>Penteados</p>
 
             <ul class="nav nav-submenu flex-column">
@@ -397,8 +397,8 @@
 
       <div class="dropdown-user my-2">
         <div class="btn-group" dropdown (isOpenChange)="onOpenChange($event)">
-          <div id="user" dropdownToggle type="button" class="dropdown-toggle" aria-controls="dropdown-animated">
-            <img src="assets/img/icons/user.svg">
+          <div id="user" dropdownToggle type="button" class="dropdown-toggle">
+            <img src="assets/img/icons/user.svg" alt="icone-usuario">
             
             <div *ngIf="(usuario$ | async)"  class="logged">
               
@@ -421,7 +421,7 @@
           <div class="dropdown-menu dropdown-y" [ngClass]="{'logged': (usuario$ | async)}"
               *dropdownMenu aria-labelledby="user" ngClass>
             <div class="header-user">
-              <img src="assets/img/icons/user-dropdown.svg">
+              <img src="assets/img/icons/user-dropdown.svg" alt="icone">
               <p>Conta</p>
             </div>
             
@@ -454,7 +454,7 @@
     <div class="header-fixed-mobile" [ngClass]="(scrollPosition > 100) ? 'fixed-top' : ''">
       <!-- INPUT SEARCH MOBILE -->
       <div class="input-group input-group-mobile">
-        <img src="assets/img/icons/lupa-mobile.svg">
+        <img src="assets/img/icons/lupa-mobile.svg" alt="lupa-mobile">
         <input #busca type="text" class="form-control input-search" placeholder="Nome do serviço que você precisa"
           (click)="onOpenChange($event)" (keyup.enter)="searchServicos($event)" (blur)="busca.value = ''">
       </div>
@@ -508,12 +508,12 @@
 
           <div class="card-img">
             <div class="box-avaliation">
-              <img src="assets/img/icons/star.svg">
+              <img src="assets/img/icons/star.svg" alt="estrela">
               <p>4,5</p>
             </div>
             <a routerLink="/index/{{s.id}}">
               <div class="box-img">
-                <img src="{{s.imageUrl}}">
+                <img src="{{s.imageUrl}}" alt="imagem-servico">
               </div>
               <p class="default-description">{{s.nomeservico}}</p>
               <p class="mobile-description">
@@ -521,10 +521,9 @@
             </a>
             <div class="box-btn-price">
               <a routerLink="/index/{{s.id}}">Agendar</a>
-              <h3 [hidden]="s.valorservico == 0">
-                {{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</h3>
-              <h5 class="mt-2" *ngIf="s.valorservico == 0 ">
-                {{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}</h5>
+              <p [ngClass]="{'text-small' : s.valorservico == 0 }">
+                {{s.valorservico != 0 ? (s.valorservico | currency:'BRL':true) : 'Sob Consulta'}}
+              </p>
             </div>
           </div>
 
@@ -534,12 +533,12 @@
 
           <div class="card-img">
             <div class="box-avaliation">
-              <img src="assets/img/icons/star.svg">
+              <img src="assets/img/icons/star.svg" alt="estrela">
               <p>4,5</p>
             </div>
             <a routerLink="/index/{{s.id}}">
               <div class="box-img">
-                <img src="{{s.imageUrl}}">
+                <img src="{{s.imageUrl}}" alt="imagem-servico">
               </div>
               <p class="default-description">{{s.nomeservico}}</p>
               <p class="mobile-description">

@@ -508,11 +508,14 @@ a.dropdown-toggle{
     text-decoration: none;
     transition: background-color 0.3s;
 }
-.section-servicos .card-img .box-btn-price h3{
+.section-servicos .card-img .box-btn-price p{
     margin-top: 11px;
     font-size: 30px;
     color: #2b2b2b;
     font-weight: 600;
+}
+.section-servicos .card-img .box-btn-price p.text-small{
+    font-size: 20px;
 }
 .input-group-mobile,
 .dropdown-cart-mobile,
