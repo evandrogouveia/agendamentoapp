@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, Renderer2, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
-import { BsModalService, ModalDirective } from 'ngx-bootstrap/modal';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { SidebarService } from 'src/app/shared/services/sidebar.service';
 import { Observable } from 'rxjs';
 import { Cadastroservico } from 'src/app/shared/models/cadastroservico.model';

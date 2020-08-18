@@ -24,6 +24,11 @@
 .form-newsletter input:focus {
     border: 1px solid #e9724c;
 }
+.form-newsletter label {
+    margin: 0;
+    position: absolute;
+    color: transparent;
+}
 .form-newsletter button {
     width: 173px;
     height: 53px;
@@ -60,7 +65,7 @@
     font-size: 18px;
     color: #816552;
 }
-.footer-links h4 {
+.footer-links h3 {
     font-size: 22px;
     color: #a28775;
     font-weight: 700;

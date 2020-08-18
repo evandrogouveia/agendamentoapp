@@ -1,5 +1,5 @@
 import { environment } from '../../../environments/environment';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { Observable } from 'rxjs';
 import { Agendamento } from 'src/app/shared/models/agendamento.model';

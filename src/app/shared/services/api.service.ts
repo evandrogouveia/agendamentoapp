@@ -3,9 +3,7 @@ import { AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument 
 import { Agendamento } from '../models/agendamento.model';
 import { Cadastroservico } from '../models/cadastroservico.model';
 import { Usuario } from '../models/user';
-import { Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
