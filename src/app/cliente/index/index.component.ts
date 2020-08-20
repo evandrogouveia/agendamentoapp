@@ -38,7 +38,7 @@ export class IndexComponent implements OnInit {
 
   scrollPosition;
 
-  position = 0;
+  defaultImage = 'assets/img/placeholder.jpg';
 
 
   constructor(

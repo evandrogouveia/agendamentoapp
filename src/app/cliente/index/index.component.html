@@ -1,6 +1,6 @@
 <div *ngIf="isDropdown" class="overlay" [@fadeInOut] (click)="closeOverlay()"></div>
 <span class="loading" *ngIf="!(servicos$ | async)"></span>
-<div class="container">
+<div class="container" lazy-load-images>
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="space"></div>
     <a class="navbar-brand" routerLink="/index"><img src="assets/img/logo-login.png" alt="logo" title="logo"></a>
@@ -508,12 +508,12 @@
 
           <div class="card-img">
             <div class="box-avaliation">
-              <img src="assets/img/icons/star.svg" alt="estrela">
+              <img data-src="assets/img/icons/star.svg" alt="estrela">
               <p>4,5</p>
             </div>
             <a routerLink="/index/{{s.id}}">
               <div class="box-img">
-                <img src="{{s.imageUrl}}" alt="imagem-servico">
+                <img [attr.data-src]="s.imageUrl"  alt="imagem-servico">
               </div>
               <p class="default-description">{{s.nomeservico}}</p>
               <p class="mobile-description">

@@ -1,5 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 
 import { IndexRoutingModule } from './index-routing.module';
 import { NgxBootstrapModule } from 'src/app/ngx-bootstrap.module';
@@ -24,7 +25,8 @@ import { ResultadoBuscaComponent } from './resultado-busca/resultado-busca.compo
     IndexRoutingModule,
     NgxBootstrapModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LazyLoadImagesModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 
