@@ -9,8 +9,8 @@
       <img src="assets/img/logo-example-2.png" alt="logo">
     </div>
 
-    <div class="notifications">
-      <span>3</span>
+    <div class="notifications" (click)="openModalNotifications()">
+      <span>1</span>
       <img src="assets/img/icons/sino-black.svg" alt="icone-sino">
     </div>
 
@@ -20,7 +20,7 @@
       </a>
     </div-->
 
-    <div class="profile-menu" (click)="openModal()">
+    <div class="profile-menu" (click)="openModalProfile()">
       <div class="profile-img">
         <img src="{{(usuario$ | async)?.avatar ? (usuario$ | async)?.avatar : imageSrc}}" alt="avatar">
       </div>
@@ -29,13 +29,14 @@
     </div>
   </nav>
 
-  <div bsModal #childModalProfile="bs-modal" class="modal fade modal-profile" tabindex="-1" role="dialog"
+  <!-- =============================== MODAL ALL PERFIL ================================== -->
+  <div bsModal #childModalProfile="bs-modal" class="modal fade modal-all" tabindex="-1" role="dialog"
     aria-labelledby="dialog-sizes-name1">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="header-modal">
           <h4>Ações</h4>
-          <img src="assets/img/icons/close-modal.svg" (click)="closeModal()" alt="icone-fechar">
+          <img src="assets/img/icons/close-modal.svg" (click)="closeModalProfile()" alt="icone-fechar">
         </div>
         <div class="modal-body">
 
@@ -50,6 +51,25 @@
             </a>
           </div>
 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================== MODAL ALL NOTIFICAÇÕES ================================== -->
+  <div bsModal #childModalNotifications="bs-modal" class="modal fade modal-all" tabindex="-1" role="dialog"
+    aria-labelledby="dialog-sizes-name1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="header-modal">
+          <h4>Notificações</h4>
+          <img src="assets/img/icons/close-modal.svg" (click)="closeModalNotifications()" alt="icone-fechar">
+        </div>
+        <div class="modal-body">
+          <div class="box-notification">
+            <img src="assets/img/icons/icon-notification.svg" alt="icone-notificação"> 
+            <p>Caro cliente, hoje não funcionaremos</p>
+          </div>
         </div>
       </div>
     </div>

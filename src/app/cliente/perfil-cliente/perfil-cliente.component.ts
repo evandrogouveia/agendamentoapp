@@ -17,7 +17,8 @@ import { Router } from '@angular/router';
 })
 export class PerfilClienteComponent implements OnInit {
 
-  @ViewChild('childModalProfile') childModal: ModalDirective;
+  @ViewChild('childModalProfile') childModalProfile: ModalDirective;
+  @ViewChild('childModalNotifications') childModalNotifications: ModalDirective;
 
   usuario$: Observable<Usuario>;
   emailUser: any = [];
@@ -59,12 +60,20 @@ export class PerfilClienteComponent implements OnInit {
     
   }
 
-  openModal(): void {
-    this.childModal.show();
+  openModalProfile(): void {
+    this.childModalProfile.show();
   }
 
-  closeModal(): void {
-    this.childModal.hide();
+  closeModalProfile(): void {
+    this.childModalProfile.hide();
+  }
+
+  openModalNotifications(): void {
+    this.childModalNotifications.show();
+  }
+
+  closeModalNotifications(): void {
+    this.childModalNotifications.hide();
   }
 
   executarViaService() {

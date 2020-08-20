@@ -73,47 +73,64 @@
     width: 0px;
     display: block;
 }
-.modal-profile .modal-dialog{
+
+
+/*================ MODAL ALL ==================*/
+.modal-all .modal-dialog{
     margin: 0;
 }
-.modal-profile .modal-dialog .modal-content{
+.modal-all .modal-dialog .modal-content{
     border: none;
     border-radius: 0;
 }
-.modal-profile .header-modal{
+.modal-all .header-modal{
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 25px 20px 40px;
 }
-.modal-profile .header-modal h4{
+.modal-all .header-modal h4{
     font-size: 24px;
     color: #2b2b2b;
     margin: 0;
 }
-.modal-profile .links a{
+.modal-all .links a{
     display: flex;
     align-items: center;
     padding: 10px 17px;
 }
-.modal-profile .links a{
+.modal-all .links a{
     color: #575757;
     font-size: 14px;
     margin-left: 5px;
     text-decoration: none;
 }
-.modal-profile .links a:first-child {
+.modal-all .links a:first-child {
     background-color: #f9f3ef;
     border-radius: 30px;
     width: 85%;
     margin-bottom: 35px;
 }
-.modal-profile .links a img{
+.modal-all .links a img{
     margin-right: 10px;
 }
-.modal-profile .links a span{
+.modal-all .links a span{
     position: relative;
     top: 1px;
+}
+.modal-all .box-notification{
+    text-align: center;
+    background: #2b2b2b;
+    border-radius: 5px;
+    padding: 20px 0 10px;
+    margin-bottom: 5px;
+}
+.modal-all .box-notification img{
+    margin-bottom: 15px;
+}
+.modal-all .box-notification p{
+    color: #ffffff;
+    font-size: 16px;
 }
 
 /*================ SIDEBAR MENU ==================*/
