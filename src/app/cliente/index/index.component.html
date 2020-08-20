@@ -454,7 +454,7 @@
     <div class="header-fixed-mobile" [ngClass]="(scrollPosition > 100) ? 'fixed-top' : ''">
       <!-- INPUT SEARCH MOBILE -->
       <div class="input-group input-group-mobile">
-        <img src="assets/img/icons/lupa-mobile.svg" alt="lupa-mobile">
+        <img data-src="assets/img/icons/lupa-mobile.svg" alt="lupa-mobile">
         <input #busca type="text" class="form-control input-search" placeholder="Nome do serviço que você precisa"
           (click)="onOpenChange($event)" (keyup.enter)="searchServicos($event)" (blur)="busca.value = ''">
       </div>

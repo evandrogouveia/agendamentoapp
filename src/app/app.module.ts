@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -66,7 +67,8 @@ registerLocaleData(localePt, 'pt');
     AuthModule,
     AdminModule.forRoot(),
     HttpClientModule,
-    Ng2ImgMaxModule
+    Ng2ImgMaxModule,
+    LazyLoadImagesModule 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [DatePipe, MessagingService, AsyncPipe,  {
