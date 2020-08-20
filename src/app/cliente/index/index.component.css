@@ -687,6 +687,7 @@ a.dropdown-toggle{
     .menu-mobile{
         display: block;
         width: 100%;
+        overflow: auto;
     }
     .menu-mobile ul{
         display: flex;
