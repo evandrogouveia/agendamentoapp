@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2, ElementRef, Input } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { ModalDirective } from 'ngx-bootstrap/modal';
@@ -29,6 +29,9 @@ export class IndexComponent implements OnInit {
   filtroServicos$: Observable<Cadastroservico[]>;
   usuario$: Observable<Usuario>;
 
+  receivedChildMessage: string;
+
+
   @ViewChild('childModal') childModal: ModalDirective;
   @ViewChild('busca') busca: ElementRef;
 
@@ -52,47 +55,18 @@ export class IndexComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.servicos$ = this.apiService.getServicos();
     this.renderer.listen(window, 'scroll', ($event) => {
       this.scrollPosition = window.scrollY;
     });
 
-
   }
 
-  executarViaService() {
-    this.sidebarService.toggleNavbar(); // executa o método via service
-  }
-
-  openModal(): void {
-    this.childModal.show();
-    setTimeout(() => {
-      this.busca.nativeElement.focus();
-    }, 500);
-  }
-
-  onOpenChange(data: boolean): void {
-    this.isDropdown = data;
+  getMessage(message: boolean) {
+    this.isDropdown= message;
   }
 
   closeOverlay(): void {
-    this.isDropdown = false;
-    this.busca.nativeElement.blur();
+    this.isDropdown = false; 
   }
-
-  searchServicos(event) {
-    if (event) {
-      this.router.navigate(['index/result-search'], { queryParams: [event.target.value] });
-    }
-    this.childModal.hide();
-    this.closeOverlay();
-    this.busca.nativeElement.value = '';
-  }
-
-  logout() {
-    this.authService.logout();
-    this.router.navigateByUrl('/index');
-  }
-
 }

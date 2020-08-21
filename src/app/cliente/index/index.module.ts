@@ -5,11 +5,14 @@ import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 import { IndexRoutingModule } from './index-routing.module';
 import { NgxBootstrapModule } from 'src/app/ngx-bootstrap.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HeaderModule } from 'src/app/header/header.module';
 
 import { IndexComponent } from './index.component';
 import { ServicoDetalheComponent } from './servico-detalhe/servico-detalhe.component';
 import { FooterComponent } from '../../footer/footer.component';
 import { ResultadoBuscaComponent } from './resultado-busca/resultado-busca.component';
+
+
 
 
 
@@ -19,6 +22,7 @@ import { ResultadoBuscaComponent } from './resultado-busca/resultado-busca.compo
     ServicoDetalheComponent,
     FooterComponent,
     ResultadoBuscaComponent,
+   
   ],
   imports: [
     CommonModule,
@@ -26,7 +30,8 @@ import { ResultadoBuscaComponent } from './resultado-busca/resultado-busca.compo
     NgxBootstrapModule,
     FormsModule,
     ReactiveFormsModule,
-    LazyLoadImagesModule
+    LazyLoadImagesModule,
+    HeaderModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

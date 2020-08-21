@@ -87,7 +87,7 @@ export class ResultadoBuscaComponent implements OnInit {
   }
 
   searchServicos(event) {
-    if (event) {
+    if (event && (this.busca.nativeElement.value !== '')) {
       this.loading = true;
       this.router.navigate(['index/result-search'], { queryParams: [event.target.value] });
 

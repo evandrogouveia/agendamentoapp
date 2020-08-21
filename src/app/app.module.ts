@@ -35,7 +35,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { EditarPerfilComponent } from './cliente/editar-perfil/editar-perfil.component';
 
 
-
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 registerLocaleData(localePt, 'pt');
@@ -47,7 +46,7 @@ registerLocaleData(localePt, 'pt');
     SidebarComponent,
     SucessoComponent,
     PerfilClienteComponent,
-    EditarPerfilComponent
+    EditarPerfilComponent,
   ],
   imports: [
     BrowserModule,
