@@ -39,27 +39,18 @@ export class IndexComponent implements OnInit {
 
   disableFloating = false;
 
-  scrollPosition;
-
   defaultImage = 'assets/img/placeholder.jpg';
 
 
   constructor(
     private authService: AuthService,
     private apiService: ApiService,
-    private sidebarService: SidebarService,
-    private renderer: Renderer2,
-    private router: Router,
   ) {
     this.usuario$ = this.authService.getUser();
   }
 
   ngOnInit() {
     this.servicos$ = this.apiService.getServicos();
-    this.renderer.listen(window, 'scroll', ($event) => {
-      this.scrollPosition = window.scrollY;
-    });
-
   }
 
   getMessage(message: boolean) {

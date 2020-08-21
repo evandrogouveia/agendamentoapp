@@ -31,19 +31,23 @@ export class HeaderComponent implements OnInit {
 
   scrollPosition;
  
-
   @ViewChild('childModal') childModal: ModalDirective;
   @ViewChild('busca') busca: ElementRef;
+  @ViewChild('buscamobile') buscamobile: ElementRef;
 
   constructor(
     private authService: AuthService,
     private router: Router,
+    private renderer: Renderer2,
   ) { 
     this.usuario$ = this.authService.getUser();
   }
 
   ngOnInit() {
-   
+    //FIXAR HEADER MOBILE
+    this.renderer.listen(window, 'scroll', ($event) => {
+      this.scrollPosition = window.scrollY;
+    });
   }
   
 
@@ -65,7 +69,7 @@ export class HeaderComponent implements OnInit {
   }
 
   searchServicos(event) {
-    if (event && (this.busca.nativeElement.value !== '')) {
+    if (event && (this.busca.nativeElement.value.length > 0) || (this.buscamobile.nativeElement.value.length > 0)) {
       this.router.navigate(['index/result-search'], { queryParams: [event.target.value] });
     }
     
