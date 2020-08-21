@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, Renderer2, ElementRef, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
 import { ModalDirective } from 'ngx-bootstrap/modal';
@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/shared/services/api.service';
 import { Usuario } from 'src/app/shared/models/user';
 import { AuthService } from 'src/app/login/auth/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+
 
 
 @Component({
@@ -27,7 +28,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ResultadoBuscaComponent implements OnInit {
   servicos$: Observable<Cadastroservico[]>;
   filtroServicos$: Observable<Cadastroservico[]>;
-  usuario$: Observable<Usuario>;
 
   results = false;
 
@@ -35,12 +35,7 @@ export class ResultadoBuscaComponent implements OnInit {
 
   parametro;
 
-  @ViewChild('childModal') childModal: ModalDirective;
-  @ViewChild('busca') busca: ElementRef;
-
   isDropdown = false;
-
-  scrollPosition;
 
   constructor(
     private authService: AuthService,
@@ -49,18 +44,13 @@ export class ResultadoBuscaComponent implements OnInit {
     private renderer: Renderer2,
     private router: Router,
     private route: ActivatedRoute,
-  ) {
-    this.usuario$ = this.authService.getUser();
-  }
+  ) {}
 
   ngOnInit() {
-    this.renderer.listen(window, 'scroll', ($event) => {
-      this.scrollPosition = window.scrollY;
-    });
     this.route.queryParams.subscribe(params => {
       this.parametro = params;
     });
-
+  
     this.servicos$ = this.apiService.searchByName(
       this.parametro[0].charAt(0).toUpperCase() + this.parametro[0].substr(1).toLowerCase()
     );
@@ -70,42 +60,19 @@ export class ResultadoBuscaComponent implements OnInit {
     this.sidebarService.toggleNavbar(); // executa o método via service
   }
 
-  openModal(): void {
-    this.childModal.show();
-    setTimeout(() => {
-      this.busca.nativeElement.focus();
-    }, 500);
+  getMessage(message: boolean) {
+    this.isDropdown= message;
   }
 
-  onOpenChange(data: boolean): void {
-    this.isDropdown = data;
+  getValueMessage(message: string) {// recebe valor do input da busca através do EventEmitter
+   if(message){
+    this.servicos$ = this.apiService.searchByName(
+      message.charAt(0).toUpperCase() + message.substr(1).toLowerCase()
+    );
+   }
   }
 
   closeOverlay(): void {
     this.isDropdown = false;
-    this.busca.nativeElement.blur();
   }
-
-  searchServicos(event) {
-    if (event && (this.busca.nativeElement.value !== '')) {
-      this.loading = true;
-      this.router.navigate(['index/result-search'], { queryParams: [event.target.value] });
-
-      this.servicos$ = this.apiService.searchByName(
-        event.target.value.charAt(0).toUpperCase() + event.target.value.substr(1).toLowerCase()
-      );
-
-    }
-    
-    this.childModal.hide();
-    this.closeOverlay();
-    this.busca.nativeElement.value = '';
-    this.loading = false;
-  }
-
-  logout() {
-    this.authService.logout();
-    this.router.navigateByUrl('/index');
-  }
-
 }

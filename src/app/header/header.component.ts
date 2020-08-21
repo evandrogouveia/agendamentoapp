@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
   usuario$: Observable<Usuario>;
 
   @Output() isDropdownToEmit = new EventEmitter<boolean>();
+  @Output() valueToEmit = new EventEmitter<boolean>();
 
   isDropdown = false;
 
@@ -70,6 +71,7 @@ export class HeaderComponent implements OnInit {
 
   searchServicos(event) {
     if (event && (this.busca.nativeElement.value.length > 0) || (this.buscamobile.nativeElement.value.length > 0)) {
+      this.valueToEmit.emit(this.busca.nativeElement.value); //emite o valor da busca para outro componente através do Output
       this.router.navigate(['index/result-search'], { queryParams: [event.target.value] });
     }
     

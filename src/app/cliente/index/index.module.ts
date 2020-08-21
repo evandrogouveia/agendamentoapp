@@ -13,16 +13,12 @@ import { FooterComponent } from '../../footer/footer.component';
 import { ResultadoBuscaComponent } from './resultado-busca/resultado-busca.component';
 
 
-
-
-
 @NgModule({
   declarations: [
     IndexComponent,
     ServicoDetalheComponent,
     FooterComponent,
-    ResultadoBuscaComponent,
-   
+    ResultadoBuscaComponent
   ],
   imports: [
     CommonModule,
