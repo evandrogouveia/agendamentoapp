@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2, Output, EventEmitter, HostListener } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { Observable } from 'rxjs';
 import { Cadastroservico } from '../shared/models/cadastroservico.model';
@@ -8,6 +8,7 @@ import { SidebarService } from '../shared/services/sidebar.service';
 import { Router } from '@angular/router';
 import { Usuario } from '../shared/models/user';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+
 
 @Component({
   selector: 'app-header',
@@ -31,10 +32,12 @@ export class HeaderComponent implements OnInit {
   isDropdown = false;
 
   scrollPosition;
+
  
   @ViewChild('childModal') childModal: ModalDirective;
   @ViewChild('busca') busca: ElementRef;
   @ViewChild('buscamobile') buscamobile: ElementRef;
+  
 
   constructor(
     private authService: AuthService,
@@ -49,6 +52,7 @@ export class HeaderComponent implements OnInit {
     this.renderer.listen(window, 'scroll', ($event) => {
       this.scrollPosition = window.scrollY;
     });
+
   }
   
 
@@ -71,7 +75,7 @@ export class HeaderComponent implements OnInit {
 
   searchServicos(event) {
     if (event && (this.busca.nativeElement.value.length > 0) || (this.buscamobile.nativeElement.value.length > 0)) {
-      this.valueToEmit.emit(this.busca.nativeElement.value); //emite o valor da busca para outro componente através do Output
+      this.valueToEmit.emit(this.busca.nativeElement.value || this.buscamobile.nativeElement.value ); //emite o valor da busca para outro componente através do Output
       this.router.navigate(['index/result-search'], { queryParams: [event.target.value] });
     }
     

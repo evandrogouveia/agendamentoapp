@@ -33,6 +33,7 @@ import { PerfilClienteComponent } from './cliente/perfil-cliente/perfil-cliente.
 import { NgxBootstrapModule } from './ngx-bootstrap.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { EditarPerfilComponent } from './cliente/editar-perfil/editar-perfil.component';
+import { HeaderModule } from './header/header.module';
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -67,7 +68,8 @@ registerLocaleData(localePt, 'pt');
     AdminModule.forRoot(),
     HttpClientModule,
     Ng2ImgMaxModule,
-    LazyLoadImagesModule 
+    LazyLoadImagesModule,
+    HeaderModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [DatePipe, MessagingService, AsyncPipe,  {

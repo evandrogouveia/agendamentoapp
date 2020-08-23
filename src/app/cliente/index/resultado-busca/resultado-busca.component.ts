@@ -69,6 +69,7 @@ export class ResultadoBuscaComponent implements OnInit {
     this.servicos$ = this.apiService.searchByName(
       message.charAt(0).toUpperCase() + message.substr(1).toLowerCase()
     );
+    this.closeOverlay();
    }
   }
 
