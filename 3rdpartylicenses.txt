@@ -534,6 +534,9 @@ ngx-bootstrap/tabs
 
 ngx-bootstrap/utils
 
+ngx-lazy-load-images
+MIT
+
 ngx-mask
 MIT
 MIT License
