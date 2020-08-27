@@ -33,11 +33,13 @@
         </div>
 
         <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-animated">
-          <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-          <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
+          <li class="menuitem"><p>Ações</p></li>
+          <li class="menuitem">
+            <a routerLink="#" (click)="logout()">
+              <img src="assets/img/icons/icon-sair.svg" alt="icone-sair">
+              <span>Sair</span>
+            </a>
           </li>
-          <li role="menuitem"><a class="dropdown-item" href="#">Something else
-              here</a></li>
         </ul>
       </div>
 

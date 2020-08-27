@@ -96,6 +96,38 @@
     width: 0px;
     display: block;
 }
+.profile-menu .dropdown-menu{
+    width: 100%;
+    padding: 0px;
+    border: none;
+    box-shadow: 0px 7px 20px -2px #e8d9d3;
+    top: 51px !important;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    cursor: default;
+}
+.profile-menu .dropdown-menu .menuitem{
+    padding: 20px;
+} 
+.profile-menu .dropdown-menu .menuitem p{
+    font-size: 20px;
+    font-weight: 500;
+    color: #2b2b2b;
+}
+.profile-menu .dropdown-menu .menuitem + .menuitem{
+    background: #f9f3ef;
+    padding-top: 25px;
+}
+.profile-menu .dropdown-menu .menuitem a{
+    color: #575757;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+.profile-menu .dropdown-menu .menuitem a span{
+    font-size: 14px;
+    margin-left: 10px;
+}
 
 
 /*================ MODAL ALL ==================*/
