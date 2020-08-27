@@ -1,9 +1,9 @@
-<span *ngIf="!(usuario$ | async) && !(agendamento$ | async)" class="loading"></span>
-<ng-container *ngIf="agendamento$">
+<ng-container *ngIf="(usuario$ | async); else loading">
+  <span *ngIf="!(usuario$ | async) && !(agendamento$ | async)" class="loading"></span>
   <nav class="navbar">
-    <!--button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
+    <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
       <img src="assets/img/icons/menu.svg">
-    </button-->
+    </button>
 
     <div class="logo">
       <img src="assets/img/logo-example-2.png" alt="logo">
@@ -15,10 +15,10 @@
     </div>
 
     <!--div class="icon-home">
-      <a class="link" routerLink="/index">
-        <img src="assets/img/icons/ver-salao.svg">
-      </a>
-    </div-->
+    <a class="link" routerLink="/index">
+      <img src="assets/img/icons/ver-salao.svg">
+    </a>
+  </div-->
 
     <div class="profile-menu" (click)="openModalProfile()">
       <div class="profile-img">
@@ -67,7 +67,7 @@
         </div>
         <div class="modal-body">
           <div class="box-notification">
-            <img src="assets/img/icons/icon-notification.svg" alt="icone-notificação"> 
+            <img src="assets/img/icons/icon-notification.svg" alt="icone-notificação">
             <p>Caro cliente, hoje não funcionaremos</p>
           </div>
         </div>
@@ -75,86 +75,105 @@
     </div>
   </div>
 
-  <div class="wrapper-menu" [ngClass]="expanded">
-    menu
-  </div>
-  <div class="content-perfil">
-    <p class="username" *ngIf="(usuario$ | async)">Bem-vindo(a) <span>{{(usuario$ | async)?.nome}}
-        {{(usuario$ | async)?.sobrenome}}</span>
-    </p>
+  <div class="d-flex" id="wrapper" [ngClass]="expanded">
 
-    <h4>Controle</h4>
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+      </div>
+    </div><!-- /#sidebar-wrapper -->
 
-    <div class="card-controle">
-      <div class="card-header-c">
-        <div class="box-img">
-          <img src="assets/img/icons/agenda-perfil.svg" alt="icone-agenda">
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="content-perfil">
+
+        <p class="username" *ngIf="(usuario$ | async)">Bem-vindo(a) <span>{{(usuario$ | async)?.nome}}
+            {{(usuario$ | async)?.sobrenome}}</span>
+        </p>
+
+        <h4>Controle</h4>
+
+        <div class="card-controle">
+          <div class="card-header-c">
+            <div class="box-img">
+              <img src="assets/img/icons/agenda-perfil.svg" alt="icone-agenda">
+            </div>
+            <p>Agendamentos</p>
+          </div>
+          <div class="card-body-c">
+            <p>{{totalAgendamentoMes}}</p>
+            <p>Mês atual</p>
+          </div>
+
         </div>
-        <p>Agendamentos</p>
-      </div>
-      <div class="card-body-c">
-        <p>{{totalAgendamentoMes}}</p>
-        <p>Mês atual</p>
-      </div>
 
-    </div>
+        <h4>{{(agendamento$ | async)?.length > 0 ? 'Agendamento(s) em aberto' : 'Sem novos agendamentos'}}</h4>
 
-    <h4>{{(agendamento$ | async)?.length > 0 ? 'Agendamento(s) em aberto' : 'Sem novos agendamentos'}}</h4>
+        <ng-container *ngFor="let a of agendamento$ | async">
+          <div class="card-agendamento" *ngIf="(a.data | slice:3:5) >= mes">
+            <div class="box-left">
+              <img src="assets/img/icons/sino-white.svg" alt="icone-sino">
+              <h6>{{a.horario+'h'}}</h6>
+              <p>{{a.data}}</p>
+            </div>
 
-    <ng-container *ngFor="let a of agendamento$ | async">
-      <div class="card-agendamento" *ngIf="(a.data | slice:3:5) >= mes">
-        <div class="box-left">
-          <img src="assets/img/icons/sino-white.svg" alt="icone-sino">
-          <h6>{{a.horario+'h'}}</h6>
-          <p>{{a.data}}</p>
+            <div class="box-right">
+              <p>{{a.servico[0].nomeservico}}</p>
+              <p>com Francisquinha</p>
+
+              <a href="#" class="gear">
+                <span class="settings"></span>
+              </a>
+            </div>
+          </div>
+        </ng-container>
+
+        <div class="card-agendamento empty" *ngIf="(agendamento$ | async)?.length === 0">
+          <div class="box-left">
+            <img src="assets/img/icons/tesoura-pente.png" alt="icone-tesoura-pente">
+          </div>
+
+          <div class="box-right">
+            <p>Você não possui serviços agendados, quando tiver, eles aparecerão primeiro aqui.</p>
+          </div>
         </div>
 
-        <div class="box-right">
-          <p>{{a.servico[0].nomeservico}}</p>
-          <p>com Francisquinha</p>
+        <!--div class="card-agendamento canceled">
+            <div class="box-left">
+              <h6>8:30h</h6>
+              <p>12/06/20</p>
+            </div>
+      
+            <div class="box-right">
+              <p>Tratamento de unhas, pintura e brilho para unhas postiças...</p>
+              <p>com Francisquinha</p>
+      
+              <a href="#" class="gear">
+                <span class="settings"></span>
+              </a>
+            </div>
+          </div-->
 
-          <a href="#" class="gear">
-            <span class="settings"></span>
-          </a>
-        </div>
+      </div><!-- /content perfil -->
+
+      <div class="box-btns-mobile">
+        <a class="home-m" routerLink="/index" routerLinkActive="active-m"></a>
+
+        <a class="agenda-m" routerLink="/agendamento" routerLinkActive="active-m"></a>
+
+        <a class="ajuda-m" routerLink="/agendamento" routerLinkActive="active-m"></a>
+
+        <a class="perfil-m" routerLink="/perfil" routerLinkActive="active-m"></a>
       </div>
-    </ng-container>
 
-    <div class="card-agendamento empty" *ngIf="(agendamento$ | async)?.length === 0">
-      <div class="box-left">
-        <img src="assets/img/icons/tesoura-pente.png" alt="icone-tesoura-pente">
-      </div>
 
-      <div class="box-right">
-        <p>Você não possui serviços agendados, quando tiver, eles aparecerão primeiro aqui.</p>
-      </div>
-    </div>
+    </div><!-- /#page-content-wrapper -->
 
-    <!--div class="card-agendamento canceled">
-      <div class="box-left">
-        <h6>8:30h</h6>
-        <p>12/06/20</p>
-      </div>
-
-      <div class="box-right">
-        <p>Tratamento de unhas, pintura e brilho para unhas postiças...</p>
-        <p>com Francisquinha</p>
-
-        <a href="#" class="gear">
-          <span class="settings"></span>
-        </a>
-      </div>
-    </div-->
-
-  </div>
-
-  <div class="box-btns-mobile">
-    <a class="home-m" routerLink="/index" routerLinkActive="active-m"></a>
-  
-    <a class="agenda-m" routerLink="/agendamento" routerLinkActive="active-m"></a>
-  
-    <a class="ajuda-m" routerLink="/agendamento" routerLinkActive="active-m"></a>
-  
-    <a class="perfil-m" routerLink="/perfil" routerLinkActive="active-m"></a>
-  </div>
+  </div><!-- /wrapper -->
 </ng-container>
