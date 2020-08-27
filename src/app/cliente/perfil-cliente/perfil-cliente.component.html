@@ -1,32 +1,55 @@
 <ng-container *ngIf="(usuario$ | async); else loading">
   <span *ngIf="!(usuario$ | async) && !(agendamento$ | async)" class="loading"></span>
   <nav class="navbar">
-    <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
-      <img src="assets/img/icons/menu.svg">
-    </button>
+    <div class="navbar-left">
+      <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
+        <img src="assets/img/icons/menu.svg">
+      </button>
 
-    <div class="logo">
-      <img src="assets/img/logo-example-2.png" alt="logo">
-    </div>
-
-    <div class="notifications" (click)="openModalNotifications()">
-      <span>1</span>
-      <img src="assets/img/icons/sino-black.svg" alt="icone-sino">
-    </div>
-
-    <!--div class="icon-home">
-    <a class="link" routerLink="/index">
-      <img src="assets/img/icons/ver-salao.svg">
-    </a>
-  </div-->
-
-    <div class="profile-menu" (click)="openModalProfile()">
-      <div class="profile-img">
-        <img src="{{(usuario$ | async)?.avatar ? (usuario$ | async)?.avatar : imageSrc}}" alt="avatar">
+      <div class="logo">
+        <img src="assets/img/logo-login.png" alt="logo">
       </div>
-      <span class="down-arrow"></span>
-      <!--p>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</p-->
-    </div>
+    </div><!-- /navbar-left -->
+
+    <div class="navbar-right">
+      <div class="notifications" (click)="openModalNotifications()">
+        <span>1</span>
+        <img src="assets/img/icons/sino-black.svg" alt="icone-sino">
+      </div>
+
+      <div class="icon-home">
+        <a class="link" routerLink="/index">
+          <img src="assets/img/icons/ver-salao.svg">
+        </a>
+      </div>
+
+      <div class="profile-menu" dropdown>
+        <div class="button-drop" dropdownToggle aria-controls="dropdown-animated">
+          <div class="profile-img">
+            <img src="{{(usuario$ | async)?.avatar ? (usuario$ | async)?.avatar : imageSrc}}" alt="avatar">
+          </div>
+          <span class="username">{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</span>
+          <span class="down-arrow"></span>
+        </div>
+
+        <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-animated">
+          <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Another action</a>
+          </li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Something else
+              here</a></li>
+        </ul>
+      </div>
+
+      <div class="profile-menu d-none" (click)="openModalProfile()">
+        <div class="profile-img">
+          <img src="{{(usuario$ | async)?.avatar ? (usuario$ | async)?.avatar : imageSrc}}" alt="avatar">
+        </div>
+        <span class="username">{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</span>
+        <span class="down-arrow"></span>
+        <!--p>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</p-->
+      </div>
+    </div><!-- /navbar-right -->
   </nav>
 
   <!-- =============================== MODAL ALL PERFIL ================================== -->
@@ -78,14 +101,14 @@
   <div class="d-flex" id="wrapper" [ngClass]="expanded">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
+    <div id="sidebar-wrapper">
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        <a href="#" class="list-group-item">Dashboard</a>
+        <a href="#" class="list-group-item">Shortcuts</a>
+        <a href="#" class="list-group-item">Overview</a>
+        <a href="#" class="list-group-item">Events</a>
+        <a href="#" class="list-group-item">Profile</a>
+        <a href="#" class="list-group-item">Status</a>
       </div>
     </div><!-- /#sidebar-wrapper -->
 
