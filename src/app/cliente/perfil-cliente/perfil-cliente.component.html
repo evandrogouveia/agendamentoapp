@@ -17,13 +17,13 @@
         <img src="assets/img/icons/sino-black.svg" alt="icone-sino">
       </div>
 
-      <div class="icon-home">
+      <div class="icon-home d-none d-sm-block">
         <a class="link" routerLink="/index">
           <img src="assets/img/icons/ver-salao.svg">
         </a>
       </div>
 
-      <div class="profile-menu" dropdown>
+      <div class="profile-menu d-none d-sm-block" dropdown>
         <div class="button-drop" dropdownToggle aria-controls="dropdown-animated">
           <div class="profile-img">
             <img src="{{(usuario$ | async)?.avatar ? (usuario$ | async)?.avatar : imageSrc}}" alt="avatar">
@@ -43,14 +43,15 @@
         </ul>
       </div>
 
-      <div class="profile-menu d-none" (click)="openModalProfile()">
+      <!-- =============================== PERFIL USUARIO MOBILE ================================== -->
+      <div class="profile-menu d-sm-none" (click)="openModalProfile()">
         <div class="profile-img">
           <img src="{{(usuario$ | async)?.avatar ? (usuario$ | async)?.avatar : imageSrc}}" alt="avatar">
         </div>
-        <span class="username">{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</span>
         <span class="down-arrow"></span>
         <!--p>{{(usuario$ | async)?.nome}} {{(usuario$ | async)?.sobrenome}}</p-->
       </div>
+
     </div><!-- /navbar-right -->
   </nav>
 

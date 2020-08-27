@@ -406,6 +406,9 @@
     .navbar{
         padding: 5px 10px;
     }
+    .navbar .logo{
+        margin-left: 0;
+    }
     .logo img{
         max-width: 100%;
     }
