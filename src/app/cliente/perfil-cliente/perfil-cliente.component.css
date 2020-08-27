@@ -124,10 +124,50 @@
     display: block;
     width: 100%;
 }
+
 .profile-menu .dropdown-menu .menuitem a span{
     font-size: 14px;
     margin-left: 10px;
 }
+.profile-menu .dropdown-menu .menuitem a:hover span{
+    color: #e9724c;
+}
+
+/*================ SIDEBAR MENU ==================*/
+#wrapper {
+    overflow-x: hidden;
+ }
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  margin-left: 0;
+  position: fixed;
+  z-index: 1;
+  background-color: #ffffff;
+  box-shadow: 0px 5px 20px 0px #e8d9d3;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+  margin-top: 80px;
+}
+#sidebar-wrapper .list-group .list-group-item{
+  border:none;
+  display: flex;
+  align-items: center;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: -15rem;
+}
+
 
 
 /*================ MODAL ALL ==================*/
@@ -187,40 +227,6 @@
     color: #ffffff;
     font-size: 16px;
 }
-
-/*================ SIDEBAR MENU ==================*/
-#wrapper {
-    overflow-x: hidden;
- }
-#sidebar-wrapper {
-  min-height: 100vh;
-  margin-left: -15rem;
-  margin-left: 0;
-  position: fixed;
-  z-index: 1;
-  background-color: #ffffff;
-  box-shadow: 0px 5px 20px 0px #e8d9d3;
-  -webkit-transition: margin .25s ease-out;
-  -moz-transition: margin .25s ease-out;
-  -o-transition: margin .25s ease-out;
-  transition: margin .25s ease-out;
-}
-
-#sidebar-wrapper .list-group {
-  width: 15rem;
-  margin-top: 80px;
-}
-#sidebar-wrapper .list-group .list-group-item{
-  border:none;
-}
-
-#wrapper.toggled #sidebar-wrapper {
-  margin-left: 0;
-}
-#wrapper.toggled #sidebar-wrapper {
-  margin-left: -15rem;
-}
-
 
 /*================ CONTENT PERFIL ==================*/
 #page-content-wrapper {
@@ -371,20 +377,6 @@
 .card-agendamento.canceled .box-right .gear{
     background-color: #c52525;
 }
-.settings{
-    background: url("../../../assets/img/icons/settings.svg");
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-    display: block;
-}
-.card-agendamento.canceled .settings{
-    background: url("../../../assets/img/icons/settings-white.svg");
-    background-repeat: no-repeat;
-    width: 16px;
-    height: 16px;
-    display: block;
-}
 .card-agendamento.empty {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -399,6 +391,47 @@
 .card-agendamento.empty .box-right p{
     color: #00c8b8;
     line-height: 20px;
+}
+
+/*================ ICONES ==================*/
+.settings{
+    background: url("../../../assets/img/icons/settings.svg");
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+.card-agendamento.canceled .settings{
+    background: url("../../../assets/img/icons/settings-white.svg");
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    display: block;
+}
+.icon-sair{
+    background: url("../../../assets/img/icons/icon-sair.svg");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
+.profile-menu .dropdown-menu .menuitem a:hover .icon-sair{
+    background: url("../../../assets/img/icons/icon-sair-hover.svg");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
+.icon-internal-home{
+    background: url("../../../assets/img/icons/home-interno-line.svg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
 }
 
 /* ============= MOBILE =================*/
