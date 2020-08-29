@@ -144,6 +144,7 @@
   position: fixed;
   z-index: 1;
   background-color: #ffffff;
+  width: 275px;
   box-shadow: 0px 5px 20px 0px #e8d9d3;
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
@@ -152,20 +153,46 @@
 }
 
 #sidebar-wrapper .list-group {
-  width: 15rem;
+  width: 100%;
   margin-top: 80px;
 }
 #sidebar-wrapper .list-group .list-group-item{
   border:none;
   display: flex;
   align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: none;
+  width: 85%;
+  margin: 0 auto 5px;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+#sidebar-wrapper .list-group .list-group-item:hover,
+#sidebar-wrapper .list-group .list-group-item.active{
+    background-color: #f9f3ef;
+    color: #e9724c;
+}
+.list-group-item.active:before,
+.list-group-item:hover:before{
+    content: "";
+    display: block;
+    width: 5px;
+    height: 43px;
+    color: #000;
+    background: #e9724c;
+    position: absolute;
+    left: -21px;
+}
+#sidebar-wrapper .list-group .list-group-item i{
+  margin-right: 10px;
 }
 
 #wrapper.toggled #sidebar-wrapper {
   margin-left: 0;
 }
 #wrapper.toggled #sidebar-wrapper {
-  margin-left: -15rem;
+  margin-left: -12rem;
 }
 
 
@@ -234,7 +261,7 @@
     width: 100%;
 }
 .content-perfil{
-    padding: 50px 25px 10px 265px;
+    padding: 50px 25px 10px 300px;
     background-color: #f5eae3;
     min-height: 100vh;
     position: relative;
@@ -244,8 +271,7 @@
     transition: padding .25s ease-out;
 }
 .content-perfil-full-width{
-    padding-left: 25px;
-   
+    padding-left: 110px;
 }
 .content-perfil .username{
     font-size: 18px;
@@ -439,6 +465,74 @@
     background-repeat: no-repeat;
     width: 25px;
     height: 25px;
+    display: inline-block;
+}
+#sidebar-wrapper .list-group-item:hover .icon-internal-home,
+#sidebar-wrapper .list-group .list-group-item.active .icon-internal-home{
+    background: url("../../../assets/img/icons/home-interno-line-hover.svg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+.icon-internal-agenda{
+    background: url("../../../assets/img/icons/agenda-interno-line.svg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 21px;
+    display: inline-block;
+}
+#sidebar-wrapper .list-group-item:hover .icon-internal-agenda,
+#sidebar-wrapper .list-group .list-group-item.active .icon-internal-agenda{
+    background: url("../../../assets/img/icons/agenda-perfil.svg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 21px;
+    display: inline-block;
+}
+.icon-internal-perfil{
+    background: url("../../../assets/img/icons/edit-perfil.svg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 21px;
+    display: inline-block;
+}
+#sidebar-wrapper .list-group-item:hover .icon-internal-perfil,
+#sidebar-wrapper .list-group .list-group-item.active .icon-internal-perfil{
+    background: url("../../../assets/img/icons/edit-perfil-hover.svg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 21px;
+    display: inline-block;
+}
+.icon-internal-senha{
+    background: url("../../../assets/img/icons/editar-senha.svg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 21px;
+    display: inline-block;
+}
+#sidebar-wrapper .list-group-item:hover .icon-internal-senha,
+#sidebar-wrapper .list-group .list-group-item.active .icon-internal-senha{
+    background: url("../../../assets/img/icons/editar-senha-hover.svg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 21px;
+    display: inline-block;
+}
+.icon-internal-indicar{
+    background: url("../../../assets/img/icons/indicar.svg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 23px;
+    display: inline-block;
+}
+#sidebar-wrapper .list-group-item:hover .icon-internal-indicar,
+#sidebar-wrapper .list-group .list-group-item.active .icon-internal-indicar{
+    background: url("../../../assets/img/icons/indicar-hover.svg");
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 23px;
     display: inline-block;
 }
 

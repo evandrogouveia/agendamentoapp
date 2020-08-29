@@ -106,11 +106,26 @@
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item"><i class="icon-internal-home"></i>Home</a>
-        <a href="#" class="list-group-item">Agenda</a>
-        <a href="#" class="list-group-item">Seu perfil</a>
-        <a href="#" class="list-group-item">Nova senha</a>
-        <a href="#" class="list-group-item">Indicar local</a>
+        <a routerLink="/perfil" routerLinkActive="active" class="list-group-item">
+          <i class="icon-internal-home"></i>
+          Home
+        </a>
+        <a href="#" class="list-group-item">
+          <i class="icon-internal-agenda"></i>
+          Agenda
+        </a>
+        <a routerLink="editar/{{(usuario$ | async)?.id}}" class="list-group-item">
+          <i class="icon-internal-perfil"></i>
+          Seu perfil
+        </a>
+        <a href="#" class="list-group-item">
+          <i class="icon-internal-senha"></i>
+          Nova senha
+        </a>
+        <a href="#" class="list-group-item">
+          <i class="icon-internal-indicar"></i>
+          Indicar local
+        </a>
       </div>
     </div><!-- /#sidebar-wrapper -->
 

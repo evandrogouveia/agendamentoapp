@@ -58,10 +58,6 @@ html, body{
     font-weight: 600;
     color: #888;
   }
-  .link-active, .list-group-flush a:hover, .list-group-flush a:focus{
-    background: #20B2AA !important;
-    color: #fff !important;
-  }
   .bs-datepicker{
     background: transparent;
   }
@@ -76,8 +72,8 @@ html, body{
     text-transform: uppercase;
   }
   .bs-datepicker-container,
-  bs-datepicker-inline-container,
-  bs-days-calendar-view{
+   bs-datepicker-inline-container,
+   bs-days-calendar-view{
     min-width: 100%;
     width: 100%;
   }
