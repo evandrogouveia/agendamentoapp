@@ -238,6 +238,14 @@
     background-color: #f5eae3;
     min-height: 100vh;
     position: relative;
+    -webkit-transition: padding .25s ease-out;
+    -moz-transition: padding .25s ease-out;
+    -o-transition: padding .25s ease-out;
+    transition: padding .25s ease-out;
+}
+.content-perfil-full-width{
+    padding-left: 25px;
+   
 }
 .content-perfil .username{
     font-size: 18px;

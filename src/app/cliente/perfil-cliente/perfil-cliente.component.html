@@ -116,7 +116,7 @@
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-      <div class="content-perfil">
+      <div class="content-perfil" [ngClass]="{'content-perfil-full-width': expanded}">
 
         <p class="username" *ngIf="(usuario$ | async)">Bem-vindo(a) <span>{{(usuario$ | async)?.nome}}
             {{(usuario$ | async)?.sobrenome}}</span>
