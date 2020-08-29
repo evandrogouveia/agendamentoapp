@@ -24,7 +24,7 @@ export class PerfilClienteComponent implements OnInit {
   emailUser: any = [];
   agendamento$: Observable<Agendamento[]>;
   imageSrc = 'assets/img/icons/user-empty.svg';
-  expanded;
+  retract;
 
   dataAtual = new Date();
 
@@ -55,7 +55,7 @@ export class PerfilClienteComponent implements OnInit {
     }, 1100);
 
     this.sidebarService.obterToggle().subscribe(data => {
-      this.expanded = data;
+      this.retract = data;
     });
     
   }

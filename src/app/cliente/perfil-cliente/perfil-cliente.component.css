@@ -167,6 +167,7 @@
   margin: 0 auto 5px;
   border-radius: 30px;
   padding: 10px 20px;
+  
 }
 #sidebar-wrapper .list-group .list-group-item:hover,
 #sidebar-wrapper .list-group .list-group-item.active{
@@ -192,9 +193,29 @@
   margin-left: 0;
 }
 #wrapper.toggled #sidebar-wrapper {
-  margin-left: -12rem;
+  margin-left: -12.5rem;
 }
 
+#wrapper.toggled .list-group .list-group-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    padding: 10px 4px;
+    margin-left: 214px;
+    justify-content: center;
+    
+
+}
+#wrapper.toggled .list-group .list-group-item i{
+    margin-right: 0px;
+}
+#wrapper.toggled .list-group .list-group-item span{
+    display: none;
+}
+#wrapper.toggled .list-group-item.active:before,
+#wrapper.toggled .list-group-item:hover:before{
+    left: -15px;
+}
 
 
 /*================ MODAL ALL ==================*/
@@ -261,7 +282,7 @@
     width: 100%;
 }
 .content-perfil{
-    padding: 50px 25px 10px 300px;
+    padding: 60px 25px 10px 300px;
     background-color: #f5eae3;
     min-height: 100vh;
     position: relative;
@@ -552,7 +573,6 @@
         display: none;
     }
     .content-perfil{
-        padding-left: 15px;
-        padding-right: 15px;
+        padding:50px 15px 90px;
     }
 }
