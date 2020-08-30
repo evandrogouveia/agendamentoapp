@@ -1,5 +1,6 @@
-<ng-container *ngIf="(usuario$ | async); else loading">
-  <span *ngIf="!(usuario$ | async) && !(agendamento$ | async)" class="loading"></span>
+<span *ngIf="!(usuario$ | async) && !(agendamento$ | async)" class="loading"></span>
+<ng-container *ngIf="(usuario$ | async)">
+  
   <nav class="navbar">
     <div class="navbar-left">
       <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
