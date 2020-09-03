@@ -1,6 +1,6 @@
 <span *ngIf="!(usuario$ | async) && !(agendamento$ | async)" class="loading"></span>
 <ng-container *ngIf="(usuario$ | async)">
-  
+
   <nav class="navbar">
     <div class="navbar-left">
       <button class="btn btn-light" id="menu-toggle" (click)="executarViaService()">
@@ -34,7 +34,9 @@
         </div>
 
         <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-animated">
-          <li class="menuitem"><p>Ações</p></li>
+          <li class="menuitem">
+            <p>Ações</p>
+          </li>
           <li class="menuitem">
             <a routerLink="#" (click)="logout()">
               <i class="icon-sair"></i>
@@ -138,54 +140,58 @@
             {{(usuario$ | async)?.sobrenome}}</span>
         </p>
 
-        <h4>Controle</h4>
+        <div class="row">
+          <div class="col-lg-6">
+            <h4>Controle</h4>
 
-        <div class="card-controle">
-          <div class="card-header-c">
-            <div class="box-img">
-              <img src="assets/img/icons/agenda-perfil.svg" alt="icone-agenda">
+            <div class="card-controle">
+              <div class="card-header-c">
+                <div class="box-img">
+                  <img src="assets/img/icons/agenda-perfil.svg" alt="icone-agenda">
+                </div>
+                <p>Agendamentos</p>
+              </div>
+              <div class="card-body-c">
+                <p>{{totalAgendamentoMes}}</p>
+                <p>Mês atual</p>
+              </div>
+
             </div>
-            <p>Agendamentos</p>
-          </div>
-          <div class="card-body-c">
-            <p>{{totalAgendamentoMes}}</p>
-            <p>Mês atual</p>
-          </div>
+          </div><!-- /col-lg-6 -->
+          
+          <div class="col-lg-6">
+            <h4>{{(agendamento$ | async)?.length > 0 ? 'Agendamento(s) em aberto' : 'Sem novos agendamentos'}}</h4>
 
-        </div>
+            <ng-container *ngFor="let a of agendamento$ | async">
+              <div class="card-agendamento" *ngIf="(a.data | slice:3:5) >= mes">
+                <div class="box-left">
+                  <img src="assets/img/icons/sino-white.svg" alt="icone-sino">
+                  <h6>{{a.horario+'h'}}</h6>
+                  <p>{{a.data}}</p>
+                </div>
 
-        <h4>{{(agendamento$ | async)?.length > 0 ? 'Agendamento(s) em aberto' : 'Sem novos agendamentos'}}</h4>
+                <div class="box-right">
+                  <p>{{a.servico[0].nomeservico}}</p>
+                  <p>com Francisquinha</p>
 
-        <ng-container *ngFor="let a of agendamento$ | async">
-          <div class="card-agendamento" *ngIf="(a.data | slice:3:5) >= mes">
-            <div class="box-left">
-              <img src="assets/img/icons/sino-white.svg" alt="icone-sino">
-              <h6>{{a.horario+'h'}}</h6>
-              <p>{{a.data}}</p>
+                  <a href="#" class="gear">
+                    <span class="settings"></span>
+                  </a>
+                </div>
+              </div>
+            </ng-container>
+
+            <div class="card-agendamento empty" *ngIf="(agendamento$ | async)?.length === 0">
+              <div class="box-left">
+                <img src="assets/img/icons/tesoura-pente.png" alt="icone-tesoura-pente">
+              </div>
+
+              <div class="box-right">
+                <p>Você não possui serviços agendados, quando tiver, eles aparecerão primeiro aqui.</p>
+              </div>
             </div>
 
-            <div class="box-right">
-              <p>{{a.servico[0].nomeservico}}</p>
-              <p>com Francisquinha</p>
-
-              <a href="#" class="gear">
-                <span class="settings"></span>
-              </a>
-            </div>
-          </div>
-        </ng-container>
-
-        <div class="card-agendamento empty" *ngIf="(agendamento$ | async)?.length === 0">
-          <div class="box-left">
-            <img src="assets/img/icons/tesoura-pente.png" alt="icone-tesoura-pente">
-          </div>
-
-          <div class="box-right">
-            <p>Você não possui serviços agendados, quando tiver, eles aparecerão primeiro aqui.</p>
-          </div>
-        </div>
-
-        <!--div class="card-agendamento canceled">
+            <!--div class="card-agendamento canceled">
             <div class="box-left">
               <h6>8:30h</h6>
               <p>12/06/20</p>
@@ -200,6 +206,8 @@
               </a>
             </div>
           </div-->
+          </div><!-- /col-lg-6 -->
+        </div><!-- /row -->
 
       </div><!-- /content perfil -->
 

@@ -292,7 +292,8 @@
     transition: padding .25s ease-out;
 }
 .content-perfil-full-width{
-    padding-left: 110px;
+    padding-left: 15%;
+    padding-right: 12%;
 }
 .content-perfil .username{
     font-size: 18px;
@@ -336,7 +337,7 @@
     margin: 0;
 }
 .card-body-c{
-    margin-top: 23px;
+    margin-top: 40px;
 }
 .card-body-c p:first-child{
     font-size: 25px;
@@ -366,7 +367,7 @@
     background-color: #e9724c;
     border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
-    width: 25%;
+    width: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -395,7 +396,7 @@
     color: #d3d6d6;
 }
 .card-agendamento .box-right{
-    width: 75%;
+    width: 83%;
     padding: 10px;
     position: relative;
 }
@@ -574,5 +575,8 @@
     }
     .content-perfil{
         padding:50px 15px 90px;
+    }
+    .card-body-c{
+        margin-top: 23px;
     }
 }
