@@ -31,6 +31,7 @@ export class PerfilClienteComponent implements OnInit {
   mes = this.dataAtual.toLocaleDateString().substring(3, 5);
 
   totalAgendamentoMes: number;
+  abertos;
 
   constructor(
     private apiService: ApiService,
@@ -57,7 +58,6 @@ export class PerfilClienteComponent implements OnInit {
     this.sidebarService.obterToggle().subscribe(data => {
       this.retract = data;
     });
-    
   }
 
   openModalProfile(): void {

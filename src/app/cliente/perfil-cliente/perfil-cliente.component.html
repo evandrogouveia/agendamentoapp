@@ -130,6 +130,8 @@
           <span>Indicar local</span>
         </a>
       </div>
+
+      <a routerLink="/index" class="btn-sidebar"><span>+</span>novo agendamento</a>
     </div><!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
@@ -171,7 +173,7 @@
                 </div>
 
                 <div class="box-right">
-                  <p>{{a.servico[0].nomeservico}}</p>
+                  <p #nomeservico>{{a.servico[0].nomeservico}}</p>
                   <p>com Francisquinha</p>
 
                   <a href="#" class="gear">
@@ -180,8 +182,8 @@
                 </div>
               </div>
             </ng-container>
-
-            <div class="card-agendamento empty" *ngIf="(agendamento$ | async)?.length === 0">
+            
+            <div class="card-agendamento empty" *ngIf="totalAgendamentoMes === 0">
               <div class="box-left">
                 <img src="assets/img/icons/tesoura-pente.png" alt="icone-tesoura-pente">
               </div>
