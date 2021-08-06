@@ -17,8 +17,8 @@ import { AuthService } from '../../login/auth/auth.service';
 })
 export class PerfilClienteComponent implements OnInit {
 
-  @ViewChild('childModalProfile') childModalProfile: ModalDirective;
-  @ViewChild('childModalNotifications') childModalNotifications: ModalDirective;
+  @ViewChild('childModalProfile', { static: false }) childModalProfile: ModalDirective;
+  @ViewChild('childModalNotifications', { static: false }) childModalNotifications: ModalDirective;
 
   usuario$: Observable<Usuario>;
   emailUser: any = [];

@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'perfil', component: PerfilClienteComponent, canActivate: [AuthGuardService] },
   { path: 'perfil/editar/:id', component: EditarPerfilComponent, canActivate: [AuthGuardService] },
   { path: 'recover', component: EsqueciSenhaComponent },
-  { path: 'index', loadChildren: './modules/public/cliente/index/index.module#IndexModule'},
+  { path: 'index', loadChildren: () => import('./modules/public/cliente/index/index.module').then(m => m.IndexModule)},
   { path: '', pathMatch: 'full', redirectTo: 'index' }
 ];
 

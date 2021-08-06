@@ -31,9 +31,9 @@ export class HeaderComponent implements OnInit {
   scrollPosition;
 
  
-  @ViewChild('childModal') childModal: ModalDirective;
-  @ViewChild('busca') busca: ElementRef;
-  @ViewChild('buscamobile') buscamobile: ElementRef;
+  @ViewChild('childModal', { static: true }) childModal: ModalDirective;
+  @ViewChild('busca', { static: true }) busca: ElementRef;
+  @ViewChild('buscamobile', { static: true }) buscamobile: ElementRef;
   
 
   constructor(
