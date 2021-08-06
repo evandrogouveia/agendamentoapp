@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService } from './shared/services/sidebar.service';
-import { AuthService } from './login/auth/auth.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MessagingService } from './shared/services/messaging.service';
 import { Usuario } from './shared/models/user';
+import { AuthService } from './modules/public/login/auth/auth.service';
 
 @Component({
   selector: 'app-root',

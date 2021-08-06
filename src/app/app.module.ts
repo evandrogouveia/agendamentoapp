@@ -21,19 +21,19 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
 import { environment } from 'src/environments/environment';
-
-import { AuthModule } from './login/auth/auth.module';
-import { AdminModule } from './admin/admin.module';
+import { AdminModule } from './modules/private/admin/admin.module';
 import { MessagingService } from './shared/services/messaging.service';
-import { RegistroComponent } from './registro/registro.component';
-import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
-import { SucessoComponent } from './cliente/sucesso/sucesso.component';
-import { PerfilClienteComponent } from './cliente/perfil-cliente/perfil-cliente.component';
+
 
 import { NgxBootstrapModule } from './ngx-bootstrap.module';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { EditarPerfilComponent } from './cliente/editar-perfil/editar-perfil.component';
-import { HeaderModule } from './header/header.module';
+import { RegistroComponent } from './modules/public/registro/registro.component';
+import { EsqueciSenhaComponent } from './modules/public/esqueci-senha/esqueci-senha.component';
+import { SucessoComponent } from './modules/public/cliente/sucesso/sucesso.component';
+import { PerfilClienteComponent } from './modules/public/cliente/perfil-cliente/perfil-cliente.component';
+import { EditarPerfilComponent } from './modules/public/cliente/editar-perfil/editar-perfil.component';
+import { AuthModule } from './modules/public/login/auth/auth.module';
+import { HeaderModule } from './modules/public/header/header.module';
+
 
 
 export let options: Partial<IConfig> | (() => Partial<IConfig>);
@@ -44,7 +44,6 @@ registerLocaleData(localePt, 'pt');
     AppComponent,
     RegistroComponent,
     EsqueciSenhaComponent,
-    SidebarComponent,
     SucessoComponent,
     PerfilClienteComponent,
     EditarPerfilComponent,

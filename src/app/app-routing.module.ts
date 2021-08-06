@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { LoginComponent } from './login/login.component';
-import { AuthGuardService } from './login/auth/auth-guard.service';
-import { RegistroComponent } from './registro/registro.component';
-import { EsqueciSenhaComponent } from './esqueci-senha/esqueci-senha.component';
-import { SucessoComponent } from './cliente/sucesso/sucesso.component';
-import { PerfilClienteComponent } from './cliente/perfil-cliente/perfil-cliente.component';
-import { EditarPerfilComponent } from './cliente/editar-perfil/editar-perfil.component';
+import { EditarPerfilComponent } from './modules/public/cliente/editar-perfil/editar-perfil.component';
+import { PerfilClienteComponent } from './modules/public/cliente/perfil-cliente/perfil-cliente.component';
+import { SucessoComponent } from './modules/public/cliente/sucesso/sucesso.component';
+import { EsqueciSenhaComponent } from './modules/public/esqueci-senha/esqueci-senha.component';
+import { AuthGuardService } from './modules/public/login/auth/auth-guard.service';
+import { LoginComponent } from './modules/public/login/login.component';
+import { RegistroComponent } from './modules/public/registro/registro.component';
 
 
 const routes: Routes = [
@@ -18,7 +17,7 @@ const routes: Routes = [
   { path: 'perfil', component: PerfilClienteComponent, canActivate: [AuthGuardService] },
   { path: 'perfil/editar/:id', component: EditarPerfilComponent, canActivate: [AuthGuardService] },
   { path: 'recover', component: EsqueciSenhaComponent },
-  { path: 'index', loadChildren: './cliente/index/index.module#IndexModule'},
+  { path: 'index', loadChildren: './modules/public/cliente/index/index.module#IndexModule'},
   { path: '', pathMatch: 'full', redirectTo: 'index' }
 ];
 
