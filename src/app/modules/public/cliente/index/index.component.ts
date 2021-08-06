@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/shared/services/api.service';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css'],
+  styleUrls: ['./index.component.scss'],
   animations: [
     trigger('fadeInOut', [
       state('void', style({

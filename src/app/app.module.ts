@@ -33,6 +33,7 @@ import { PerfilClienteComponent } from './modules/public/cliente/perfil-cliente/
 import { EditarPerfilComponent } from './modules/public/cliente/editar-perfil/editar-perfil.component';
 import { AuthModule } from './modules/public/login/auth/auth.module';
 import { HeaderModule } from './modules/public/header/header.module';
+import { PrivateComponent } from './modules/private/private.component';
 
 
 
@@ -47,6 +48,7 @@ registerLocaleData(localePt, 'pt');
     SucessoComponent,
     PerfilClienteComponent,
     EditarPerfilComponent,
+    PrivateComponent,
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@ import { Usuario } from 'src/app/shared/models/user';
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  styleUrls: ['./registro.component.scss']
 })
 export class RegistroComponent implements OnInit {
   show = false;

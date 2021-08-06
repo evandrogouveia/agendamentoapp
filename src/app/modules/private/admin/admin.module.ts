@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule, LocationStrategy, HashLocationStrategy } from '@angular/common';
-import { CadastroServicoComponent } from './cadastro-servico/cadastro-servico.component';
-import { ListaAgendamentoComponent } from './lista-agendamento/lista-agendamento.component';
+import { RegisterSalonServiceComponent } from './register-salon-service/register-salon-service.component';
+import { ListScheduleComponent } from './list-schedule/list-schedule.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { AdminRoutingModule } from './admin.routing.module';
@@ -10,7 +10,7 @@ import { NavComponent } from '../../public/nav/nav.component';
 
 
 @NgModule({
-  declarations: [CadastroServicoComponent, ListaAgendamentoComponent, NavComponent],
+  declarations: [RegisterSalonServiceComponent, ListScheduleComponent, NavComponent],
   imports: [
     CommonModule,
     FormsModule,

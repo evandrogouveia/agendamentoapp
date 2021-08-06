@@ -13,7 +13,7 @@ import { AuthService } from '../../login/auth/auth.service';
 @Component({
   selector: 'app-perfil-cliente',
   templateUrl: './perfil-cliente.component.html',
-  styleUrls: ['./perfil-cliente.component.css']
+  styleUrls: ['./perfil-cliente.component.scss']
 })
 export class PerfilClienteComponent implements OnInit {
 

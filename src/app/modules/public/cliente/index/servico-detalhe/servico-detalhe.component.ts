@@ -12,7 +12,7 @@ import { AuthService } from '../../../login/auth/auth.service';
 @Component({
   selector: 'app-servico-detalhe',
   templateUrl: './servico-detalhe.component.html',
-  styleUrls: ['./servico-detalhe.component.css']
+  styleUrls: ['./servico-detalhe.component.scss']
 })
 export class ServicoDetalheComponent implements OnInit {
   items = [1, 2, 3];

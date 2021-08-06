@@ -15,7 +15,7 @@ import { AuthService } from '../../../login/auth/auth.service';
 @Component({
   selector: 'app-resultado-busca',
   templateUrl: './resultado-busca.component.html',
-  styleUrls: ['./resultado-busca.component.css'],
+  styleUrls: ['./resultado-busca.component.scss'],
   animations: [
     trigger('fadeInOut', [
       state('void', style({

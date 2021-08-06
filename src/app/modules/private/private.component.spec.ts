@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastroServicoComponent } from './cadastro-servico.component';
+import { PrivateComponent } from './private.component';
 
-describe('CadastroServicoComponent', () => {
-  let component: CadastroServicoComponent;
-  let fixture: ComponentFixture<CadastroServicoComponent>;
+describe('PrivateComponent', () => {
+  let component: PrivateComponent;
+  let fixture: ComponentFixture<PrivateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CadastroServicoComponent ]
+      declarations: [ PrivateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CadastroServicoComponent);
+    fixture = TestBed.createComponent(PrivateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

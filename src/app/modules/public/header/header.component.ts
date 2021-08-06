@@ -10,7 +10,7 @@ import { Usuario } from 'src/app/shared/models/user';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.scss'],
   animations: [
     trigger('fadeInOut', [
       state('void', style({

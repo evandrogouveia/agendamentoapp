@@ -8,11 +8,11 @@ import { finalize } from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-cadastro-servico',
-  templateUrl: './cadastro-servico.component.html',
-  styleUrls: ['./cadastro-servico.component.css']
+  selector: 'app-register-salon-service',
+  templateUrl: './register-salon-service.component.html',
+  styleUrls: ['./register-salon-service.component.scss']
 })
-export class CadastroServicoComponent implements OnInit {
+export class RegisterSalonServiceComponent implements OnInit {
   servicos$: Observable<Cadastroservico[]>;
   msg = false;
   imagemUmSrc = 'assets/img/placeholder.jpg';

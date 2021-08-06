@@ -9,7 +9,7 @@ import { AuthService } from '../../login/auth/auth.service';
 @Component({
   selector: 'app-sucesso',
   templateUrl: './sucesso.component.html',
-  styleUrls: ['./sucesso.component.css']
+  styleUrls: ['./sucesso.component.scss']
 })
 export class SucessoComponent implements OnInit {
   agendamento$: Observable<Agendamento[]>;

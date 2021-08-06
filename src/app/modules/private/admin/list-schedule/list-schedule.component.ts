@@ -8,11 +8,11 @@ import { Cadastroservico } from '../../../../shared/models/cadastroservico.model
 
 
 @Component({
-  selector: 'app-lista-agendamento',
-  templateUrl: './lista-agendamento.component.html',
-  styleUrls: ['./lista-agendamento.component.css']
+  selector: 'app-list-schedule',
+  templateUrl: './list-schedule.component.html',
+  styleUrls: ['./list-schedule.component.scss']
 })
-export class ListaAgendamentoComponent implements OnInit {
+export class ListScheduleComponent implements OnInit {
   agendamento$: Observable<Agendamento[]>;
   servicos$: Observable<Cadastroservico[]>;
 

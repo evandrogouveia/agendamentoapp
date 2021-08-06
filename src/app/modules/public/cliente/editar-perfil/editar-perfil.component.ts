@@ -12,7 +12,7 @@ import { AuthService } from '../../login/auth/auth.service';
 @Component({
   selector: 'app-editar-perfil',
   templateUrl: './editar-perfil.component.html',
-  styleUrls: ['./editar-perfil.component.css']
+  styleUrls: ['./editar-perfil.component.scss']
 })
 export class EditarPerfilComponent implements OnInit {
 
