@@ -22,7 +22,7 @@ import { NavComponent } from '../../public/nav/nav.component';
 })
 export class AdminModule {
 
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<AdminModule> {
     return {
       ngModule: AdminModule,
       providers: [

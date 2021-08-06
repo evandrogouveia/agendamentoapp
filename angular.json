@@ -36,8 +36,7 @@
 						"scripts": [
 							"./node_modules/crypto-js/crypto-js.js",
 							"./node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.min.js"
-						],
-						"es5BrowserSupport": true
+						]
 					},
 					"configurations": {
 						"production": {
